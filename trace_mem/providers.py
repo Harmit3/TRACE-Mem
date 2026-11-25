@@ -67,6 +67,7 @@ class ProviderConfig:
     retries: int = 0
     max_input_tokens: int = 4096
     max_output_tokens: int = 256
+    context_tokens: int | None = None
     seed: int = 0
     ollama_url: str = "http://127.0.0.1:11434"
     api_key: str | None = field(default=None, repr=False)
@@ -84,6 +85,11 @@ class ProviderConfig:
                 raise ValueError("Request, retry, token and seed settings must be nonnegative integers")
         if not self.max_input_tokens or not self.max_output_tokens:
             raise ValueError("Token ceilings must be positive")
+        if self.context_tokens is not None and (
+            self.backend != "ollama" or type(self.context_tokens) is not int
+            or self.context_tokens <= self.max_output_tokens
+        ):
+            raise ValueError("Local context must exceed the output token cap")
         if not math.isfinite(self.timeout) or self.timeout <= 0:
             raise ValueError("Timeout must be finite and positive")
         for money in (self.max_spend, self.input_price, self.output_price):
@@ -171,6 +177,8 @@ class ChatProvider:
         if settings.backend == "ollama":
             body["options"] = {"temperature": 0, "seed": settings.seed,
                                "num_predict": settings.max_output_tokens}
+            if settings.context_tokens is not None:
+                body["options"]["num_ctx"] = settings.context_tokens
             if task in RESPONSE_SCHEMAS:
                 body["format"] = RESPONSE_SCHEMAS[task]
             return settings.ollama_url.rstrip("/") + "/api/chat", headers, body
@@ -214,7 +222,10 @@ class ChatProvider:
                 self._validate(cached[0], validate)
                 db.execute("INSERT INTO cache_hit DEFAULT VALUES")
                 return cached[0]
-        if len((system + payload).encode()) + 128 > self.config.max_input_tokens:
+        input_ceiling = self.config.max_input_tokens
+        if self.config.context_tokens is not None:
+            input_ceiling = min(input_ceiling, self.config.context_tokens - self.config.max_output_tokens)
+        if len((system + payload).encode()) + 128 > input_ceiling:
             raise LimitExceeded("Input exceeds conservative preflight ceiling")
         for retry in range(self.config.retries + 1):
             attempt = self._reserve()
@@ -231,7 +242,7 @@ class ChatProvider:
                 self.sleep(min(2**retry, 8))
                 continue
             elapsed = (time.perf_counter() - started) * 1000
-            overrun = (input_count > self.config.max_input_tokens
+            overrun = (input_count > input_ceiling
                        or output_count > self.config.max_output_tokens)
             failure = None
             try:
