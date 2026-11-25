@@ -1,0 +1,4 @@
+# Preserve the exact bytes hashed in the committed V3 fit freeze.
+scripts/train_t1_v3.py -text whitespace=cr-at-eol
+docs/t1_v3_artifacts/*.json text eol=lf
+docs/t1_v3_artifacts/*.svg text eol=lf -whitespace

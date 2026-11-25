@@ -1,0 +1,877 @@
+{
+  "allocation": {
+    "calibration_threshold_transfer_uncapped": {
+      "b5_uncertainty": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 5,
+          "coverage_all_eligible": 0.08196721311475409,
+          "coverage_scored": 0.11904761904761904,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 5,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 42,
+          "coverage_all_eligible": 0.6885245901639344,
+          "coverage_scored": 1.0,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 5,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 5,
+          "coverage_all_eligible": 0.08196721311475409,
+          "coverage_scored": 0.11904761904761904,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 5,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 5,
+          "coverage_all_eligible": 0.08196721311475409,
+          "coverage_scored": 0.11904761904761904,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 5,
+          "requested_percent": 50
+        }
+      },
+      "contradiction": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 10,
+          "coverage_all_eligible": 0.16393442622950818,
+          "coverage_scored": 0.23809523809523808,
+          "helpful": 2,
+          "not_helpful": 8,
+          "pending": 0,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 42,
+          "coverage_all_eligible": 0.6885245901639344,
+          "coverage_scored": 1.0,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 5,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 12,
+          "coverage_all_eligible": 0.19672131147540983,
+          "coverage_scored": 0.2857142857142857,
+          "helpful": 3,
+          "not_helpful": 9,
+          "pending": 0,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 30,
+          "coverage_all_eligible": 0.4918032786885246,
+          "coverage_scored": 0.7142857142857143,
+          "helpful": 6,
+          "not_helpful": 19,
+          "pending": 5,
+          "requested_percent": 50
+        }
+      },
+      "full": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 2,
+          "coverage_all_eligible": 0.03278688524590164,
+          "coverage_scored": 0.047619047619047616,
+          "helpful": 2,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 41,
+          "coverage_all_eligible": 0.6721311475409836,
+          "coverage_scored": 0.9761904761904762,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 4,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 11,
+          "coverage_all_eligible": 0.18032786885245902,
+          "coverage_scored": 0.2619047619047619,
+          "helpful": 6,
+          "not_helpful": 5,
+          "pending": 0,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 27,
+          "coverage_all_eligible": 0.4426229508196721,
+          "coverage_scored": 0.6428571428571429,
+          "helpful": 6,
+          "not_helpful": 21,
+          "pending": 0,
+          "requested_percent": 50
+        }
+      },
+      "intercept": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 42,
+          "coverage_all_eligible": 0.6885245901639344,
+          "coverage_scored": 1.0,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 5,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 50
+        }
+      },
+      "no_nli": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 3,
+          "coverage_all_eligible": 0.04918032786885246,
+          "coverage_scored": 0.07142857142857142,
+          "helpful": 3,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 41,
+          "coverage_all_eligible": 0.6721311475409836,
+          "coverage_scored": 0.9761904761904762,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 4,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 8,
+          "coverage_all_eligible": 0.13114754098360656,
+          "coverage_scored": 0.19047619047619047,
+          "helpful": 5,
+          "not_helpful": 3,
+          "pending": 0,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 23,
+          "coverage_all_eligible": 0.3770491803278688,
+          "coverage_scored": 0.5476190476190477,
+          "helpful": 6,
+          "not_helpful": 17,
+          "pending": 0,
+          "requested_percent": 50
+        }
+      }
+    },
+    "rank_matched": {
+      "b4_random": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 4,
+          "coverage_all_eligible": 0.06557377049180328,
+          "coverage_scored": 0.09523809523809523,
+          "helpful": 4,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 42,
+          "coverage_all_eligible": 0.6885245901639344,
+          "coverage_scored": 1.0,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 5,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 10,
+          "coverage_all_eligible": 0.16393442622950818,
+          "coverage_scored": 0.23809523809523808,
+          "helpful": 5,
+          "not_helpful": 5,
+          "pending": 0,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 21,
+          "coverage_all_eligible": 0.3442622950819672,
+          "coverage_scored": 0.5,
+          "helpful": 5,
+          "not_helpful": 15,
+          "pending": 1,
+          "requested_percent": 50
+        }
+      },
+      "b5_uncertainty": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 4,
+          "coverage_all_eligible": 0.06557377049180328,
+          "coverage_scored": 0.09523809523809523,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 4,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 42,
+          "coverage_all_eligible": 0.6885245901639344,
+          "coverage_scored": 1.0,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 5,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 10,
+          "coverage_all_eligible": 0.16393442622950818,
+          "coverage_scored": 0.23809523809523808,
+          "helpful": 0,
+          "not_helpful": 5,
+          "pending": 5,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 21,
+          "coverage_all_eligible": 0.3442622950819672,
+          "coverage_scored": 0.5,
+          "helpful": 0,
+          "not_helpful": 16,
+          "pending": 5,
+          "requested_percent": 50
+        }
+      },
+      "contradiction": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 4,
+          "coverage_all_eligible": 0.06557377049180328,
+          "coverage_scored": 0.09523809523809523,
+          "helpful": 1,
+          "not_helpful": 3,
+          "pending": 0,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 42,
+          "coverage_all_eligible": 0.6885245901639344,
+          "coverage_scored": 1.0,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 5,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 10,
+          "coverage_all_eligible": 0.16393442622950818,
+          "coverage_scored": 0.23809523809523808,
+          "helpful": 2,
+          "not_helpful": 8,
+          "pending": 0,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 21,
+          "coverage_all_eligible": 0.3442622950819672,
+          "coverage_scored": 0.5,
+          "helpful": 5,
+          "not_helpful": 16,
+          "pending": 0,
+          "requested_percent": 50
+        }
+      },
+      "full": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 4,
+          "coverage_all_eligible": 0.06557377049180328,
+          "coverage_scored": 0.09523809523809523,
+          "helpful": 3,
+          "not_helpful": 1,
+          "pending": 0,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 42,
+          "coverage_all_eligible": 0.6885245901639344,
+          "coverage_scored": 1.0,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 5,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 10,
+          "coverage_all_eligible": 0.16393442622950818,
+          "coverage_scored": 0.23809523809523808,
+          "helpful": 6,
+          "not_helpful": 4,
+          "pending": 0,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 21,
+          "coverage_all_eligible": 0.3442622950819672,
+          "coverage_scored": 0.5,
+          "helpful": 6,
+          "not_helpful": 15,
+          "pending": 0,
+          "requested_percent": 50
+        }
+      },
+      "intercept": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 4,
+          "coverage_all_eligible": 0.06557377049180328,
+          "coverage_scored": 0.09523809523809523,
+          "helpful": 1,
+          "not_helpful": 3,
+          "pending": 0,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 42,
+          "coverage_all_eligible": 0.6885245901639344,
+          "coverage_scored": 1.0,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 5,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 10,
+          "coverage_all_eligible": 0.16393442622950818,
+          "coverage_scored": 0.23809523809523808,
+          "helpful": 2,
+          "not_helpful": 8,
+          "pending": 0,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 21,
+          "coverage_all_eligible": 0.3442622950819672,
+          "coverage_scored": 0.5,
+          "helpful": 3,
+          "not_helpful": 17,
+          "pending": 1,
+          "requested_percent": 50
+        }
+      },
+      "no_nli": {
+        "0": {
+          "calls": 0,
+          "coverage_all_eligible": 0.0,
+          "coverage_scored": 0.0,
+          "helpful": 0,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 0
+        },
+        "10": {
+          "calls": 4,
+          "coverage_all_eligible": 0.06557377049180328,
+          "coverage_scored": 0.09523809523809523,
+          "helpful": 4,
+          "not_helpful": 0,
+          "pending": 0,
+          "requested_percent": 10
+        },
+        "100": {
+          "calls": 42,
+          "coverage_all_eligible": 0.6885245901639344,
+          "coverage_scored": 1.0,
+          "helpful": 6,
+          "not_helpful": 31,
+          "pending": 5,
+          "requested_percent": 100
+        },
+        "25": {
+          "calls": 10,
+          "coverage_all_eligible": 0.16393442622950818,
+          "coverage_scored": 0.23809523809523808,
+          "helpful": 5,
+          "not_helpful": 5,
+          "pending": 0,
+          "requested_percent": 25
+        },
+        "50": {
+          "calls": 21,
+          "coverage_all_eligible": 0.3442622950819672,
+          "coverage_scored": 0.5,
+          "helpful": 6,
+          "not_helpful": 15,
+          "pending": 0,
+          "requested_percent": 50
+        }
+      }
+    }
+  },
+  "classification": {
+    "b5_uncertainty": {
+      "accuracy": 0.05405405405405406,
+      "auroc": 0.16666666666666666,
+      "average_precision": 0.12831012831012834,
+      "balanced_accuracy": 0.16666666666666666,
+      "brier": 0.3310810810810811,
+      "calibration_bins": [
+        {
+          "count": 4,
+          "lower": 0.0,
+          "mean_probability": 0.0,
+          "positive_fraction": 1.0,
+          "upper": 0.1
+        },
+        {
+          "count": 33,
+          "lower": 0.5,
+          "mean_probability": 0.5,
+          "positive_fraction": 0.06060606060606061,
+          "upper": 0.6
+        }
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          31
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "ece_10_bins": 0.5,
+      "f1": 0.10256410256410256,
+      "positives": 6,
+      "precision": 0.06060606060606061,
+      "recall": 0.3333333333333333,
+      "rows": 37,
+      "selected": 33
+    },
+    "contradiction": {
+      "accuracy": 0.4864864864864865,
+      "auroc": 0.6505376344086022,
+      "average_precision": 0.28226184147236777,
+      "balanced_accuracy": 0.6263440860215054,
+      "brier": 0.45254114708353693,
+      "calibration_bins": [
+        {
+          "count": 13,
+          "lower": 0.0,
+          "mean_probability": 0.0009131466907162506,
+          "positive_fraction": 0.0,
+          "upper": 0.1
+        },
+        {
+          "count": 1,
+          "lower": 0.1,
+          "mean_probability": 0.14300496876239777,
+          "positive_fraction": 1.0,
+          "upper": 0.2
+        },
+        {
+          "count": 1,
+          "lower": 0.5,
+          "mean_probability": 0.5363231301307678,
+          "positive_fraction": 0.0,
+          "upper": 0.6
+        },
+        {
+          "count": 1,
+          "lower": 0.6,
+          "mean_probability": 0.617024838924408,
+          "positive_fraction": 0.0,
+          "upper": 0.7
+        },
+        {
+          "count": 1,
+          "lower": 0.8,
+          "mean_probability": 0.82343989610672,
+          "positive_fraction": 1.0,
+          "upper": 0.9
+        },
+        {
+          "count": 20,
+          "lower": 0.9,
+          "mean_probability": 0.9787814766168594,
+          "positive_fraction": 0.2,
+          "upper": 1.0
+        }
+      ],
+      "confusion_matrix": [
+        [
+          13,
+          18
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "ece_10_bins": 0.48038928495952865,
+      "f1": 0.3448275862068966,
+      "positives": 6,
+      "precision": 0.21739130434782608,
+      "recall": 0.8333333333333334,
+      "rows": 37,
+      "selected": 23
+    },
+    "full": {
+      "accuracy": 0.8918918918918919,
+      "auroc": 0.9623655913978494,
+      "average_precision": 0.848611111111111,
+      "balanced_accuracy": 0.8010752688172043,
+      "brier": 0.09446076446254104,
+      "calibration_bins": [
+        {
+          "count": 1,
+          "lower": 0.0,
+          "mean_probability": 0.09091498310151555,
+          "positive_fraction": 0.0,
+          "upper": 0.1
+        },
+        {
+          "count": 13,
+          "lower": 0.1,
+          "mean_probability": 0.15170967515160097,
+          "positive_fraction": 0.0,
+          "upper": 0.2
+        },
+        {
+          "count": 9,
+          "lower": 0.2,
+          "mean_probability": 0.240647113834244,
+          "positive_fraction": 0.0,
+          "upper": 0.3
+        },
+        {
+          "count": 3,
+          "lower": 0.3,
+          "mean_probability": 0.34373163347842145,
+          "positive_fraction": 0.0,
+          "upper": 0.4
+        },
+        {
+          "count": 5,
+          "lower": 0.4,
+          "mean_probability": 0.45318344662008664,
+          "positive_fraction": 0.4,
+          "upper": 0.5
+        },
+        {
+          "count": 4,
+          "lower": 0.5,
+          "mean_probability": 0.5639197367289005,
+          "positive_fraction": 0.5,
+          "upper": 0.6
+        },
+        {
+          "count": 1,
+          "lower": 0.6,
+          "mean_probability": 0.6506383396175709,
+          "positive_fraction": 1.0,
+          "upper": 0.7
+        },
+        {
+          "count": 1,
+          "lower": 0.7,
+          "mean_probability": 0.7098772707151905,
+          "positive_fraction": 1.0,
+          "upper": 0.8
+        }
+      ],
+      "confusion_matrix": [
+        [
+          29,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "ece_10_bins": 0.17354703391078546,
+      "f1": 0.6666666666666666,
+      "positives": 6,
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "rows": 37,
+      "selected": 6
+    },
+    "intercept": {
+      "accuracy": 0.8378378378378378,
+      "auroc": 0.5,
+      "average_precision": 0.16216216216216217,
+      "balanced_accuracy": 0.5,
+      "brier": 0.13703978212906787,
+      "calibration_bins": [
+        {
+          "count": 37,
+          "lower": 0.1,
+          "mean_probability": 0.19642857142857142,
+          "positive_fraction": 0.16216216216216217,
+          "upper": 0.2
+        }
+      ],
+      "confusion_matrix": [
+        [
+          31,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "ece_10_bins": 0.03426640926640925,
+      "f1": 0.0,
+      "positives": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "rows": 37,
+      "selected": 0
+    },
+    "no_nli": {
+      "accuracy": 0.918918918918919,
+      "auroc": 0.9623655913978495,
+      "average_precision": 0.8766233766233766,
+      "balanced_accuracy": 0.8172043010752688,
+      "brier": 0.09543496462334855,
+      "calibration_bins": [
+        {
+          "count": 16,
+          "lower": 0.1,
+          "mean_probability": 0.15500798529873072,
+          "positive_fraction": 0.0,
+          "upper": 0.2
+        },
+        {
+          "count": 7,
+          "lower": 0.2,
+          "mean_probability": 0.25043568284878853,
+          "positive_fraction": 0.0,
+          "upper": 0.3
+        },
+        {
+          "count": 6,
+          "lower": 0.3,
+          "mean_probability": 0.34179909298991085,
+          "positive_fraction": 0.16666666666666666,
+          "upper": 0.4
+        },
+        {
+          "count": 3,
+          "lower": 0.4,
+          "mean_probability": 0.4606399935158403,
+          "positive_fraction": 0.3333333333333333,
+          "upper": 0.5
+        },
+        {
+          "count": 4,
+          "lower": 0.5,
+          "mean_probability": 0.5393441573349347,
+          "positive_fraction": 0.75,
+          "upper": 0.6
+        },
+        {
+          "count": 1,
+          "lower": 0.6,
+          "mean_probability": 0.660590694673473,
+          "positive_fraction": 1.0,
+          "upper": 0.7
+        }
+      ],
+      "confusion_matrix": [
+        [
+          30,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "ece_10_bins": 0.18507904754581042,
+      "f1": 0.7272727272727273,
+      "positives": 6,
+      "precision": 0.8,
+      "recall": 0.6666666666666666,
+      "rows": 37,
+      "selected": 5
+    }
+  },
+  "family_bootstrap_95pct": {
+    "full_auroc": {
+      "high": 1.0,
+      "low": 0.9305555555555556,
+      "valid_replicates": 2000
+    },
+    "full_average_precision": {
+      "high": 1.0,
+      "low": 0.775,
+      "valid_replicates": 2000
+    },
+    "full_brier": {
+      "high": 0.11646321096348494,
+      "low": 0.07040290189353184,
+      "valid_replicates": 2000
+    },
+    "full_minus_no_nli_auroc": {
+      "high": 0.022321428571428492,
+      "low": -0.06896551724137923,
+      "valid_replicates": 2000
+    },
+    "full_minus_no_nli_average_precision": {
+      "high": 0.08333333333333337,
+      "low": -0.16666666666666674,
+      "valid_replicates": 2000
+    },
+    "full_minus_no_nli_brier": {
+      "high": 0.014087434563687676,
+      "low": -0.016698864428254134,
+      "valid_replicates": 2000
+    },
+    "no_nli_auroc": {
+      "high": 1.0,
+      "low": 0.9391891891891891,
+      "valid_replicates": 2000
+    },
+    "no_nli_average_precision": {
+      "high": 1.0,
+      "low": 0.775,
+      "valid_replicates": 2000
+    },
+    "no_nli_brier": {
+      "high": 0.10271003076259055,
+      "low": 0.08710176632178596,
+      "valid_replicates": 2000
+    }
+  },
+  "family_bootstrap_replicates": 2000,
+  "fit_freeze_sha256": "f34e474b883fef6e2d5dd84ebbf729d91e9c3edd9d4dffca5f8abf046ac4f737",
+  "labeled_families": 5,
+  "positive_families": 4,
+  "raw_logistic_brier": {
+    "full": 0.19632959621451052,
+    "no_nli": 0.20597361155902552
+  },
+  "scored_candidates": 42,
+  "scored_pending_gold": 5,
+  "seed": 23,
+  "unscored_eligible": 19
+}

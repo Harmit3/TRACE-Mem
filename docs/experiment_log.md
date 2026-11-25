@@ -217,3 +217,12 @@ On base `44fe6cc`, Codex froze the generator, gold and collector at `e58a91c`. T
 Qwen reported 788 requests, 44 cache hits, 185,845 input and 20,362 output tokens and 1,099.063 seconds summed provider latency at zero provider cost. Four extraction failures were retained. MiniLM and NLI ran locally on CPU. No training, calibration fitting, paid requests or benchmark evaluation ran. `python -m unittest discover -s tests -q` reported `Ran 73 tests in 3.617s` and `OK`.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/updateset-v3-final?expand=1)
+
+## Step 18 · First fitted T1 on frozen longitudinal V3
+
+- Collection merge PR #26 at `8211618`. Protocol commit `5f30bba`; model and threshold freeze `18ce948`. Seed 23, Python 3.14.0, scikit-learn 1.8.0, NumPy 2.4.2, Matplotlib 3.10.8. No inference calls, tokens or API spending during fit or scoring.
+- The release audit reproduced 200 histories, 40 families, 726 candidate keys and 232 paired vectors. Frozen inputs, previous experiments and pending reviews were preserved. AI-assisted contribution was implementation, validation and experiment logging under the documented verbal coding authorization.
+- At 25% rank-matched coverage, full T1 selected all 6 labeled helpful candidates in 10 calls, versus 5 for no NLI, 5 for seeded B4 and 0 for B5. Full T1 average precision was .849 versus .877 for the ablation. The paired family-bootstrap interval for the difference was [−.167, .083].
+- The rerun reproduced the model parameters and thresholds, and evaluation JSON and all four figures were byte-identical. The independent partition has just 6 positives from 4 families. This was an exploratory fixed-prefix evaluation. No closed-loop or Memora performance was measured.
+- [Protocol, exact commands, aggregate metrics and figures](t1_v3_training.md).
+- Final regression suite: 75 tests and 36 subtests passed. Pytest emitted one third-party anyio deprecation warning.
