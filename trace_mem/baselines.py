@@ -9,6 +9,7 @@ from trace_mem.claims import Claim, conflicts, extract
 from trace_mem.controller import FEATURE_NAMES, LogisticController, features_for
 from trace_mem.data.memora import Event
 from trace_mem.memory import Fact, Source, TemporalMemory
+from trace_mem.semantic import SemanticEvidence
 from trace_mem.verification import Budget, Verdict, select_random, select_ranked
 
 
@@ -62,6 +63,7 @@ def run_matched_baselines(
     seed: int,
     verify: Verifier,
     controller: LogisticController | None = None,
+    semantic: SemanticEvidence | None = None,
 ) -> dict[str, VerificationRun]:
     """Replay B4, B5 and optional T1 on frozen B2 evidence at exactly the same cost in calls."""
     if type(calls) is not int or calls < 0:
@@ -70,6 +72,8 @@ def run_matched_baselines(
         raise ValueError("Expected an integer seed")
     if controller is not None:
         _validate_controller(controller)
+    elif semantic is not None:
+        raise ValueError("Semantic policy evidence requires a T1 controller")
     prepared = tuple(_prepare(events, complete))
     reference = TemporalMemory()
     candidates: list[tuple[PreparedClaim, Fact]] = []
@@ -88,9 +92,10 @@ def run_matched_baselines(
     if controller is not None:
         scores = [
             controller.score(features_for(item.claim, target, entity=entity, source=item.source,
-                                          budget_remaining_fraction=float(calls > 0)))
+                                          budget_remaining_fraction=1.0,
+                                          semantic=semantic))
             for item, target in candidates
-        ]
+        ] if calls else []
         selections["T1"] = select_ranked(scores, calls)
     runs = {}
     for method, selected in selections.items():
@@ -130,6 +135,7 @@ def run_t1(
     threshold: float,
     calls: int,
     verify: Verifier,
+    semantic: SemanticEvidence | None = None,
 ) -> VerificationRun:
     """Run a causal threshold policy under a hard cap, with possible underspend."""
     _validate_controller(controller)
@@ -143,7 +149,8 @@ def run_t1(
         target = _eligible_target(memory, entity, claim) if budget.remaining else None
         if target is not None:
             features = features_for(claim, target, entity=entity, source=source,
-                                    budget_remaining_fraction=budget.remaining / budget.limit)
+                                    budget_remaining_fraction=budget.remaining / budget.limit,
+                                    semantic=semantic)
             if controller.score(features) >= threshold:
                 selected_ids.append(fact_id)
                 _apply_verdict(memory, entity, item, target, budget.call(verify, claim, target))

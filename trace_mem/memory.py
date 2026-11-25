@@ -88,11 +88,12 @@ class TemporalMemory:
         self._deleted.add(fact_id)
         self._trace.append(Transition("delete", source, fact_id))
 
-    def retrieve(self, entity: str, predicate: str, *, as_of: date) -> tuple[Fact, ...]:
+    def retrieve(self, entity: str, predicate: str | None, *, as_of: date) -> tuple[Fact, ...]:
         """Find facts valid at as_of using the latest replayed privacy state."""
         matches = (
             fact for fact in self._facts.values()
-            if (fact.entity, fact.predicate) == (entity, predicate) and fact.visible_on(as_of)
+            if fact.entity == entity and (predicate is None or fact.predicate == predicate)
+            and fact.visible_on(as_of)
         )
         return tuple(sorted(matches, key=lambda fact: (fact.valid_from, fact.fact_id), reverse=True))
 
