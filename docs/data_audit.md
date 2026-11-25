@@ -45,4 +45,18 @@ The audit streamed the same Git archive into Python and grouped sessions and rub
 
 The dates support replaying each released history through the question date inclusive. Document the end-of-day assumption because date-only fields cannot establish finer query placement relative to same-day sessions. Include questions with and without omission checks in scorer parity tests.
 
-Remaining audit work includes deeper nested schema checks, duplicate-content checks, deletion validation, a frozen subset manifest, and a timed synthetic smoke test to estimate evaluation cost. Assessed implementation requires the team's written instructor permission record in `docs/ethics_and_permissions.md`.
+## Operations and exact conversation overlap
+
+The same archive scan counted the released `operation` values, including explicit JSON nulls. The session types observed were `activity`, `goal`, `no_memory`, and `preference`. Use the documented schema as a guide and test against actual released values.
+
+| Period | Add | Update | Delete | Null |
+| --- | ---: | ---: | ---: | ---: |
+| Weekly | 703 | 136 | 193 | 519 |
+| Monthly | 2,371 | 583 | 788 | 2,408 |
+| Quarterly | 7,434 | 2,102 | 2,178 | 8,199 |
+
+The observed speakers are `user_agent` and `ai_agent`. All 24,856 turns with a true `share_memory` flag came from `user_agent`. A text-only adapter should map that role to the user and keep the flag and operation labels outside inference. The 3,159 delete annotations establish coverage of deletion scenarios. Further review must determine how consistently the request and its scope can be inferred from the conversation alone.
+
+Hashing each session's ordered speaker/message pairs with SHA-256 yielded zero exact repeats within histories and zero exact matches across periods for the same persona. These checks exclude paraphrases, partial reuse, and overlap across personas. Keep the proposed persona-level holdout to help control for shared entities and scenarios. Only aggregate audit output was retained.
+
+Remaining audit work includes validating deletion semantics from conversation text, freezing a subset manifest, and estimating evaluation cost with a timed synthetic smoke test. Assessed implementation requires the team's written instructor permission record in `docs/ethics_and_permissions.md`.
