@@ -49,3 +49,13 @@ Codex implemented deterministic L2-regularized logistic training with training-o
 `python -m unittest discover -s tests -v` reported `Ran 11 tests in 0.049s` and `OK` on Python 3.14.0. Standard library only. Full-batch optimization uses no random initialization. The random comparison uses seed 7. Zero model calls, tokens, and model cost. Human review is pending.
 
 [Manual stacked comparison](https://github.com/Harmit3/TRACE-Mem/compare/feat/verification-budget...feat/logistic-controller?expand=1)
+
+## Verified transition integration and real-data ingest check
+
+Codex connected the verifier to chronological temporal replay. A selected single, eligible conflict can replace a fact only on an update verdict. A timeout leaves the existing fact intact and consumes the call. Other verdicts currently defer. Policy-specific gates and the live verifier and reader remain to be wired.
+
+`python -m unittest discover -s tests -v` reported `Ran 12 tests in 0.048s` and `OK` on Python 3.14.0.
+
+For an ingest-only smoke check, stream `git -C <memora-clone> archive a6493188efc836d6511ed5e4163fe3ba87da30ff data/weekly/content_writer/conversations` into a temporary directory and call `list(replay(history))` for the weekly content-writer history. This is outside the proposed held-out pilot. The run printed `sessions 151 events 2390 roles {'user': 1163, 'assistant': 1227}` and `elapsed_seconds 1.457` including extraction from the archive. No rubric files, random seed, model calls, model tokens, or model cost. This measures ingestion coverage only. No official scoring was run. Model API credentials for the official judging path were unavailable in the environment.
+
+[Manual stacked comparison](https://github.com/Harmit3/TRACE-Mem/compare/feat/logistic-controller...feat/verifier-replay?expand=1)
