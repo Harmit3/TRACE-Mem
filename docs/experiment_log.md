@@ -41,3 +41,11 @@ Codex implemented seeded random and ranked exact-count selection for the common 
 `python -m unittest discover -s tests -v` reported `Ran 9 tests in 0.021s` and `OK` on Python 3.14.0. The standard-library fixtures use seed 7 for random selection and an injected timeout for failure accounting. No model calls, tokens, costs, or benchmark scores. Human review is pending.
 
 [Manual stacked comparison](https://github.com/Harmit3/TRACE-Mem/compare/feat/claim-baselines...feat/verification-budget?expand=1)
+
+## Logistic scoring
+
+Codex implemented deterministic L2-regularized logistic training with training-only feature normalization and score validation. This milestone uses synthetic labels to exercise learning and equal-size selection. Feature extraction, independent annotation, held-out calibration, and threshold selection remain pending.
+
+`python -m unittest discover -s tests -v` reported `Ran 11 tests in 0.049s` and `OK` on Python 3.14.0. Standard library only. Full-batch optimization uses no random initialization. The random comparison uses seed 7. Zero model calls, tokens, and model cost. Human review is pending.
+
+[Manual stacked comparison](https://github.com/Harmit3/TRACE-Mem/compare/feat/verification-budget...feat/logistic-controller?expand=1)
