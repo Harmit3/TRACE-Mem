@@ -239,3 +239,11 @@ Reran the release audit, fit both controller variants in a new ignored output di
 - Official offline arithmetic parity confirmed for empty, recall-only, omission-penalty and clamped-at-zero cases. Official hosting and judging remain separate from local inference. No FAMA scores were produced. Spending was USD 0.
 - TRACE-Mem test run passed 78 tests and 36 subtests. Test discovery with the local upstream checkout also passed 83 tests and 36 subtests. Both emitted one third-party deprecation warning. AI-assisted contributions include implementation, tests and reproducibility documentation.
 - [Frozen configuration, exact run commands, official scoring audit and resource estimates](memora_step19.md).
+
+## Step 20 · Development extraction audit and adapted local judge
+
+- Started from PR #28 merge `06713f8` and froze the contextual prompt, 18 extraction cases, 12 binary judge checks, and gates at `3327581`. The original 55-turn prefix had seven clearly extractable focal turns by development review. Five emitted empty arrays, one categorized a calendar event as a job, and one captured the intended activity.
+- At identical local Qwen settings, original precision/recall/F1 were .500/.417/.455, and contextual precision/recall/F1 were .600/.250/.353. Deletion targets matched 1/3 and 0/3. The contextual extractor failed promotion. The full development history was left unrun because neither extractor met acceptance criteria.
+- Local judge agreement was 12/12 on predeclared fictional checks. On the original truncated predictions, all eight systems in each mode had four failed presence checks, seven passed absence checks, and 0.000 using pinned FAMA arithmetic. Every prediction abstained. This is an adapted local scoring smoke.
+- Validation used 48 actual requests, 9,763 input tokens, 622 output tokens and 46.54 seconds wall time. Prefix adjudication used 11 actual requests, 165 cache hits, 1,178 input tokens, 91 output tokens and 9.48 seconds wall time. Spend was USD 0. Prior artifacts and held-out separation were preserved.
+- All discovered tests passed, with 87 tests and 36 subtests including the pinned checkout. One third-party AnyIO deprecation warning remained. AI assistance covered implementation, fixture authoring, analysis and documentation. [Protocol and results](memora_step20.md).

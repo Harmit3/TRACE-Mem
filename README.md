@@ -130,6 +130,8 @@ Primary objective for comparisons: minimize end-to-end error subject to maximum 
 
 The [Memora development protocol](docs/memora_step19.md) documents the local replay runner, frozen subset, provider settings, and official judging dependency.
 
+The [Step 20 extraction audit](docs/memora_step20.md) records the failed contextual extractor gate and the adapted local scoring smoke. The full development comparison awaits a validated extractor.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.
