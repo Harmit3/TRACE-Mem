@@ -1,0 +1,16 @@
+{
+  "revision": "a6493188efc836d6511ed5e4163fe3ba87da30ff",
+  "development": {
+    "path": "data/weekly/content_writer",
+    "conversation_tree": "271be54f11b980f37317d0dd01027b814dc0554f",
+    "rubric_blob": "550849cb66c2e181c0c3944719a3fdb97a60e82c",
+    "selectors": {"remembering": [0]},
+    "smoke_session_limit": 8
+  },
+  "held_out": [
+    {"path": "data/weekly/academic_researcher", "conversation_tree": "ed3a2d5a3514060c30a32c8cd2ce61cb2262e49c", "rubric_blob": "d3b815217b3c0fd54142b7fcb8cd6415d3b907ad"},
+    {"path": "data/weekly/business_executive", "conversation_tree": "68f4ad0613224bc77d7052d52c2c0b79623f4ce0", "rubric_blob": "905d74aa01d07bd7afcb9b3f990c50c2bfb9efb5"}
+  ],
+  "held_out_questions": "All questions in each pinned rubric. Reserve both personas across periods.",
+  "settings": {"cap": 2, "k": 8, "seed": 23, "random_probability": 0.25, "max_requests": 1600, "smoke_max_requests": 350}
+}
