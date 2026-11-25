@@ -13,7 +13,7 @@ Preparatory research notes for WP1. The inventory and session metadata checks us
 | Monthly | 6,150 | 10 | 25,201,413 | 150 |
 | Quarterly | 19,913 | 10 | 82,755,431 | 300 |
 
-Reproduce the inventory with `git -C <memora-clone> ls-tree -r -l a6493188efc836d6511ed5e4163fe3ba87da30ff data`. Group by period, count `conversations/session_*.json` and `evaluation_questions_*.json` separately, and sum the size column for both. Question totals come from the documented counts per persona. Local tools reported Git 2.47.1.windows.2 and Python 3.14.0. The Python launcher listed only 3.14, while the TRACE-Mem setup targets 3.11. The inventory used Git and PowerShell with zero model calls and zero model tokens.
+Reproduce the inventory with `git -C <memora-clone> ls-tree -r -l a6493188efc836d6511ed5e4163fe3ba87da30ff data`. Group by period, count `conversations/session_*.json` and `evaluation_questions_*.json` separately, and sum the size column for both. The question audit below independently confirms the documented totals. Local tools reported Git 2.47.1.windows.2 and Python 3.14.0. The Python launcher listed only 3.14, while the TRACE-Mem setup targets 3.11. The inventory used Git and PowerShell with zero model calls and zero model tokens.
 
 ## Replay and scoring boundaries
 
@@ -29,8 +29,20 @@ This confirms that date alone cannot order sessions. The proposed replay order w
 
 - Session records document `session_id`, `date`, `persona`, `session_type`, `operation`, `operation_details`, and `conversation` with numbered turns and speaker/message fields. Treat `share_memory`, the operation fields, and session type as benchmark annotations. A proposed text-only replay would allow dates, session and turn identifiers, speaker and message into the model pipeline.
 - Question files organize remembering, reasoning and recommending questions. Allow question text and relevant query time at inference. Restrict evidence fields, rubric subquestions and expected answers to the scorer. The released annotations describe benchmark evidence and expected omissions. Independently annotate TRACE-UpdateSet decisions and verification utility.
-- Compare candidate ordering against timestamp, numeric session ID and turn sequence. Check the relationship between question dates and available history before freezing a replay protocol. Hold out complete personas across periods to account for overlapping histories, then freeze exact question IDs and artifact hashes before tuning.
+- Hold out complete personas across periods to account for potential overlap, then freeze exact question IDs and artifact hashes before tuning.
 - Distinguish explicit removal requests from supersession during replay. Test that superseded permitted facts remain available to historical queries and that deleted payloads do not survive in searchable history, caches or logs. Use synthetic development fixtures first.
 - Follow the official agent evaluation path under `evals/agent_eval/`. The shared `fama_score` lives in `evals/model_eval/model_based_evaluator.py`. The official judge checks recall and omission separately. Validate missing answers, abstentions, judge failures and questions with no omission checks before claiming scorer parity. The official aggregator is `evals/model_eval/aggregate_results.py`. [Pinned evaluation guide](https://github.com/geniesinc/Memora/blob/a6493188efc836d6511ed5e4163fe3ba87da30ff/evals/README.md)
 
-Remaining audit work includes nested schema checks, duplicate-content checks, question timestamp and deletion validation, a frozen subset manifest, and a timed synthetic smoke test to estimate evaluation cost. Assessed implementation requires the team's written instructor permission record in `docs/ethics_and_permissions.md`.
+## Question metadata
+
+The audit streamed the same Git archive into Python and grouped sessions and rubrics by period and persona. All 600 questions have a session on the question date in the matching history. Zero histories contain a session dated after a matching question, and there were zero duplicate question IDs within histories. Recounting checks by type matched every rubric's declared total, recall count and omission count. Only aggregate metadata was emitted.
+
+| Period | Remembering | Reasoning | Recommending | Questions without omission checks |
+| --- | ---: | ---: | ---: | ---: |
+| Weekly | 50 | 50 | 50 | 52 |
+| Monthly | 50 | 50 | 50 | 50 |
+| Quarterly | 100 | 100 | 100 | 102 |
+
+The dates support replaying each released history through the question date inclusive. Document the end-of-day assumption because date-only fields cannot establish finer query placement relative to same-day sessions. Include questions with and without omission checks in scorer parity tests.
+
+Remaining audit work includes deeper nested schema checks, duplicate-content checks, deletion validation, a frozen subset manifest, and a timed synthetic smoke test to estimate evaluation cost. Assessed implementation requires the team's written instructor permission record in `docs/ethics_and_permissions.md`.
