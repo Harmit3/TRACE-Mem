@@ -26,6 +26,27 @@ Call `run_matched_baselines(replay(history), complete, entity=persona, calls=B, 
 
 Each arm invokes the verifier in chronological order on the selected reference evidence. A call counts even if an earlier verified update caused the arm to diverge from the reference. Apply a verdict only when the reference target is still the arm's eligible target. Otherwise record a stale target and use the ordinary B2 rule for that step. The result records selection IDs, attempts, failures, and stale-target counts per method. This interface implements the fixed-stream diagnostic. The closed-loop pilot and its independently tuned thresholds are separate work.
 
+### T1 replay and feature definitions
+
+Pass `controller=...` to `run_matched_baselines` to add T1 to the fixed-stream diagnostic. T1 ranks the identical reference candidates by logistic score and breaks ties by chronological candidate order. All methods attempt exactly the same integer number of verifier calls. The budget fraction is frozen at 1 for a positive target and 0 for a zero target because selection happens before any diagnostic calls. These rankings can use later candidates.
+
+`run_t1(replay(history), complete, entity=persona, controller=controller, threshold=threshold, calls=B, verify=verify)` is the closed-loop entry point. It scores the eligible live conflict before each call, using the actual fraction of the budget remaining. Scores at or above the threshold trigger verification while capacity remains. Only an update verdict supersedes the target. An exception or malformed verdict consumes one attempt and defers the update. The run can use fewer calls than the cap. Compare closed-loop methods as budget-matched only when their realized attempts match independently of the fixed-stream diagnostic.
+
+The ordered feature vector uses these initial deterministic proxies:
+
+| Feature | Calculation |
+| --- | --- |
+| Semantic similarity | Jaccard overlap of case-folded word tokens in the two values. |
+| Contradiction score | Same entity and predicate with different values, weighted by `1 - uncertainty / 2`. |
+| Entity match | Exact entity identity. |
+| Temporal conflict score | Competing values with overlapping effective intervals. |
+| Time gap | Days between the two source observations. |
+| Provenance score | Fraction of the two source references that are present. This measures trace availability. |
+| Uncertainty | 1 for uncertain claims, 0.5 for implicit assertions, and 0 for explicit corrections. |
+| Budget remaining fraction | Frozen reference value for fixed-stream ranking or live remaining calls divided by cap in closed-loop replay. |
+
+These features require structured text, an intent and valid dates. Missing optional expiry means an open interval, missing references reduce the provenance score, and invalid or nonfinite numeric inputs are rejected. The logistic fitter learns normalization from its training rows and uses unit scale for constant features. Synthetic coefficients and labels exercise the implementation. Independent TRACE-UpdateSet labels, probability calibration and a development-selected online threshold remain pending.
+
 ## Planned scorer parity checks
 
 Use synthetic answers and fixed judge outcomes for recall-only, mixed recall and omission, abstention, tied judgment and all-judge failure. Require per-check outcomes and per-question FAMA to agree with the pinned scorer. Record the judge models, prompt and decoding settings, retries, error counts and cache identity for any eventual live evaluation.
