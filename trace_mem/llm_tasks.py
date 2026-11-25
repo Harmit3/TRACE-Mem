@@ -9,6 +9,7 @@ from typing import Protocol
 from trace_mem.claims import Claim, EXTRACTION_PROMPT, extract, parse_claims
 from trace_mem.data.memora import Event
 from trace_mem.memory import Fact, TemporalMemory
+from trace_mem.hybrid_extraction import SCHEMA as HYBRID_SCHEMA, TASK as HYBRID_TASK
 from trace_mem.verification import Verdict
 
 
@@ -68,6 +69,7 @@ def _object_schema(properties: dict, required: list[str] | None = None) -> dict:
 
 
 RESPONSE_SCHEMAS = {
+    HYBRID_TASK: HYBRID_SCHEMA,
     "extract-v1": {"type": "array", "items": _object_schema({
         "predicate": _TEXT, "value": _TEXT,
         "intent": {"enum": ["assert", "correct", "uncertain", "delete"]},

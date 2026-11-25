@@ -132,6 +132,8 @@ The [Memora development protocol](docs/memora_step19.md) documents the local rep
 
 The [Step 20 extraction audit](docs/memora_step20.md) records the failed contextual extractor gate and the adapted local scoring smoke. The full development comparison awaits a validated extractor.
 
+The [Step 21 hybrid extraction experiment](docs/memora_step21.md) tests verbatim evidence selection, constrained claim normalization, and a privacy-aware evidence sidecar alongside the existing structured architecture.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.

@@ -247,3 +247,11 @@ Reran the release audit, fit both controller variants in a new ignored output di
 - Local judge agreement was 12/12 on predeclared fictional checks. On the original truncated predictions, all eight systems in each mode had four failed presence checks, seven passed absence checks, and 0.000 using pinned FAMA arithmetic. Every prediction abstained. This is an adapted local scoring smoke.
 - Validation used 48 actual requests, 9,763 input tokens, 622 output tokens and 46.54 seconds wall time. Prefix adjudication used 11 actual requests, 165 cache hits, 1,178 input tokens, 91 output tokens and 9.48 seconds wall time. Spend was USD 0. Prior artifacts and held-out separation were preserved.
 - All discovered tests passed, with 87 tests and 36 subtests including the pinned checkout. One third-party AnyIO deprecation warning remained. AI assistance covered implementation, fixture authoring, analysis and documentation. [Protocol and results](memora_step20.md).
+
+## Step 21 · Evidence-grounded hybrid extraction
+
+- Started at merged PR #29 at `077ca2e`; froze the single hybrid design, 20 fictional cases and gates at `17bbbf7`. Existing structured policies, T1 artifacts, and previous extraction failures were preserved.
+- Exact F1 for original, contextual, Qwen hybrid and Llama hybrid was .267, .200, .316 and .100, respectively. Qwen hybrid recall was 3/16; each hybrid backend had 14 invalid responses and no exact deletion matches. The promotion gate failed. There was no complete development replay, no new benchmark score, and no held-out access.
+- The unchanged T1 scored two original candidates, one Qwen hybrid candidate and one Llama hybrid candidate (contextual emitted none). Stored excerpt payload across isolated cases was 58 real bytes for Qwen and 132 for Llama, excluding structure overhead.
+- Local runs used 76 requests, 17,466 input tokens and 2,796 output tokens, with 135.91 seconds wall time and USD 0 spend. Tests passed for 85 TRACE-Mem tests and 36 subtests. Workspace discovery including pinned upstream tests passed 90 tests and 36 subtests, with one third-party deprecation warning. AI assistance covered implementation, authored fixtures, analytics and technical documentation.
+- [Architecture, observed metrics and bounded follow-up](memora_step21.md).
