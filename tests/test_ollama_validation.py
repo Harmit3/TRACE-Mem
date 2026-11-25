@@ -1,4 +1,5 @@
 import json
+from datetime import date
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
@@ -6,7 +7,11 @@ from unittest.mock import patch
 
 from scripts.export_eligible_annotations import export
 from scripts.validate_ollama_verifier import CASES, verdict_gate
+from scripts import validate_ollama_verifier_v2 as revised
+from trace_mem.claims import Claim
 from trace_mem.data.updateset import generate, write_release
+from trace_mem.llm_tasks import LLMTasks, MockProvider
+from trace_mem.memory import Fact, Source
 
 
 class OllamaValidationTest(unittest.TestCase):
@@ -32,3 +37,38 @@ class OllamaValidationTest(unittest.TestCase):
             for row in packet:
                 self.assertEqual(set(row), {"case_id", "conversation", "old_fact", "new_claim"})
                 self.assertNotIn("/test/", row["case_id"])
+
+    def test_fresh_cases_and_gate(self):
+        self.assertEqual(len(revised.CASES), 40)
+        self.assertEqual(len({row[5] for row in revised.CASES}), 40)
+        self.assertFalse({row[6] for row in CASES} & {row[5] for row in revised.CASES})
+        self.assertTrue(revised.gate(37, 0, 0, 13 / 16))
+        self.assertFalse(revised.gate(36, 0, 0, 12 / 16))
+        self.assertFalse(revised.gate(39, 1, 0, 1))
+        self.assertFalse(revised.gate(39, 0, 1, 1))
+
+    def test_grounded_confirmed_quote_required_for_two_stage_update(self):
+        day = date(2026, 2, 15)
+        old = Fact("old", "user", "job", "Alder", Source(day, "session/1"), day)
+        claim = Claim("job", "Birch", "correct", day)
+        message = "I have switched to Birch."
+        for kind, quote, expected in (
+            ("confirmed_replacement", message, "update"),
+            ("confirmed_replacement", "invented quote", "insufficient_evidence"),
+            ("hypothetical", message, "insufficient_evidence"),
+        ):
+            requests = []
+
+            def respond(task, payload):
+                requests.append((task, json.loads(payload)))
+                if task == "verify-evidence-v2":
+                    return json.dumps({"kind": kind, "quote": quote})
+                return '{"verdict":"update"}'
+
+            with self.subTest(kind=kind, quote=quote):
+                tasks = LLMTasks(MockProvider(respond), verification_mode="evidence-v2")
+                self.assertEqual(tasks.verify(claim, old, conversation=(message,)), expected)
+                self.assertEqual([t for t, _ in requests],
+                                 ["verify-evidence-v2", "verify-evidence-verdict-v2"])
+                if quote != message:
+                    self.assertIsNone(requests[1][1]["extracted"]["quote"])
