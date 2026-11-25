@@ -6,7 +6,7 @@ import re
 
 from trace_mem.baselines import _apply
 from trace_mem.claims import Claim, parse_claims
-from trace_mem.memory import Fact, TemporalMemory
+from trace_mem.memory import Fact, Source, TemporalMemory
 from trace_mem.semantic import _cosine, _unit_embeddings
 
 
@@ -151,3 +151,34 @@ class EvidenceMemory:
         ranked = sorted(zip(facts, vectors[1:]), key=lambda row: (
             -_cosine(vectors[0], row[1]), row[0].fact_id))
         return tuple((fact.fact_id, self.quotes[fact.fact_id]) for fact, _ in ranked[:k])
+
+
+class HybridReplay:
+    """Causal B2-backed reference implementation for the experimental representation."""
+
+    def __init__(self, entity, provider):
+        self.state = EvidenceMemory(entity)
+        self.provider = provider
+        self.previous = None
+        self.recent = []
+
+    def ingest(self, event):
+        position = event.observed_on, event.session_id, event.turn
+        if self.previous is not None and position <= self.previous:
+            raise ValueError("Hybrid replay requires ordered observations")
+        if self.previous is not None and self.previous[1] != event.session_id:
+            self.recent.clear()
+        if event.role != "user":
+            self.previous = position
+            return ()
+        source = Source(event.observed_on, f"{event.session_id}/{event.turn}", event.source_kind)
+        targets = tuple(self.state.targets.values())[-8:]
+        claims = normalize(self.provider, event, self.recent, targets)
+        for i, item in enumerate(claims):
+            self.state.apply(item, source, f"{source.reference}/{i}")
+        if self.state.quotes_enabled:
+            self.recent[:] = [*self.recent[-1:], event.message]
+        else:
+            self.recent.clear()
+        self.previous = position
+        return claims
