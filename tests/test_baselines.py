@@ -4,6 +4,7 @@ import unittest
 
 from trace_mem.baselines import run_baseline
 from trace_mem.data.memora import Event
+from trace_mem.verification import Budget
 
 
 class BaselineTest(unittest.TestCase):
@@ -32,3 +33,24 @@ class BaselineTest(unittest.TestCase):
                          ["Birch"])
         repeated = run_baseline(events, cached_completion, entity="p", method="B2")
         self.assertEqual(repeated.trace, memories["B2"].trace)
+
+    def test_verifier_update_and_failure_have_distinct_transitions(self):
+        first, second = date(2026, 3, 1), date(2026, 3, 2)
+        events = [Event(first, 1, 1, "user", "Alder"), Event(second, 2, 1, "user", "Birch")]
+
+        def cached_completion(prompt, payload):
+            value = json.loads(payload)["message"]
+            return json.dumps([dict(predicate="job", value=value,
+                                    intent="assert" if value == "Alder" else "uncertain")])
+
+        def failure(*args):
+            raise TimeoutError
+
+        for verifier, expected in ((lambda *args: "update", "Birch"), (failure, "Alder")):
+            with self.subTest(expected=expected):
+                budget = Budget(1)
+                memory = run_baseline(events, cached_completion, entity="p", method="B2",
+                                      budget=budget, should_verify=lambda *args: True, verify=verifier)
+                current, = memory.retrieve("p", "job", as_of=second)
+                self.assertEqual(current.value, expected)
+                self.assertEqual(budget.attempts, 1)
