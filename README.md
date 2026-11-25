@@ -144,6 +144,8 @@ The [Step 25 failure-isolation study](docs/memora_step25.md) compares structured
 
 The [Step 26 reader and evidence-safety diagnostic](docs/memora_step26.md) compares the revised reader with the original and records the managed evidence index quarantine on real unresolved deletion scopes.
 
+The [Step 27 deletion-scope audit](docs/memora_step27.md) compares semantic and exact target proposals. It documents why real evidence remains quarantined pending human authorization.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.
