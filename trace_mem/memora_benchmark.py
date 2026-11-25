@@ -85,7 +85,7 @@ def _score(model, builder, item, target, entity, remaining):
 
 
 def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
-              seed, random_probability=0.25):
+              seed, random_probability=0.25, adaptive=None):
     """Replay all policies over one observation cutoff with identical prepared claims."""
     if (mode not in {"fixed", "closed-loop"} or type(cap) is not int or cap < 0
             or not 0 <= random_probability <= 1):
@@ -103,11 +103,12 @@ def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
             _advance(memory, entity, item)
         return candidates
 
+    adaptive = adaptive or {}
     candidates = frozen_candidates() if mode == "fixed" else ()
     matched = min(len(candidates), cap)
     frozen_pool = {item.fact_id: target for item, target in candidates}
     output = {}
-    for method in METHODS:
+    for method in (*METHODS, *adaptive):
         memory = TemporalMemory()
         budget = Budget(cap if method not in {"B0", "B1", "B2"} else 0)
         rng = random.Random(seed)
@@ -116,6 +117,11 @@ def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
             if method in {"B3", "B4"}:
                 indices = (range(len(candidates)) if method == "B3"
                            else select_random(len(candidates), matched, seed=seed))
+            elif method in adaptive:
+                scores = [adaptive[method].score(builders[method](
+                    item.claim, target, entity=entity, source=item.source,
+                    budget_remaining_fraction=1.0)) for item, target in candidates]
+                indices = select_ranked(scores, matched)
             else:
                 scores = ([{"uncertain": 1, "assert": 0.5, "correct": 0}[item.claim.intent]
                            for item, _ in candidates] if method == "B5" else
@@ -136,6 +142,12 @@ def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
                 target = None
                 if live is not None and budget.remaining:
                     intent = item.claim.intent
+                    if method in adaptive:
+                        vector = builders[method](item.claim, live, entity=entity, source=item.source,
+                                                  budget_remaining_fraction=budget.remaining / budget.limit)
+                        if adaptive[method].choose(adaptive[method].score(vector),
+                                                   remaining=budget.remaining, seen=eligible):
+                            target = live
                     if (method == "B3"
                             or method == "B4" and rng.random() < random_probability
                             or method == "B5" and intent == "uncertain"

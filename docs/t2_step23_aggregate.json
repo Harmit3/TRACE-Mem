@@ -1,0 +1,3619 @@
+{
+  "artifacts": {
+    "full.json": "8d4ea8e16f3662a1d47d046cd47101a39618aa83b2bb49a2719cc9150394c60e",
+    "no_nli.json": "ec04915d5872d12b4945f7f5fa42a60fcc7c1c852b1fb02f0a8d10314165b9cc"
+  },
+  "budget_curves": [
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B2",
+      "mode": "closed-loop",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B2",
+      "mode": "closed-loop",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B2",
+      "mode": "closed-loop",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B2",
+      "mode": "closed-loop",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B2",
+      "mode": "closed-loop",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B3",
+      "mode": "closed-loop",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "B3",
+      "mode": "closed-loop",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 28.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "B3",
+      "mode": "closed-loop",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 30,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 30.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 10.0,
+        "verification_failures": 0.0
+      },
+      "method": "B3",
+      "mode": "closed-loop",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 20.0,
+        "verification_failures": 0.0
+      },
+      "method": "B3",
+      "mode": "closed-loop",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 23,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 41,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 61,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 83,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B4",
+      "mode": "closed-loop",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 23,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 2,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 41,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 61,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 2,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 83,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 25.2,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 1.6,
+        "verification_failures": 0.0
+      },
+      "method": "B4",
+      "mode": "closed-loop",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 4,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 23,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 4,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 41,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 4,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 61,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 4,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 83,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 3.2,
+        "verification_failures": 0.0
+      },
+      "method": "B4",
+      "mode": "closed-loop",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 8,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 10,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 23,
+          "verification_attempts": 6,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 10,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 41,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 10,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 61,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 10,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 83,
+          "verification_attempts": 8,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 27.2,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 5.2,
+        "verification_failures": 0.0
+      },
+      "method": "B4",
+      "mode": "closed-loop",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 8,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 20,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 23,
+          "verification_attempts": 6,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 20,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 41,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 20,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 61,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 20,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 83,
+          "verification_attempts": 8,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 27.2,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 5.2,
+        "verification_failures": 0.0
+      },
+      "method": "B4",
+      "mode": "closed-loop",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B5",
+      "mode": "closed-loop",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "B5",
+      "mode": "closed-loop",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "B5",
+      "mode": "closed-loop",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 8,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 8.0,
+        "verification_failures": 0.0
+      },
+      "method": "B5",
+      "mode": "closed-loop",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 8,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 8.0,
+        "verification_failures": 0.0
+      },
+      "method": "B5",
+      "mode": "closed-loop",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "H-paced",
+      "mode": "closed-loop",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "H-paced",
+      "mode": "closed-loop",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 28.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "H-paced",
+      "mode": "closed-loop",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 36,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 36.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 10.0,
+        "verification_failures": 0.0
+      },
+      "method": "H-paced",
+      "mode": "closed-loop",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 20.0,
+        "verification_failures": 0.0
+      },
+      "method": "H-paced",
+      "mode": "closed-loop",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1",
+      "mode": "closed-loop",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1",
+      "mode": "closed-loop",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1",
+      "mode": "closed-loop",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1",
+      "mode": "closed-loop",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1",
+      "mode": "closed-loop",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1-no-NLI",
+      "mode": "closed-loop",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 1,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 1.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1-no-NLI",
+      "mode": "closed-loop",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1-no-NLI",
+      "mode": "closed-loop",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1-no-NLI",
+      "mode": "closed-loop",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 1,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 1.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1-no-NLI",
+      "mode": "closed-loop",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "T2",
+      "mode": "closed-loop",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "T2",
+      "mode": "closed-loop",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "T2",
+      "mode": "closed-loop",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 30,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 30.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 10.0,
+        "verification_failures": 0.0
+      },
+      "method": "T2",
+      "mode": "closed-loop",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 20.0,
+        "verification_failures": 0.0
+      },
+      "method": "T2",
+      "mode": "closed-loop",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B2",
+      "mode": "fixed",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B2",
+      "mode": "fixed",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B2",
+      "mode": "fixed",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B2",
+      "mode": "fixed",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B2",
+      "mode": "fixed",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B3",
+      "mode": "fixed",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "B3",
+      "mode": "fixed",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 28.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "B3",
+      "mode": "fixed",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 30,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 30.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 10.0,
+        "verification_failures": 0.0
+      },
+      "method": "B3",
+      "mode": "fixed",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 20.0,
+        "verification_failures": 0.0
+      },
+      "method": "B3",
+      "mode": "fixed",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 23,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 41,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 61,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 83,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B4",
+      "mode": "fixed",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 23,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 41,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 2,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 61,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 2,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 83,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 25.2,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "B4",
+      "mode": "fixed",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 4,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 23,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 4,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 41,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 4,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 61,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 4,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 83,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 27.2,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "B4",
+      "mode": "fixed",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 32,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 10,
+          "current": 32,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 23,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 10,
+          "current": 30,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 41,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 10,
+          "current": 30,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 61,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 10,
+          "current": 32,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 83,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 31.2,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 10.0,
+        "verification_failures": 0.0
+      },
+      "method": "B4",
+      "mode": "fixed",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 23,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 41,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 61,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        },
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 83,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 20.0,
+        "verification_failures": 0.0
+      },
+      "method": "B4",
+      "mode": "fixed",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "B5",
+      "mode": "fixed",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "B5",
+      "mode": "fixed",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "B5",
+      "mode": "fixed",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 28.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 10.0,
+        "verification_failures": 0.0
+      },
+      "method": "B5",
+      "mode": "fixed",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 20.0,
+        "verification_failures": 0.0
+      },
+      "method": "B5",
+      "mode": "fixed",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "H-paced",
+      "mode": "fixed",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 28,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 28.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "H-paced",
+      "mode": "fixed",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 32,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 32.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "H-paced",
+      "mode": "fixed",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 10.0,
+        "verification_failures": 0.0
+      },
+      "method": "H-paced",
+      "mode": "fixed",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 20.0,
+        "verification_failures": 0.0
+      },
+      "method": "H-paced",
+      "mode": "fixed",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1",
+      "mode": "fixed",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1",
+      "mode": "fixed",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1",
+      "mode": "fixed",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 34,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 34.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 10.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1",
+      "mode": "fixed",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 20.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1",
+      "mode": "fixed",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1-no-NLI",
+      "mode": "fixed",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1-no-NLI",
+      "mode": "fixed",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1-no-NLI",
+      "mode": "fixed",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 34,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 34.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 10.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1-no-NLI",
+      "mode": "fixed",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 20.0,
+        "verification_failures": 0.0
+      },
+      "method": "T1-no-NLI",
+      "mode": "fixed",
+      "requested_percent": 100
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 0,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 0,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 0.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 0.0,
+        "verification_failures": 0.0
+      },
+      "method": "T2",
+      "mode": "fixed",
+      "requested_percent": 0
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 2,
+          "current": 24,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 2,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 2.0,
+        "current": 24.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 2.0,
+        "verification_failures": 0.0
+      },
+      "method": "T2",
+      "mode": "fixed",
+      "requested_percent": 10
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 4,
+          "current": 26,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 4,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 4.0,
+        "current": 26.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 4.0,
+        "verification_failures": 0.0
+      },
+      "method": "T2",
+      "mode": "fixed",
+      "requested_percent": 25
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 10,
+          "current": 34,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 10,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 10.0,
+        "current": 34.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 10.0,
+        "verification_failures": 0.0
+      },
+      "method": "T2",
+      "mode": "fixed",
+      "requested_percent": 50
+    },
+    {
+      "by_seed": [
+        {
+          "budget_cap": 20,
+          "current": 38,
+          "current_total": 40,
+          "deletion": 4,
+          "deletion_total": 4,
+          "harmful_current_adoptions": 0,
+          "historical": 20,
+          "historical_total": 20,
+          "reference_candidates": 20,
+          "seed": 7,
+          "verification_attempts": 20,
+          "verification_failures": 0
+        }
+      ],
+      "mean": {
+        "budget_cap": 20.0,
+        "current": 38.0,
+        "current_total": 40.0,
+        "deletion": 4.0,
+        "deletion_total": 4.0,
+        "harmful_current_adoptions": 0.0,
+        "historical": 20.0,
+        "historical_total": 20.0,
+        "reference_candidates": 20.0,
+        "verification_attempts": 20.0,
+        "verification_failures": 0.0
+      },
+      "method": "T2",
+      "mode": "fixed",
+      "requested_percent": 100
+    }
+  ],
+  "dataset_sha256": "837820ce735c3040d14ae1ace8cd24ef6ffc7c2986098e90ec95e0817fb81dc0",
+  "design_sha256": "863937c556e334c8e50eaa3944807ff87845d75507b5ea3063dca89ee6c19a38",
+  "distribution": {
+    "calibration": {
+      "above_threshold": 17,
+      "above_threshold_at_half_budget": 27,
+      "eligible": 70,
+      "feature_means": [
+        0.778020257637011,
+        0.3639257918768895,
+        1.0,
+        0.15714285714285714,
+        47.642857142857146,
+        0.6857142857142857,
+        0.4857142857142857,
+        0.7880952380952381
+      ],
+      "feature_ranges": [
+        [
+          0.42545925193361805,
+          0.8984668813176221
+        ],
+        [
+          0.0006678558420389891,
+          0.9962634444236755
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          7.0,
+          136.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.3333333333333333,
+          1.0
+        ]
+      ],
+      "mean_score_if_changed": {
+        "full_budget": 0.18426709850666673,
+        "provenance": 0.28878227424980163,
+        "temporal": 0.2738697736296217
+      },
+      "score_min_median_max": [
+        0.06240320017072831,
+        0.1593530116116516,
+        0.7800684861319128
+      ],
+      "threshold": 0.36389829717925926
+    },
+    "evaluation": {
+      "above_threshold": 11,
+      "above_threshold_at_half_budget": 21,
+      "eligible": 42,
+      "feature_means": [
+        0.8102402720690096,
+        0.5309953338624577,
+        1.0,
+        0.30952380952380953,
+        55.666666666666664,
+        0.6071428571428571,
+        0.5119047619047619,
+        0.746031746031746
+      ],
+      "feature_ranges": [
+        [
+          0.6121095722106585,
+          0.9330064191855757
+        ],
+        [
+          0.0006862925365567207,
+          0.9956027269363403
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          9.0,
+          136.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.3333333333333333,
+          1.0
+        ]
+      ],
+      "mean_score_if_changed": {
+        "full_budget": 0.18953889777005345,
+        "provenance": 0.32477837826501144,
+        "temporal": 0.2926453351947661
+      },
+      "score_min_median_max": [
+        0.05159100469765839,
+        0.21744418982417776,
+        0.7098772707151905
+      ],
+      "threshold": 0.36389829717925926
+    },
+    "step22_oracle_diagnostic": {
+      "above_threshold": 0,
+      "above_threshold_at_half_budget": 3,
+      "eligible": 8,
+      "feature_means": [
+        0.6657949056274538,
+        0.7692662812769413,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.5,
+        1.0
+      ],
+      "feature_ranges": [
+        [
+          0.5780303603993138,
+          0.7724115856565573
+        ],
+        [
+          0.13421979546546936,
+          0.9994837045669556
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "mean_score_if_changed": {
+        "full_budget": 0.15435372341334253,
+        "provenance": 0.2570831007356016,
+        "temporal": 0.17283225161378504
+      },
+      "score_min_median_max": [
+        0.023267724051825856,
+        0.12167797196294325,
+        0.3079132199056778
+      ],
+      "threshold": 0.36389829717925926
+    },
+    "step23_fresh_development": {
+      "above_threshold": 4,
+      "above_threshold_at_half_budget": 5,
+      "eligible": 20,
+      "feature_means": [
+        0.7291139848021853,
+        0.7942146137356758,
+        1.0,
+        0.25,
+        75.6,
+        0.325,
+        0.625,
+        1.0
+      ],
+      "feature_ranges": [
+        [
+          0.5287500562663519,
+          0.9453460673885726
+        ],
+        [
+          0.04274982586503029,
+          0.9993452429771423
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          222.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "mean_score_if_changed": {
+        "full_budget": 0.1806975903222648,
+        "provenance": 0.2542091106300475,
+        "temporal": 0.19445643931675022
+      },
+      "score_min_median_max": [
+        0.030161844540853487,
+        0.14637814727714457,
+        0.5062072051886961
+      ],
+      "threshold": 0.36389829717925926
+    },
+    "t1_budget_logit_delta_full_vs_empty": -1.9008087563183325,
+    "train": {
+      "above_threshold": 29,
+      "above_threshold_at_half_budget": 74,
+      "eligible": 120,
+      "feature_means": [
+        0.7653434580404543,
+        0.6108451525346027,
+        1.0,
+        0.49166666666666664,
+        49.95,
+        0.7166666666666667,
+        0.5125,
+        0.8388888888888889
+      ],
+      "feature_ranges": [
+        [
+          0.40440996551413483,
+          0.9934925070445456
+        ],
+        [
+          0.0005795174511149526,
+          0.9981518387794495
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          7.0,
+          136.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.3333333333333333,
+          1.0
+        ]
+      ],
+      "mean_score_if_changed": {
+        "full_budget": 0.21107036838454102,
+        "provenance": 0.2998668935323218,
+        "temporal": 0.27839618121603704
+      },
+      "score_min_median_max": [
+        0.040027482317358594,
+        0.2197942058701518,
+        0.782810943372938
+      ],
+      "threshold": 0.36389829717925926
+    }
+  },
+  "policy_reference_count": 120,
+  "provider": {
+    "attempts": 20,
+    "cache_hits": 2066,
+    "cost_usd": "0",
+    "input_tokens": 5491,
+    "latency_ms": 22919.726399879437,
+    "models": [
+      "qwen2.5:7b-instruct-q4_K_M"
+    ],
+    "output_tokens": 225,
+    "statuses": {
+      "ok": 20
+    }
+  },
+  "provider_settings": {
+    "context_tokens": 4096,
+    "max_input_tokens": 4096,
+    "max_output_tokens": 256,
+    "retries": 0,
+    "seed": 23,
+    "timeout": 120
+  },
+  "qwen": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "verifier_prompt_schema": "186d105583c4fa4ecba72b82f9179acd8c140d72dc661679911654a5de8a8eb8",
+  "wall_seconds": 46.72699480003212
+}
