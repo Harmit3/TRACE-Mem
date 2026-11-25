@@ -143,3 +143,11 @@ Codex verified the loopback runtime, froze the development fixtures and go/no-go
 The pending-case export printed 26 cases, 20 train and six validation. The 78-case collection did not run. All research helpfulness counts remain zero. `python -m unittest discover -s tests -q` reported `Ran 50 tests in 2.989s` and `OK` on Python 3.14.0.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/ollama-label-collection?expand=1)
+
+## Revised local verifier validation
+
+On base `a6dd6ac`, Codex analyzed the original false updates and froze two revisions and a fresh 40-case validation at `ce2d8f9`. `python -m scripts.validate_ollama_verifier_v2 --output results/ollama-verifier-v2-frozen` exited 1. The original, direct revision and evidence revision made 21, 23 and 23 false updates respectively. All 160 calls validated, with zero retries, failures, cache hits or provider cost. Ollama reported 10,789/327, 10,909/321, and 25,492/1,543 input/output tokens respectively. See [the validation report](ollama_verifier_v2.md) for exact model identity, hashes, configuration, accuracy, recall, precision, latency and the hardware-based candidate recommendation.
+
+`python -m unittest discover -s tests -q` reported `Ran 52 tests in 3.925s` and `OK` on Python 3.14.0. The original report and 26-case review packet were preserved. No research labels were collected and no weights were downloaded.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/ollama-verifier-v2?expand=1)
