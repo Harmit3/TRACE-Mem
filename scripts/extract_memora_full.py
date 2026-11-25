@@ -1,7 +1,8 @@
-﻿"""Resumable original extraction for the frozen full Memora development diagnostic."""
+"""Resumable original extraction for the frozen full Memora development diagnostic."""
 
 from argparse import ArgumentParser
 from collections import Counter
+from contextlib import closing
 from dataclasses import asdict
 from datetime import date
 import json
@@ -54,9 +55,10 @@ def restore(row):
 def seed_cache(database, supplied):
     """Import successful keyed responses only, leaving old ledgers and caches untouched."""
     if supplied:
-        with sqlite3.connect(database) as db:
-            db.execute("ATTACH DATABASE ? AS previous", (supplied.resolve().as_uri() + "?mode=ro",))
-            db.execute("INSERT OR IGNORE INTO response SELECT key, text FROM previous.response")
+        with (closing(sqlite3.connect(supplied.resolve().as_uri() + "?mode=ro", uri=True)) as old,
+              closing(sqlite3.connect(database)) as db, db):
+            db.executemany("INSERT OR IGNORE INTO response VALUES (?, ?)",
+                           old.execute("SELECT key, text FROM response"))
 
 
 def run(repository, output, reuse):
