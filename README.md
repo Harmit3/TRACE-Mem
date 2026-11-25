@@ -136,6 +136,8 @@ The [Step 21 hybrid extraction experiment](docs/memora_step21.md) tests verbatim
 
 The [Step 22 controlled downstream diagnostic](docs/memora_step22.md) compares automatic extraction with source-checked spans and reports separate fixed-stream and closed-loop verification budgets.
 
+The [Step 23 adaptive verification diagnostic](docs/t2_step23.md) measures T1 threshold transfer and compares training-referenced online pacing with a nonlearned comparator.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.
