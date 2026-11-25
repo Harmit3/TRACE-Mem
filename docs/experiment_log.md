@@ -255,3 +255,10 @@ Reran the release audit, fit both controller variants in a new ignored output di
 - The unchanged T1 scored two original candidates, one Qwen hybrid candidate and one Llama hybrid candidate (contextual emitted none). Stored excerpt payload across isolated cases was 58 real bytes for Qwen and 132 for Llama, excluding structure overhead.
 - Local runs used 76 requests, 17,466 input tokens and 2,796 output tokens, with 135.91 seconds wall time and USD 0 spend. Tests passed for 85 TRACE-Mem tests and 36 subtests. Workspace discovery including pinned upstream tests passed 90 tests and 36 subtests, with one third-party deprecation warning. AI assistance covered implementation, authored fixtures, analytics and technical documentation.
 - [Architecture, observed metrics and bounded follow-up](memora_step21.md).
+
+## Step 22 · Bounded Memora and downstream verification
+
+- Started at merged PR #30 `d53b0db`; froze the first 12 development sessions, eight source-checked proposals, fictional temporal checks, and the budget grid at `6ae9387`. The worksheet includes 185 transcript rows and four explicit review questions. Human review remains pending.
+- The automatic Memora stream emitted five claims. The span-oracle temporal methods retained seven of eight proposed facts. Both streams had no eligible verifier conflicts. All 32 adapted local FAMA rows scored 0.000 because the predictions abstained. Held-out personas and answers were untouched.
+- On two fictional span-oracle histories, both frozen T1 variants scored 12/16 at four matched calls, while B4 scored 14/16 and B5 scored 16/16. Both T1 variants made zero closed-loop calls at every cap. These are diagnostic outcomes from two histories.
+- The replay and separately labeled local scoring used 160 actual local calls and zero paid resources. All 92 discovered tests and 36 subtests passed. AI assistance covered implementation, source-span proposals, fictional fixtures, analytics and documentation. [Protocol, aggregate results and budget plot](memora_step22.md).

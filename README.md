@@ -134,6 +134,8 @@ The [Step 20 extraction audit](docs/memora_step20.md) records the failed context
 
 The [Step 21 hybrid extraction experiment](docs/memora_step21.md) tests verbatim evidence selection, constrained claim normalization, and a privacy-aware evidence sidecar alongside the existing structured architecture.
 
+The [Step 22 controlled downstream diagnostic](docs/memora_step22.md) compares automatic extraction with source-checked spans and reports separate fixed-stream and closed-loop verification budgets.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.

@@ -1,0 +1,48 @@
+{
+  "sessions": 12,
+  "budgets": [0, 10, 25, 50, 100],
+  "seed": 23,
+  "k": 8,
+  "memora_spans": [
+    [1, 11, "favorite_band", "The National", "assert"],
+    [2, 12, "dinner_expense", "$39.89", "assert"],
+    [3, 12, "task", "update the content calendar", "assert"],
+    [6, 11, "coffee_expense", "$7.88", "assert"],
+    [7, 10, "appointment", "Content performance review", "assert"],
+    [8, 12, "steps", "11,550 steps", "assert"],
+    [11, 12, "liked_film", "The Florida Project", "assert"],
+    [12, 18, "coffee_expense", "$3.06", "assert"]
+  ],
+  "pending": [
+    [3, 14, "Does the completion message also close the named content calendar task?"],
+    [9, 4, "Should generic work duties be retained as a durable personal fact?"],
+    [1, 13, "Should reasons for the music preference be represented separately?"],
+    [11, 14, "Should reasons for the film preference be represented separately?"]
+  ],
+  "synthetic": [
+    {
+      "id":"confirmed-and-private",
+      "pairs":[
+        ["job","Cedar Press","Lime Studio","assert","I handed in my badge at Cedar Press. I work at Lime Studio permanently now.",true],
+        ["residence","Tamarind Way","Saffron Lane","correct","I moved out of Tamarind Way and now live at Saffron Lane.",true],
+        ["favorite_band","Wind Atlas","Stone Choir","correct","Stone Choir is my new favorite band, replacing Wind Atlas.",true],
+        ["office","Suite Maple","Suite Alder","assert","The office move is complete. Suite Alder is my permanent office now.",true]
+      ],
+      "deleted":["membership","Glass Club"],
+      "question":"Where do I work now?",
+      "answer_predicate":"job"
+    },
+    {
+      "id":"tentative-and-confirmed",
+      "pairs":[
+        ["job","Finch Hall","Holly House","uncertain","I might work at Holly House if they make an offer. I still work at Finch Hall.",false],
+        ["residence","Clover Court","Sunrise Row","uncertain","I could move to Sunrise Row next year. I still live in Clover Court.",false],
+        ["favorite_band","Copper Rain","Moon Garden","correct","Moon Garden has replaced Copper Rain as my favorite band.",true],
+        ["office","Suite Quartz","Suite Granite","uncertain","I may borrow Suite Granite next week. Suite Quartz is still my permanent office.",false]
+      ],
+      "deleted":["club","Paper Guild"],
+      "question":"Where do I live now?",
+      "answer_predicate":"residence"
+    }
+  ]
+}
