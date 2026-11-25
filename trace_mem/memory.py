@@ -95,3 +95,9 @@ class TemporalMemory:
             if (fact.entity, fact.predicate) == (entity, predicate) and fact.visible_on(as_of)
         )
         return tuple(sorted(matches, key=lambda fact: (fact.valid_from, fact.fact_id), reverse=True))
+
+    def matching_ids(self, entity: str, predicate: str, value: str) -> tuple[str, ...]:
+        """Resolve exact deletion targets across all effective dates."""
+        return tuple(fact.fact_id for fact in self._facts.values()
+                     if (fact.entity, fact.predicate, fact.value.casefold())
+                     == (entity, predicate, value.casefold()))
