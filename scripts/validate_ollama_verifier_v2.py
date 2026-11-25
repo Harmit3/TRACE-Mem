@@ -87,6 +87,48 @@ def freeze() -> dict:
     }
 
 
+def evaluate(provider: ChatProvider, mode: str, cases: tuple) -> dict:
+    today = date(2026, 2, 15)
+    first_day = today - timedelta(days=20)
+    tasks = LLMTasks(provider, verification_mode=mode)
+    counts = Counter()
+    details = []
+    for index, (category, predicate, old, new, intent, message, expected) in enumerate(cases, 1):
+        fact = Fact("prior", "fictional", predicate, old, Source(first_day, "input/1"), first_day)
+        claim = Claim(predicate, new, intent, today)
+        started = time.perf_counter()
+        try:
+            result = tasks.verify(claim, fact, conversation=(message,))
+        except ProviderError:
+            result = None
+        elapsed_ms = (time.perf_counter() - started) * 1000
+        if result is None:
+            counts["failure"] += 1
+        elif result == "update":
+            counts["tp" if expected else "fp"] += 1
+        else:
+            counts["fn" if expected else "tn"] += 1
+        details.append(dict(case=index, category=category, expected_update=expected,
+                            verdict=result, elapsed_ms=elapsed_ms))
+    usage = provider.stats()
+    tp, tn, fp, fn, failures = (counts[key] for key in ("tp", "tn", "fp", "fn", "failure"))
+    positives = sum(row[-1] for row in cases)
+    negatives = len(cases) - positives
+    precision = tp / (tp + fp) if tp + fp else 0.0
+    recall = tp / positives
+    expected_calls = len(cases) * (2 if mode == "evidence-v2" else 1)
+    return {
+        "tp": tp, "tn": tn, "fp": fp, "fn": fn, "failures": failures,
+        "accuracy": (tp + tn) / len(cases), "false_update_rate": fp / negatives,
+        "precision": precision, "recall": recall,
+        "schema_compliance": usage["statuses"].get("ok", 0) / usage["attempts"] if usage["attempts"] else 0.0,
+        "expected_model_calls": expected_calls,
+        "mean_case_latency_ms": sum(row["elapsed_ms"] for row in details) / len(cases),
+        "passed": gate(tp + tn, fp, failures, recall),
+        "usage": usage, "details": details,
+    }
+
+
 def compare(output: Path) -> dict:
     root = Path("results").resolve()
     if not output.resolve().is_relative_to(root) or output.resolve() == root:
@@ -95,8 +137,6 @@ def compare(output: Path) -> dict:
     output.mkdir(parents=True, exist_ok=False)
     (output / "freeze.json").write_text(json.dumps(frozen, indent=2), encoding="utf-8")
     report = {"freeze": frozen, "cases": len(CASES), "variants": {}}
-    today = date(2026, 2, 15)
-    first_day = today - timedelta(days=20)
     for mode in MODES:
         provider = ChatProvider(ProviderConfig(
             "ollama", MODEL, len(CASES) * (2 if mode == "evidence-v2" else 1),
@@ -104,43 +144,7 @@ def compare(output: Path) -> dict:
             max_input_tokens=SETTINGS["max_input_tokens"],
             max_output_tokens=SETTINGS["max_output_tokens"],
         ), output / f"{mode}.sqlite")
-        tasks = LLMTasks(provider, verification_mode=mode)
-        counts = Counter()
-        details = []
-        for index, (category, predicate, old, new, intent, message, expected) in enumerate(CASES, 1):
-            fact = Fact("prior", "fictional", predicate, old, Source(first_day, "input/1"), first_day)
-            claim = Claim(predicate, new, intent, today)
-            started = time.perf_counter()
-            try:
-                result = tasks.verify(claim, fact, conversation=(message,))
-            except ProviderError:
-                result = None
-            elapsed_ms = (time.perf_counter() - started) * 1000
-            if result is None:
-                counts["failure"] += 1
-            elif result == "update":
-                counts["tp" if expected else "fp"] += 1
-            else:
-                counts["fn" if expected else "tn"] += 1
-            details.append(dict(case=index, category=category, expected_update=expected,
-                                verdict=result, elapsed_ms=elapsed_ms))
-        usage = provider.stats()
-        tp, tn, fp, fn, failures = (counts[key] for key in ("tp", "tn", "fp", "fn", "failure"))
-        positives = sum(row[-1] for row in CASES)
-        negatives = len(CASES) - positives
-        precision = tp / (tp + fp) if tp + fp else 0.0
-        recall = tp / positives
-        expected_calls = len(CASES) * (2 if mode == "evidence-v2" else 1)
-        report["variants"][mode] = {
-            "tp": tp, "tn": tn, "fp": fp, "fn": fn, "failures": failures,
-            "accuracy": (tp + tn) / len(CASES), "false_update_rate": fp / negatives,
-            "precision": precision, "recall": recall,
-            "schema_compliance": usage["statuses"].get("ok", 0) / usage["attempts"],
-            "expected_model_calls": expected_calls,
-            "mean_case_latency_ms": sum(row["elapsed_ms"] for row in details) / len(CASES),
-            "passed": gate(tp + tn, fp, failures, recall),
-            "usage": usage, "details": details,
-        }
+        report["variants"][mode] = evaluate(provider, mode, CASES)
         print(json.dumps({"mode": mode, **{k: v for k, v in report["variants"][mode].items()
                                          if k != "details"}}, sort_keys=True), flush=True)
         (output / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")

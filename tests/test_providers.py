@@ -110,6 +110,27 @@ class ProviderTest(unittest.TestCase):
         with self.assertRaisesRegex(LimitExceeded, "billing ceiling"):
             provider.generate("fixture", "system", "data", json.loads)
 
+    def test_local_context_reserves_output_and_partitions_cache(self):
+        calls = []
+
+        def transport(url, headers, body, timeout):
+            calls.append(body)
+            return ollama("[]")
+
+        with self.assertRaisesRegex(ValueError, "context"):
+            ProviderConfig("ollama", "fixture", 3, context_tokens=256)
+        smaller = ChatProvider(ProviderConfig("ollama", "fixture", 3, context_tokens=512),
+                               self.db, transport=transport)
+        with self.assertRaisesRegex(LimitExceeded, "preflight"):
+            smaller.generate("fixture", "system", "x" * 200, json.loads)
+        smaller.generate("fixture", "system", "data", json.loads)
+        larger = ChatProvider(ProviderConfig("ollama", "fixture", 3, context_tokens=1024),
+                              self.db, transport=transport)
+        larger.generate("fixture", "system", "data", json.loads)
+        self.assertEqual([call["options"]["num_ctx"] for call in calls], [512, 1024])
+        self.assertEqual(calls[1]["messages"], [{"role": "system", "content": "system"},
+                                               {"role": "user", "content": "data"}])
+
     def test_collection_resumes_from_cache_and_skips_test_and_ineligible_cases(self):
         raw, output = self.root / "raw", self.root / "paired"
         settings = dict(seed=23, sizes=dict(train=7, validation=7, test=7))

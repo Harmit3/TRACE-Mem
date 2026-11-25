@@ -151,3 +151,11 @@ On base `a6dd6ac`, Codex analyzed the original false updates and froze two revis
 `python -m unittest discover -s tests -q` reported `Ran 52 tests in 3.925s` and `OK` on Python 3.14.0. The original report and 26-case review packet were preserved. No research labels were collected and no weights were downloaded.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/ollama-verifier-v2?expand=1)
+
+## Qwen2.5 local verifier comparison
+
+Codex verified the merge of PR #17, downloaded the approved Qwen 7B Q4_K_M checkpoint, checked local license and model digests, and froze the comparison at `06843ae`. `python -m scripts.compare_local_verifiers --qwen-digest 845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e --output results/qwen-llama-frozen` exited 0. Qwen passed with 38/40 correct and zero false updates. Llama scored 18/40 correct with 22 false updates. All 80 responses validated with zero technical failures, cache hits, or provider cost. The [comparison report](qwen_verifier.md) preserves setup, resource measurements, prompt and schema audit, observed smoke variation, and full metrics.
+
+No research labels were collected. The annotation packet SHA-256 remained `1dffda1962e49c1de62aa82f566bb31ba9148ec180adb78d6464111d2024ae08`. `python -m unittest discover -s tests -q` reported `Ran 54 tests in 3.178s` and `OK`.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/qwen-verifier?expand=1)
