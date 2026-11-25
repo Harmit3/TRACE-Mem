@@ -59,4 +59,16 @@ The observed speakers are `user_agent` and `ai_agent`. All 24,856 turns with a t
 
 Hashing each session's ordered speaker/message pairs with SHA-256 yielded zero exact repeats within histories and zero exact matches across periods for the same persona. These checks exclude paraphrases, partial reuse, and overlap across personas. Keep the proposed persona-level holdout to help control for shared entities and scenarios. Only aggregate audit output was retained.
 
-Remaining audit work includes validating deletion semantics from conversation text, freezing a subset manifest, and estimating evaluation cost with a timed synthetic smoke test. Assessed implementation requires the team's written instructor permission record in `docs/ethics_and_permissions.md`.
+### Deletion cues in conversation text
+
+A source-only diagnostic compared common deletion words in user turns with the session operation annotations. It counted a match for any case-insensitive whole word from `forget`, `delete`, `remove`, `erase`, `discard`, and `drop`, or for `stop` or `don't` followed by `keep`, `remember`, `retain`, `track`, or `store`. Multiple matches in a session counted once.
+
+| Period | Annotated delete sessions with a cue | Other sessions with a cue |
+| --- | ---: | ---: |
+| Weekly | 74 / 193 | 2 / 1,358 |
+| Monthly | 332 / 788 | 5 / 5,362 |
+| Quarterly | 623 / 2,178 | 30 / 17,735 |
+
+The listed terms appear in only 1,029 of the 3,159 delete sessions. This audit measures word coverage. It leaves deletion intent, target scope, indirect phrasing and contextual references unverified. A true user-turn `share_memory` flag was present in every add, update, and delete session, and absent in every null-operation session. Using it at inference would reveal where annotated memory operations occur. Preserve the text-only boundary and test deletion handling with indirect requests and requests whose target depends on earlier turns.
+
+Remaining audit work includes reviewing deletion scope and its relationship to scorer omissions, freezing a subset manifest, and estimating evaluation cost with a timed synthetic smoke test. Assessed implementation requires the team's written instructor permission record in `docs/ethics_and_permissions.md`.
