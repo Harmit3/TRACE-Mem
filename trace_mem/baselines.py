@@ -1,10 +1,12 @@
-"""Run append-only and temporal-rule baselines over the same extracted claims."""
+"""Run memory and verification policies over the same extracted claims."""
 
 from collections.abc import Callable, Iterable
 from dataclasses import dataclass
+import math
 from typing import Literal
 
 from trace_mem.claims import Claim, conflicts, extract
+from trace_mem.controller import FEATURE_NAMES, LogisticController, features_for
 from trace_mem.data.memora import Event
 from trace_mem.memory import Fact, Source, TemporalMemory
 from trace_mem.verification import Budget, Verdict, select_random, select_ranked
@@ -59,10 +61,15 @@ def run_matched_baselines(
     calls: int,
     seed: int,
     verify: Verifier,
+    controller: LogisticController | None = None,
 ) -> dict[str, VerificationRun]:
-    """Replay B4 and B5 under the same exact call budget on frozen B2 evidence."""
+    """Replay B4, B5 and optional T1 on frozen B2 evidence at exactly the same cost in calls."""
     if type(calls) is not int or calls < 0:
         raise ValueError("Expected a nonnegative integer call target")
+    if type(seed) is not int:
+        raise ValueError("Expected an integer seed")
+    if controller is not None:
+        _validate_controller(controller)
     prepared = tuple(_prepare(events, complete))
     reference = TemporalMemory()
     candidates: list[tuple[PreparedClaim, Fact]] = []
@@ -78,6 +85,13 @@ def run_matched_baselines(
         "B4": select_random(len(candidates), calls, seed=seed),
         "B5": select_ranked([priority[item.claim.intent] for item, _ in candidates], calls),
     }
+    if controller is not None:
+        scores = [
+            controller.score(features_for(item.claim, target, entity=entity, source=item.source,
+                                          budget_remaining_fraction=float(calls > 0)))
+            for item, target in candidates
+        ]
+        selections["T1"] = select_ranked(scores, calls)
     runs = {}
     for method, selected in selections.items():
         targets = {item.fact_id: target for index, (item, target) in enumerate(candidates)
@@ -100,6 +114,42 @@ def run_matched_baselines(
         runs[method] = VerificationRun(memory, tuple(targets), budget.attempts,
                                        budget.failures, stale_targets)
     return runs
+
+
+def _validate_controller(controller: LogisticController) -> None:
+    if len(controller.weights) != len(FEATURE_NAMES):
+        raise ValueError("T1 requires the eight README features")
+
+
+def run_t1(
+    events: Iterable[Event],
+    complete: Callable[[str, str], str],
+    *,
+    entity: str,
+    controller: LogisticController,
+    threshold: float,
+    calls: int,
+    verify: Verifier,
+) -> VerificationRun:
+    """Run a causal threshold policy under a hard cap, with possible underspend."""
+    _validate_controller(controller)
+    if not math.isfinite(threshold) or not 0 <= threshold <= 1:
+        raise ValueError("Threshold must be between zero and one")
+    budget = Budget(calls)
+    memory = TemporalMemory()
+    selected_ids = []
+    for item in _prepare(events, complete):
+        claim, source, fact_id = item.claim, item.source, item.fact_id
+        target = _eligible_target(memory, entity, claim) if budget.remaining else None
+        if target is not None:
+            features = features_for(claim, target, entity=entity, source=source,
+                                    budget_remaining_fraction=budget.remaining / budget.limit)
+            if controller.score(features) >= threshold:
+                selected_ids.append(fact_id)
+                _apply_verdict(memory, entity, item, target, budget.call(verify, claim, target))
+                continue
+        _apply(memory, entity, claim, source, fact_id, "B2", None, None, None)
+    return VerificationRun(memory, tuple(selected_ids), budget.attempts, budget.failures, 0)
 
 
 def run_baseline(

@@ -67,3 +67,11 @@ Codex integrated B4 random and B5 heuristic selection into chronological replay.
 Base revision `1c9e119`. On Python 3.14.0, `python -m unittest discover -s tests -v` reported `Ran 16 tests in 0.056s` and `OK`. Standard library only. The paired tests use seed 2 and injected extraction and verification providers. No live model calls, tokens, provider charges, or benchmark scores. Human review is pending.
 
 The GitHub integration previously returned HTTP 403 for pull-request creation. Use the [manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/budget-matched-baselines?expand=1).
+
+## T1 chronological replay
+
+Codex implemented the eight README features as deterministic lexical and rule proxies and wired logistic scores into both the fixed-stream B4/B5/T1 diagnostic and closed-loop T1 replay. The fixed-stream diagnostic uses chronological tie-breaking and equal realized attempts. Closed-loop replay uses the current memory, remaining call fraction, and a supplied threshold under a hard cap.
+
+Base revision `6904a06`. On Python 3.14.0, `python -m unittest discover -s tests -v` reported `Ran 22 tests in 0.059s` and `OK`. Standard library only. New tests cover feature values and order, invalid inputs, reproducible selection with seed 2, live state updates, budget exhaustion, and failed verification. Tests use synthetic coefficients and mock providers. No independent training or calibration, model calls, tokens, charges, or benchmark results. Human review is pending.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/t1-trace-controller?expand=1)

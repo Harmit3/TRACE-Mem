@@ -4,7 +4,8 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 
-from trace_mem.baselines import run_baseline, run_matched_baselines
+from trace_mem.baselines import run_baseline, run_matched_baselines, run_t1
+from trace_mem.controller import LogisticController
 from trace_mem.data.memora import Event, replay
 from trace_mem.verification import Budget
 
@@ -136,4 +137,57 @@ class MatchedBaselineTest(unittest.TestCase):
                 self.run_pair(calls)
         with self.assertRaisesRegex(ValueError, "chronological"):
             self.run_pair(1, events=reversed(self.events))
+        self.assertEqual(self.invoked, [])
+
+    def test_t1_uses_fixed_stream_with_equal_attempts_and_stable_ties(self):
+        controller = LogisticController((0,) * 8, (1,) * 8, (0,) * 6 + (2, 0), 0)
+        kwargs = dict(entity="p", calls=2, seed=2, verify=self.verify, controller=controller)
+        first = run_matched_baselines(iter(self.events), self.complete, **kwargs)
+        second = run_matched_baselines(iter(self.events), self.complete, **kwargs)
+        self.assertEqual({name: run.attempts for name, run in first.items()},
+                         {"B4": 2, "B5": 2, "T1": 2})
+        self.assertEqual(first["T1"].selected_ids, ("3/1/0", "4/1/0"))
+        self.assertEqual(first["T1"].selected_ids, second["T1"].selected_ids)
+        self.assertEqual(first["T1"].memory.trace, second["T1"].memory.trace)
+        self.assertEqual(first["T1"].stale_targets, 1)
+
+    def test_closed_loop_t1_uses_live_budget_fraction_and_debits_failures(self):
+        controller = LogisticController((0,) * 8, (1,) * 8, (0,) * 7 + (4,), -3)
+
+        def fail(claim, target):
+            self.invoked.append((claim.value, target.value))
+            raise TimeoutError
+
+        run = run_t1(iter(self.events), self.complete, entity="p", controller=controller,
+                     threshold=0.5, calls=2, verify=fail)
+        self.assertEqual(run.selected_ids, ("2/1/0",))
+        self.assertEqual((run.attempts, run.failures), (1, 1))
+        self.assertEqual(self.invoked, [("Birch", "Alder")])
+        current, = run.memory.retrieve("p", "job", as_of=date(2026, 3, 4))
+        self.assertEqual(current.value, "Alder")
+
+    def test_closed_loop_t1_applies_verdict_and_stops_at_cap(self):
+        controller = LogisticController((0,) * 8, (1,) * 8, (0,) * 8, 0)
+        for calls, expected in ((0, "Alder"), (1, "Birch"), (2, "Cedar")):
+            with self.subTest(calls=calls):
+                self.invoked.clear()
+                run = run_t1(iter(self.events), self.complete, entity="p", controller=controller,
+                             threshold=0.5, calls=calls, verify=self.verify)
+                self.assertEqual(run.attempts, calls)
+                self.assertEqual(len(self.invoked), calls)
+                if calls == 2:
+                    self.assertEqual(self.invoked[1], ("Cedar", "Birch"))
+                current, = run.memory.retrieve("p", "job", as_of=date(2026, 3, 4))
+                self.assertEqual(current.value, expected)
+
+    def test_t1_rejects_invalid_model_threshold_and_order(self):
+        controller = LogisticController((0,) * 8, (1,) * 8, (0,) * 8, 0)
+        settings = dict(entity="p", controller=controller, threshold=0.5,
+                        calls=1, verify=self.verify)
+        for bad in (dict(controller=LogisticController((0,), (1,), (1,), 0)),
+                    dict(threshold=float("nan")), dict(calls=-1)):
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                run_t1(self.events, self.complete, **(settings | bad))
+        with self.assertRaisesRegex(ValueError, "chronological"):
+            run_t1(reversed(self.events), self.complete, **settings)
         self.assertEqual(self.invoked, [])
