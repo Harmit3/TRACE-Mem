@@ -168,6 +168,7 @@ def run_baseline(
     budget: Budget | None = None,
     should_verify: VerificationGate | None = None,
     verify: Verifier | None = None,
+    initial_facts: Iterable[Fact] = (),
 ) -> TemporalMemory:
     if method not in ("B1", "B2"):
         raise ValueError("Expected B1 or B2")
@@ -177,6 +178,8 @@ def run_baseline(
     ):
         raise ValueError("Selective replay requires B2, a budget, a gate and a verifier")
     memory = TemporalMemory()
+    for fact in initial_facts:
+        memory.accept(fact)
     for item in _prepare(events, complete):
         _apply(memory, entity, item.claim, item.source, item.fact_id, method,
                budget, should_verify, verify)
