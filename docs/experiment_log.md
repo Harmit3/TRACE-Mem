@@ -226,3 +226,7 @@ Qwen reported 788 requests, 44 cache hits, 185,845 input and 20,362 output token
 - The rerun reproduced the model parameters and thresholds, and evaluation JSON and all four figures were byte-identical. The independent partition has just 6 positives from 4 families. This was an exploratory fixed-prefix evaluation. No closed-loop or Memora performance was measured.
 - [Protocol, exact commands, aggregate metrics and figures](t1_v3_training.md).
 - Final regression suite: 75 tests and 36 subtests passed. Pytest emitted one third-party anyio deprecation warning.
+
+### Step 18 reproducibility check after standing authorization update
+
+Reran the release audit, fit both controller variants in a new ignored output directory, and reran independent scoring using the original committed fit freeze. Both fits reproduced the published numerical parameters, thresholds, and grouped selection scores. The aggregate evaluation JSON and four SVGs were byte-identical to the original local run. The published SVGs use LF line endings. The 75-test suite and 36 subtests passed with one third-party deprecation warning. This repeated scoring uses the existing evaluation partition and preserves the original artifacts.
