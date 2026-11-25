@@ -2,16 +2,18 @@
 
 from argparse import ArgumentParser
 from collections import Counter
+from contextlib import closing
 from dataclasses import asdict
 from functools import lru_cache
 import itertools
 import json
 from pathlib import Path
 import re
+import sqlite3
 import time
 
 from scripts.compare_local_verifiers import MODE, QWEN, SETTINGS, checksum, local_json
-from scripts.extract_memora_full import DESIGN, input_history, restore
+from scripts.extract_memora_full import DESIGN, input_history, restore, seed_cache
 from scripts.run_memora import ARTIFACTS, ROOT, sha, write
 from scripts.run_t2_development import frozen_rows
 from scripts.updateset_v2_pilot import PROMPT_SCHEMA, QWEN_DIGEST
@@ -23,7 +25,7 @@ from trace_mem.features_v3 import CachedMiniLM, MINILM_REVISION, NLI_REVISION, V
 from trace_mem.llm_tasks import DIRECT_V2_PROMPT, LLMTasks, RESPONSE_SCHEMAS
 from trace_mem.memora_benchmark import METHODS, answer_suite, questions, run_suite
 from trace_mem.memory import TemporalMemory
-from trace_mem.providers import ChatProvider, ProviderConfig
+from trace_mem.providers import ChatProvider, ProviderConfig, ProviderError
 from trace_mem.training import load_model
 
 
@@ -31,6 +33,45 @@ ENTITY = "development-persona"
 ADAPTIVE = ("T2", "H-paced")
 HISTORICAL_WORDING = re.compile(r"\b(previous(?:ly)?|formerly|used to|before|historical|past)\b", re.I)
 EVENTLIKE = re.compile(r"expense|activity|event|appointment|task|steps|spend|purchase|visit|meeting|payment")
+
+
+class TerminalResponseMemo:
+    """Share terminal validation failures across identical replay requests."""
+
+    TERMINAL = {
+        "Provider response was incomplete or refused",
+        "Provider response did not match the task schema",
+    }
+
+    def __init__(self, provider, database):
+        self.provider = provider
+        self.database = database
+        with closing(sqlite3.connect(database)) as db, db:
+            db.execute("CREATE TABLE IF NOT EXISTS terminal (key TEXT PRIMARY KEY, error TEXT)")
+            db.execute("CREATE TABLE IF NOT EXISTS reuse (id INTEGER PRIMARY KEY)")
+
+    def generate(self, task, system, payload, validate):
+        config = self.provider.config
+        url, _, body = self.provider.request_for(config, task, system, payload)
+        key = self.provider.cache_key(task, url, body)
+        with closing(sqlite3.connect(self.database)) as db, db:
+            error = db.execute("SELECT error FROM terminal WHERE key=?", (key,)).fetchone()
+            if error:
+                db.execute("INSERT INTO reuse DEFAULT VALUES")
+            else:
+                try:
+                    return self.provider.generate(task, system, payload, validate)
+                except ProviderError as exc:
+                    if str(exc) not in self.TERMINAL:
+                        raise
+                    db.execute("INSERT INTO terminal VALUES (?, ?)", (key, str(exc)))
+                    error = (str(exc),)
+        raise ProviderError(error[0])
+
+    def stats(self):
+        with closing(sqlite3.connect(self.database)) as db:
+            return {"distinct_terminal_failures": db.execute("SELECT COUNT(*) FROM terminal").fetchone()[0],
+                    "failure_cache_hits": db.execute("SELECT COUNT(*) FROM reuse").fetchone()[0]}
 
 
 def inspect_claims(prepared):
@@ -107,7 +148,7 @@ def make_adaptive(horizon, train, full):
             for name, fn in (("T2", learned), ("H-paced", heuristic_score))}
 
 
-def run(repository, output, outcomes, nli):
+def run(repository, output, outcomes, nli, reuse=None):
     import torch
 
     if (ROOT / "results").resolve() not in output.resolve().parents:
@@ -136,7 +177,9 @@ def run(repository, output, outcomes, nli):
     checkpoints.mkdir(exist_ok=True)
     provider = ChatProvider(ProviderConfig("ollama", QWEN, design["max_replay_requests"], **SETTINGS),
                             output / "replay.sqlite")
-    tasks = LLMTasks(provider, verification_mode=MODE)
+    seed_cache(provider.database, reuse)
+    memo = TerminalResponseMemo(provider, output / "replay-terminal.sqlite")
+    tasks = LLMTasks(memo, verification_mode=MODE)
     started = time.perf_counter()
     torch.set_num_threads(4)
     embedding = CachedMiniLM()
@@ -187,7 +230,8 @@ def run(repository, output, outcomes, nli):
                                      "seed": seed, "planning_horizon": horizon} for row in rows)
     write(output / "predictions.json", checkpoints_read)
     result = {"questions": len(chosen), "prediction_rows": len(checkpoints_read), "audit": audit,
-              "provider": provider.stats(), "invocation_wall_seconds": time.perf_counter() - started}
+              "provider": provider.stats(), **memo.stats(),
+              "invocation_wall_seconds": time.perf_counter() - started}
     write(output / "replay-report.json", result)
     return result
 
@@ -198,5 +242,6 @@ if __name__ == "__main__":
     p.add_argument("output", type=Path)
     p.add_argument("--outcomes", type=Path, required=True)
     p.add_argument("--nli", type=Path, required=True)
+    p.add_argument("--reuse", type=Path)
     a = p.parse_args()
-    print(json.dumps(run(a.memora, a.output, a.outcomes, a.nli), sort_keys=True))
+    print(json.dumps(run(a.memora, a.output, a.outcomes, a.nli, a.reuse), sort_keys=True))
