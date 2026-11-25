@@ -1,0 +1,528 @@
+{
+  "automatic": {
+    "configuration": "external judgments with pinned Memora FAMA arithmetic",
+    "judge_reference": "Adapted local Qwen judge 845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e; validation ec03a0752b8de5e46dec5d852f14536d08ee1ea78f025b4960f33c594b070df1",
+    "predictions_sha256": "33b1dd0864a541101e72408bffa741591afd336e37af1838d503dcd32e8a7a03",
+    "provider": {
+      "attempts": 11,
+      "cache_hits": 165,
+      "cost_usd": "0",
+      "input_tokens": 1178,
+      "latency_ms": 14391.684899979737,
+      "models": [
+        "qwen2.5:7b-instruct-q4_K_M"
+      ],
+      "output_tokens": 91,
+      "statuses": {
+        "ok": 11
+      }
+    },
+    "rows": [
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B0",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B1",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B2",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B3",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B4",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B5",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "T1",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "T1-no-NLI",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B0",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B1",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B2",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B3",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B4",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B5",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "T1",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "T1-no-NLI",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      }
+    ],
+    "scorer_blob": "ca02a714473e19e3f415f2d7db272ac84a46e33a",
+    "wall_seconds": 15.923508299980313
+  },
+  "span-oracle": {
+    "configuration": "external judgments with pinned Memora FAMA arithmetic",
+    "judge_reference": "Adapted local Qwen judge 845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e; validation ec03a0752b8de5e46dec5d852f14536d08ee1ea78f025b4960f33c594b070df1",
+    "predictions_sha256": "75fd93970820c6c56ea5b22c8852debafc7baa683e79c6d5f3d1b3f015b7ec1f",
+    "provider": {
+      "attempts": 11,
+      "cache_hits": 165,
+      "cost_usd": "0",
+      "input_tokens": 1178,
+      "latency_ms": 23594.61480000755,
+      "models": [
+        "qwen2.5:7b-instruct-q4_K_M"
+      ],
+      "output_tokens": 91,
+      "statuses": {
+        "ok": 11
+      }
+    },
+    "rows": [
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B0",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B1",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B2",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B3",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B4",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B5",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "T1",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "T1-no-NLI",
+        "mode": "closed-loop",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B0",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B1",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B2",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B3",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B4",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "B5",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "T1",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      },
+      {
+        "correct": {
+          "forgetting_absence": 7,
+          "memory_presence": 0
+        },
+        "fama_arithmetic": 0.0,
+        "forgetting_absence_accuracy": 1.0,
+        "memory_presence_accuracy": 0.0,
+        "method": "T1-no-NLI",
+        "mode": "fixed",
+        "totals": {
+          "forgetting_absence": 7,
+          "memory_presence": 4
+        }
+      }
+    ],
+    "scorer_blob": "ca02a714473e19e3f415f2d7db272ac84a46e33a",
+    "wall_seconds": 25.22142629994778
+  }
+}
