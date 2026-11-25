@@ -1,0 +1,311 @@
+{
+  "groups": {
+    "calibration": {
+      "candidate_status": {
+        "budget_exhausted": 27,
+        "ineligible": 63,
+        "verified": 70
+      },
+      "changed_still_incorrect": 2,
+      "decision_points": 150,
+      "extraction_failures": 3,
+      "families": 10,
+      "features": {
+        "budget_remaining_fraction": {
+          "distinct": 4,
+          "max": 1.0,
+          "min": 0.3333333333333333,
+          "variance": 0.06660430839002268
+        },
+        "contradiction_score": {
+          "distinct": 68,
+          "max": 0.9962634444236755,
+          "min": 0.0006678558420389891,
+          "variance": 0.2059606589657254
+        },
+        "entity_match": {
+          "distinct": 1,
+          "max": 1.0,
+          "min": 1.0,
+          "variance": 0.0
+        },
+        "provenance_score": {
+          "distinct": 3,
+          "max": 1.0,
+          "min": 0.0,
+          "variance": 0.10122448979591837
+        },
+        "semantic_similarity": {
+          "distinct": 65,
+          "max": 0.8984668813176221,
+          "min": 0.42545925193361805,
+          "variance": 0.016907323276473523
+        },
+        "temporal_conflict_score": {
+          "distinct": 2,
+          "max": 1.0,
+          "min": 0.0,
+          "variance": 0.13244897959183674
+        },
+        "time_gap": {
+          "distinct": 13,
+          "max": 136.0,
+          "min": 7.0,
+          "variance": 1936.8295918367346
+        },
+        "uncertainty": {
+          "distinct": 3,
+          "max": 1.0,
+          "min": 0.0,
+          "variance": 0.056938775510204084
+        }
+      },
+      "harmful": 0,
+      "histories": 50,
+      "missing_eligible_vectors": 0,
+      "negative": 46,
+      "negative_families": 8,
+      "negative_histories": 37,
+      "pearson_nonconstant": {
+        "contradiction_score:budget_remaining_fraction": -0.5323702811311507,
+        "contradiction_score:provenance_score": 0.043837329254402466,
+        "contradiction_score:temporal_conflict_score": 0.3123041266878104,
+        "contradiction_score:time_gap": 0.10358571871573781,
+        "contradiction_score:uncertainty": -0.20313892699824654,
+        "provenance_score:budget_remaining_fraction": 0.044324361429285496,
+        "provenance_score:uncertainty": -0.3413978494623656,
+        "semantic_similarity:budget_remaining_fraction": 0.5065787356349624,
+        "semantic_similarity:contradiction_score": -0.04454331235677756,
+        "semantic_similarity:provenance_score": 0.0325062406970149,
+        "semantic_similarity:temporal_conflict_score": -0.23787337201855893,
+        "semantic_similarity:time_gap": -0.1126096281753735,
+        "semantic_similarity:uncertainty": -0.4119535840879113,
+        "temporal_conflict_score:budget_remaining_fraction": -0.30456023260626963,
+        "temporal_conflict_score:provenance_score": 0.30315536627642264,
+        "temporal_conflict_score:time_gap": 0.041857113867777615,
+        "temporal_conflict_score:uncertainty": -0.1386524543434801,
+        "time_gap:budget_remaining_fraction": -0.12133096322612152,
+        "time_gap:provenance_score": 0.015449743767212778,
+        "time_gap:uncertainty": 0.18656294360407888,
+        "uncertainty:budget_remaining_fraction": -0.20380921330101365
+      },
+      "pending_gold": 7,
+      "positive": 17,
+      "positive_families": 6,
+      "positive_histories": 17,
+      "unchanged": 50,
+      "unique_vectors": 69,
+      "unique_without_nli": 69
+    },
+    "evaluation": {
+      "candidate_status": {
+        "budget_exhausted": 19,
+        "ineligible": 142,
+        "verified": 42
+      },
+      "changed_still_incorrect": 0,
+      "decision_points": 150,
+      "extraction_failures": 0,
+      "families": 10,
+      "features": {
+        "budget_remaining_fraction": {
+          "distinct": 4,
+          "max": 1.0,
+          "min": 0.3333333333333333,
+          "variance": 0.0664525069286974
+        },
+        "contradiction_score": {
+          "distinct": 42,
+          "max": 0.9956027269363403,
+          "min": 0.0006862925365567207,
+          "variance": 0.20864941343485727
+        },
+        "entity_match": {
+          "distinct": 1,
+          "max": 1.0,
+          "min": 1.0,
+          "variance": 0.0
+        },
+        "provenance_score": {
+          "distinct": 3,
+          "max": 1.0,
+          "min": 0.0,
+          "variance": 0.14923469387755103
+        },
+        "semantic_similarity": {
+          "distinct": 29,
+          "max": 0.9330064191855757,
+          "min": 0.6121095722106585,
+          "variance": 0.009387465223585412
+        },
+        "temporal_conflict_score": {
+          "distinct": 2,
+          "max": 1.0,
+          "min": 0.0,
+          "variance": 0.213718820861678
+        },
+        "time_gap": {
+          "distinct": 12,
+          "max": 136.0,
+          "min": 9.0,
+          "variance": 1653.2698412698412
+        },
+        "uncertainty": {
+          "distinct": 3,
+          "max": 1.0,
+          "min": 0.0,
+          "variance": 0.0534297052154195
+        }
+      },
+      "harmful": 0,
+      "histories": 50,
+      "missing_eligible_vectors": 0,
+      "negative": 31,
+      "negative_families": 5,
+      "negative_histories": 20,
+      "pearson_nonconstant": {
+        "contradiction_score:budget_remaining_fraction": -0.13864228877350016,
+        "contradiction_score:provenance_score": -0.15268169309619467,
+        "contradiction_score:temporal_conflict_score": 0.21596765677252172,
+        "contradiction_score:time_gap": -0.008491959903154538,
+        "contradiction_score:uncertainty": -0.32614636003212827,
+        "provenance_score:budget_remaining_fraction": 0.11385204365229652,
+        "provenance_score:uncertainty": -0.08094412176948414,
+        "semantic_similarity:budget_remaining_fraction": 0.3695886459761782,
+        "semantic_similarity:contradiction_score": 0.11531591081175047,
+        "semantic_similarity:provenance_score": -0.30117853951953927,
+        "semantic_similarity:temporal_conflict_score": 0.19500904527555551,
+        "semantic_similarity:time_gap": -0.025505130597838686,
+        "semantic_similarity:uncertainty": -0.2517580752607375,
+        "temporal_conflict_score:budget_remaining_fraction": 0.1934474127956793,
+        "temporal_conflict_score:provenance_score": 0.014284256782850141,
+        "temporal_conflict_score:time_gap": -0.0071776969798977045,
+        "temporal_conflict_score:uncertainty": -0.034482758620689655,
+        "time_gap:budget_remaining_fraction": -0.04896461833506245,
+        "time_gap:provenance_score": 0.1493069998228801,
+        "time_gap:uncertainty": 0.04348839934879197,
+        "uncertainty:budget_remaining_fraction": -0.01585634531112126
+      },
+      "pending_gold": 5,
+      "positive": 6,
+      "positive_families": 4,
+      "positive_histories": 6,
+      "unchanged": 36,
+      "unique_vectors": 42,
+      "unique_without_nli": 42
+    },
+    "train": {
+      "candidate_status": {
+        "budget_exhausted": 53,
+        "ineligible": 190,
+        "verified": 120
+      },
+      "changed_still_incorrect": 6,
+      "decision_points": 300,
+      "extraction_failures": 1,
+      "families": 20,
+      "features": {
+        "budget_remaining_fraction": {
+          "distinct": 4,
+          "max": 1.0,
+          "min": 0.3333333333333333,
+          "variance": 0.05876543209876543
+        },
+        "contradiction_score": {
+          "distinct": 120,
+          "max": 0.9981518387794495,
+          "min": 0.0005795174511149526,
+          "variance": 0.21539781836806213
+        },
+        "entity_match": {
+          "distinct": 1,
+          "max": 1.0,
+          "min": 1.0,
+          "variance": 0.0
+        },
+        "provenance_score": {
+          "distinct": 3,
+          "max": 1.0,
+          "min": 0.0,
+          "variance": 0.10305555555555555
+        },
+        "semantic_similarity": {
+          "distinct": 113,
+          "max": 0.9934925070445456,
+          "min": 0.40440996551413483,
+          "variance": 0.011924950451926953
+        },
+        "temporal_conflict_score": {
+          "distinct": 2,
+          "max": 1.0,
+          "min": 0.0,
+          "variance": 0.24993055555555554
+        },
+        "time_gap": {
+          "distinct": 15,
+          "max": 136.0,
+          "min": 7.0,
+          "variance": 1766.3141666666668
+        },
+        "uncertainty": {
+          "distinct": 3,
+          "max": 1.0,
+          "min": 0.0,
+          "variance": 0.039427083333333335
+        }
+      },
+      "harmful": 0,
+      "histories": 100,
+      "missing_eligible_vectors": 0,
+      "negative": 90,
+      "negative_families": 18,
+      "negative_histories": 75,
+      "pearson_nonconstant": {
+        "contradiction_score:budget_remaining_fraction": -0.027194586080264222,
+        "contradiction_score:provenance_score": -0.005729417865802358,
+        "contradiction_score:temporal_conflict_score": 0.5654345620575638,
+        "contradiction_score:time_gap": 0.08031263658720866,
+        "contradiction_score:uncertainty": -0.27389250910336976,
+        "provenance_score:budget_remaining_fraction": -0.10470375215972091,
+        "provenance_score:uncertainty": -0.17322142317148811,
+        "semantic_similarity:budget_remaining_fraction": 0.3493676001257014,
+        "semantic_similarity:contradiction_score": -0.3898261015655643,
+        "semantic_similarity:provenance_score": 0.0876038387607311,
+        "semantic_similarity:temporal_conflict_score": -0.04591653328853849,
+        "semantic_similarity:time_gap": -0.10658043884138393,
+        "semantic_similarity:uncertainty": -0.18527785685991127,
+        "temporal_conflict_score:budget_remaining_fraction": 0.30981073271110726,
+        "temporal_conflict_score:provenance_score": -0.014711977202200955,
+        "temporal_conflict_score:time_gap": 0.013861884651946597,
+        "temporal_conflict_score:uncertainty": -0.31375665957213095,
+        "time_gap:budget_remaining_fraction": -0.12198278259111503,
+        "time_gap:provenance_score": 0.03662720395568888,
+        "time_gap:uncertainty": 0.005067847048179559,
+        "uncertainty:budget_remaining_fraction": -0.1745679797448282
+      },
+      "pending_gold": 8,
+      "positive": 22,
+      "positive_families": 9,
+      "positive_histories": 22,
+      "unchanged": 92,
+      "unique_vectors": 120,
+      "unique_without_nli": 120
+    }
+  },
+  "outcomes_sha256": "837820ce735c3040d14ae1ace8cd24ef6ffc7c2986098e90ec95e0817fb81dc0",
+  "usage": {
+    "attempts": 788,
+    "cache_hits": 44,
+    "cost_usd": "0",
+    "input_tokens": 185845,
+    "latency_ms": 1099062.7560001449,
+    "models": [
+      "qwen2.5:7b-instruct-q4_K_M"
+    ],
+    "output_tokens": 20362,
+    "statuses": {
+      "invalid": 4,
+      "ok": 784
+    }
+  }
+}
