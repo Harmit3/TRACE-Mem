@@ -120,6 +120,7 @@ class ProviderTest(unittest.TestCase):
             self.assertEqual(url, "http://127.0.0.1:11434/api/chat")
             self.assertNotIn("Authorization", headers)
             self.assertEqual(body["options"]["seed"], 7)
+            self.assertIn("insufficient_evidence", body["format"]["properties"]["verdict"]["enum"])
             payload = json.loads(body["messages"][1]["content"])
             self.assertEqual(set(payload), {"existing", "proposed", "conversation"})
             calls.append(payload)

@@ -15,6 +15,8 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
 from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
 
+from trace_mem.llm_tasks import RESPONSE_SCHEMAS
+
 
 class ProviderError(RuntimeError):
     """Provider failure with no request text, credentials, or response body."""
@@ -161,7 +163,7 @@ class ChatProvider:
             return db.execute("INSERT INTO attempt(cost,status) VALUES(?, 'reserved')",
                               (reserve,)).lastrowid
 
-    def _request(self, system: str, payload: str) -> tuple[str, dict, dict]:
+    def _request(self, task: str, system: str, payload: str) -> tuple[str, dict, dict]:
         settings = self.config
         messages = [{"role": "system", "content": system}, {"role": "user", "content": payload}]
         headers = {"Content-Type": "application/json"}
@@ -169,6 +171,8 @@ class ChatProvider:
         if settings.backend == "ollama":
             body["options"] = {"temperature": 0, "seed": settings.seed,
                                "num_predict": settings.max_output_tokens}
+            if task in RESPONSE_SCHEMAS:
+                body["format"] = RESPONSE_SCHEMAS[task]
             return settings.ollama_url.rstrip("/") + "/api/chat", headers, body
         headers["Authorization"] = f"Bearer {settings.api_key}"
         if settings.backend == "openai":
@@ -202,7 +206,7 @@ class ChatProvider:
         return text, input_count, output_count, model, finished
 
     def generate(self, task: str, system: str, payload: str, validate: Callable[[str], None]) -> str:
-        url, headers, body = self._request(system, payload)
+        url, headers, body = self._request(task, system, payload)
         key = hashlib.sha256(json.dumps([task, url, body], sort_keys=True).encode()).hexdigest()
         with closing(self._connect()) as db, db:
             cached = db.execute("SELECT text FROM response WHERE key=?", (key,)).fetchone()
