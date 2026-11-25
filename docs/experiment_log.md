@@ -209,3 +209,11 @@ On base `124e0f5`, Codex reused the previously downloaded checkpoint after integ
 The coexistence check used one local Qwen request, with 270 input and 11 output tokens, 14,285.54 ms provider latency, and USD 0 cost. `python -m unittest discover -s tests -q` reported `Ran 70 tests in 5.953s` and `OK`. No full collection or training ran.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/v3-local-nli?expand=1)
+
+## Final TRACE-UpdateSet v3 longitudinal release
+
+On base `44fe6cc`, Codex froze the generator, gold and collector at `e58a91c`. The [release report](updateset_v3_final.md) records the commands, hashes, counts and audit. All 600 decision points completed. The run recorded 232 successful verification comparisons, 45 helpful, 167 not helpful, and 20 awaiting gold. The no-NLI projection preserves their labels and groups. All prior experiments were preserved.
+
+Qwen reported 788 requests, 44 cache hits, 185,845 input and 20,362 output tokens and 1,099.063 seconds summed provider latency at zero provider cost. Four extraction failures were retained. MiniLM and NLI ran locally on CPU. No training, calibration fitting, paid requests or benchmark evaluation ran. `python -m unittest discover -s tests -q` reported `Ran 73 tests in 3.617s` and `OK`.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/updateset-v3-final?expand=1)
