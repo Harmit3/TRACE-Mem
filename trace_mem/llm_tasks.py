@@ -1,6 +1,6 @@
 """Validated model tasks shared by remote, local and deterministic mock providers."""
 
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 from datetime import date
 import json
@@ -162,11 +162,17 @@ class LLMTasks:
 
     def answer(self, question: str, memory: TemporalMemory, *, entity: str, as_of: date,
                predicate: str | None = None) -> Answer:
+        facts = memory.retrieve(entity, predicate, as_of=as_of)
+        return self.answer_from_facts(question, facts, as_of=as_of)
+
+    def answer_from_facts(self, question: str, facts: Sequence[Fact], *, as_of: date) -> Answer:
+        """Answer from an explicitly selected and temporally eligible fact set."""
         if not question.strip():
             raise ValueError("Question cannot be empty")
-        facts = memory.retrieve(entity, predicate, as_of=as_of)
         if not facts:
             return Answer(None, ())
+        if any(not fact.visible_on(as_of) for fact in facts):
+            raise ValueError("Reader facts must be visible on the query date")
         allowed = {fact.fact_id for fact in facts}
         payload = json.dumps({"question": question, "as_of": as_of.isoformat(), "facts": [
             {"fact_id": f.fact_id, "predicate": f.predicate, "value": f.value} for f in facts]})

@@ -226,3 +226,16 @@ Qwen reported 788 requests, 44 cache hits, 185,845 input and 20,362 output token
 - The rerun reproduced the model parameters and thresholds, and evaluation JSON and all four figures were byte-identical. The independent partition has just 6 positives from 4 families. This was an exploratory fixed-prefix evaluation. No closed-loop or Memora performance was measured.
 - [Protocol, exact commands, aggregate metrics and figures](t1_v3_training.md).
 - Final regression suite: 75 tests and 36 subtests passed. Pytest emitted one third-party anyio deprecation warning.
+
+### Step 18 reproducibility check after standing authorization update
+
+Reran the release audit, fit both controller variants in a new ignored output directory, and reran independent scoring using the original committed fit freeze. Both fits reproduced the published numerical parameters, thresholds, and grouped selection scores. The aggregate evaluation JSON and four SVGs were byte-identical to the original local run. The published SVGs use LF line endings. The 75-test suite and 36 subtests passed with one third-party deprecation warning. This repeated scoring uses the existing evaluation partition and preserves the original artifacts.
+
+## Step 19 · Local Memora integration and prefix smoke
+
+- Reconciled training-branch authorization and artifacts with main at merge `77fb488`. Pinned Memora at `a6493188efc836d6511ed5e4163fe3ba87da30ff`. Froze the development and held-out subsets in `90ef6af` before inference. No held-out scoring rubrics were read.
+- Ran the eight-session development prefix using pinned local Qwen, MiniLM and DeBERTa with frozen T1 artifacts. Across 55 user turns, 56 fresh requests, and 13 cache hits, extraction found two claims and zero eligible verifier conflicts. All 16 predictions abstained, with no errors. There were 10,820 input and 189 output tokens, 34.29 seconds summed provider latency and 44.23 seconds wall-clock. A rerun made zero new inference requests and added 69 cache hits.
+- The separately frozen fictional conflict and deletion probe used five fresh requests and two NLI evaluations. One verification attempt per fixed-stream verifier system produced the updated answer, and all persistent methods suppressed the deleted value. The closed-loop T1 variants did not escalate the conflict. These are diagnostic observations.
+- Official offline arithmetic parity confirmed for empty, recall-only, omission-penalty and clamped-at-zero cases. Official hosting and judging remain separate from local inference. No FAMA scores were produced. Spending was USD 0.
+- TRACE-Mem test run passed 78 tests and 36 subtests. Test discovery with the local upstream checkout also passed 83 tests and 36 subtests. Both emitted one third-party deprecation warning. AI-assisted contributions include implementation, tests and reproducibility documentation.
+- [Frozen configuration, exact run commands, official scoring audit and resource estimates](memora_step19.md).

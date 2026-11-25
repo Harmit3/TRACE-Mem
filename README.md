@@ -2,7 +2,7 @@
 
 **Budget-Aware Verification and Memory Evolution for Long-Horizon LLM Agents**
 
-> **Status:** Research specification / implementation backlog. **No empirical results have yet been produced.**
+> **Status:** TRACE-Mem includes temporal replay, budgeted verification, and an exploratory T1 fit on the frozen synthetic V3 release. Local Memora development replay is available. Published-configuration benchmark scoring and held-out evaluation are pending.
 > Intended for a Western University CS9548 graduate course project and a subsequent, independently evaluated publication attempt. Publication is not guaranteed.
 
 ## 0. Research integrity and permission gate
@@ -86,9 +86,11 @@ A fact can be obsolete for present-tense queries but still relevant to historica
 
 Input feature vector `x`: `[semantic_similarity, contradiction_score, entity_match, temporal_conflict_score, time_gap, provenance_score, uncertainty, budget_remaining_fraction]`. Normalize on training data only and record missing-value treatment.
 
-The [evaluation protocol](docs/evaluation_protocol.md#t1-replay-and-feature-definitions) documents the implemented feature proxies, the exact-budget fixed-stream comparison, and the closed-loop threshold policy. Independent training and calibration are pending.
+The [evaluation protocol](docs/evaluation_protocol.md#t1-replay-and-feature-definitions) documents the implemented feature proxies, the exact-budget fixed-stream comparison, and the closed-loop threshold policy. The first exploratory T1 fit used the frozen V3 training partition and selected thresholds on its calibration partition.
 
 The [local semantic model guide](docs/semantic_models.md) covers optional embedding-based retrieval, NLI features, pinned model revisions, and installation without paid API credentials.
+
+On the independent synthetic V3 partition, full T1 achieved average precision 0.849 and the matched no-NLI fit achieved 0.877 across 37 labeled candidates. At 10 rank-matched calls, they captured six and five known helpful verifications, respectively. These are exploratory fixed-prefix results. [V3 fit and artifacts](docs/t1_v3_training.md)
 
 The [controller training guide](docs/controller_training.md) documents paired outcome collection, train-only normalization, validation calibration and budget selection, and replay artifact loading.
 
@@ -125,6 +127,8 @@ Primary objective for comparisons: minimize end-to-end error subject to maximum 
 | EXT | MemFSM/A-Mem/Mem0 under compatible setting | Publication-strength external baselines |
 
 **Fairness:** identical ingestion texts, fact-extractor model, embedding model, retrieval size, reader/verifier models, prompts, decoding settings, chronological replay, seeds, caching policy, hard budgets, and evaluation program. Where baseline architectures make equality impossible, report and explain differences. Never compare official published scores as if experimentally controlled.
+
+The [Memora development protocol](docs/memora_step19.md) documents the local replay runner, frozen subset, provider settings, and official judging dependency.
 
 ## 6. Metrics, experiments, and quality criteria
 
@@ -298,4 +302,4 @@ Required figures: system diagram, budget-vs-FAMA plot, stale-error-vs-budget plo
 
 ---
 
-**Current milestone:** A verified research specification exists; dataset download, implementations, model training, evaluation, and publication are **not yet completed**.
+**Current milestone:** The local Memora development path exercises the frozen T1 and baseline policies. The held-out pilot is reserved for a later frozen evaluation.

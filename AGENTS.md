@@ -1,23 +1,36 @@
-# Agent instructions for TRACE-Mem
+﻿# Agent instructions for TRACE-Mem
 
-Read `README.md` fully before taking action. Your purpose is to help the student research team build a reproducible memory-evaluation study, not to claim scores or publication acceptance.
+Read `README.md` fully before taking action. TRACE-Mem is a long-term independent research and open-source project that continues beyond CS9548.
 
-## Permission gate
+## Standing repository-owner authorization
 
-The CS9548 course outline restricts AI-generated assessment code/report content unless explicitly permitted by the instructor. **Require documented explicit instructor authorization for the specific assessed work** in `docs/ethics_and_permissions.md`. The Fall 2026 outline specifies advance authorization and its conditions without prescribing a written format. The recorded November 23 verbal authorization covers project coding and development. Follow the separate course rules for report and slide content. Allowed preparatory tasks pending permission: identify source repos and versions, inspect public benchmark documentation, document research design, recommend tests, and review human-written code.
+The owner authorizes Codex and other AI development tools to work autonomously on TRACE-Mem until the owner explicitly modifies or revokes this authorization. This supersedes earlier repository-specific written-only permission gates and development restrictions.
 
-## Scope
+- Design, implement, refactor, optimize, debug, and test the codebase. Remove obsolete project files when justified and protect important research artifacts from irreversible loss.
+- Develop algorithms, models, research methods, automated tests, CI/CD, and reproducible pipelines. Train models, run local inference, and conduct benchmarks, statistical analyses, and ablation studies.
+- Download appropriate public datasets and open-source checkpoints within available hardware and storage capacity. Install development dependencies and respect applicable licenses and terms.
+- Produce technical documentation, research notes, mathematical explanations, diagrams, tables, and figures. Assist with independent manuscripts and supplementary materials subject to academic, ethical, and publication requirements.
+- Create branches, commits, pushes, and pull requests. Make ordinary technical decisions autonomously and pursue justified improvements within the project's research scope.
 
-Prioritize Memora data audit, chronological replay, temporal-rule baseline, budget-matched random and fixed-threshold verification, then logistic-regression-based TRACE-Mem. Do not build an unrelated chat UI, multi-agent swarm, or large model fine-tuning. Never train on benchmark test labels.
+## Assessed coursework
+
+Apply institutional and instructor requirements to assessed work. The documented November 23, 2026 verbal authorization covers AI-assisted TRACE-Mem coding and software development for CS9548. The historical record and separate course requirements for the assessed report and presentation are in [docs/ethics_and_permissions.md](docs/ethics_and_permissions.md).
+
+## Research and operational safeguards
+
+- Prefer local models and free resources. Obtain approval before incurring financial costs.
+- Preserve prior experimental results, protocols, provenance, and reproducibility. Treat negative results as findings and prioritize scientific validity.
+- Protect credentials, private data, and sensitive information. Respect licenses, privacy, research ethics, and applicable publication policies.
+- Keep held-out evaluation data isolated from training, selection, threshold tuning, retrieval prompts, and labels. Never fabricate research results, citations, human annotations, or metrics.
+- Record AI-assisted contributions and human review transparently.
 
 ## Agent workflow
 
-1. Identify a single narrowly scoped issue and expected acceptance tests.
-2. List files affected, source/license constraints and intended run commands.
-3. Build behind a test when permission allows, and document failure modes.
-4. Validate on synthetic development fixtures before touching held-out benchmark data.
-5. Log exact command output, dependencies, seed, model identity, latency, and token cost.
-6. State what was done, what remains, and any blocked tasks, without inventing results.
+1. Identify a scoped task and its acceptance checks.
+2. Verify source and license constraints and record the intended run commands.
+3. Document failure modes and validate on development fixtures before held-out evaluation.
+4. Record relevant commands, dependency versions, seeds, model identity, latency, and token cost.
+5. Report completed work, evidence, and genuine blockers.
 
 ## Nonnegotiable correctness tests
 
@@ -27,9 +40,9 @@ Prioritize Memora data audit, chronological replay, temporal-rule baseline, budg
 - Deletion/privacy removal is obeyed by storage and retrieval.
 - Ambiguous contradictory claim never silently overwrites.
 - Random baseline matches the learned controller's verifier-call budget.
-- Replay + cached model outputs reproducible with the same seed.
+- Replay and cached model outputs are reproducible with the same seed.
 - Benchmarks cannot leak answer keys into retrieval or policy labels.
 
 ## Definition of done
 
-Documentation matches executable behavior; all relevant tests pass; provenance is preserved; results can be reproduced from pinned commits and manifests; no unsupported novelty or performance claims are made.
+Documentation matches executable behavior, relevant tests pass, provenance is preserved, and results can be reproduced from pinned commits and manifests. Novelty and performance claims require evidence.
