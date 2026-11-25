@@ -169,8 +169,8 @@ class ChatProvider:
             return db.execute("INSERT INTO attempt(cost,status) VALUES(?, 'reserved')",
                               (reserve,)).lastrowid
 
-    def _request(self, task: str, system: str, payload: str) -> tuple[str, dict, dict]:
-        settings = self.config
+    @staticmethod
+    def request_for(settings: ProviderConfig, task: str, system: str, payload: str) -> tuple[str, dict, dict]:
         messages = [{"role": "system", "content": system}, {"role": "user", "content": payload}]
         headers = {"Content-Type": "application/json"}
         body = {"model": settings.model, "messages": messages, "stream": False}
@@ -192,6 +192,13 @@ class ChatProvider:
                               "max_price": {"prompt": float(settings.input_price),
                                             "completion": float(settings.output_price), "request": 0}})
         return "https://openrouter.ai/api/v1/chat/completions", headers, body
+
+    def _request(self, task: str, system: str, payload: str) -> tuple[str, dict, dict]:
+        return self.request_for(self.config, task, system, payload)
+
+    @staticmethod
+    def cache_key(task: str, url: str, body: dict) -> str:
+        return hashlib.sha256(json.dumps([task, url, body], sort_keys=True).encode()).hexdigest()
 
     def _response(self, raw: dict) -> tuple[str, int, int, str, bool]:
         try:
@@ -215,7 +222,7 @@ class ChatProvider:
 
     def generate(self, task: str, system: str, payload: str, validate: Callable[[str], None]) -> str:
         url, headers, body = self._request(task, system, payload)
-        key = hashlib.sha256(json.dumps([task, url, body], sort_keys=True).encode()).hexdigest()
+        key = self.cache_key(task, url, body)
         with closing(self._connect()) as db, db:
             cached = db.execute("SELECT text FROM response WHERE key=?", (key,)).fetchone()
             if cached:
