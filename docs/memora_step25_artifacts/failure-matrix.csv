@@ -1,0 +1,16 @@
+question_number,task,nominated,extracted,represented,structured_retrieved,transcript_retrieved,oracle_retrieved,structured_status,structured_fama,transcript_status,transcript_fama,oracle_status,oracle_fama,observed_stage_gaps
+1,reasoning,19,1,1,1,6,8,abstained,0.0,abstained,0.0,answer,0.0,source-turn extraction gap
+2,reasoning,7,3,3,3,7,7,abstained,0.0,abstained,0.0,abstained,0.0,source-turn extraction gap
+3,reasoning,12,0,0,0,7,8,abstained,0.0,abstained,0.0,abstained,0.0,source-turn extraction gap
+4,reasoning,8,3,3,3,6,8,abstained,0.0,abstained,0.0,invalid/error,,source-turn extraction gap
+5,reasoning,11,0,0,0,7,8,abstained,0.0,abstained,0.0,abstained,0.0,source-turn extraction gap
+6,recommending,2,0,0,0,1,2,abstained,0.0,answer,0.3333333333333333,answer,0.3333333333333333,source-turn extraction gap
+7,recommending,1,0,0,0,1,1,abstained,0.0,answer,0.0,abstained,0.0,source-turn extraction gap
+8,recommending,4,0,0,0,4,4,abstained,0.0,answer,0.4,answer,0.8,source-turn extraction gap
+9,recommending,3,2,0,0,2,3,answer,0.0,abstained,0.0,invalid/error,,source-turn extraction gap; temporal-state representation gap
+10,recommending,1,0,0,0,0,1,abstained,0.0,abstained,0.0,invalid/error,,source-turn extraction gap
+11,remembering,4,0,0,0,0,4,abstained,0.0,abstained,0.0,answer,0.40909090909090906,source-turn extraction gap
+12,remembering,2,0,0,0,2,2,abstained,0.0,answer,0.5,answer,0.5,source-turn extraction gap
+13,remembering,1,0,0,0,1,1,abstained,0.0,invalid/error,,answer,0.25,source-turn extraction gap
+14,remembering,2,0,0,0,2,2,abstained,0.0,abstained,0.0,abstained,0.0,source-turn extraction gap
+15,remembering,2,0,0,0,1,2,invalid/error,,answer,0.25,answer,0.5,source-turn extraction gap

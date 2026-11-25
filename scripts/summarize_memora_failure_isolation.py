@@ -1,4 +1,4 @@
-﻿"""Score and summarize the failure-isolation run in a rubric-only process."""
+"""Score and summarize the failure-isolation run in a rubric-only process."""
 
 from argparse import ArgumentParser
 from collections import defaultdict
@@ -105,10 +105,17 @@ def render(output, publish):
     diag = json.loads((output / "diagnostics.json").read_bytes())
     terminal = json.loads((output / "terminal-analysis.json").read_bytes())
     sums = summarize(scored)
+    contract = output / "contract-probe.json"
+    valid_for_all = set.intersection(*({
+        r["number"] for r in scored["rows"] if r["mode"] == mode and r["metrics"] is not None
+    } for mode in MODES))
+    common = summarize({"rows": [r for r in scored["rows"] if r["number"] in valid_for_all]})
     publish.mkdir(parents=True, exist_ok=True)
-    write(publish / "aggregate.json", {"retrieval": sums, "reader_probe": diag,
+    write(publish / "aggregate.json", {"retrieval": sums, "common_scored_questions": sorted(valid_for_all),
+          "common_scored_comparison": common, "reader_probe": diag,
           "terminal": [{k: v for k, v in row.items() if k not in {"question", "request_key"}}
                        for row in terminal],
+          "contract_probe": json.loads(contract.read_bytes()) if contract.exists() else None,
           "benchmark_provider": scored["provider"], "benchmark_wall_seconds": scored["score_wall_seconds"]})
     matrix = defaultdict(dict)
     for row in scored["rows"]:
@@ -155,6 +162,24 @@ def render(output, publish):
     axes[1].legend(fontsize=8)
     figure.tight_layout()
     plot = publish / "comparison.svg"
+    figure.savefig(plot, metadata={"Date": None})
+    plot.write_bytes(b"\n".join(line.rstrip() for line in plot.read_bytes().splitlines()) + b"\n")
+    plt.close(figure)
+
+    figure, axes = plt.subplots(1, 2, figsize=(10, 4.1))
+    structured = sums["structured-b2"]
+    axes[0].bar(["Nominated", "Extracted", "In B2 state", "In reader input"],
+                [structured[name] for name in ("nominated_turns", "extracted_nominated_turns",
+                                               "represented_nominated_turns", "retrieved_nominated_turns")])
+    axes[0].set(ylabel="Question–source nominations", title="Structured evidence attrition")
+    axes[0].tick_params(axis="x", labelrotation=20)
+    axes[1].bar(labels, [row["macro_fama"] if row["macro_fama"] is not None else 0 for row in counts])
+    for i, row in enumerate(counts):
+        if row["macro_fama"] is None:
+            axes[1].text(i, 0, "unscored", ha="center", va="bottom", fontsize=8)
+    axes[1].set(ylabel="Adapted local macro FAMA", ylim=(0, 1))
+    figure.tight_layout()
+    plot = publish / "stage-isolation.svg"
     figure.savefig(plot, metadata={"Date": None})
     plot.write_bytes(b"\n".join(line.rstrip() for line in plot.read_bytes().splitlines()) + b"\n")
     plt.close(figure)
