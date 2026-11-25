@@ -1,6 +1,6 @@
 """Structured claim extraction boundary and deterministic conflict detection."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import date
 import json
 from typing import Callable, Literal
@@ -16,6 +16,7 @@ class Claim:
     intent: Literal["assert", "correct", "uncertain", "delete"]
     effective_on: date
     expires_on: date | None = None
+    explicit_effective_date: bool = field(default=False, compare=False)
 
 
 EXTRACTION_PROMPT = (
@@ -56,7 +57,8 @@ def parse_claims(text: str, observed_on: date) -> tuple[Claim, ...]:
         end = date.fromisoformat(row["expires_on"]) if row.get("expires_on") else None
         if end is not None and end <= start:
             raise ValueError("Claim expiry must follow its start")
-        claims.append(Claim(predicate.strip().casefold(), value.strip(), intent, start, end))
+        claims.append(Claim(predicate.strip().casefold(), value.strip(), intent, start, end,
+                            explicit_effective_date=bool(row.get("effective_on"))))
     return tuple(claims)
 
 

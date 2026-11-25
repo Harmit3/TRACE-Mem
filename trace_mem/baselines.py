@@ -40,7 +40,7 @@ def _prepare(events: Iterable[Event], complete: Callable[[str, str], str]) -> It
         if previous is not None and key <= previous:
             raise ValueError("Events must be in strict chronological order")
         previous = key
-        source = Source(event.observed_on, f"{event.session_id}/{event.turn}")
+        source = Source(event.observed_on, f"{event.session_id}/{event.turn}", event.source_kind)
         for ordinal, claim in enumerate(extract(event, complete)):
             yield PreparedClaim(claim, source, f"{source.reference}/{ordinal}")
 
@@ -136,9 +136,12 @@ def run_t1(
     calls: int,
     verify: Verifier,
     semantic: SemanticEvidence | None = None,
+    feature_builder: Callable[..., tuple[float | None, ...]] | None = None,
 ) -> VerificationRun:
     """Run a causal threshold policy under a hard cap, with possible underspend."""
     _validate_controller(controller)
+    if feature_builder is not None and semantic is not None:
+        raise ValueError("Provide semantic evidence or an explicit feature builder")
     if not math.isfinite(threshold) or not 0 <= threshold <= 1:
         raise ValueError("Threshold must be between zero and one")
     budget = Budget(calls)
@@ -148,9 +151,12 @@ def run_t1(
         claim, source, fact_id = item.claim, item.source, item.fact_id
         target = _eligible_target(memory, entity, claim) if budget.remaining else None
         if target is not None:
-            features = features_for(claim, target, entity=entity, source=source,
-                                    budget_remaining_fraction=budget.remaining / budget.limit,
-                                    semantic=semantic)
+            inputs = dict(entity=entity, source=source,
+                          budget_remaining_fraction=budget.remaining / budget.limit)
+            features = (feature_builder(claim, target, **inputs) if feature_builder is not None
+                        else features_for(claim, target, **inputs, semantic=semantic))
+            if any(value is None for value in features):
+                raise ValueError("Live controller scoring requires complete feature evidence")
             if controller.score(features) >= threshold:
                 selected_ids.append(fact_id)
                 _apply_verdict(memory, entity, item, target, budget.call(verify, claim, target))
