@@ -14,9 +14,11 @@ The student reports discussing TRACE-Mem's technical objectives and proposed use
 
 ## Assessment requirements
 
-As summarized in `README.md`, the course outline requires explicit authorization for generative AI use in assessed work unless otherwise specified. It distinguishes AI-assisted report polishing from generation of an entire report. The student's confirmation covers coding and development. Any permission to generate assessed report prose or slides requires separate documentation.
+Section 6.4, ?Use of Generative AI Tools,? of the [official Fall 2026 COMPSCI 4451/9548 course outline](https://www.csd.uwo.ca/undergraduate/current/courses/CS-4451-9548-Fall-2026-Redacted.pdf#page=6) states that permitted use is assessment-specific and that the conditions are set by the instructor in advance. It does not specify written authorization. Section 1's written special permission concerns enrollment without prerequisites.
 
-`README.md` and `AGENTS.md` require written instructor permission before assessed implementation. Pending that record, permitted preparation includes reviewing public sources, documenting research design, recommending tests, and reviewing human-written code. Once written confirmation is available, retain the original privately and record its scope, any conditions, and a reference the team can verify.
+The previous written-only gate was a repository requirement. The repository now accepts documented explicit verbal authorization for the work it covers. Based on the student-confirmed November 23 conversation, that scope is TRACE-Mem coding and development. Any more specific instructor directions for the assessment take precedence.
+
+Section 5 permits report polishing and prohibits AI generation of the entire report. The student's coding authorization does not cover generating assessed report prose or slides.
 
 ## Contribution record
 

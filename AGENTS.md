@@ -4,7 +4,7 @@ Read `README.md` fully before taking action. Your purpose is to help the student
 
 ## Permission gate
 
-The CS9548 course outline restricts AI-generated assessment code/report content unless explicitly permitted by the instructor. **Do not generate assessed implementation or paper text until the team documents written permission** in `docs/ethics_and_permissions.md`. Allowed preparatory tasks pending permission: identify source repos and versions, inspect public benchmark documentation, document research design, recommend tests, and review human-written code.
+The CS9548 course outline restricts AI-generated assessment code/report content unless explicitly permitted by the instructor. **Require documented explicit instructor authorization for the specific assessed work** in `docs/ethics_and_permissions.md`. The Fall 2026 outline specifies advance authorization and its conditions without prescribing a written format. The recorded November 23 verbal authorization covers project coding and development. Follow the separate course rules for report and slide content. Allowed preparatory tasks pending permission: identify source repos and versions, inspect public benchmark documentation, document research design, recommend tests, and review human-written code.
 
 ## Scope
 
