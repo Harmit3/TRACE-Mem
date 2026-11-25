@@ -167,3 +167,11 @@ On base `7a455b0`, Codex verified the pinned verifier settings and ran the [docu
 The outcome audit verified the source lineage and unchanged held-out test rows. No model fit ran. The original review packet hash was unchanged. The first test run exposed a Windows file lock in a SQLite test fixture. Closing the fixture connection fixed it. `python -m unittest discover -s tests -q` then reported `Ran 55 tests in 3.751s` and `OK`.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/qwen-updateset-outcomes?expand=1)
+
+## TRACE-UpdateSet v2 paired pilot
+
+On base `45b3c80`, Codex audited the v1 agreement and froze the 500-case generator, independent gold, family-balanced 44-case sample, and production B2 paired replay at `6fea82f`. The local Qwen pilot produced five positive and six negative training labels and three positive and seven negative validation labels. Two eligible cases still need gold, 20 cases had no eligible conflict, and one extraction failed. There were eight corrections, zero harmful anchor changes, seven changes that left the anchored state incorrect, and 28 unchanged decision traces.
+
+The commands, observed split counts, hashes, settings, token usage and latency are in the [v2 protocol and report](updateset_v2.md). Python 3.14.0. `python -m unittest discover -s tests -q` reported `Ran 57 tests in 8.491s` and `OK`. V1 source and paired release hashes and the 26-case v1 review hash were unchanged. No training, paid inference or benchmark evaluation ran.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/trace-updateset-v2?expand=1)
