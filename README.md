@@ -52,6 +52,8 @@ Record paper versions, baseline repositories, commit hashes, licenses, and any m
 
 **Supervised controller-training data:** Create an *independent* synthetic/annotated update-decision dataset (`TRACE-UpdateSet`) with pairs of old/new claims, timestamp/source metadata, proposed operation, and whether escalation to an independent verifier is valuable. Track separate persons, templates, scenarios, and conversation histories across train/validation/test. Do not train on held-out Memora or LongMemEval labels. Do not treat a benchmark test answer as supervision for decision-making.
 
+The [TRACE-UpdateSet guide](docs/updateset.md) documents generation, validation, blind annotation, and the independent helpfulness-label join.
+
 **First dataset-inspection deliverables (no model training):**
 
 - Confirm source repository license and dataset redistribution conditions.
