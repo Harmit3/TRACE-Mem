@@ -52,6 +52,9 @@ def main() -> None:
     parser.add_argument("--max-requests", type=int, required=True)
     parser.add_argument("--max-input-tokens", type=int, default=4096)
     parser.add_argument("--max-output-tokens", type=int, default=256)
+    parser.add_argument("--context-tokens", type=int)
+    parser.add_argument("--verification-mode", choices=("original", "direct-v2", "evidence-v2"),
+                        default="original")
     parser.add_argument("--timeout", type=float, default=30)
     parser.add_argument("--retries", type=int, default=0)
     parser.add_argument("--seed", type=int, default=0)
@@ -65,6 +68,7 @@ def main() -> None:
             args.backend, args.model, args.max_requests, timeout=args.timeout,
             retries=args.retries, max_input_tokens=args.max_input_tokens,
             max_output_tokens=args.max_output_tokens, seed=args.seed,
+            context_tokens=args.context_tokens,
             ollama_url=os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434"),
             api_key=os.environ.get(f"{args.backend.upper()}_API_KEY"),
             allow_paid=args.allow_paid, max_spend=args.max_spend,
@@ -72,11 +76,14 @@ def main() -> None:
         )
         provider = ChatProvider(config, _ignored(args.database))
         try:
-            release = collect_with_verifier(args.dataset, _ignored(args.output), LLMTasks(provider),
+            tasks = LLMTasks(provider, verification_mode=args.verification_mode)
+            release = collect_with_verifier(args.dataset, _ignored(args.output), tasks,
                                             reference=args.reference)
         finally:
             print(json.dumps({"provider": args.backend, "model": args.model,
-                              "seed": args.seed, "usage": provider.stats()}, sort_keys=True))
+                              "seed": args.seed, "verification_mode": args.verification_mode,
+                              "context_tokens": args.context_tokens, "usage": provider.stats()},
+                             sort_keys=True))
         print(json.dumps({"distribution": release["distribution"],
                           "files": release["files"]}, sort_keys=True))
     except (OSError, ProviderError, TypeError, ValueError, InvalidOperation) as error:

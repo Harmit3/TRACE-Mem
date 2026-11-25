@@ -8,6 +8,7 @@ from unittest.mock import patch
 from scripts.export_eligible_annotations import export
 from scripts.validate_ollama_verifier import CASES, verdict_gate
 from scripts import validate_ollama_verifier_v2 as revised
+from scripts import compare_local_verifiers as comparison
 from trace_mem.claims import Claim
 from trace_mem.data.updateset import generate, write_release
 from trace_mem.llm_tasks import LLMTasks, MockProvider
@@ -46,6 +47,14 @@ class OllamaValidationTest(unittest.TestCase):
         self.assertFalse(revised.gate(36, 0, 0, 12 / 16))
         self.assertFalse(revised.gate(39, 1, 0, 1))
         self.assertFalse(revised.gate(39, 0, 1, 1))
+
+    def test_model_comparison_uses_disjoint_cases_and_original_gate(self):
+        cases = comparison.CASES
+        self.assertEqual(len(cases), 40)
+        self.assertEqual(sum(row[-1] for row in cases), 16)
+        self.assertEqual(len({row[5] for row in cases}), len(cases))
+        self.assertFalse({row[5] for row in cases} & {row[5] for row in revised.CASES})
+        self.assertFalse({row[5] for row in cases} & {row[6] for row in CASES})
 
     def test_grounded_confirmed_quote_required_for_two_stage_update(self):
         day = date(2026, 2, 15)
