@@ -1,0 +1,26 @@
+{
+  "gate": {"semantic_precision": 0.8, "semantic_recall": 0.7, "exact_f1_gain": 0.08, "deletions": 3, "grounding_precision": 0.9},
+  "aliases": {"employment":"job","employer":"job","home":"residence","favorite_music_band":"favorite_band","sister":"sibling_name","sister_name":"sibling_name","dog_name":"pet_name","calendar_event":"appointment","event":"appointment","todo":"task","spending":"expense","purchase":"expense","walk":"activity"},
+  "cases": [
+    ["small-talk", [], null, "Thanks for the explanation and have a nice day.", null],
+    ["hypothetical", [], null, "If I lived on Saturn, what would sunset look like?", null],
+    ["general-question", [], null, "Why is the sky blue?", null],
+    ["job", [], null, "I work at Maple Quay.", ["job","Maple Quay","assert"]],
+    ["preference", [], null, "My favorite band is Velvet Orchard.", ["favorite_band","Velvet Orchard","assert"]],
+    ["relative", [], null, "My sister's name is Odette.", ["sibling_name","Odette","assert"]],
+    ["pet", [], null, "My dog's name is Fig.", ["pet_name","Fig","assert"]],
+    ["food", [], null, "I prefer buckwheat pancakes for breakfast.", ["food_preference","buckwheat pancakes","assert"]],
+    ["expense", [], null, "I spent $18.40 on stationery.", ["expense","$18.40 on stationery","assert"]],
+    ["activity", [], null, "I walked 8,400 steps today.", ["activity","8,400 steps","assert"]],
+    ["appointment", [], null, "I booked a dental cleaning on 2025-03-12.", ["appointment","dental cleaning","assert"]],
+    ["task", [], null, "My task for tonight is to renew the library card.", ["task","renew the library card","assert"]],
+    ["implicit-replacement", [], ["job","Granite Hall"], "Granite Hall was my old employer; as of 2025-03-01 I work at Willow Print.", ["job","Willow Print","correct"]],
+    ["tentative", [], ["job","Sandbar Publishing"], "I might work at Alpine Post if they make an offer.", ["job","Alpine Post","uncertain"]],
+    ["context-reference", ["I chose Hemlock Bank over Sunflower Credit."], null, "That's where I work now.", ["job","Hemlock Bank","assert"]],
+    ["historical", [], null, "I lived in Port Aster in the past, starting on 2009-01-01.", ["residence","Port Aster","assert"]],
+    ["indirect-home-delete", [], ["residence","Peat Road"], "Please stop retaining my home address.", ["residence","Peat Road","delete"]],
+    ["indirect-job-delete", [], ["job","Lunar Desk"], "You no longer need to keep my employer on file.", ["job","Lunar Desk","delete"]],
+    ["explicit-delete", [], ["favorite_band","Harbor Choir"], "Please forget that Harbor Choir is my favorite band.", ["favorite_band","Harbor Choir","delete"]],
+    ["unresolved-delete", [], null, "Please forget that thing I once told you.", null]
+  ]
+}
