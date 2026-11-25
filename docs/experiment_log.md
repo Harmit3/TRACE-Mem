@@ -183,3 +183,13 @@ On base `9ff82ee`, Codex froze the candidate protocol at `350e54e` and finished 
 The release audit recomputed candidate features and labels and verified 500 rows and 601 unique IDs. The prior pilot and v1 artifacts were preserved. `python -m unittest discover -s tests -q` reported `Ran 61 tests in 10.424s` and `OK` on Python 3.14.0. No controller training, paid requests, or benchmark analysis ran.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/updateset-v2-full?expand=1)
+
+## Controller feature-quality audit
+
+On base `ca5bb0d`, Codex verified the full v2 release and froze a local diagnostic at `f8b9427`. The nonpilot records had four distinct train vectors across 232 eligible candidates and three validation vectors across 58. All 35 validation positives shared one vector. The recorded contradiction and uncertainty features were perfectly negatively correlated in training. No missing feature rows were found.
+
+`python -m scripts.audit_controller_features data/updateset-v2-seed2407 results/updateset-v2-full --cached-minilm` used the cached MiniLM revision and produced 232 and 58 distinct vectors by replacing only cosine similarity in a diagnostic copy. The [feature audit](controller_feature_audit.md) records variances, correlations, family support, model versions, the ID-rendering correction and the proposed v3 design. The local report SHA-256 is `e7c339edaaabbed0beb9ceb341d2a4705836ad510cd2f3929340cac7070d3d09`. Python 3.14.0. No NLI inference, model downloads, paid calls, controller fit or benchmark evaluation. The frozen v2 artifact hash was unchanged.
+
+`python -m unittest discover -s tests -q` reported `Ran 63 tests in 2.897s` and `OK`.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/controller-feature-audit?expand=1)

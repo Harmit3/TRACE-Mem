@@ -93,9 +93,10 @@ class TrainingTest(unittest.TestCase):
         write_release(variant, with_test, **SETTINGS)
 
         def infer(old, new):
-            if "/test/" in old or "/test/" in new:
-                self.fail("Test features must not be built during training")
-            score = 0.9 if "/validation/" in old else 0.1
+            self.assertNotIn("trace-synthetic", old + new)
+            self.assertNotIn("West Depot", old)
+            self.assertNotIn("Print Plan", old)
+            score = 0.9 if ("Blue Route" in old or "Morning Club" in old) else 0.1
             return NLIScores(score, 1 - score, 0)
 
         semantic = SemanticEvidence(lambda texts: [[1, 0]] * len(texts), infer)
