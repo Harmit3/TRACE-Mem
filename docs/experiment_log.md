@@ -135,3 +135,11 @@ On base `7ce2ee9`, Codex started Ollama 0.40.13 on loopback with cloud disabled 
 Eight of eight responses validated and both passes agreed. Ollama reported 927 input and 80 output tokens per pass, zero cache hits and USD 0 provider cost. These are prompt-development examples, with no independent evaluation, training labels or benchmark measurements.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...docs/ollama-local-readiness?expand=1)
+
+## Frozen Ollama verifier validation
+
+Codex verified the loopback runtime, froze the development fixtures and go/no-go criteria at `e063325`, then ran `python -m scripts.validate_ollama_verifier --output results/ollama-verifier-dev-seed23` on base `b3d92c0`. The command exited 1 for a failed gate. The 12 uncached local calls yielded seven correct decisions, five false updates, zero missed updates and zero technical failures. Reported usage was 3,229 input and 102 output tokens, 5,285.85 ms summed latency and USD 0 provider cost. The [validation report](ollama_label_collection.md) records the exact configuration and SHA-256 fingerprints.
+
+The pending-case export printed 26 cases, 20 train and six validation. The 78-case collection did not run. All research helpfulness counts remain zero. `python -m unittest discover -s tests -q` reported `Ran 50 tests in 2.989s` and `OK` on Python 3.14.0.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/ollama-label-collection?expand=1)
