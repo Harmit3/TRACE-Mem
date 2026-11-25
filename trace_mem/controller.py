@@ -18,6 +18,15 @@ FEATURE_NAMES = (
 )
 
 
+def semantic_pair(claim: Claim, target: Fact, entity: str) -> tuple[str, str]:
+    """Render pair evidence without opaque persona or split identifiers."""
+    return (
+        fact_text("subject A", target.predicate, target.value),
+        fact_text("subject A" if entity == target.entity else "subject B",
+                  claim.predicate, claim.value),
+    )
+
+
 def features_for(
     claim: Claim,
     target: Fact,
@@ -51,10 +60,7 @@ def features_for(
         similarity = len(left & right) / len(union) if union else float(claim.value == target.value)
         contradiction = float(competes) * (1.0 - uncertainty / 2)
     else:
-        similarity, relation = semantic.compare(
-            fact_text(target.entity, target.predicate, target.value),
-            fact_text(entity, claim.predicate, claim.value),
-        )
+        similarity, relation = semantic.compare(*semantic_pair(claim, target, entity))
         contradiction = relation.contradiction
     return (
         similarity,

@@ -81,7 +81,7 @@ class SemanticRetrievalTest(unittest.TestCase):
         values = features_for(claim, target, semantic=semantic, **kwargs)
         self.assertEqual(values[:2], (-1.0, 0.8))
         self.assertEqual(values[2:], features_for(claim, target, **kwargs)[2:])
-        infer.assert_called_once_with("p | job | Alder", "p | job | Birch")
+        infer.assert_called_once_with("subject A | job | Alder", "subject A | job | Birch")
         self.assertEqual(infer.return_value.label, "contradiction")
         self.assertEqual(NLIScores(0.1, 0.8, 0.1).label, "entailment")
         self.assertEqual(NLIScores(0.5, 0.0, 0.5).label, "neutral")
