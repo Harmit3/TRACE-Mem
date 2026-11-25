@@ -2,6 +2,7 @@
 
 import json
 from datetime import date
+from pathlib import Path
 
 import pytest
 
@@ -67,11 +68,9 @@ def test_partition_isolation_training_and_freeze(tmp_path, monkeypatch):
         v3.evaluate(stream, first, tmp_path / "rejected", {})
 
 
-def test_loaded_artifact_drives_causal_replay(tmp_path):
-    stream, _ = fixture_stream(tmp_path)
-    frozen = tmp_path / "fit"
-    v3.fit(stream, frozen, {})
-    artifact = load_model(frozen / "full.json")
+def test_loaded_artifact_drives_causal_replay():
+    directory = Path(__file__).resolve().parents[1] / "docs" / "t1_v3_artifacts"
+    artifact = load_model(directory / "full.json")
     today = date(2025, 1, 2)
     events = [Event(today, 1, i + 1, "user", text) for i, text in enumerate(("A", "B", "C"))]
     seen = []
@@ -83,10 +82,10 @@ def test_loaded_artifact_drives_causal_replay(tmp_path):
 
     def features(_claim, _target, **kwargs):
         seen.append(kwargs["budget_remaining_fraction"])
-        return (0.3, 1, 1, 1, 4.5, 0.5, 0.5, 1)
+        return (0.6, 0.99, 1, 1, 100, 1, 0, 1)
 
     result = run_t1(events, complete, entity="person", controller=artifact.controller,
-                    threshold=0.0, calls=1, feature_builder=features,
+                    threshold=artifact.threshold, calls=1, feature_builder=features,
                     verify=lambda *_: "insufficient_evidence")
     assert result.attempts == 1
     assert seen == [1]
