@@ -58,3 +58,21 @@ def test_fixture_safety_and_unknown_scope_do_not_embed_quarantined_text():
         raise AssertionError("Denied text must not be embedded during retrieval")
 
     assert not index.retrieve("lookup", DAY, forbidden, k=4).identifiers
+
+
+def test_failure_inclusive_fama_counts_missing_answer_as_zero():
+    from scripts.summarize_reader_safety import groups
+
+    template = {"mode": "test", "missing_reason": None, "abstained": False, "nominated_source_turns": 1,
+                "retrieved_turns": 1, "arithmetic": False, "canonicalized": False}
+    metrics = {"fama_arithmetic": 1, "correct": {"memory_presence": 1, "forgetting_absence": 1},
+               "totals": {"memory_presence": 1, "forgetting_absence": 1}}
+    rows = [template | {"reader": version, "number": 1, "metrics": metrics}
+            for version in ("original", "v2")]
+    rows.extend(template | {"reader": version, "number": 2, "metrics": None,
+                            "missing_reason": "reader_error"} for version in ("original", "v2"))
+    common, reports = groups(rows)
+    assert common == [1]
+    assert reports["test/v2"]["macro_fama_scored"] == 1
+    assert reports["test/v2"]["failure_inclusive_macro_fama"] == 0.5
+    assert reports["test/v2"]["errors"] == 1

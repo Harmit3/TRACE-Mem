@@ -1,4 +1,4 @@
-﻿"""Adjudicate and publish Step 26 without exposing rubric data to retrieval or generation."""
+"""Adjudicate and publish Step 26 without exposing rubric data to retrieval or generation."""
 
 from argparse import ArgumentParser
 from collections import defaultdict
@@ -171,6 +171,23 @@ def render(run, folder):
         ax.legend()
     figure.tight_layout()
     path = folder / "comparison.svg"
+    figure.savefig(path, metadata={"Date": None})
+    path.write_bytes(b"\n".join(line.rstrip() for line in path.read_bytes().splitlines()) + b"\n")
+    plt.close(figure)
+    figure, axes = plt.subplots(1, 2, figsize=(10.5, 4.2))
+    for i, version in enumerate(VERSIONS):
+        selected = [reports[f"{mode}/{version}"] for mode in MODES]
+        offset = [-.18, .18][i]
+        for ax, component in zip(axes, ("memory_presence", "forgetting_absence")):
+            ratios = [r[component]["correct"] / r[component]["total"]
+                      if r[component]["total"] else 0 for r in selected]
+            ax.bar([x + offset for x in xs], ratios, width=.34, label=version)
+    for ax, title in zip(axes, ("Memory-presence checks", "Forgetting-absence checks")):
+        ax.set(title=title, ylabel="Fraction credited among scored checks", ylim=(0, 1.05))
+        ax.set_xticks(xs, labels, rotation=20)
+        ax.legend()
+    figure.tight_layout()
+    path = folder / "rubric-components.svg"
     figure.savefig(path, metadata={"Date": None})
     path.write_bytes(b"\n".join(line.rstrip() for line in path.read_bytes().splitlines()) + b"\n")
     plt.close(figure)

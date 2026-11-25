@@ -142,6 +142,8 @@ The [Step 24 full development diagnostic](docs/memora_step24.md) reports all 15 
 
 The [Step 25 failure-isolation study](docs/memora_step25.md) compares structured retrieval, isolated transcript retrieval and a source oracle. It measures source-evidence attrition and reproduces the reader errors.
 
+The [Step 26 reader and evidence-safety diagnostic](docs/memora_step26.md) compares the revised reader with the original and records the managed evidence index quarantine on real unresolved deletion scopes.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.
