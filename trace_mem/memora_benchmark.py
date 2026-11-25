@@ -85,7 +85,7 @@ def _score(model, builder, item, target, entity, remaining):
 
 
 def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
-              seed, random_probability=0.25, adaptive=None):
+              seed, random_probability=0.25, adaptive=None, methods=None):
     """Replay all policies over one observation cutoff with identical prepared claims."""
     if (mode not in {"fixed", "closed-loop"} or type(cap) is not int or cap < 0
             or not 0 <= random_probability <= 1):
@@ -108,7 +108,11 @@ def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
     matched = min(len(candidates), cap)
     frozen_pool = {item.fact_id: target for item, target in candidates}
     output = {}
-    for method in (*METHODS, *adaptive):
+    available = (*METHODS, *adaptive)
+    selected_methods = available if methods is None else tuple(methods)
+    if len(set(selected_methods)) != len(selected_methods) or any(m not in available for m in selected_methods):
+        raise ValueError("Unknown or duplicate replay method")
+    for method in selected_methods:
         memory = TemporalMemory()
         budget = Budget(cap if method not in {"B0", "B1", "B2"} else 0)
         rng = random.Random(seed)
