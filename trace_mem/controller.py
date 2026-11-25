@@ -99,7 +99,8 @@ class LogisticController:
         )
         if not math.isfinite(logit):
             raise ValueError("Controller produced a nonfinite logit")
-        return _sigmoid(logit)
+        # Keep 1.0 available as a threshold that disables verification.
+        return min(_sigmoid(logit), math.nextafter(1.0, 0.0))
 
 
 def fit(

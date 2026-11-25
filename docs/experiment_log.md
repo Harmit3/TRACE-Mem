@@ -98,3 +98,11 @@ Codex implemented and exercised the [independent dataset pipeline](updateset.md)
 The generated and validated manifests matched. `cases.jsonl` SHA-256 is `c42b23464cc25c86a912b720af3509b2601003cf55ff24fce4a9c6b16012fba4`. Actual paired outcomes and human records are pending. No benchmark evaluation or controller training ran. `python -m unittest discover -s tests -v` reported `Ran 35 tests in 1.801s` and `OK`. Mock decisions and annotation-format examples existed only in test fixtures.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/trace-updateset?expand=1)
+
+## T1 training infrastructure
+
+Codex implemented gold-blind paired collection, scikit-learn training and validation calibration, budget-aware threshold selection, and JSON model artifacts. The tests use synthetic decisions, dataset seed 23 and training seed 7. They exercise fit, calibration diagnostics, artifact round trip, replay, train-only means, test-outcome isolation and failure handling. Python 3.14.0 and scikit-learn 1.8.0 on base `be7dd90`. No live model calls, tokens or cost.
+
+The existing 210-case release validated with zero helpfulness labels. Only test fixtures were fitted. No research model, calibration result or benchmark metric was produced. `python -m unittest discover -s tests -q` reported `Ran 40 tests in 3.270s` and `OK`.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/controller-training?expand=1)
