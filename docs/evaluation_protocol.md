@@ -20,6 +20,12 @@ Use a common verification-free replay of the history as a diagnostic to define t
 
 Synthetic checks should include fractional rounding, zero eligible candidates, tied scores at the cutoff, failed calls, and a closed-loop case where an early verification removes a later conflict. This last case should expose the call shortfall without either exceeding the cap or querying the verifier on a known ineligible event.
 
+### Implemented fixed-stream B4 and B5 replay
+
+Call `run_matched_baselines(replay(history), complete, entity=persona, calls=B, seed=seed, verify=verify)` from `trace_mem.baselines` (import `replay` from `trace_mem.data.memora`). Extract once and run the verification-free B2 reference to freeze each eligible claim and its unique target. B4 samples uniformly without replacement. B5 ranks uncertain claims first, then implicit changes, then explicit corrections. Chronological order breaks ties at the budget cutoff. The same integer target is mandatory for both methods. An infeasible target raises before any verifier calls.
+
+Each arm invokes the verifier in chronological order on the selected reference evidence. A call counts even if an earlier verified update caused the arm to diverge from the reference. Apply a verdict only when the reference target is still the arm's eligible target. Otherwise record a stale target and use the ordinary B2 rule for that step. The result records selection IDs, attempts, failures, and stale-target counts per method. This interface implements the fixed-stream diagnostic. The closed-loop pilot and its independently tuned thresholds are separate work.
+
 ## Planned scorer parity checks
 
 Use synthetic answers and fixed judge outcomes for recall-only, mixed recall and omission, abstention, tied judgment and all-judge failure. Require per-check outcomes and per-question FAMA to agree with the pinned scorer. Record the judge models, prompt and decoding settings, retries, error counts and cache identity for any eventual live evaluation.
