@@ -12,6 +12,7 @@ import time
 from scripts.compare_local_verifiers import MODE, QWEN, SETTINGS, checksum, local_json
 from scripts.updateset_v2_pilot import PROMPT_SCHEMA, QWEN_DIGEST
 from trace_mem.data.memora import replay
+from trace_mem.context_extraction import contextual_prepare
 from trace_mem.features_v3 import CachedMiniLM, MINILM_REVISION, NLI_REVISION, V3Features, pinned_nli
 from trace_mem.llm_tasks import DIRECT_V2_PROMPT, LLMTasks, RESPONSE_SCHEMAS
 from trace_mem.memora_benchmark import answer_suite, prepare, questions, run_suite
@@ -55,12 +56,19 @@ def write(path, value):
     temporary.replace(path)
 
 
-def run(source, nli, output, *, smoke):
+def run(source, nli, output, *, smoke, extraction_validation=None):
     import torch
     import transformers
 
     if (ROOT / "results").resolve() not in output.resolve().parents:
         raise ValueError("Keep predictions and response caches under ignored results/")
+    validated = None
+    if extraction_validation is not None:
+        design = ROOT / "docs/memora_step20_validation.json"
+        validated = json.loads(extraction_validation.read_bytes())
+        if (validated["protocol_sha256"] != sha(design) or validated["qwen_digest"] != QWEN_DIGEST
+                or not validated["extractor_passes"]):
+            raise ValueError("Contextual extractor has not passed the frozen development gate")
     protocol = json.loads(PROTOCOL.read_bytes())
     revision = audit_checkout(source, protocol)
     fit = json.loads((ARTIFACTS / "fit-freeze.json").read_bytes())
@@ -78,6 +86,7 @@ def run(source, nli, output, *, smoke):
     settings = protocol["settings"]
     freeze = {
         "revision": revision, "protocol_sha256": sha(PROTOCOL), "smoke": smoke,
+        "extraction_validation_sha256": sha(extraction_validation) if validated else None,
         "controller_sha256": model_hashes, "fit_freeze_sha256": sha(ARTIFACTS / "fit-freeze.json"),
         "qwen": QWEN_DIGEST, "qwen_name": QWEN, "ollama": local_json("/api/version")["version"],
         "minilm": MINILM_REVISION, "nli": NLI_REVISION, "verifier_prompt_schema": PROMPT_SCHEMA,
@@ -86,6 +95,7 @@ def run(source, nli, output, *, smoke):
         "runner_code": {str(path.relative_to(ROOT)): sha(path) for path in (
             Path(__file__).resolve(), ROOT / "trace_mem/memora_benchmark.py",
             ROOT / "trace_mem/llm_tasks.py", ROOT / "trace_mem/baselines.py",
+            ROOT / "trace_mem/context_extraction.py",
             ROOT / "trace_mem/providers.py", ROOT / "trace_mem/features_v3.py",
             ROOT / "trace_mem/memory.py", ROOT / "trace_mem/claims.py",
         )},
@@ -116,11 +126,16 @@ def run(source, nli, output, *, smoke):
                             output / "responses.sqlite")
     tasks = LLMTasks(provider, verification_mode=MODE)
     before = provider.stats()
-    prepared, errors = prepare(events, tasks)
+    collect = contextual_prepare if validated else prepare
+    prepared, errors = collect(events, tasks)
     report = {"smoke": smoke, "questions": len(chosen), "events": len(events),
               "user_events": sum(event.role == "user" for event in events),
               "full_development_user_events": sum(event.role == "user" for event in all_events),
               "claims": len(prepared), "extraction_failures": errors, "modes": {},
+              "claim_intents": dict(Counter(item.claim.intent for item in prepared)),
+              "distinct_predicates": len({item.claim.predicate for item in prepared}),
+              "explicit_date_claims": sum(item.claim.explicit_effective_date for item in prepared),
+              "claim_bearing_turns": len({item.source.reference for item in prepared}),
               "before": before}
     predictions = []
     for question in chosen:
@@ -160,5 +175,7 @@ if __name__ == "__main__":
     parser.add_argument("--nli", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--smoke", action="store_true")
+    parser.add_argument("--extraction-validation", type=Path)
     args = parser.parse_args()
-    print(json.dumps(run(args.source, args.nli, args.output, smoke=args.smoke), sort_keys=True))
+    print(json.dumps(run(args.source, args.nli, args.output, smoke=args.smoke,
+                         extraction_validation=args.extraction_validation), sort_keys=True))
