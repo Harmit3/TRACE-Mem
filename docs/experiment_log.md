@@ -159,3 +159,11 @@ Codex verified the merge of PR #17, downloaded the approved Qwen 7B Q4_K_M check
 No research labels were collected. The annotation packet SHA-256 remained `1dffda1962e49c1de62aa82f566bb31ba9148ec180adb78d6464111d2024ae08`. `python -m unittest discover -s tests -q` reported `Ran 54 tests in 3.178s` and `OK`.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/qwen-verifier?expand=1)
+
+## Actual Qwen paired decisions on TRACE-UpdateSet
+
+On base `7a455b0`, Codex verified the pinned verifier settings and ran the [documented local collection and release audit](qwen_updateset_outcomes.md). Ollama 0.40.13 served the validated Qwen direct-v2 model at seed 23. The collector returned `{"ok": 78}` with zero failures, cache hits, or cost, 23,614 input tokens, 962 output tokens, and 73,644.810 ms provider latency. The 60 training and 18 validation pairs all agreed. Gold-supported labels were 0 positive / 40 negative for train and 0 positive / 12 negative for validation. Twenty train and six validation labels remain pending human gold.
+
+The outcome audit verified the source lineage and unchanged held-out test rows. No model fit ran. The original review packet hash was unchanged. The first test run exposed a Windows file lock in a SQLite test fixture. Closing the fixture connection fixed it. `python -m unittest discover -s tests -q` then reported `Ran 55 tests in 3.751s` and `OK`.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/qwen-updateset-outcomes?expand=1)
