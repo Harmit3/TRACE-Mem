@@ -175,3 +175,11 @@ On base `45b3c80`, Codex audited the v1 agreement and froze the 500-case generat
 The commands, observed split counts, hashes, settings, token usage and latency are in the [v2 protocol and report](updateset_v2.md). Python 3.14.0. `python -m unittest discover -s tests -q` reported `Ran 57 tests in 8.491s` and `OK`. V1 source and paired release hashes and the 26-case v1 review hash were unchanged. No training, paid inference or benchmark evaluation ran.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/trace-updateset-v2?expand=1)
+
+## Full TRACE-UpdateSet v2 candidate release
+
+On base `9ff82ee`, Codex froze the candidate protocol at `350e54e` and finished the 500-case local Qwen run. The logged command and complete split counts are in the [release report](updateset_v2_full.md). There were 313 verified candidates and 288 ineligible claims. Nonpilot counts were 89 positive / 113 negative for train and 35 positive / 23 negative for validation. The run logged 770 actual Ollama calls, 43 cache hits, two invalid extractions, 191,270 input and 19,168 output tokens, 1,232.13 seconds summed provider latency and USD 0 cost.
+
+The release audit recomputed candidate features and labels and verified 500 rows and 601 unique IDs. The prior pilot and v1 artifacts were preserved. `python -m unittest discover -s tests -q` reported `Ran 61 tests in 10.424s` and `OK` on Python 3.14.0. No controller training, paid requests, or benchmark analysis ran.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/updateset-v2-full?expand=1)
