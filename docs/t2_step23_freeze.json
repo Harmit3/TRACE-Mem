@@ -1,0 +1,32 @@
+{
+  "version":"t2-quantile-pacing-v1",
+  "planned_opportunities_per_history":10,
+  "budgets":[0,10,25,50,100],
+  "random_seeds":[7,23,41,61,83],
+  "histories":[
+    {"id":"mixed-changes","deleted":["membership","Iron Lantern Society"],"pairs":[
+      ["job","Orchard Desk","Rook Studio","assert","Rook Studio is my permanent employer now. I left Orchard Desk last week.",true],
+      ["residence","Severn Place","Silver Moss Road","uncertain","I might move to Silver Moss Road next year. I still live at Severn Place.",false],
+      ["office","Suite Copper","Suite Jasper","assert","Building management assigned Suite Jasper as my permanent office as of {date}. Suite Copper is vacated.",true],
+      ["favorite_band","Gilded Hush","Linen Comet","correct","My favorite band is now Linen Comet instead of Gilded Hush.",true],
+      ["gym","Maple Gym","Cobalt Gym","uncertain","I might try Cobalt Gym next month, but Maple Gym is still my gym.",false],
+      ["insurance","Quill Cover","Wren Cover","assert","My Quill Cover policy ended. Wren Cover is the active policy from {date}.",true],
+      ["shift","Second Shift","First Shift","uncertain","I may cover First Shift tomorrow. Second Shift remains my regular shift.",false],
+      ["library","Reed Branch","Sedge Branch","correct","Sedge Branch has replaced Reed Branch as my default library.",true],
+      ["contact","Email","Text Message","assert","Use Text Message as my only contact method from now on. I no longer use Email.",true],
+      ["vehicle","Red Sedan","Gray Wagon","uncertain","I temporarily rented Gray Wagon. I still own Red Sedan.",false]
+    ]},
+    {"id":"tempting-mentions","deleted":["club","Pepper Circle"],"pairs":[
+      ["job","Bell Press","Mercury Works","uncertain","I am considering applying to Mercury Works, but I remain employed by Bell Press.",false],
+      ["residence","Quiet Hill","Lake View","assert","I returned the old keys. Lake View is my permanent home from {date}.",true],
+      ["office","Office W","Office N","uncertain","I borrowed Office N for today. Office W remains my office.",false],
+      ["favorite_band","Birch Radio","Felt Paper","assert","Felt Paper is now my favorite band. Birch Radio used to be.",true],
+      ["gym","North Gym","Dune Gym","uncertain","If Dune Gym cuts its prices I may switch. North Gym is my current gym.",false],
+      ["insurance","Camber Mutual","Orbit Mutual","correct","Orbit Mutual replaced Camber Mutual and is effective from {date}.",true],
+      ["shift","Day Watch","Night Watch","assert","I am filling in for Night Watch for a single evening. Day Watch is my regular shift.",false],
+      ["library","Grove Library","Vine Library","assert","Vine Library is now my registered home branch. I have dropped Grove Library.",true],
+      ["contact","Postal Mail","Voice Call","uncertain","Voice Call might be easier eventually, but keep my preference for Postal Mail.",false],
+      ["vehicle","Blue Bike","White Bike","assert","I gave away Blue Bike. White Bike is my only bike now from {date}.",true]
+    ]}
+  ]
+}
