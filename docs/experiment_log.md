@@ -83,3 +83,18 @@ Codex implemented local provider adapters, prefiltered top-k retrieval, and opti
 Base revision `d65289b`. On Python 3.14.0, `python -m unittest discover -s tests -v` reported `Ran 28 tests in 0.103s` and `OK`. The integration fixture uses seed 2, deterministic embeddings and mock NLI, extraction and verification. No real model inference, paid API calls, or benchmark measurements. The optional direct dependencies and reference checkpoint pins are in the [semantic model guide](semantic_models.md).
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/semantic-retrieval-nli?expand=1)
+
+## TRACE-UpdateSet v1 generation
+
+Codex implemented and exercised the [independent dataset pipeline](updateset.md) on base `8b43848`. The generate, validate and annotation-packet commands in that guide succeeded on Python 3.14.0 in 0.896 seconds combined. The annotation command printed `{"pending_cases": 30}`. Standard library only, seed 23, with no benchmark inputs, model calls, tokens or cost.
+
+| Split | Rows | Synthetic rule gold | Awaiting human gold | Helpfulness labels |
+| --- | ---: | ---: | ---: | ---: |
+| Train | 140 | 120 | 20 | 0 |
+| Validation | 42 | 36 | 6 | 0 |
+| Test | 28 | 24 | 4 | 0 |
+| Total | 210 | 180 | 30 | 0 |
+
+The generated and validated manifests matched. `cases.jsonl` SHA-256 is `c42b23464cc25c86a912b720af3509b2601003cf55ff24fce4a9c6b16012fba4`. Actual paired outcomes and human records are pending. No benchmark evaluation or controller training ran. `python -m unittest discover -s tests -v` reported `Ran 35 tests in 1.801s` and `OK`. Mock decisions and annotation-format examples existed only in test fixtures.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/trace-updateset?expand=1)
