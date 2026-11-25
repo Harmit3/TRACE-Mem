@@ -32,7 +32,11 @@ def extract(event: Event, complete: Callable[[str, str], str]) -> tuple[Claim, .
     if event.role != "user":
         return ()
     payload = json.dumps({"observed_on": event.observed_on.isoformat(), "message": event.message})
-    rows = json.loads(complete(EXTRACTION_PROMPT, payload))
+    return parse_claims(complete(EXTRACTION_PROMPT, payload), event.observed_on)
+
+
+def parse_claims(text: str, observed_on: date) -> tuple[Claim, ...]:
+    rows = json.loads(text)
     if not isinstance(rows, list):
         raise ValueError("Claim extraction requires a JSON array")
     claims = []
@@ -44,7 +48,7 @@ def extract(event: Event, complete: Callable[[str, str], str]) -> tuple[Claim, .
             raise ValueError("Claim predicate, value and intent are required")
         if intent not in ("assert", "correct", "uncertain", "delete"):
             raise ValueError("Unknown claim intent")
-        start = date.fromisoformat(row.get("effective_on") or event.observed_on.isoformat())
+        start = date.fromisoformat(row.get("effective_on") or observed_on.isoformat())
         end = date.fromisoformat(row["expires_on"]) if row.get("expires_on") else None
         if end is not None and end <= start:
             raise ValueError("Claim expiry must follow its start")

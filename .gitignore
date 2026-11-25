@@ -7,3 +7,11 @@ __pycache__/
 /data/
 /results/
 /third_party/
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.pem
+*.key

@@ -28,6 +28,13 @@ class DecisionInput:
 DecisionPolicy = Callable[[DecisionInput], dict]
 
 
+def eligible_case(case: DecisionInput) -> bool:
+    return (case.new.intent != "delete" and case.old.predicate == case.new.predicate
+            and case.old.value.casefold() != case.new.value.casefold()
+            and case.new.effective_on > case.old.valid_from
+            and case.old.visible_on(case.new.effective_on))
+
+
 def _inputs(row: dict) -> DecisionInput:
     old, new = row["old_fact"], row["new_claim"]
     old_source = Source(date.fromisoformat(old["observed_on"]), old["source_ref"])
@@ -49,6 +56,7 @@ def collect_pairs(
     verified: DecisionPolicy,
     reference: str,
     origin: Literal["recorded_verifier", "synthetic_mock"],
+    eligible_only: bool = False,
 ) -> dict:
     """Collect train/validation outcomes from the same immutable, gold-free inputs."""
     if origin not in ("recorded_verifier", "synthetic_mock") or not reference.strip():
@@ -61,6 +69,8 @@ def collect_pairs(
         if row["split"] == "test" or row["outcomes"] is not None:
             continue
         case = _inputs(row)
+        if eligible_only and not eligible_case(case):
+            continue
         before = dict(unverified(case))
         after = dict(verified(case))
         records.append({"case_id": row["case_id"], "outcomes": {
@@ -157,10 +167,7 @@ def train(
             continue
         case = _inputs(row)
         # Match live T1's single-target conflict boundary.
-        if (case.old.predicate != case.new.predicate
-                or case.old.value.casefold() == case.new.value.casefold()
-                or case.new.effective_on <= case.old.valid_from
-                or not case.old.visible_on(case.new.effective_on)):
+        if not eligible_case(case):
             continue
         inputs[split].append(case)
         labels[split].append(int(label))

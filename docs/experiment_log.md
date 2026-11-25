@@ -106,3 +106,13 @@ Codex implemented gold-blind paired collection, scikit-learn training and valida
 The existing 210-case release validated with zero helpfulness labels. Only test fixtures were fitted. No research model, calibration result or benchmark metric was produced. `python -m unittest discover -s tests -q` reported `Ran 40 tests in 3.270s` and `OK`.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/controller-training?expand=1)
+
+## LLM providers and resumable outcome collection
+
+Codex implemented three HTTP adapters, validated task prompts, durable request and spending accounting, an ignored response cache, a commit guard, and a TRACE-UpdateSet collection CLI. The offline tests simulate responses and failures. The resume fixture uses dataset seed 23 and provider seed 7. Base revision `484d67c`. Python 3.14.0 and standard-library HTTP and SQLite for providers. `python -m unittest discover -s tests -v` reported `Ran 48 tests in 3.892s` and `OK`.
+
+No live inference, paid requests, actual model tokens, charges, or research labels were produced. A loopback Ollama catalog probe found no reachable service. The [provider guide](llm_providers.md) documents commands and ledger assumptions.
+
+The staged-file guard initially flagged a credential-shaped string in its own test fixture. The fixture now assembles the synthetic value at runtime so the guard can remain enabled without a test-file exemption.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/llm-providers?expand=1)
