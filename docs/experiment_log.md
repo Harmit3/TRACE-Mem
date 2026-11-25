@@ -33,3 +33,11 @@ Codex implemented the structured extraction prompt and parser, predicate/value c
 `python -m unittest discover -s tests -v` reported `Ran 7 tests in 0.015s` and `OK` on Python 3.14.0. The integrated baseline test uses a fixed completion function and checks identical replay traces on repetition. No model calls, tokens, costs, or held-out evaluation. Human review is pending.
 
 [Manual stacked comparison](https://github.com/Harmit3/TRACE-Mem/compare/feat/temporal-memory...feat/claim-baselines?expand=1)
+
+## Verification selection and accounting
+
+Codex implemented seeded random and ranked exact-count selection for the common fixed stream, plus call accounting that charges failures against the cap. These are policy components. Verifier-driven state transitions, closed-loop replay and learned scoring remain open.
+
+`python -m unittest discover -s tests -v` reported `Ran 9 tests in 0.021s` and `OK` on Python 3.14.0. The standard-library fixtures use seed 7 for random selection and an injected timeout for failure accounting. No model calls, tokens, costs, or benchmark scores. Human review is pending.
+
+[Manual stacked comparison](https://github.com/Harmit3/TRACE-Mem/compare/feat/claim-baselines...feat/verification-budget?expand=1)
