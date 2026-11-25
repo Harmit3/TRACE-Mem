@@ -1,0 +1,462 @@
+{
+  "fixtures": [
+    {
+      "error": null,
+      "exact": [
+        "A"
+      ],
+      "gold": [
+        "A"
+      ],
+      "gold_intent": "forgetting",
+      "id": "literal-job",
+      "pool_size": 2,
+      "relation": "exact",
+      "semantic": [
+        "A"
+      ],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [
+        "A",
+        "B"
+      ],
+      "gold": [
+        "A"
+      ],
+      "gold_intent": "forgetting",
+      "id": "literal-event",
+      "pool_size": 2,
+      "relation": "exact",
+      "semantic": [
+        "A"
+      ],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [],
+      "gold": [
+        "A"
+      ],
+      "gold_intent": "forgetting",
+      "id": "case-variant",
+      "pool_size": 1,
+      "relation": "paraphrase",
+      "semantic": [
+        "A"
+      ],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [],
+      "gold": [
+        "A"
+      ],
+      "gold_intent": "forgetting",
+      "id": "known-alias",
+      "pool_size": 2,
+      "relation": "ambiguous",
+      "semantic": [],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [],
+      "gold": [
+        "A"
+      ],
+      "gold_intent": "forgetting",
+      "id": "paraphrased-task",
+      "pool_size": 2,
+      "relation": "paraphrase",
+      "semantic": [
+        "A"
+      ],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [],
+      "gold": [
+        "A"
+      ],
+      "gold_intent": "forgetting",
+      "id": "document-field",
+      "pool_size": 2,
+      "relation": "paraphrase",
+      "semantic": [
+        "A"
+      ],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [
+        "A",
+        "B"
+      ],
+      "gold": [],
+      "gold_intent": "forgetting",
+      "id": "duplicate-scope",
+      "pool_size": 2,
+      "relation": "ambiguous",
+      "semantic": [],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [],
+      "gold": [],
+      "gold_intent": "forgetting",
+      "id": "unresolved-deictic",
+      "pool_size": 2,
+      "relation": "ambiguous",
+      "semantic": [],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [],
+      "gold": [],
+      "gold_intent": "forgetting",
+      "id": "broad-profile",
+      "pool_size": 1,
+      "relation": "broad",
+      "semantic": [],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [],
+      "gold": [],
+      "gold_intent": "forgetting",
+      "id": "broad-topic",
+      "pool_size": 2,
+      "relation": "broad",
+      "semantic": [],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [
+        "A"
+      ],
+      "gold": [],
+      "gold_intent": "correction",
+      "id": "preference-correction",
+      "pool_size": 1,
+      "relation": "none",
+      "semantic": [],
+      "semantic_intent": "unresolved"
+    },
+    {
+      "error": null,
+      "exact": [
+        "A"
+      ],
+      "gold": [],
+      "gold_intent": "temporary",
+      "id": "temporary-hide",
+      "pool_size": 1,
+      "relation": "none",
+      "semantic": [],
+      "semantic_intent": "temporary"
+    },
+    {
+      "error": null,
+      "exact": [
+        "A"
+      ],
+      "gold": [],
+      "gold_intent": "extraction_error",
+      "id": "unnamed-edit",
+      "pool_size": 1,
+      "relation": "none",
+      "semantic": [],
+      "semantic_intent": "extraction_error"
+    },
+    {
+      "error": null,
+      "exact": [],
+      "gold": [],
+      "gold_intent": "unresolved",
+      "id": "future-source",
+      "pool_size": 0,
+      "relation": "none",
+      "semantic": [],
+      "semantic_intent": "unresolved"
+    },
+    {
+      "error": null,
+      "exact": [
+        "A"
+      ],
+      "gold": [
+        "A"
+      ],
+      "gold_intent": "forgetting",
+      "id": "known-chart",
+      "pool_size": 2,
+      "relation": "exact",
+      "semantic": [
+        "A"
+      ],
+      "semantic_intent": "forgetting"
+    },
+    {
+      "error": null,
+      "exact": [
+        "A"
+      ],
+      "gold": [],
+      "gold_intent": "unresolved",
+      "id": "wrong-entity",
+      "pool_size": 1,
+      "relation": "none",
+      "semantic": [],
+      "semantic_intent": "unresolved"
+    }
+  ],
+  "freeze_sha256": "5c2cc1c59a1d7234c5403e2035d83ff2883398411e3cc7a09e9a9d84b9ef6d7e",
+  "metrics": {
+    "exact": {
+      "candidate_records": 24,
+      "expected": 7,
+      "false_request_rate": 0.375,
+      "false_targets": 7,
+      "hypothetical_retained_if_proposals_applied": 14,
+      "matched": 3,
+      "precision": 0.3,
+      "proposed": 10,
+      "recall": 0.42857142857142855,
+      "unresolved_targeted_requests": 4
+    },
+    "semantic": {
+      "candidate_records": 24,
+      "expected": 7,
+      "false_request_rate": 0.0,
+      "false_targets": 0,
+      "hypothetical_retained_if_proposals_applied": 18,
+      "matched": 6,
+      "precision": 1.0,
+      "proposed": 6,
+      "recall": 0.8571428571428571,
+      "unresolved_targeted_requests": 1
+    }
+  },
+  "provider": {
+    "attempts": 30,
+    "cache_hits": 0,
+    "cost_usd": "0",
+    "input_tokens": 10976,
+    "latency_ms": 54237.08190006437,
+    "models": [
+      "qwen2.5:7b-instruct-q4_K_M"
+    ],
+    "output_tokens": 700,
+    "statuses": {
+      "ok": 30
+    }
+  },
+  "real": {
+    "analyst_intents": {
+      "correction": 2,
+      "extraction_error": 2,
+      "forgetting": 14
+    },
+    "approvals": 0,
+    "authorized_recovered_records": 0,
+    "model_intents": {
+      "extraction_error": 4,
+      "forgetting": 12,
+      "unresolved": 2
+    },
+    "proposal_rows": [
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "45/12",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "48/12",
+        "relation": "ambiguous",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "57/6",
+        "relation": "ambiguous",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "correction",
+        "analyst_target_overlap": false,
+        "model_intent": "unresolved",
+        "proposal_error": false,
+        "reference": "58/11",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "extraction_error",
+        "analyst_target_overlap": false,
+        "model_intent": "extraction_error",
+        "proposal_error": false,
+        "reference": "62/3",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "extraction_error",
+        "proposal_error": false,
+        "reference": "62/5",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "67/5",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "67/7",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "67/9",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "76/15",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "extraction_error",
+        "analyst_target_overlap": false,
+        "model_intent": "extraction_error",
+        "proposal_error": false,
+        "reference": "80/3",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "80/5",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "88/5",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "extraction_error",
+        "proposal_error": false,
+        "reference": "88/7",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "98/10",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "correction",
+        "analyst_target_overlap": false,
+        "model_intent": "unresolved",
+        "proposal_error": false,
+        "reference": "106/13",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "114/7",
+        "relation": "none",
+        "single_target_proposed": false
+      },
+      {
+        "analyst_intent": "forgetting",
+        "analyst_target_overlap": false,
+        "model_intent": "forgetting",
+        "proposal_error": false,
+        "reference": "126/12",
+        "relation": "none",
+        "single_target_proposed": false
+      }
+    ],
+    "quarantine_released": false,
+    "requests": 18
+  },
+  "resolver_gate_passes": true,
+  "safety": {
+    "alternate_index_blocked": true,
+    "backdated_change_not_visible_before_observation": true,
+    "cached_answer_allowed_before_restriction": true,
+    "cached_answer_blocked_after_restriction": true,
+    "current_supersession": true,
+    "derived_handle_blocked_after_restriction": true,
+    "future_excluded": true,
+    "historical_and_paraphrased_query_blocked": true,
+    "historical_visible_before_revocation": true,
+    "scope_revokes_current_replacement": true,
+    "stale_handle_invalidated": true,
+    "unknown_scope_quarantines_every_channel": true,
+    "unrelated_fact_and_cache_epoch": true
+  },
+  "wall_seconds": 72.16397469997173
+}
