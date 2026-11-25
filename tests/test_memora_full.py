@@ -87,3 +87,26 @@ def test_aggregation_counts_replay_once_per_cutoff_and_keeps_missing_scores():
     assert result["macro_fama_seed_mean"] == 0.5
     assert result["actual_calls_seed_mean"] == 3
     assert seed["per_cutoff"]["2025-06-07"]["achieved_reference_coverage"] == 0.3
+
+
+def test_terminal_validator_failures_are_shared_across_identical_requests(tmp_path):
+    import pytest
+
+    from scripts.replay_memora_full import TerminalResponseMemo
+    from trace_mem.providers import ChatProvider, ProviderConfig, ProviderError
+
+    def transport(_url, _headers, _body, _timeout):
+        return {"message": {"content": "{}"}, "prompt_eval_count": 16,
+                "eval_count": 4, "done": True, "done_reason": "length"}
+
+    provider = ChatProvider(ProviderConfig("ollama", "fixture", 2),
+                            tmp_path / "provider.sqlite", transport=transport)
+    def fail():
+        wrapped = TerminalResponseMemo(provider, tmp_path / "terminal.sqlite")
+        with pytest.raises(ProviderError, match="incomplete"):
+            wrapped.generate("answer-v1", "reader", "same input", lambda _: None)
+        return wrapped.stats()
+
+    assert fail() == {"distinct_terminal_failures": 1, "failure_cache_hits": 0}
+    assert fail() == {"distinct_terminal_failures": 1, "failure_cache_hits": 1}
+    assert provider.stats()["attempts"] == 1

@@ -2,7 +2,7 @@
 
 **Budget-Aware Verification and Memory Evolution for Long-Horizon LLM Agents**
 
-> **Status:** TRACE-Mem includes temporal replay, budgeted verification, and an exploratory T1 fit on the frozen synthetic V3 release. Local Memora development replay is available. Published-configuration benchmark scoring and held-out evaluation are pending.
+> **Status:** TRACE-Mem includes temporal replay, budgeted verification, and an exploratory T1 fit on the frozen synthetic V3 release. The full weekly Memora development diagnostic recorded 0.000 adapted local FAMA across all policies. Published-configuration benchmark scoring and held-out evaluation are pending.
 > Intended for a Western University CS9548 graduate course project and a subsequent, independently evaluated publication attempt. Publication is not guaranteed.
 
 ## 0. Research integrity and permission gate
@@ -130,13 +130,15 @@ Primary objective for comparisons: minimize end-to-end error subject to maximum 
 
 The [Memora development protocol](docs/memora_step19.md) documents the local replay runner, frozen subset, provider settings, and official judging dependency.
 
-The [Step 20 extraction audit](docs/memora_step20.md) records the failed contextual extractor gate and the adapted local scoring smoke. The full development comparison awaits a validated extractor.
+The [Step 20 extraction audit](docs/memora_step20.md) records the failed contextual extractor gate and the adapted local scoring smoke. Those failed promotion gates remain in effect for future extractor selection.
 
 The [Step 21 hybrid extraction experiment](docs/memora_step21.md) tests verbatim evidence selection, constrained claim normalization, and a privacy-aware evidence sidecar alongside the existing structured architecture.
 
 The [Step 22 controlled downstream diagnostic](docs/memora_step22.md) compares automatic extraction with source-checked spans and reports separate fixed-stream and closed-loop verification budgets.
 
 The [Step 23 adaptive verification diagnostic](docs/t2_step23.md) measures T1 threshold transfer and compares training-referenced online pacing with a nonlearned comparator.
+
+The [Step 24 full development diagnostic](docs/memora_step24.md) reports all 15 questions, both replay modes, policy spending, and the negative locally adjudicated result.
 
 ## 6. Metrics, experiments, and quality criteria
 
