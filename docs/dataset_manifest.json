@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "proposed_for_team_review",
+  "benchmark": "Memora",
+  "repository": "https://github.com/geniesinc/Memora.git",
+  "revision": "a6493188efc836d6511ed5e4163fe3ba87da30ff",
+  "license": "Apache-2.0",
+  "subset": {
+    "purpose": "held_out_pilot",
+    "period": "weekly",
+    "selection_rule": "Take the first two persona directories in ascending path order. Include all sessions and all rubric questions for those directories.",
+    "history_count": 2,
+    "session_count": 303,
+    "question_count": 30,
+    "histories": [
+      {
+        "path": "data/weekly/academic_researcher",
+        "conversation_tree": "ed3a2d5a3514060c30a32c8cd2ce61cb2262e49c",
+        "rubric_blob": "d3b815217b3c0fd54142b7fcb8cd6415d3b907ad",
+        "sessions": 158,
+        "questions": 15
+      },
+      {
+        "path": "data/weekly/business_executive",
+        "conversation_tree": "68f4ad0613224bc77d7052d52c2c0b79623f4ce0",
+        "rubric_blob": "905d74aa01d07bd7afcb9b3f990c50c2bfb9efb5",
+        "sessions": 145,
+        "questions": 15
+      }
+    ]
+  }
+}
