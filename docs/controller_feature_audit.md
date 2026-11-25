@@ -18,3 +18,40 @@ Create a separate extension only after the feature contract and adjudication pla
 - To study budget as a feature, collect a separate chronological protocol with a frozen pre-outcome allocation schedule or a fixed independent prefix policy and actual remaining budget. A one-call isolated intervention necessarily starts with a full budget.
 
 Freeze all inputs, feature definitions, source IDs, budget schedule, model revisions, and acceptance checks before collection or feature inference. Keep candidate decisions and source evidence grouped by conversation and family. Reserve new independent families for calibration and later evaluation. Treat case-level repetitions as clustered evidence.
+
+V3 should cross evidence types and timing bands with operation families in each split rather than making a feature level synonymous with a family or label. The authoring matrix should include direct reports, contextual confirmations, dated documents, hearsay and conflicting sources, with both updates and nonupdates where coherent. Use blinded adjudicators on disagreement-sensitive cases, and write a provenance codebook before reading model outcomes. No v3 cases or annotations were generated in this audit.
+
+## Findings
+
+PR #22 was merged at `ca5bb0d`. Diagnostic settings and the semantic input fix were frozen at `f8b9427`. The untouched v2 outcome SHA-256 is `facd1d44bc0401bbbc7d8f9ef39940c0bd7039a56f770f427e3420319c28bca0`.
+
+| Feature | Train population variance | Validation population variance | Recorded source |
+| --- | ---: | ---: | --- |
+| Semantic similarity | 0.035324 | 0.025624 | Token Jaccard. V2 did not configure a semantic provider. |
+| Contradiction score | 0.005582 | 0 | Rule proxy. With an eligible conflict it equals `1 - uncertainty / 2`. |
+| Entity match | 0 | 0 | Exact match required by eligibility. All eligible rows equal 1. |
+| Temporal conflict | 0 | 0 | Eligible claims overlap the live target, and each observed score is 1. |
+| Time gap | 0 | 0 | The authored observation dates differ by exactly 21 days. |
+| Provenance | 0 | 0 | Both opaque reference strings are always present. This is presence, not evidence quality. |
+| Uncertainty | 0.022327 | 0 | Observed extractor intent, encoded as 0.5 for assert or 1 for uncertain in the train rows. Validation has only assert. |
+| Remaining budget | 0 | 0 | One-call counterfactuals start with fraction 1, not a live replay trajectory. |
+
+The three defined recorded train correlations were similarity–contradiction −0.2465, similarity–uncertainty +0.2465, and contradiction–uncertainty −1.0000. Constant pairs have undefined Pearson correlation. Validation has only one nonconstant column, so it has no defined feature-pair correlations.
+
+Among 232 eligible nonpilot train rows and 58 eligible nonpilot validation rows, there were no invalid or missing feature rows. The recorded vectors had only four and three unique values, respectively. Eligible rows covered eight train families and six validation families out of 11 sampled per split. Labeled train rows span seven families, with positives from three. Labeled validation rows span six, with positives from three.
+
+The 35 validation positives share `[0.2, 0.75, 1, 1, 21, 1, 0.5, 1]`. Each was extracted as assert. Across explicit, implicit and indirect replacement families, the only shared old/new token was an artificial case suffix, giving exactly one shared token over five unique tokens. Consequently even the sole varying feature in validation is confounded with template wording and ID-like tokens.
+
+## Local model sensitivity check
+
+```powershell
+python -m scripts.audit_controller_features data/updateset-v2-seed2407 results/updateset-v2-full --cached-minilm
+```
+
+The cached CPU MiniLM run encoded 540 distinct texts using Torch 2.10.0+cpu and Transformers 5.22.2. Replacing only the lexical feature gave 232 distinct train vectors and 58 distinct validation vectors, including 35 distinct positive validation vectors. The cosine population variances were 0.007970 and 0.006943. Train cosine correlation with contradiction was −0.3493 and with uncertainty was +0.3493. This demonstrates sensitivity to the real embedding. It cannot establish useful signal, and embeddings still see the frozen v2 suffixes embedded in fact values.
+
+No mock features were used in the v2 release or this model diagnostic. V2 explicitly used lexical and rule defaults. The first coordinate in this diagnostic is a real embedding, while contradiction remains the original proxy. The reference NLI checkpoint and Sentence Transformers package were unavailable in the local inventory. No NLI weights were downloaded and no remote inference ran. The configured NLI route uses named classifier probabilities when a local checkpoint is supplied. Real NLI effects still need a separately frozen check.
+
+The implementation now renders model-facing feature pairs with pair-local subject markers, removing raw persona IDs that encoded split and case membership. The exact entity feature and provenance metadata remain available independently. V2's recorded rule features and outcome files were preserved. V3 should remove ID suffixes from natural values at generation time rather than rewriting this release.
+
+The result supports an exploratory fit only. More distinct cosine values do not increase the number of independent families or vary timing, provenance, and budget. Reliable calibration remains blocked by clustered scenarios and a narrow validation distribution. No controller was trained.
