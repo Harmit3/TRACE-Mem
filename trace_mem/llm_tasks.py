@@ -75,6 +75,11 @@ RESPONSE_SCHEMAS = {
         "intent": {"enum": ["assert", "correct", "uncertain", "delete"]},
         "effective_on": _TEXT, "expires_on": _TEXT,
     }, ["predicate", "value", "intent"])},
+    "deletion-target-v1": _object_schema({
+        "intent": {"enum": ["forgetting", "correction", "temporary", "extraction_error", "unresolved"]},
+        "relation": {"enum": ["exact", "paraphrase", "alias", "ambiguous", "broad", "none"]},
+        "target": {"type": "integer"},
+    }),
     "local-rubric-v1": _object_schema({"judgment": {"enum": ["yes", "no"]}}),
     "verify-v1": _object_schema({"verdict": {"enum": list(_VERDICTS)}}),
     "answer-evidence-v2": {
