@@ -1,0 +1,53 @@
+{
+  "version":"step25-failure-isolation-1",
+  "k":8,
+  "evidence_bytes":3000,
+  "max_reader_requests":150,
+  "max_judge_requests":400,
+  "transcript_policy":"local diagnostic only; exact known removals and edit sessions excluded; residual privacy risk",
+  "excluded_sessions":[57,62,67,80,88],
+  "excluded_turns":["3/12","17/8","17/10","17/12","20/15","30/8","30/10","45/12","50/12","61/13","76/15","81/11","84/8","84/10","87/16","98/10","114/7","118/12","122/13","124/16","126/12"],
+  "questions":[
+    {"spans":["2/12","6/11","12/18","29/20","36/12","38/12","49/19","55/12","70/13","72/20","74/13","97/10","100/14","110/10","116/21","134/12","137/11","145/20","149/11"],"review":"Food scope, repeated purchases and week boundaries."},
+    {"spans":["8/12","33/19","56/13","92/12","93/13","115/10","133/11"],"review":"Confirm daily aggregation and possible repeated reports."},
+    {"spans":["14/10","6/11","12/18","38/12","49/19","55/12","70/13","72/20","100/14","116/21","134/12","149/11"],"review":"Check whether all reported expenses belong to the goal's week."},
+    {"spans":["21/11","8/12","33/19","56/13","92/12","93/13","115/10","133/11"],"review":"Daily goal requires date-aware comparison and possible missing days."},
+    {"spans":["6/11","12/18","38/12","49/19","55/12","70/13","72/20","100/14","116/21","134/12","149/11"],"review":"Verify coffee transaction coverage."},
+    {"spans":["11/12","85/18"],"review":"Check preference relevance and whether a new recommendation is supported."},
+    {"spans":["121/19"],"review":"Book recommendation may need additional interest evidence."},
+    {"spans":["1/11","64/16","89/19","135/18"],"review":"Confirm currently active preferences and contrary evidence."},
+    {"spans":["39/19","106/13","151/13"],"review":"Assess temporally valid travel preferences and recommendation relevance."},
+    {"spans":["121/19"],"review":"Check additional interests and recommendation quality."},
+    {"spans":["120/18","132/12","136/10","138/18"],"review":"Resolve task completion, re-added requests and this-week cutoff."},
+    {"spans":["30/6","30/12"],"review":"Document revision and permitted remaining email fields; mixed source turns excluded."},
+    {"spans":["17/6"],"review":"Only the scoped meeting title is retained in this oracle; review permitted surviving details."},
+    {"spans":["60/18","150/11"],"review":"Determine which events are actually upcoming at the query cutoff."},
+    {"spans":["84/6","84/12"],"review":"Audit the draft after removal of recipients and key points; mixed source turns excluded."}
+  ],
+  "reader":[
+    ["Where does Ada work?",["Ada works at Elm Press."],"Elm Press"],
+    ["Which city is the conference in?",["The conference is in Riverton."],"Riverton"],
+    ["How much did Luis spend altogether?",["Luis spent $11 on groceries.","Luis spent $7 on coffee."],"18"],
+    ["Who is Ana's sister?",["Mira is Ana's sister.","Mika is Ana's cousin."],"Mira"],
+    ["Is the appointment on Friday?",["The appointment moved from Friday to Monday."],"Monday"],
+    ["What is Noor's home address?",["Noor takes the train to the library."],null],
+    ["Who wrote the novel?",["The novel was published in 2010."],null],
+    ["Where does Jan currently work?",["Jan might apply to Blue Press."],null],
+    ["When is the meeting?",["The meeting was cancelled without a replacement date."],null],
+    ["What did the user buy?",[],null]
+  ],
+  "judge":[
+    ["Lea paid $17 for lunch.","Does the answer state the lunch cost was $17?","yes"],
+    ["Lea paid $17 for lunch.","Does the answer state a coffee price?","no"],
+    ["I do not know.","Does the answer identify the employer?","no"],
+    ["The original employer was Willow House. The current employer is Spring Desk.","Does the answer name Willow House anywhere?","yes"],
+    ["The original employer was Willow House. The current employer is Spring Desk.","Does the answer say she currently works at Willow House?","no"],
+    ["He left Cedar Point and now lives near the station.","Does the answer name Cedar Point as a past residence?","yes"],
+    ["She may enroll at West Academy.","Does the answer say she has enrolled?","no"],
+    ["The redesign moved to Thursday.","Does the answer say Thursday is the new date?","yes"],
+    ["She no longer visits Oak Cafe.","Does the answer mention Oak Cafe?","yes"],
+    ["She no longer visits Oak Cafe.","Does the answer state she still goes to Oak Cafe?","no"],
+    ["The planned gifts are a scarf and a notebook.","Does the answer list a notebook as a gift?","yes"],
+    ["The planned gifts are a scarf and a notebook.","Does the answer list a journal as already purchased?","no"]
+  ]
+}
