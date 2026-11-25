@@ -77,6 +77,15 @@ RESPONSE_SCHEMAS = {
     }, ["predicate", "value", "intent"])},
     "local-rubric-v1": _object_schema({"judgment": {"enum": ["yes", "no"]}}),
     "verify-v1": _object_schema({"verdict": {"enum": list(_VERDICTS)}}),
+    "answer-evidence-v2": {
+    "type": "object", "additionalProperties": False,
+    "properties": {"status": {"enum": ["supported", "insufficient"]},
+                   "quotes": {"type": "array", "items": {
+                       "type": "object", "additionalProperties": False,
+                       "properties": {"fact_id": {"type": "string"}, "quote": {"type": "string"}},
+                       "required": ["fact_id", "quote"]}}},
+    "required": ["status", "quotes"],
+},
     "answer-v1": _object_schema({"answer": {"type": ["string", "null"]},
                                  "citations": {"type": "array", "items": _TEXT}}),
     "verify-direct-v2": _object_schema({"verdict": {"enum": list(_VERDICTS)}}),
