@@ -73,6 +73,7 @@ RESPONSE_SCHEMAS = {
         "intent": {"enum": ["assert", "correct", "uncertain", "delete"]},
         "effective_on": _TEXT, "expires_on": _TEXT,
     }, ["predicate", "value", "intent"])},
+    "local-rubric-v1": _object_schema({"judgment": {"enum": ["yes", "no"]}}),
     "verify-v1": _object_schema({"verdict": {"enum": list(_VERDICTS)}}),
     "answer-v1": _object_schema({"answer": {"type": ["string", "null"]},
                                  "citations": {"type": "array", "items": _TEXT}}),

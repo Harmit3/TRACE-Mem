@@ -1,0 +1,37 @@
+{
+  "gate": {"min_precision": 0.65, "min_recall": 0.60, "min_f1_gain": 0.08, "min_delete_recall": 0.5, "judge_min_accuracy": 0.85},
+  "cases": [
+    ["greeting", [], "Thanks for explaining! Have a lovely evening.", []],
+    ["question", [], "What causes leaves to change color?", []],
+    ["hypothetical", [], "Imagine I had a castle on the moon. Would the windows need glass?", []],
+    ["generic", [], "That sounds like an interesting explanation.", []],
+    ["employer", [], "Please remember that I work at Cedar Labs.", [["job", "Cedar Labs", "assert"]]],
+    ["replacement", ["I work at Fern Studio."], "Fern Studio and I parted ways. I now work at Briar Press.", [["job", "Briar Press", "correct"]]],
+    ["possible", [], "I might take a job at Elm Workshop if the interview goes well.", [["job", "Elm Workshop", "uncertain"]]],
+    ["home", [], "My permanent home is in Larkspur.", [["residence", "Larkspur", "assert"]]],
+    ["preference", [], "My favorite band is Harbor Lights.", [["favorite_band", "Harbor Lights", "assert"]]],
+    ["preference-change", ["My favorite band is Evening Tide."], "I have a new favorite band: Morning Glass.", [["favorite_band", "Morning Glass", "correct"]]],
+    ["relationship", [], "My sister's name is Maren.", [["sister", "Maren", "assert"]]],
+    ["personal", [], "My dog is named Juniper.", [["dog", "Juniper", "assert"]]],
+    ["contextual-home-delete", ["I live in North Point."], "Please stop remembering where I live.", [["residence", "North Point", "delete"]]],
+    ["contextual-job-delete", ["I work at Sable House."], "You don't need to keep my employer on file anymore.", [["job", "Sable House", "delete"]]],
+    ["explicit-delete", [], "Forget that I used to work at Copper Mill.", [["job", "Copper Mill", "delete"]]],
+    ["unresolved-delete", [], "Please stop remembering that old thing.", []],
+    ["adoption", ["I was choosing between Ash Center and Bell Works for my new job. I picked Bell Works."], "That's where I work now.", [["job", "Bell Works", "assert"]]],
+    ["irrelevant-context", ["My home is in Greenbank."], "Thanks, that answers my question.", []]
+  ],
+  "judge": [
+    ["Rina works at Elm Press.", "Does the answer say Rina works at Elm Press?", "yes"],
+    ["Rina works at Elm Press.", "Does the answer say Rina works at Stone Press?", "no"],
+    ["Rina no longer works at Stone Press.", "Does the answer mention Stone Press at all?", "yes"],
+    ["Rina no longer works at Stone Press.", "Does the answer say Rina currently works at Stone Press?", "no"],
+    ["I don't know.", "Does the answer identify Rina's employer?", "no"],
+    ["The current employer is Elm Press; the previous employer was Fir Hall.", "Does the answer mention Fir Hall?", "yes"],
+    ["He moved from Arlen to Dover.", "Does the answer say he currently lives in Arlen?", "no"],
+    ["He moved from Arlen to Dover.", "Does the answer give Dover as the destination?", "yes"],
+    ["Her sibling is named Mae.", "Does the answer identify Mae as her sibling?", "yes"],
+    ["Her sibling is named Mae.", "Does the answer state that Mae is her spouse?", "no"],
+    ["She might join the club next week.", "Does the answer say she has already joined the club?", "no"],
+    ["The response lists tea, coffee and juice.", "Does the answer mention juice?", "yes"]
+  ]
+}
