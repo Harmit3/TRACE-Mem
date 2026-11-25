@@ -1,0 +1,32 @@
+{
+  "version": "memora-full-development-1",
+  "source_protocol": "docs/memora_step19_freeze.json",
+  "development_persona": "content_writer",
+  "period": "weekly",
+  "question_indices": {
+    "remembering": [0, 1, 2, 3, 4],
+    "reasoning": [0, 1, 2, 3, 4],
+    "recommending": [0, 1, 2, 3, 4]
+  },
+  "budgets_percent": [0, 10, 25, 50, 100],
+  "random_seeds": [7, 23, 41, 61, 83],
+  "closed_loop_budget_reference": 15,
+  "horizon_sensitivity": [5, 15, 30],
+  "primary_horizon": 15,
+  "retrieval_k": 8,
+  "max_extraction_requests": 1500,
+  "max_replay_requests": 2400,
+  "max_judge_requests": 5000,
+  "metrics": [
+    "task and macro adapted local FAMA",
+    "memory presence and forgetting absence check accuracy",
+    "answer abstentions and reader errors",
+    "logical verification attempts and achieved coverage",
+    "claim coverage and schema failures",
+    "same-day and multiple-target conflicts",
+    "defer and deletion transitions",
+    "unconfirmed multi-value clashes",
+    "time-visible modeled payload bytes",
+    "physical model calls, tokens, latency and cache hits"
+  ]
+}
