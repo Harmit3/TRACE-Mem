@@ -40,3 +40,13 @@ def test_terminal_snapshot_distinguishes_complete_json_from_token_limit():
                                   "message": {"content": '{"answer":null,"citations":[]}'}})
     assert incomplete["output_tokens"] == 256 and not incomplete["json_object"]
     assert complete["keys_valid"] and complete["citations_are_list"]
+
+
+def test_terminal_contract_captures_answer_type_without_response_text():
+    from scripts.audit_reader_contract import contract_fields
+
+    fields = contract_fields({"done_reason": "stop", "eval_count": 20,
+                              "message": {"content": '{"answer":null,"citations":["focal"]}'}})
+    assert fields["answer_kind"] == "null"
+    assert fields["citation_count"] == 1
+    assert "citations" not in fields
