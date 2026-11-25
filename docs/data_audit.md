@@ -1,6 +1,6 @@
 # Memora source audit
 
-Preparatory research notes for WP1. The inventory below was collected from a temporary clone outside the TRACE-Mem worktree with no checkout. The remaining audit checks require record-level validation.
+Preparatory research notes for WP1. The inventory and session metadata checks used a temporary clone outside the TRACE-Mem worktree with no checkout.
 
 ## Source and inventory
 
@@ -17,10 +17,20 @@ Reproduce the inventory with `git -C <memora-clone> ls-tree -r -l a6493188efc836
 
 ## Replay and scoring boundaries
 
+The metadata audit streamed `git -C <memora-clone> archive HEAD data` at the pinned Memora revision into Python 3.14.0. It parsed session JSON and emitted only aggregate counts. For each period, each of the ten persona histories had zero duplicate session IDs. Across all 27,614 sessions there were zero missing documented top-level keys, filename/ID mismatches, persona/path mismatches, or sessions with non-increasing turn numbers. Sorting each history by numeric session ID yielded zero adjacent date inversions.
+
+| Period | Adjacent sessions sharing a date within a history |
+| --- | ---: |
+| Weekly | 1,481 |
+| Monthly | 5,870 |
+| Quarterly | 18,993 |
+
+This confirms that date alone cannot order sessions. The proposed replay order within a persona and period is date, numeric session ID, then turn number. These checks cover key presence and order. They do not validate nested content or establish that histories from different periods are independent.
+
 - Session records document `session_id`, `date`, `persona`, `session_type`, `operation`, `operation_details`, and `conversation` with numbered turns and speaker/message fields. Treat `share_memory`, the operation fields, and session type as benchmark annotations. A proposed text-only replay would allow dates, session and turn identifiers, speaker and message into the model pipeline.
 - Question files organize remembering, reasoning and recommending questions. Allow question text and relevant query time at inference. Restrict evidence fields, rubric subquestions and expected answers to the scorer. The released annotations describe benchmark evidence and expected omissions. Independently annotate TRACE-UpdateSet decisions and verification utility.
 - Compare candidate ordering against timestamp, numeric session ID and turn sequence. Check the relationship between question dates and available history before freezing a replay protocol. Hold out complete personas across periods to account for overlapping histories, then freeze exact question IDs and artifact hashes before tuning.
 - Distinguish explicit removal requests from supersession during replay. Test that superseded permitted facts remain available to historical queries and that deleted payloads do not survive in searchable history, caches or logs. Use synthetic development fixtures first.
 - Follow the official agent evaluation path under `evals/agent_eval/`. The shared `fama_score` lives in `evals/model_eval/model_based_evaluator.py`. The official judge checks recall and omission separately. Validate missing answers, abstentions, judge failures and questions with no omission checks before claiming scorer parity. The official aggregator is `evals/model_eval/aggregate_results.py`. [Pinned evaluation guide](https://github.com/geniesinc/Memora/blob/a6493188efc836d6511ed5e4163fe3ba87da30ff/evals/README.md)
 
-Remaining audit work includes missing-field and duplicate counts, timestamp and deletion validation, a frozen subset manifest, and a timed synthetic smoke test to estimate evaluation cost. Assessed implementation requires the team's written instructor permission record in `docs/ethics_and_permissions.md`.
+Remaining audit work includes nested schema checks, duplicate-content checks, question timestamp and deletion validation, a frozen subset manifest, and a timed synthetic smoke test to estimate evaluation cost. Assessed implementation requires the team's written instructor permission record in `docs/ethics_and_permissions.md`.
