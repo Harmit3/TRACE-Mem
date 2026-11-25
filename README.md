@@ -7,7 +7,7 @@
 
 ## 0. Research integrity and permission gate
 
-The CS9548 outline distinguishes permitted use of AI tools for **polishing** a project report from prohibited generation of an entire report. It also states that generative AI use in assessments (including code generation) requires explicit authorization unless otherwise specified. **Before coding agents produce assessed source code, report prose, or slides, obtain the instructor's written permission and document what is allowed.** Until that decision, agents may investigate publicly available tools/papers, prepare installation instructions, devise test cases, and review human-written code. Keep an auditable record of human and agent contributions. Do not submit AI-generated content contrary to course rules.
+The CS9548 outline distinguishes permitted use of AI tools for **polishing** a project report from prohibited generation of an entire report. It also states that generative AI use in assessments (including code generation) requires explicit authorization unless otherwise specified. **Before coding agents produce assessed source code, report prose, or slides, document explicit, assessment-specific instructor authorization in `docs/ethics_and_permissions.md`. The Fall 2026 outline does not prescribe a written format. The documented November 23 verbal authorization covers TRACE-Mem coding and development.** Until that decision, agents may investigate publicly available tools/papers, prepare installation instructions, devise test cases, and review human-written code. Keep an auditable record of human and agent contributions. Do not submit AI-generated content contrary to course rules.
 
 Never fabricate or estimate actual benchmark scores, training runs, graphs, confidence intervals, datasets, citations, or peer-review acceptance. Label examples and hypothetical results clearly. Do not put secrets, identifiable chat histories, or restricted benchmark data into a public repository.
 
@@ -214,7 +214,7 @@ Do not mark these commands complete until they are implemented, documented, and 
 ## 10. Work packages and acceptance gates
 
 ### WP0. Permission and reproducibility
-- [ ] Written instructor guidance on AI agent use for assessed code/reports/slides is recorded.
+- [x] Explicit instructor authorization for AI-assisted project coding is recorded. The report and presentation follow their separate course rules.
 - [ ] Repo initialized; privacy/security policy, .gitignore and licenses reviewed.
 - [ ] Reproducible environment and deterministic smoke test established.
 

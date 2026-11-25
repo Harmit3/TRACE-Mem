@@ -77,4 +77,4 @@ The [dataset manifest](dataset_manifest.json) selects the first two weekly perso
 
 Verify each entry with `git -C <memora-clone> ls-tree <revision>:<path>` and count sessions with `git -C <memora-clone> ls-tree -r --name-only <revision>:<path>/conversations`. Reserve both selected personas across all periods from benchmark-based development or tuning. Develop and tune the controller on independently annotated data. Record team approval and freeze the evaluation configuration before running the pilot.
 
-Remaining audit work includes reviewing deletion scope and its relationship to scorer omissions, approving the pilot subset, and estimating evaluation cost with a timed synthetic smoke test. Assessed implementation requires the team's written instructor permission record in `docs/ethics_and_permissions.md`.
+Remaining audit work includes reviewing deletion scope and its relationship to scorer omissions, approving the pilot subset, and estimating evaluation cost with a timed synthetic smoke test. The [authorization record](ethics_and_permissions.md) documents the scope for assessed project coding.
