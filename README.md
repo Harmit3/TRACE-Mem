@@ -92,6 +92,8 @@ The [local semantic model guide](docs/semantic_models.md) covers optional embedd
 
 The [controller training guide](docs/controller_training.md) documents paired outcome collection, train-only normalization, validation calibration and budget selection, and replay artifact loading.
 
+The [LLM provider guide](docs/llm_providers.md) covers local and remote configuration, cached runs, and commands for collecting verifier decisions.
+
 **First implementation:** calibrated logistic regression predicting `P(verification helpful | x)`, then a threshold selected to meet a **predeclared verification budget**. **Later:** small MLP or contextual-bandit policy only if logistic regression and heuristics are solid.
 
 Verification labels must be defined operationally: verification is *helpful* if it changes an incorrect unverified memory decision to a correct one under an independently annotated gold update, using a fixed evaluation definition. Avoid circular labels from the same verifier's outputs. Annotate the decisions separately from verifier judgments.
