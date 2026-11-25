@@ -86,6 +86,8 @@ Input feature vector `x`: `[semantic_similarity, contradiction_score, entity_mat
 
 The [evaluation protocol](docs/evaluation_protocol.md#t1-replay-and-feature-definitions) documents the implemented feature proxies, the exact-budget fixed-stream comparison, and the closed-loop threshold policy. Independent training and calibration are pending.
 
+The [local semantic model guide](docs/semantic_models.md) covers optional embedding-based retrieval, NLI features, pinned model revisions, and installation without paid API credentials.
+
 **First implementation:** calibrated logistic regression predicting `P(verification helpful | x)`, then a threshold selected to meet a **predeclared verification budget**. **Later:** small MLP or contextual-bandit policy only if logistic regression and heuristics are solid.
 
 Verification labels must be defined operationally: verification is *helpful* if it changes an incorrect unverified memory decision to a correct one under an independently annotated gold update, using a fixed evaluation definition. Avoid circular labels from the same verifier's outputs. Annotate the decisions separately from verifier judgments.

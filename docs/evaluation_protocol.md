@@ -32,7 +32,7 @@ Pass `controller=...` to `run_matched_baselines` to add T1 to the fixed-stream d
 
 `run_t1(replay(history), complete, entity=persona, controller=controller, threshold=threshold, calls=B, verify=verify)` is the closed-loop entry point. It scores the eligible live conflict before each call, using the actual fraction of the budget remaining. Scores at or above the threshold trigger verification while capacity remains. Only an update verdict supersedes the target. An exception or malformed verdict consumes one attempt and defers the update. The run can use fewer calls than the cap. Compare closed-loop methods as budget-matched only when their realized attempts match independently of the fixed-stream diagnostic.
 
-The ordered feature vector uses these initial deterministic proxies:
+The ordered feature vector uses the defaults below. A configured [local semantic provider](semantic_models.md) replaces the first two values with cosine similarity and NLI contradiction probability without changing feature order.
 
 | Feature | Calculation |
 | --- | --- |
@@ -43,7 +43,7 @@ The ordered feature vector uses these initial deterministic proxies:
 | Time gap | Days between the two source observations. |
 | Provenance score | Fraction of the two source references that are present. This measures trace availability. |
 | Uncertainty | 1 for uncertain claims, 0.5 for implicit assertions, and 0 for explicit corrections. |
-| Budget remaining fraction | Frozen reference value for fixed-stream ranking or live remaining calls divided by cap in closed-loop replay. |
+| Budget remaining fraction | Frozen reference value of 1 for fixed-stream ranking or live remaining calls divided by cap in closed-loop replay. A zero-call run skips feature scoring. |
 
 These features require structured text, an intent and valid dates. Missing optional expiry means an open interval, missing references reduce the provenance score, and invalid or nonfinite numeric inputs are rejected. The logistic fitter learns normalization from its training rows and uses unit scale for constant features. Synthetic coefficients and labels exercise the implementation. Independent TRACE-UpdateSet labels, probability calibration and a development-selected online threshold remain pending.
 

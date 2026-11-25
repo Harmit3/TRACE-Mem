@@ -8,6 +8,7 @@ from statistics import fmean, pstdev
 
 from trace_mem.claims import Claim
 from trace_mem.memory import Fact, Source
+from trace_mem.semantic import SemanticEvidence, fact_text
 
 
 FEATURE_NAMES = (
@@ -24,8 +25,9 @@ def features_for(
     entity: str,
     source: Source,
     budget_remaining_fraction: float,
+    semantic: SemanticEvidence | None = None,
 ) -> tuple[float, ...]:
-    """Build the ordered T1 vector using deterministic lexical and rule proxies."""
+    """Build the ordered T1 vector with optional local model evidence."""
     if not math.isfinite(budget_remaining_fraction) or not 0 <= budget_remaining_fraction <= 1:
         raise ValueError("Remaining budget fraction must be between zero and one")
     if claim.intent not in ("assert", "correct", "uncertain"):
@@ -36,19 +38,27 @@ def features_for(
     if not all((entity, claim.predicate, claim.value, target.entity, target.predicate, target.value)):
         raise ValueError("Entity, predicate and value are required for T1 features")
 
-    left = set(re.findall(r"\w+", claim.value.casefold()))
-    right = set(re.findall(r"\w+", target.value.casefold()))
-    union = left | right
-    similarity = len(left & right) / len(union) if union else float(claim.value == target.value)
     same_entity = entity == target.entity
     competes = (same_entity and claim.predicate == target.predicate
                 and claim.value.casefold() != target.value.casefold())
     overlaps = ((target.valid_to is None or claim.effective_on < target.valid_to)
                 and (claim.expires_on is None or target.valid_from < claim.expires_on))
     uncertainty = {"correct": 0.0, "assert": 0.5, "uncertain": 1.0}[claim.intent]
+    if semantic is None:
+        left = set(re.findall(r"\w+", claim.value.casefold()))
+        right = set(re.findall(r"\w+", target.value.casefold()))
+        union = left | right
+        similarity = len(left & right) / len(union) if union else float(claim.value == target.value)
+        contradiction = float(competes) * (1.0 - uncertainty / 2)
+    else:
+        similarity, relation = semantic.compare(
+            fact_text(target.entity, target.predicate, target.value),
+            fact_text(entity, claim.predicate, claim.value),
+        )
+        contradiction = relation.contradiction
     return (
         similarity,
-        float(competes) * (1.0 - uncertainty / 2),
+        contradiction,
         float(same_entity),
         float(competes and overlaps),
         float(gap),

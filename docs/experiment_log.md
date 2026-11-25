@@ -75,3 +75,11 @@ Codex implemented the eight README features as deterministic lexical and rule pr
 Base revision `6904a06`. On Python 3.14.0, `python -m unittest discover -s tests -v` reported `Ran 22 tests in 0.059s` and `OK`. Standard library only. New tests cover feature values and order, invalid inputs, reproducible selection with seed 2, live state updates, budget exhaustion, and failed verification. Tests use synthetic coefficients and mock providers. No independent training or calibration, model calls, tokens, charges, or benchmark results. Human review is pending.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/t1-trace-controller?expand=1)
+
+## Semantic retrieval and NLI wiring
+
+Codex implemented local provider adapters, prefiltered top-k retrieval, and optional NLI and cosine features for both T1 replay paths. Named-label resolution supports checkpoints with different output orders. An integration fixture selects a different candidate through NLI, preserves the equal B4/B5/T1 call target, and checks that a rubric sentinel never reaches the model input boundary.
+
+Base revision `d65289b`. On Python 3.14.0, `python -m unittest discover -s tests -v` reported `Ran 28 tests in 0.103s` and `OK`. The integration fixture uses seed 2, deterministic embeddings and mock NLI, extraction and verification. No real model inference, paid API calls, or benchmark measurements. The optional direct dependencies and reference checkpoint pins are in the [semantic model guide](semantic_models.md).
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/semantic-retrieval-nli?expand=1)
