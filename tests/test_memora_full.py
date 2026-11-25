@@ -61,3 +61,29 @@ def test_closed_loop_uses_exogenous_capacity_and_horizon_sensitivity():
     assert {r[2] for r in cold} == {0, 7, 15}
     assert {r[4] for r in cold} == {5, 15, 30}
     assert all(r[-1] == ("B4",) for r in cold if r[3] == 23)
+
+
+def test_aggregation_counts_replay_once_per_cutoff_and_keeps_missing_scores():
+    from scripts.render_memora_full import aggregate
+
+    template = {
+        "mode": "closed-loop", "method": "T2", "requested_percent": 50,
+        "planning_horizon": 15, "seed": 7, "cutoff": "2025-06-07",
+        "candidate_reference": 10, "eligible_candidates": 8, "budget_cap": 7,
+        "verification_attempts": 3, "verification_failures": 0, "stale_targets": 0,
+        "transitions": {"add": 2}, "current_facts": 2, "historically_visible_unique_facts": 2,
+        "modeled_payload_bytes": 100, "task": "remembering", "reader_error": False,
+        "answer_abstained": False,
+    }
+    scored = template | {
+        "historical_wording": True, "missing_reason": None,
+        "metrics": {"fama_arithmetic": 0.5, "correct": {"memory_presence": 2, "forgetting_absence": 0},
+                    "totals": {"memory_presence": 2, "forgetting_absence": 2}}}
+    missing = template | {"historical_wording": False, "missing_reason": "judge_error", "metrics": None}
+    result, = aggregate([scored, missing])
+    seed, = result["seeds"]
+    assert seed["predictions"] == 2 and seed["scored"] == seed["judge_errors"] == 1
+    assert seed["historical_wording"]["scored"] == 1
+    assert result["macro_fama_seed_mean"] == 0.5
+    assert result["actual_calls_seed_mean"] == 3
+    assert seed["per_cutoff"]["2025-06-07"]["achieved_reference_coverage"] == 0.3

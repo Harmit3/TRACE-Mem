@@ -180,7 +180,7 @@ def run(repository, output, outcomes, nli):
                                      "cutoff": q.observed_on.isoformat(),
                                      "historical_wording": bool(HISTORICAL_WORDING.search(q.text)),
                                      "candidate_reference": candidates, **entry,
-                                     **storage(states[m][0], available_claims, q.as_of)})
+                                     **storage(states[m][0], available_claims, q.observed_on)})
                 write(path, rows)
                 print(json.dumps({"checkpoint": path.name, "predictions": len(rows)}), flush=True)
             checkpoints_read.extend({**row, "mode": mode, "requested_percent": budget,
