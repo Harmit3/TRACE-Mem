@@ -59,3 +59,11 @@ Codex connected the verifier to chronological temporal replay. A selected single
 For an ingest-only smoke check, stream `git -C <memora-clone> archive a6493188efc836d6511ed5e4163fe3ba87da30ff data/weekly/content_writer/conversations` into a temporary directory and call `list(replay(history))` for the weekly content-writer history. This is outside the proposed held-out pilot. The run printed `sessions 151 events 2390 roles {'user': 1163, 'assistant': 1227}` and `elapsed_seconds 1.457` including extraction from the archive. No rubric files, random seed, model calls, model tokens, or model cost. This measures ingestion coverage only. No official scoring was run. Model API credentials for the official judging path were unavailable in the environment.
 
 [Manual stacked comparison](https://github.com/Harmit3/TRACE-Mem/compare/feat/logistic-controller...feat/verifier-replay?expand=1)
+
+## B4 and B5 matched replay
+
+Codex integrated B4 random and B5 heuristic selection into chronological replay. The paired entry point extracts once, freezes evidence from B2, and enforces the same exact integer call target for both methods. Mock tests cover chronological calls from synthetic Memora files, score ties, stable seeds, invalid or infeasible budgets, zero-budget equivalence to B2, timeout and malformed verdicts, and a stale target after policy divergence. Read [the evaluation protocol](evaluation_protocol.md) for the distinction between fixed-stream and closed-loop comparisons.
+
+Base revision `1c9e119`. On Python 3.14.0, `python -m unittest discover -s tests -v` reported `Ran 16 tests in 0.056s` and `OK`. Standard library only. The paired tests use seed 2 and injected extraction and verification providers. No live model calls, tokens, provider charges, or benchmark scores. Human review is pending.
+
+The GitHub integration previously returned HTTP 403 for pull-request creation. Use the [manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/budget-matched-baselines?expand=1).
