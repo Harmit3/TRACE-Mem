@@ -9,6 +9,7 @@ from typing import Literal
 class Source:
     observed_on: date
     reference: str
+    kind: Literal["direct", "dated_record", "reported", "conflicting", "unknown"] = "unknown"
 
 
 @dataclass(frozen=True, slots=True)

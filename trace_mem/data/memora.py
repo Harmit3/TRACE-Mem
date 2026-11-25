@@ -14,6 +14,7 @@ class Event:
     turn: int
     role: str
     message: str
+    source_kind: str = "unknown"
 
 
 _ROLES = {"user_agent": "user", "ai_agent": "assistant"}

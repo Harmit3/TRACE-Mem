@@ -193,3 +193,11 @@ On base `ca5bb0d`, Codex verified the full v2 release and froze a local diagnost
 `python -m unittest discover -s tests -q` reported `Ran 63 tests in 2.897s` and `OK`.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/controller-feature-audit?expand=1)
+
+## TRACE-UpdateSet v3 feasibility pilot
+
+On base `1ec58f6`, Codex froze 24 natural-text cases, 12 disjoint families, independent synthetic gold, and a shared v3 feature builder at `6f3b7f3`. The [pilot commands and report](updateset_v3.md) record 14 verified cases, seven positives, four negatives, three awaiting human gold, nine ineligible cases, and one invalid extraction. The run used the cached local MiniLM checkpoint and the validated Qwen direct-v2 verifier, with 38 local requests, 8,897 input and 962 output tokens, 81,315.10 ms summed latency and zero paid cost. NLI was deliberately missing pending approval. No controller fitting, full-scale collection or benchmark evaluation ran.
+
+The v1 artifacts and annotated-data hashes were unchanged. The v2 release passed its audit with all 500 cases and 601 candidate IDs intact. `python -m unittest discover -s tests -q` reported `Ran 67 tests in 6.107s` and `OK` on Python 3.14.0.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/updateset-v3-pilot?expand=1)
