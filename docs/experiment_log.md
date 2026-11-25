@@ -201,3 +201,11 @@ On base `1ec58f6`, Codex froze 24 natural-text cases, 12 disjoint families, inde
 The v1 artifacts and annotated-data hashes were unchanged. The v2 release passed its audit with all 500 cases and 601 candidate IDs intact. `python -m unittest discover -s tests -q` reported `Ran 67 tests in 6.107s` and `OK` on Python 3.14.0.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/updateset-v3-pilot?expand=1)
+
+## Step 16 local NLI validation and v3 reconstruction
+
+On base `124e0f5`, Codex reused the previously downloaded checkpoint after integrity verification, preserved the original v3 run, and froze the independent set and gate at `5d766aa`. The [NLI report](updateset_v3_nli.md) contains the command, checkpoint provenance, confusion counts, probability ranges, all eight feature statistics and hardware snapshots. Accuracy was 20/24 and contradiction recall was 8/8 with four false contradictions on neutral cases. NLI mean latency was 76.08 ms on four CPU threads. All 14 eligible pilot feature rows were reconstructed into a separate local diagnostic. No original labels or features changed.
+
+The coexistence check used one local Qwen request, with 270 input and 11 output tokens, 14,285.54 ms provider latency, and USD 0 cost. `python -m unittest discover -s tests -q` reported `Ran 70 tests in 5.953s` and `OK`. No full collection or training ran.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...research/v3-local-nli?expand=1)
