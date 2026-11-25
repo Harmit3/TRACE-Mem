@@ -140,6 +140,8 @@ The [Step 23 adaptive verification diagnostic](docs/t2_step23.md) measures T1 th
 
 The [Step 24 full development diagnostic](docs/memora_step24.md) reports all 15 questions, both replay modes, policy spending, and the negative locally adjudicated result.
 
+The [Step 25 failure-isolation study](docs/memora_step25.md) compares structured retrieval, isolated transcript retrieval and a source oracle. It measures source-evidence attrition and reproduces the reader errors.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.

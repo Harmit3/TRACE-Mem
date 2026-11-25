@@ -1,0 +1,402 @@
+{
+  "benchmark_provider": {
+    "attempts": 124,
+    "cache_hits": 4,
+    "cost_usd": "0",
+    "input_tokens": 19616,
+    "latency_ms": 96725.74149956927,
+    "models": [
+      "qwen2.5:7b-instruct-q4_K_M"
+    ],
+    "output_tokens": 1037,
+    "statuses": {
+      "ok": 124
+    }
+  },
+  "benchmark_wall_seconds": 98.26746509998338,
+  "common_scored_comparison": {
+    "source-oracle-diagnostic": {
+      "abstentions": 5,
+      "extracted_nominated_turns": 4,
+      "forgetting_absence": {
+        "correct": 13,
+        "total": 14
+      },
+      "judge_errors": 0,
+      "macro_fama": 0.20424242424242425,
+      "memory_presence": {
+        "correct": 9,
+        "total": 26
+      },
+      "nominated_turns": 64,
+      "questions": 10,
+      "reader_errors": 0,
+      "represented_nominated_turns": 4,
+      "retrieved_nominated_turns": 46,
+      "scored": 10,
+      "total_context_bytes": 4502
+    },
+    "structured-b2": {
+      "abstentions": 10,
+      "extracted_nominated_turns": 4,
+      "forgetting_absence": {
+        "correct": 14,
+        "total": 14
+      },
+      "judge_errors": 0,
+      "macro_fama": 0.0,
+      "memory_presence": {
+        "correct": 0,
+        "total": 26
+      },
+      "nominated_turns": 64,
+      "questions": 10,
+      "reader_errors": 0,
+      "represented_nominated_turns": 4,
+      "retrieved_nominated_turns": 4,
+      "scored": 10,
+      "total_context_bytes": 3133
+    },
+    "transcript-diagnostic": {
+      "abstentions": 6,
+      "extracted_nominated_turns": 4,
+      "forgetting_absence": {
+        "correct": 12,
+        "total": 14
+      },
+      "judge_errors": 0,
+      "macro_fama": 0.12333333333333334,
+      "memory_presence": {
+        "correct": 5,
+        "total": 26
+      },
+      "nominated_turns": 64,
+      "questions": 10,
+      "reader_errors": 0,
+      "represented_nominated_turns": 4,
+      "retrieved_nominated_turns": 37,
+      "scored": 10,
+      "total_context_bytes": 8029
+    }
+  },
+  "common_scored_questions": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    11,
+    12,
+    14
+  ],
+  "contract_probe": {
+    "outcomes": [
+      {
+        "error": "Provider response did not match the task schema",
+        "fields": {
+          "answer_kind": "null",
+          "citation_count": 2,
+          "citations_are_list": true,
+          "done_reason": "stop",
+          "duplicates": false,
+          "json_object": true,
+          "keys_valid": true,
+          "output_tokens": 33
+        }
+      },
+      {
+        "error": "Provider response did not match the task schema",
+        "fields": {
+          "answer_kind": "null",
+          "citation_count": 2,
+          "citations_are_list": true,
+          "done_reason": "stop",
+          "duplicates": false,
+          "json_object": true,
+          "keys_valid": true,
+          "output_tokens": 32
+        }
+      }
+    ],
+    "provider": {
+      "attempts": 2,
+      "cache_hits": 0,
+      "cost_usd": "0",
+      "input_tokens": 641,
+      "latency_ms": 4597.0884000416845,
+      "models": [
+        "qwen2.5:7b-instruct-q4_K_M"
+      ],
+      "output_tokens": 65,
+      "statuses": {
+        "invalid": 2
+      }
+    }
+  },
+  "reader_probe": {
+    "judges": {
+      "llama3.2:3b": {
+        "counts": {
+          "no->no": 5,
+          "no->yes": 1,
+          "yes->no": 1,
+          "yes->yes": 5
+        },
+        "provider": {
+          "attempts": 12,
+          "cache_hits": 0,
+          "cost_usd": "0",
+          "input_tokens": 1479,
+          "latency_ms": 5973.574599949643,
+          "models": [
+            "llama3.2:3b"
+          ],
+          "output_tokens": 96,
+          "statuses": {
+            "ok": 12
+          }
+        }
+      },
+      "qwen2.5:7b-instruct-q4_K_M": {
+        "counts": {
+          "no->no": 6,
+          "yes->yes": 6
+        },
+        "provider": {
+          "attempts": 12,
+          "cache_hits": 0,
+          "cost_usd": "0",
+          "input_tokens": 1338,
+          "latency_ms": 6944.42029990023,
+          "models": [
+            "qwen2.5:7b-instruct-q4_K_M"
+          ],
+          "output_tokens": 96,
+          "statuses": {
+            "ok": 12
+          }
+        }
+      }
+    },
+    "probe_provider": {
+      "attempts": 4,
+      "cache_hits": 0,
+      "cost_usd": "0",
+      "input_tokens": 1379,
+      "latency_ms": 31237.407200038433,
+      "models": [
+        "qwen2.5:7b-instruct-q4_K_M"
+      ],
+      "output_tokens": 577,
+      "statuses": {
+        "invalid": 4
+      }
+    },
+    "reader": [
+      {
+        "abstained": false,
+        "answerable": true,
+        "error": null,
+        "fixture": 1,
+        "passed": true
+      },
+      {
+        "abstained": false,
+        "answerable": true,
+        "error": null,
+        "fixture": 2,
+        "passed": true
+      },
+      {
+        "abstained": false,
+        "answerable": true,
+        "error": null,
+        "fixture": 3,
+        "passed": true
+      },
+      {
+        "abstained": false,
+        "answerable": true,
+        "error": null,
+        "fixture": 4,
+        "passed": true
+      },
+      {
+        "abstained": false,
+        "answerable": true,
+        "error": "Provider response did not match the task schema",
+        "fixture": 5,
+        "passed": false
+      },
+      {
+        "abstained": false,
+        "answerable": false,
+        "error": "Provider response did not match the task schema",
+        "fixture": 6,
+        "passed": false
+      },
+      {
+        "abstained": true,
+        "answerable": false,
+        "error": null,
+        "fixture": 7,
+        "passed": true
+      },
+      {
+        "abstained": false,
+        "answerable": false,
+        "error": "Provider response did not match the task schema",
+        "fixture": 8,
+        "passed": false
+      },
+      {
+        "abstained": false,
+        "answerable": false,
+        "error": "Provider response did not match the task schema",
+        "fixture": 9,
+        "passed": false
+      },
+      {
+        "abstained": true,
+        "answerable": false,
+        "error": null,
+        "fixture": 10,
+        "passed": true
+      }
+    ],
+    "reader_provider": {
+      "attempts": 40,
+      "cache_hits": 14,
+      "cost_usd": "0",
+      "input_tokens": 12508,
+      "latency_ms": 101469.30819988484,
+      "models": [
+        "qwen2.5:7b-instruct-q4_K_M"
+      ],
+      "output_tokens": 1951,
+      "statuses": {
+        "invalid": 9,
+        "ok": 31
+      }
+    },
+    "reconstructed_terminal_count": 4,
+    "wall_seconds": 166.47216240002308
+  },
+  "retrieval": {
+    "source-oracle-diagnostic": {
+      "abstentions": 5,
+      "extracted_nominated_turns": 9,
+      "forgetting_absence": {
+        "correct": 19,
+        "total": 20
+      },
+      "judge_errors": 0,
+      "macro_fama": 0.23270202020202022,
+      "memory_presence": {
+        "correct": 12,
+        "total": 34
+      },
+      "nominated_turns": 79,
+      "questions": 15,
+      "reader_errors": 3,
+      "represented_nominated_turns": 7,
+      "retrieved_nominated_turns": 61,
+      "scored": 12,
+      "total_context_bytes": 6187
+    },
+    "structured-b2": {
+      "abstentions": 13,
+      "extracted_nominated_turns": 9,
+      "forgetting_absence": {
+        "correct": 22,
+        "total": 22
+      },
+      "judge_errors": 0,
+      "macro_fama": 0.0,
+      "memory_presence": {
+        "correct": 0,
+        "total": 37
+      },
+      "nominated_turns": 79,
+      "questions": 15,
+      "reader_errors": 1,
+      "represented_nominated_turns": 7,
+      "retrieved_nominated_turns": 7,
+      "scored": 14,
+      "total_context_bytes": 4889
+    },
+    "transcript-diagnostic": {
+      "abstentions": 9,
+      "extracted_nominated_turns": 9,
+      "forgetting_absence": {
+        "correct": 18,
+        "total": 20
+      },
+      "judge_errors": 0,
+      "macro_fama": 0.10595238095238095,
+      "memory_presence": {
+        "correct": 6,
+        "total": 37
+      },
+      "nominated_turns": 79,
+      "questions": 15,
+      "reader_errors": 1,
+      "represented_nominated_turns": 7,
+      "retrieved_nominated_turns": 47,
+      "scored": 14,
+      "total_context_bytes": 12596
+    }
+  },
+  "terminal": [
+    {
+      "historical_error": "Provider response did not match the task schema",
+      "rerun": "Provider response did not match the task schema",
+      "response": {
+        "citations_are_list": true,
+        "done_reason": "stop",
+        "duplicates": false,
+        "json_object": true,
+        "keys_valid": true,
+        "output_tokens": 33,
+        "unknown_citation_count": 0
+      }
+    },
+    {
+      "historical_error": "Provider response was incomplete or refused",
+      "rerun": "Provider response was incomplete or refused",
+      "response": {
+        "citations_are_list": false,
+        "done_reason": "length",
+        "json_object": false,
+        "keys_valid": false,
+        "output_tokens": 256
+      }
+    },
+    {
+      "historical_error": "Provider response was incomplete or refused",
+      "rerun": "Provider response was incomplete or refused",
+      "response": {
+        "citations_are_list": false,
+        "done_reason": "length",
+        "json_object": false,
+        "keys_valid": false,
+        "output_tokens": 256
+      }
+    },
+    {
+      "historical_error": "Provider response did not match the task schema",
+      "rerun": "Provider response did not match the task schema",
+      "response": {
+        "citations_are_list": true,
+        "done_reason": "stop",
+        "duplicates": false,
+        "json_object": true,
+        "keys_valid": true,
+        "output_tokens": 32,
+        "unknown_citation_count": 0
+      }
+    }
+  ]
+}
