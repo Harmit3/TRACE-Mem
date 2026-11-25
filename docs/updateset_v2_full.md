@@ -17,3 +17,38 @@ python -m scripts.collect_updateset_v2 data/updateset-v2-seed2407 results/update
 ```
 
 Use that same command and directory to resume. Atomic per-case checkpoints and a content-addressed provider cache prevent repeating completed calls. The local freeze record captures source and code hashes, settings, feature order, and pilot IDs. Resume rejects changes to those inputs. Outputs under `results/` remain ignored.
+
+## Observed full release
+
+PR #20 was merged at `9ff82ee`. The protocol and collector were frozen at `350e54e) before the first full-run request. The collection finished all 500 cases. The table reports candidate counts except for the cases, no-conflict and extraction-failure columns.
+
+| Partition | Cases | Verified | Helpful | Not helpful | Awaiting gold | Harmful | Unchanged | Changed but still incorrect | Ineligible claims | No eligible conflict | Extraction failures |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Train nonpilot | 328 | 232 | 89 | 113 | 30 | 0 | 113 | 30 | 154 | 97 | 0 |
+| Validation nonpilot | 128 | 58 | 35 | 23 | 0 | 0 | 12 | 11 | 106 | 69 | 1 |
+| Train pilot | 22 | 13 | 5 | 6 | 2 | 0 | 6 | 2 | 10 | 8 | 1 |
+| Validation pilot | 22 | 10 | 6 | 4 | 0 | 0 | 2 | 2 | 18 | 12 | 0 |
+| Total | 500 | 313 | 135 | 146 | 32 | 0 | 133 | 45 | 288 | 186 | 2 |
+
+The 32 awaiting-gold counts are verified candidates. All 45 unresolved v2 cases remain in the original review packet, including cases without a verifier-eligible claim. The separate v1 review packet still contains 26 cases. The original pilot outcome hash, v1 source and paired release hashes, and the v1 review hash were unchanged. The new pilot partitions above are a reprocessing under the candidate protocol. The original 44-case pilot remains separate.
+
+Ollama reported 770 actual requests, 768 successful responses, two invalid extractions, zero verifier failures, and 43 cache hits. The ledger recorded 191,270 input tokens, 19,168 output tokens, and USD 0 cost. Summed provider latency was 1,232.13 seconds, with a mean of 1,600.17 ms and nearest-rank p95 of 3,667.35 ms per actual attempt. The validated Qwen digest is `845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e`.
+
+| Local artifact | SHA-256 |
+| --- | --- |
+| Source cases | `0c16a0964402e5cbd9d8fc435a2b899bb13771e6037fbb4e8668ea85d178d475` |
+| Run freeze | `f1f1879b73db686f1d0dbeb52d096c3c26f0d7585ce875e5c363eb3ac5b069da` |
+| Complete candidate outcomes | `facd1d44bc0401bbbc7d8f9ef39940c0bd7039a56f770f427e3420319c28bca0` |
+| Aggregate report | `e4355377b02ddb4ee546c80d2d9d9a30ff602538a1076e34b002d392c601b857` |
+
+## Training and calibration assessment
+
+```powershell
+python -m scripts.audit_v2_full_release data/updateset-v2-seed2407 results/updateset-v2-full
+```
+
+The audit verified 500 case identities, 601 distinct candidate IDs, the pilot partition, the source and outcome hashes, gold, labels, and all recorded feature values. There were no missing feature rows among eligible candidates. Ineligible candidates have no feature vector by design.
+
+Nonpilot training has 89 positive and 112 negative case IDs. One negative case contributes two candidates. Nonpilot validation has 35 positive and 23 negative case IDs. Training has three positive families and four negative families. Validation has three positive and three negative families. Thus the binary fit has both classes, but hundreds of rows do not represent hundreds of independent scenarios.
+
+Five features are constant in nonpilot training, including the 21-day observation gap and one-call budget fraction. Contradiction is determined by uncertainty in these fixtures. Lexical similarity has three distinct values. Validation varies only in lexical similarity. All 35 nonpilot validation positives share one complete feature vector. Training has two feature vectors that occur with both labels. This supports an exploratory fit on a narrow synthetic task, with inadequate independent support for a reliable calibration or generalization claim. More independent, varied conflict families, richer timing, provenance and budget variation, and blinded human review remain needed. No controller fit or calibration ran.
