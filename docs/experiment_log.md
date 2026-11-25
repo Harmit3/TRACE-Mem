@@ -116,3 +116,22 @@ No live inference, paid requests, actual model tokens, charges, or research labe
 The staged-file guard initially flagged a credential-shaped string in its own test fixture. The fixture now assembles the synthetic value at runtime so the guard can remain enabled without a test-file exemption.
 
 [Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...feat/llm-providers?expand=1)
+
+## Local Ollama readiness and live development smoke
+
+On base `7ce2ee9`, Codex started Ollama 0.40.13 on loopback with cloud disabled and verified the installed Llama 3.2 3B Q4_K_M digest. See [local setup](ollama_local.md) for hardware, license, and exact collection command. No model downloads or paid requests.
+
+`python -m scripts.smoke_ollama --model llama3.2:3b --output results/ollama-smoke-initial` used two fresh ledgers and seed 23. Six of eight responses validated. Both correction extractions failed schema validation. The uncertain extraction was empty and the uncertain verification returned `update` in both passes. An intermediate run with JSON schema constraints alone still had six valid responses. A synthetic diagnostic call showed invented same-day expiry and multiple predicates on the correction, so Codex added examples and explicit instructions to omit unstated dates.
+
+`python -m scripts.smoke_ollama --model llama3.2:3b --output results/ollama-smoke-examples` then returned these actual results:
+
+| Task and case | Output in both passes | Pass 1 ms | Pass 2 ms |
+| --- | --- | ---: | ---: |
+| Extract correction | job, Birch Lab, correct | 785.3 | 490.9 |
+| Verify correction | update | 278.2 | 237.7 |
+| Extract uncertain claim | job, Cedar Lab, uncertain | 503.2 | 486.1 |
+| Verify uncertain claim | insufficient_evidence | 257.6 | 254.0 |
+
+Eight of eight responses validated and both passes agreed. Ollama reported 927 input and 80 output tokens per pass, zero cache hits and USD 0 provider cost. These are prompt-development examples, with no independent evaluation, training labels or benchmark measurements.
+
+[Manual comparison](https://github.com/Harmit3/TRACE-Mem/compare/main...docs/ollama-local-readiness?expand=1)

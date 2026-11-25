@@ -2,6 +2,8 @@
 
 The provider stack uses Python's standard library. `LLMTasks` exposes claim extraction (`complete` for replay), verification (`verify`), and answer generation (`answer`). It validates task-specific JSON before caching. Answers receive only eligible facts and may cite only supplied fact IDs. Schema validation does not establish entailment or accuracy.
 
+Ollama also receives the task's JSON schema in its `format` parameter. See the [verified local setup](ollama_local.md) for the installed model, hardware and real smoke commands.
+
 Use a model that returns JSON text and reports token usage. Record its exact ID or local digest and service version. [OpenAI Chat Completions](https://developers.openai.com/api/reference/resources/chat) · [OpenRouter Chat Completions](https://openrouter.ai/docs/api/api-reference/chat/create-a-chat-completion) · [Ollama local chat](https://docs.ollama.com/api/chat)
 
 ## Local setup and collection
