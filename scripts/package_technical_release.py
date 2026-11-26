@@ -24,6 +24,8 @@ def main():
     parser = ArgumentParser(description=__doc__)
     parser.add_argument("revision", help="Committed Git revision to package")
     parser.add_argument("output", type=Path, help="New ZIP file")
+    parser.add_argument("--version", choices=(VERSION, "1.0.0"), default=VERSION,
+                        help="Archive directory version (does not create a release or tag)")
     args = parser.parse_args()
     if args.output.exists() or args.output.suffix.lower() != ".zip":
         parser.error("Output must be a new .zip file")
@@ -36,7 +38,7 @@ def main():
         if not metadata.startswith((b"100644 blob ", b"100755 blob ")) or not safe_path(raw_path.decode("utf-8")):
             parser.error("Committed tree contains a disallowed file type or path")
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    subprocess.run(["git", "archive", "--format=zip", f"--prefix=TRACE-Mem-{VERSION}/",
+    subprocess.run(["git", "archive", "--format=zip", f"--prefix=TRACE-Mem-{args.version}/",
                     f"--output={args.output.resolve()}", revision], check=True)
     with args.output.open("rb") as file:
         print(f"{revision} | {args.output.stat().st_size} bytes | SHA-256 {file_digest(file, 'sha256').hexdigest()}")
