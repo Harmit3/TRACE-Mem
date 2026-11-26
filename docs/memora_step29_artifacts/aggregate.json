@@ -1,0 +1,237 @@
+{
+  "benchmarks": {
+    "authorized-evidence-v2": {
+      "abstained": 5,
+      "common_macro_fama": 0.10555555555555556,
+      "failure_inclusive_macro_fama": 0.18444444444444444,
+      "forgetting_absence": {
+        "correct": 20,
+        "total": 20
+      },
+      "invalid_outputs": 1,
+      "judge_errors": 0,
+      "memory_presence": {
+        "correct": 9,
+        "total": 37
+      },
+      "nominated": 79,
+      "questions": 15,
+      "retrieved": 56,
+      "scored": 14,
+      "scored_macro_fama": 0.1976190476190476
+    },
+    "evidence-index-v1": {
+      "abstained": 15,
+      "common_macro_fama": 0.0,
+      "failure_inclusive_macro_fama": 0.0,
+      "forgetting_absence": {
+        "correct": 24,
+        "total": 24
+      },
+      "invalid_outputs": 0,
+      "judge_errors": 0,
+      "memory_presence": {
+        "correct": 0,
+        "total": 41
+      },
+      "nominated": 79,
+      "questions": 15,
+      "retrieved": 0,
+      "scored": 15,
+      "scored_macro_fama": 0.0
+    },
+    "source-oracle-diagnostic": {
+      "abstained": 2,
+      "common_macro_fama": 0.35214646464646465,
+      "failure_inclusive_macro_fama": 0.29838383838383836,
+      "forgetting_absence": {
+        "correct": 19,
+        "total": 20
+      },
+      "invalid_outputs": 2,
+      "judge_errors": 0,
+      "memory_presence": {
+        "correct": 12,
+        "total": 35
+      },
+      "nominated": 79,
+      "questions": 15,
+      "retrieved": 61,
+      "scored": 13,
+      "scored_macro_fama": 0.3442890442890443
+    },
+    "structured-b2": {
+      "abstained": 10,
+      "common_macro_fama": 0.0,
+      "failure_inclusive_macro_fama": 0.0,
+      "forgetting_absence": {
+        "correct": 22,
+        "total": 22
+      },
+      "invalid_outputs": 1,
+      "judge_errors": 0,
+      "memory_presence": {
+        "correct": 0,
+        "total": 37
+      },
+      "nominated": 79,
+      "questions": 15,
+      "retrieved": 7,
+      "scored": 14,
+      "scored_macro_fama": 0.0
+    },
+    "transcript-diagnostic": {
+      "abstained": 4,
+      "common_macro_fama": 0.2569444444444444,
+      "failure_inclusive_macro_fama": 0.28888888888888886,
+      "forgetting_absence": {
+        "correct": 21,
+        "total": 24
+      },
+      "invalid_outputs": 0,
+      "judge_errors": 0,
+      "memory_presence": {
+        "correct": 15,
+        "total": 41
+      },
+      "nominated": 79,
+      "questions": 15,
+      "retrieved": 47,
+      "scored": 15,
+      "scored_macro_fama": 0.28888888888888886
+    }
+  },
+  "common_scored_questions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    14
+  ],
+  "diagnostic": {
+    "evaluated": true,
+    "reader_stats": {
+      "draft": {
+        "attempts": 3,
+        "cache_hits": 0,
+        "cost_usd": "0",
+        "input_tokens": 1944,
+        "latency_ms": 14596.92359995097,
+        "models": [
+          "qwen2.5:7b-instruct-q4_K_M"
+        ],
+        "output_tokens": 182,
+        "statuses": {
+          "invalid": 1,
+          "ok": 2
+        }
+      },
+      "reasoning": {
+        "attempts": 2,
+        "cache_hits": 0,
+        "cost_usd": "0",
+        "input_tokens": 1333,
+        "latency_ms": 34635.735199961346,
+        "models": [
+          "qwen2.5:7b-instruct-q4_K_M"
+        ],
+        "output_tokens": 361,
+        "statuses": {
+          "ok": 2
+        }
+      },
+      "recommendation": {
+        "attempts": 5,
+        "cache_hits": 0,
+        "cost_usd": "0",
+        "input_tokens": 3267,
+        "latency_ms": 25021.487599995453,
+        "models": [
+          "qwen2.5:7b-instruct-q4_K_M"
+        ],
+        "output_tokens": 338,
+        "statuses": {
+          "ok": 5
+        }
+      },
+      "short": {
+        "attempts": 2,
+        "cache_hits": 0,
+        "cost_usd": "0",
+        "input_tokens": 1263,
+        "latency_ms": 2607.0906000677496,
+        "models": [
+          "qwen2.5:7b-instruct-q4_K_M"
+        ],
+        "output_tokens": 20,
+        "statuses": {
+          "ok": 2
+        }
+      }
+    },
+    "safety": {
+      "cases": {
+        "1": true,
+        "10": true,
+        "11": true,
+        "12": true,
+        "13": true,
+        "14": true,
+        "15": true,
+        "16": true,
+        "17": true,
+        "18": true,
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "7": true,
+        "8": true,
+        "9": true
+      },
+      "checks": {
+        "all_positive_grants_retained": true,
+        "alternate_index_denies_ungranted": true,
+        "deletion_requests_not_indexed": true,
+        "derivative_with_unverified_text_denied": true,
+        "mixed_source_retention": true,
+        "old_cache_invalidated": true
+      },
+      "current_fields": 54,
+      "denied_span_links": 15,
+      "false_deletions_among_positive_grants": 0,
+      "passes": true,
+      "recovered_source_turns": 57,
+      "restricted_span_leaks": 0,
+      "retained_fields": 57,
+      "source_turns": 1163,
+      "unimported_old_structured_claims": 88,
+      "verified_mixed_source_fields": 7
+    },
+    "wall_seconds": 85.49980799999321
+  },
+  "judge_stats": {
+    "attempts": 57,
+    "cache_hits": 0,
+    "cost_usd": "0",
+    "input_tokens": 8002,
+    "latency_ms": 50521.41719998326,
+    "models": [
+      "qwen2.5:7b-instruct-q4_K_M"
+    ],
+    "output_tokens": 474,
+    "statuses": {
+      "ok": 57
+    }
+  },
+  "judge_wall_seconds": 51.444348599994555,
+  "protocol_sha256": "9782f8b6f61cffbc88594de841bc3728da50b64022e73a2bb5a4eae9f74deee7"
+}
