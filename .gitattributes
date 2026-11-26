@@ -2,3 +2,7 @@
 scripts/train_t1_v3.py -text whitespace=cr-at-eol
 docs/t1_v3_artifacts/*.json text eol=lf
 docs/t1_v3_artifacts/*.svg text eol=lf -whitespace
+
+# Preserve bytes in the standalone release across checkout configurations.
+reproducibility/** text eol=lf
+reproducibility/data/*.gz -text

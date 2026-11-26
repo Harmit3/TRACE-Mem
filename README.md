@@ -159,6 +159,8 @@ The [Step 33 component validation](docs/step33_extraction_reader.md) audited the
 
 The [Step 34 evidence audit](docs/research_evidence_audit.md) reproduces the principal matched-budget and horizon results offline. The evidence supports a conditional synthetic memory finding. End-to-end and external verification superiority remain unsupported. The [independent manuscript materials](research/manuscript_outline.md) include a provisional abstract, verified bibliography, figures and results tables.
 
+The [Step 35 public reproducibility release](reproducibility/README.md) verifies 230 condition summaries and 184 family-bootstrap intervals using sanitized outcome counts. It runs without the original workspace, benchmark data, or model inference. The [proposed independent validation protocol](research/independent_validation_protocol.md) remains pending review.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.
