@@ -155,6 +155,8 @@ The [Step 31 robustness study](docs/step31_verification_robustness.md) reproduce
 
 The [Step 32 LongMemEval diagnostic](docs/longmemeval_step32.md) uses a frozen 14-question sample from the cleaned LongMemEval_S release. It compares isolated transcript retrieval and oracle evidence with managed TRACE-Mem replay, and reports adapted local adjudication and incomplete extraction separately.
 
+The [Step 33 component validation](docs/step33_extraction_reader.md) audited the LongMemEval failures and evaluated separately versioned extractor and reader candidates on fictional fixtures. Extraction recall improved from 22% to 50%, below the frozen 80% gate. Reader V3 scored 24/30 versus Reader V2's 27/30. Both candidates remain experimental.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.

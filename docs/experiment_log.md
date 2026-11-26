@@ -324,3 +324,10 @@ Reran the release audit, fit both controller variants in a new ignored output di
 - Full-sample adapted local accuracy was 3/14 for BM25, 2/14 for MiniLM and 6/14 for the isolated oracle. Only one history qualified for managed scoring, and every policy and transcript comparator missed its answer. Managed arms retrieved none of its annotated evidence.
 - The cap of 2,000 fresh extraction calls processed 2,017/3,141 user turns, with 228 claims and 16 turn failures. T2, T2-no-NLI, B3 and H-paced used both full caps on the common history and tied at zero correct. T1 and B5 used no calls. Five physical verifier requests supported 28 logical calls.
 - Across all stages, 2,052 fresh local requests consumed 471,442 input and 11,960 output tokens at USD 0. The blinded six-case worksheet stayed local. All 126 tests and 36 subtests passed. AI assistance covered implementation, tests, analysis and documentation. [Protocol, results, figures, and reproduction](longmemeval_step32.md).
+
+## Step 33 · Extraction reliability and reader validation
+
+- Started at merged Step 32 PR #40, `4da2877`. Froze 70 extraction and 30 reader fixtures, versioned candidates, and acceptance gates at `970ced9` before inference. The Step 32 predictions, scores, and human worksheet remained read-only.
+- Audited all 16 original extraction failures. Seven exceeded input preflight. Replay reproduced two output-length stops and three schema defects. Four original schema failures returned valid output on replay. A 24-turn AI-assisted sample of empty outputs found eight plausible misses, 13 non-memory turns and three ambiguous ones.
+- Extractor V3 improved recall from 22% to 50% and passed 10/10 deletion checks, but failed its 80% recall gate. Reader V3 scored 24/30 versus Reader V2's 27/30, failing the accuracy and improvement gates. Both candidates stayed experimental. No revised LongMemEval replay ran.
+- All 131 tests and 36 subtests passed. The study used 199 fresh local requests, 43,218 input and 4,944 output tokens at USD 0. AI assistance covered analysis, fixture authoring, code, tests and documentation. [Protocol and results](step33_extraction_reader.md).
