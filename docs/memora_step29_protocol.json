@@ -1,0 +1,13 @@
+{
+  "version":"authorized-evidence-v2",
+  "annotations_sha256":"04761c1f51e528ffabb26d45e0be7e7be4a418a83e8cc77dddd6dd800c2692a4",
+  "private_span_plan_sha256":"e851944e2e50053d7717523d4bf1c2a64367390340e8d01aa635e45092a2216b",
+  "expected_cases":{"targeted_forgetting":14,"preference_correction":2,"extraction_error":2},
+  "source_policy":"private positive allowlist of exact contiguous source spans with unambiguous provenance; no default authorization or inherited raw cache",
+  "task_policy":"active-task origins and deletion-request turns excluded; unverified derivatives never rebuilt",
+  "mixed_policy":"combine all denied intervals before validating permitted spans; reject any overlap",
+  "evaluation":"Reader V2 on all 15 pinned development questions; frozen Step 26 V2 comparator rows used unchanged, no repeat of unsafe retrieval",
+  "k":8,
+  "evidence_bytes":3000,
+  "safety_gate":{"require_every_case":true,"max_restricted_leaks":0,"require_frozen_plan_hash":true}
+}
