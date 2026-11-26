@@ -1,0 +1,107 @@
+{
+  "version": "validation-execution-v1",
+  "status": "pending-independent-review",
+  "required": [
+    "cohort_file_sha256",
+    "cohort_sha256",
+    "fixture_author",
+    "independent_reviewer",
+    "project_approver",
+    "protocol_sha256",
+    "backend_fingerprint",
+    "code_sha256",
+    "stage",
+    "status"
+  ],
+  "approval_template": {
+    "cohort_file_sha256": null,
+    "cohort_sha256": null,
+    "fixture_author": null,
+    "independent_reviewer": null,
+    "project_approver": null,
+    "protocol_sha256": null,
+    "backend_fingerprint": null,
+    "code_sha256": null,
+    "stage": null,
+    "status": null
+  },
+  "stages": {
+    "primary": {
+      "mode": "closed-loop",
+      "caps": [
+        2
+      ],
+      "verifier_physical_cap": 2880,
+      "reader_physical_cap": 1440
+    },
+    "secondary": {
+      "mode": "closed-loop",
+      "caps": [
+        0,
+        5
+      ],
+      "verifier_physical_cap": 7200,
+      "reader_physical_cap": 2880
+    },
+    "fixed": {
+      "mode": "fixed",
+      "caps": [
+        0,
+        2,
+        5
+      ],
+      "verifier_physical_cap": 10080,
+      "reader_physical_cap": 4320
+    }
+  },
+  "checkpoint": "One atomic commit per history-policy-cap-mode condition; one SQLite reservation per physical request.",
+  "pins": {
+    "qwen_name": "qwen2.5:7b-instruct-q4_K_M",
+    "qwen_sha256": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "ollama_version": "0.40.13",
+    "settings": {
+      "context_tokens": 4096,
+      "max_input_tokens": 4096,
+      "max_output_tokens": 256,
+      "retries": 0,
+      "seed": 23,
+      "timeout": 120
+    },
+    "controllers": {
+      "full.json": "8d4ea8e16f3662a1d47d046cd47101a39618aa83b2bb49a2719cc9150394c60e",
+      "no_nli.json": "ec04915d5872d12b4945f7f5fa42a60fcc7c1c852b1fb02f0a8d10314165b9cc"
+    },
+    "training_reference_sha256": "837820ce735c3040d14ae1ace8cd24ef6ffc7c2986098e90ec95e0817fb81dc0",
+    "minilm_revision": "c9745ed1d9f207416be6d2e6f8de32d1f16199bf",
+    "nli_revision": "a150876415327c80daeff35ca6f68f5ed8cf5c24",
+    "feature_order": [
+      "semantic_similarity",
+      "contradiction_score",
+      "entity_match",
+      "temporal_conflict_score",
+      "time_gap",
+      "provenance_score",
+      "uncertainty",
+      "budget_remaining_fraction"
+    ],
+    "reader_prompt_schema_sha256": "73c08392c450b872ff85549fad3e85e2dd499e7e2067d48bfc2d41b3484f8309",
+    "verifier_prompt_schema_sha256": "186d105583c4fa4ecba72b82f9179acd8c140d72dc661679911654a5de8a8eb8",
+    "minilm_files": {
+      "model.safetensors": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+      "config.json": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+      "tokenizer.json": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+      "tokenizer_config.json": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+      "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3"
+    },
+    "nli_files": {
+      "added_tokens.json": "a4b6bfe668f2b3cf6f0cd535e98a0663d2d0d4a4a15f13075ad3597d33985a23",
+      "config.json": "8d9f07bf7ba54a6fc3b1962483056f94c39dcf188db4cf61843e1c88f94b2342",
+      "model.safetensors": "4e4fc4977f8d29d2a164255c8f69b9d6c158deeb309bb5e70445b94666ccd9e9",
+      "special_tokens_map.json": "ed7c099c988dbb414b18a6980d20cb57b91b7cd119f6f6941eb364b0e892e712",
+      "spm.model": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd",
+      "tokenizer.json": "5124ef2ead1a10a717703bc436de7f353da76d6340e4587719b42b1693707964",
+      "tokenizer_config.json": "f3eecd07c370ef0bf7dd3780d3cd68cf9c8b00c267e21a208ddcd8f82bfec1a6"
+    }
+  }
+}
