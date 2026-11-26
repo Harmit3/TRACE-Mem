@@ -153,6 +153,8 @@ The [Step 30 controller reevaluation](docs/step30_controller_reevaluation.md) te
 
 The [Step 31 robustness study](docs/step31_verification_robustness.md) reproduces that reversal, compares T2 directly with B3, and measures sensitivity to five exogenous planning horizons. In the reused synthetic cohort, doubling the horizon made T2 underspend and lose to B3 at 50% and 100% allowances.
 
+The [Step 32 LongMemEval diagnostic](docs/longmemeval_step32.md) uses a frozen 14-question sample from the cleaned LongMemEval_S release. It compares isolated transcript retrieval and oracle evidence with managed TRACE-Mem replay, and reports adapted local adjudication and incomplete extraction separately.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.
