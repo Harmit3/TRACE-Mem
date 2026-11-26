@@ -17,7 +17,7 @@ def main():
                 page.set_default_timeout(120000)
                 page.goto(f"http://127.0.0.1:{app.server_port}")
                 expect(page.locator("#mode")).to_have_value("ollama")
-                page.locator("summary").click()
+                page.get_by_text("Generation settings",exact=True).click()
                 page.locator("#output").fill("48")
                 page.locator("#question").fill("I live in fictional Cedar Town.")
                 page.locator("#send").click()
@@ -37,6 +37,11 @@ def main():
                 page.get_by_role("button",name="Forget",exact=True).click()
                 expect(page.locator("#count")).to_have_text("0")
                 assert app.store.rows == []
+                for mode in ("standard","rag","trace"):
+                    page.locator("#strategy").select_option(mode)
+                    expect(page.locator("#strategy")).to_have_value(mode)
+                page.locator("#pilot summary").click()
+                expect(page.locator("#pilotReport table tr")).to_have_count(4)
                 browser.close()
         finally:
             app.shutdown()

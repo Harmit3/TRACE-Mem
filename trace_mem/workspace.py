@@ -141,6 +141,10 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if not self.host_ok(): return self.respond(403,{'error':'Invalid host.'})
         static={'/':('index.html','text/html'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
+        if self.path=='/api/pilot':
+            report=ROOT.parent/'research/workspace40/results.json'
+            if not report.is_file(): return self.respond(404,{'error':'Pilot results unavailable.'})
+            return self.respond(200,json.loads(report.read_text(encoding='utf-8')))
         if self.path in static:
             name,kind=static[self.path]; return self.respond(200,(ROOT/'workspace_web'/name).read_bytes(),kind)
         if self.path=='/api/models': return self.respond(200,{'models':discover(self.server.opener)})

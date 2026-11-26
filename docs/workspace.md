@@ -20,3 +20,7 @@ The complete suite passed 171 tests and 36 subtests on Python 3.14.0. It include
 
 Future work includes broader evaluated extraction, better long-history paging and retrieval scaling, encrypted storage, multi-process coordination, broader browser/accessibility testing, verified provider-side cancellation and quality evaluation across independent scenarios. This AI-assisted engineering milestone used fictional development inputs. Independent research validation remains pending.
 The Edge smoke passed with Qwen selected. The first request used 40 input and 48 output tokens. A second conversation retrieved the confirmed residence by MiniLM cosine similarity and used 115 input and 48 output tokens. The browser then reloaded both chat entries and forgot the memory.
+
+## Comparing memory modes
+
+Select **AI memory** with local generation enabled. Standard uses recent history. Conventional RAG searches surviving saved versions across effective dates. TRACE-Mem applies effective-time eligibility and can offer reviewed structured proposals. Forgetting a label covers every retrieval mode. Open **Comparative evaluation** below the workspace for recorded live outcomes and the deterministic conflict check. [Step 40 report](../research/workspace40/report.md)

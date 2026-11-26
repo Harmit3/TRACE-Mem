@@ -1,14 +1,16 @@
 'use strict';
 const $=id=>document.getElementById(id);let session, generation=0, busy=false, replaces=null;
 const node=(tag,text,cls)=>{const n=document.createElement(tag);n.textContent=text;if(cls)n.className=cls;return n;};
+const privacyUpdates = new BroadcastChannel('trace-workspace-privacy');
+privacyUpdates.onmessage = () => { controller?.abort(); reset(); refresh().catch(e=>notice(e.message)); };
 async function api(path,payload){const r=await fetch('/api/'+path,{method:'POST',headers:{'Content-Type':'application/json','X-Workspace-Token':session.token},body:JSON.stringify(payload)});const data=await r.json();if(!r.ok)throw Error(data.error||'Request failed');return data;}
 function notice(s){$('notice').textContent=s;}
 function button(label,handler,cls){const b=node('button',label,cls);b.type='button';b.onclick=handler;return b;}
 function reset(){generation++;$('messages').replaceChildren(node('div','New conversation. Your saved memories are still available.','msg'));$('evidence').textContent='No evidence selected.';$('usage').textContent='0 / '+Number($('budget').value).toLocaleString();$('meter').value=0;$('retrieved').textContent='0 / 0';}
-async function refresh(){const r=await api('list',{date:$('asof').value});$('count').textContent=r.facts.length;const box=$('library');box.replaceChildren();for(const f of r.facts){const c=node('div','','memory');c.append(node('b',f.key+(f.pin?' · pinned':'')),node('p',f.value),node('small','From '+f.start+(f.end?' until '+f.end:'')));c.append(button('Edit',()=>{replaces=f.id;$('key').value=f.key;$('value').value=f.value;$('pin').checked=f.pin;$('effective').value=session.today;$('key').focus();}),button('Forget',async()=>{if(!confirm('Forget every saved version of this label?'))return;try{await api('forget',{key:f.key});reset();await refresh();notice('Forgot all versions of '+f.key+'.');}catch(e){notice(e.message);}},'danger'));box.append(c);}if(!r.facts.length)box.append(node('p','No memories for this date.','muted'));}
+async function refresh(){const r=await api('list',{date:$('asof').value});$('count').textContent=r.facts.length;const box=$('library');box.replaceChildren();for(const f of r.facts){const c=node('div','','memory');c.append(node('b',f.key+(f.pin?' · pinned':'')),node('p',f.value),node('small','From '+f.start+(f.end?' until '+f.end:'')));c.append(button('Edit',()=>{replaces=f.id;$('key').value=f.key;$('value').value=f.value;$('pin').checked=f.pin;$('effective').value=session.today;$('key').focus();}),button('Forget',async()=>{if(!confirm('Forget every saved version of this label?'))return;try{await api('forget',{key:f.key});privacyUpdates.postMessage('changed');reset();await refresh();notice('Forgot all versions of '+f.key+'.');}catch(e){notice(e.message);}},'danger'));box.append(c);}if(!r.facts.length)box.append(node('p','No memories for this date.','muted'));}
 function message(role,text,cls=''){const el=node('div','','msg '+cls);el.append(node('small',role),node('div',text));$('messages').append(el);$('messages').scrollTop=$('messages').scrollHeight;}
 $('save').onsubmit=async e=>{e.preventDefault();try{await api('save',{key:$('key').value,value:$('value').value,date:$('effective').value,pin:$('pin').checked,replaces});reset();await refresh();notice('Memory saved. Same-day updates replace the previous value.');$('value').value='';replaces=null;}catch(e){notice(e.message);}};
-$('clear').onclick=async()=>{if(!confirm('Remove all saved memories and clear the visible chat?'))return;try{await api('clear',{});reset();await refresh();notice('All saved memories removed.');}catch(e){notice(e.message);}};
+$('clear').onclick=async()=>{if(!confirm('Remove all saved memories and clear the visible chat?'))return;try{await api('clear',{});privacyUpdates.postMessage('changed');reset();await refresh();notice('All saved memories removed.');}catch(e){notice(e.message);}};
 $('seed').onclick=async()=>{try{const current=await api('list',{date:session.today});const keys=new Set(current.facts.map(x=>x.key));for(const [key,value] of [['project deadline','The fictional Atlas research draft is due December 10.'],['programming language','I prefer Python for the fictional Atlas project.'],['research project','Atlas is a fictional study of long-term AI memory.']])if(!keys.has(key))await api('save',{key,value,date:session.today,pin:false});$('asof').value=session.today;reset();await refresh();notice('Fictional sample notes ready. Existing labels were not overwritten.');}catch(e){notice(e.message);}};
 $('new').onclick=reset;$('asof').onchange=()=>{reset();refresh().catch(e=>notice(e.message));};$('budget').oninput=()=>{$('budgetval').textContent=Number($('budget').value).toLocaleString()+' chars';};
 document.querySelectorAll('[data-prompt]').forEach(b=>b.onclick=()=>{$('question').value=b.dataset.prompt;$('question').focus();});
@@ -108,3 +110,29 @@ async function initAssistant(){
     else notice('Offline lookup ready. Start Ollama with a local model and reload for chat.');
     await listChats();if($('chats').options.length)await openChat($('chats').options[0].value);
 }
+$('pilot').addEventListener('toggle', async () => {
+    const panel = $('pilotReport');
+    if (!$('pilot').open || panel.childElementCount) return;
+    try {
+        const response = await fetch('/api/pilot');
+        if (!response.ok) throw Error('Pilot results unavailable.');
+        const data = await response.json();
+        panel.replaceChildren(node('h2','Live Ollama results'),node('p','Five internally authored questions per mode, with a shared model and context allowance.'));
+        const table = document.createElement('table');
+        const head = table.insertRow();
+        for (const label of ['Mode','Exact answers','Input tokens','Output tokens','Mean seconds','Abstentions','Request errors']) head.append(node('th',label));
+        for (const mode of ['standard','rag','trace']) {
+            const rows = data.rows.filter(r=>r.mode===mode);
+            const sum = field => rows.reduce((total,r)=>total+Number(r[field]||0),0);
+            const tr = table.insertRow();
+            tr.insertCell().textContent=mode;
+            const cell=tr.insertCell(), bar=document.createElement('progress');
+            bar.value=sum('correct'); bar.max=rows.length;
+            cell.append(bar,document.createTextNode(' '+bar.value+'/'+bar.max));
+            for(const value of [sum('prompt'),sum('output'),(sum('seconds')/rows.length).toFixed(2),sum('abstained'),rows.filter(r=>r.error).length]) tr.insertCell().textContent=value;
+        }
+        panel.append(table,node('h3','Incorrect answers'));
+        for(const r of data.rows.filter(r=>!r.correct))panel.append(node('p',r.mode+' · '+r.query+' — '+(r.answer||r.error)));
+        panel.append(node('h3','Deterministic storage check'),node('p','Incorrect overwrites on one unconfirmed conflict: '+data.engineering.incorrect_overwrites));
+    } catch(error) { panel.textContent=error.message; }
+});
