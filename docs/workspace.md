@@ -1,0 +1,11 @@
+# TRACE-Mem Workspace development
+
+The Workspace feature branch starts at research release preparation commit 3204c0c. Its code is adapted from the maintainer-supplied Windows alpha ZIP. It imports the repository temporal engine directly. The research console and frozen experiments retain their existing entry points.
+
+Double-click launch-workspace.bat with Python 3.14 installed, or run python -m trace_mem.workspace and open http://127.0.0.1:8770. No Python packages or models are required for offline lookup. Select Try sample memories to populate fictional notes. To enable local generation, start Ollama with cloud disabled and pass --model followed by an installed local tag. Run ollama list to see local tags. Use --data to isolate a test workspace and --port if the default port is occupied.
+
+To correct a saved memory, select Edit on the latest version and confirm by submitting the form. A correction with a later effective date keeps the earlier version available through the historical date picker. A confirmed same-day edit replaces that day's version. Forget removes all versions of the selected label from managed lookup. The active store is plaintext, with one process per data file. Provider logs, backups, other tabs and prior replies can retain copies. Keep private workspace files out of Git.
+
+The current integration offers explicit memory entry, a lexical lookup budget in characters, source IDs and effective dates, light and dark themes, and optional non-streaming local AI. Persistent conversation history, automatic extraction, embedding retrieval, verification budgeting, actual model token accounting and a controlled three-mode comparison remain development work. The alpha does not support claims about answer accuracy, cost or native context-window size.
+
+Windows verification used Python 3.14.0 with pytest cache writes disabled and an isolated temporary directory. The suite passed 169 tests and 36 subtests with one existing AnyIO deprecation warning. The 17 Workspace tests include loopback API, persisted and historical lookup, deletion, conflict handling and mocked Ollama. Numeric reproduction on the release branch verified 230 summaries and 184 paired intervals without inference.
