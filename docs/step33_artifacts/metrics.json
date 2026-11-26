@@ -1,0 +1,2644 @@
+{
+  "judge_audit": {
+    "llama_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "rows": [
+      {
+        "anonymous": 1,
+        "case": "L01",
+        "llama": "incorrect",
+        "qwen": [
+          "correct"
+        ]
+      },
+      {
+        "anonymous": 1,
+        "case": "L03",
+        "llama": "correct",
+        "qwen": [
+          "invalid-judge"
+        ]
+      },
+      {
+        "anonymous": 1,
+        "case": "L06",
+        "llama": "correct",
+        "qwen": [
+          "correct"
+        ]
+      },
+      {
+        "anonymous": 1,
+        "case": "L08",
+        "llama": "correct",
+        "qwen": [
+          "correct"
+        ]
+      },
+      {
+        "anonymous": 1,
+        "case": "L09",
+        "llama": "correct",
+        "qwen": [
+          "correct"
+        ]
+      },
+      {
+        "anonymous": 1,
+        "case": "L10",
+        "llama": "incorrect",
+        "qwen": [
+          "incorrect"
+        ]
+      }
+    ],
+    "usage": {
+      "attempts": 6,
+      "cache_hits": 0,
+      "cost_usd": "0",
+      "input_tokens": 1713,
+      "latency_ms": 8741.844000003766,
+      "models": [
+        "llama3.2:3b"
+      ],
+      "output_tokens": 12,
+      "statuses": {
+        "ok": 6
+      }
+    },
+    "worksheet_sha256": "efc718057bd5a307112d893eadc64a3f1526aab3de5c2365ae6ab28e66e4fd97"
+  },
+  "step32_audit": {
+    "empty_population": 1877,
+    "empty_sample": [
+      {
+        "assessment": "missed",
+        "case": "L03",
+        "source": "41/1"
+      },
+      {
+        "assessment": "missed",
+        "case": "L07",
+        "source": "13/9"
+      },
+      {
+        "assessment": "missed",
+        "case": "L03",
+        "source": "7/3"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L04",
+        "source": "6/5"
+      },
+      {
+        "assessment": "missed",
+        "case": "L08",
+        "source": "45/11"
+      },
+      {
+        "assessment": "ambiguous",
+        "case": "L07",
+        "source": "41/3"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L06",
+        "source": "48/7"
+      },
+      {
+        "assessment": "missed",
+        "case": "L01",
+        "source": "31/11"
+      },
+      {
+        "assessment": "missed",
+        "case": "L06",
+        "source": "54/9"
+      },
+      {
+        "assessment": "ambiguous",
+        "case": "L01",
+        "source": "51/11"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L02",
+        "source": "7/7"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L03",
+        "source": "20/8"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L02",
+        "source": "3/5"
+      },
+      {
+        "assessment": "ambiguous",
+        "case": "L02",
+        "source": "19/11"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L06",
+        "source": "47/7"
+      },
+      {
+        "assessment": "missed",
+        "case": "L08",
+        "source": "31/1"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L02",
+        "source": "25/4"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L02",
+        "source": "31/5"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L03",
+        "source": "3/1"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L04",
+        "source": "37/2"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L04",
+        "source": "3/3"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L04",
+        "source": "29/5"
+      },
+      {
+        "assessment": "missed",
+        "case": "L05",
+        "source": "4/5"
+      },
+      {
+        "assessment": "non-memory",
+        "case": "L01",
+        "source": "26/3"
+      }
+    ],
+    "failures": [
+      {
+        "case": "L01",
+        "original": "Input exceeds conservative preflight ceiling",
+        "preflight_bytes": 12360,
+        "replay_diagnosis": "preflight-oversized",
+        "source": "30/1"
+      },
+      {
+        "case": "L03",
+        "original": "Provider response did not match the task schema",
+        "preflight_bytes": 875,
+        "replay_diagnosis": "valid-on-replay",
+        "source": "6/9"
+      },
+      {
+        "case": "L04",
+        "original": "Input exceeds conservative preflight ceiling",
+        "preflight_bytes": 6378,
+        "replay_diagnosis": "preflight-oversized",
+        "source": "3/1"
+      },
+      {
+        "case": "L04",
+        "original": "Provider response was incomplete or refused",
+        "preflight_bytes": 1730,
+        "replay_diagnosis": "terminal-length",
+        "source": "36/11"
+      },
+      {
+        "case": "L04",
+        "original": "Provider response did not match the task schema",
+        "preflight_bytes": 1080,
+        "replay_diagnosis": "Claim predicate, value and intent are required",
+        "source": "43/6"
+      },
+      {
+        "case": "L04",
+        "original": "Provider response did not match the task schema",
+        "preflight_bytes": 1080,
+        "replay_diagnosis": "valid-on-replay",
+        "source": "43/12"
+      },
+      {
+        "case": "L05",
+        "original": "Input exceeds conservative preflight ceiling",
+        "preflight_bytes": 14286,
+        "replay_diagnosis": "preflight-oversized",
+        "source": "14/1"
+      },
+      {
+        "case": "L05",
+        "original": "Input exceeds conservative preflight ceiling",
+        "preflight_bytes": 8512,
+        "replay_diagnosis": "preflight-oversized",
+        "source": "51/1"
+      },
+      {
+        "case": "L06",
+        "original": "Input exceeds conservative preflight ceiling",
+        "preflight_bytes": 7813,
+        "replay_diagnosis": "preflight-oversized",
+        "source": "20/1"
+      },
+      {
+        "case": "L06",
+        "original": "Provider response was incomplete or refused",
+        "preflight_bytes": 1375,
+        "replay_diagnosis": "terminal-length",
+        "source": "24/9"
+      },
+      {
+        "case": "L06",
+        "original": "Provider response did not match the task schema",
+        "preflight_bytes": 1085,
+        "replay_diagnosis": "Claim expiry must follow its start",
+        "source": "31/7"
+      },
+      {
+        "case": "L06",
+        "original": "Provider response did not match the task schema",
+        "preflight_bytes": 1060,
+        "replay_diagnosis": "valid-on-replay",
+        "source": "35/7"
+      },
+      {
+        "case": "L07",
+        "original": "Provider response did not match the task schema",
+        "preflight_bytes": 950,
+        "replay_diagnosis": "Invalid isoformat string",
+        "source": "24/7"
+      },
+      {
+        "case": "L07",
+        "original": "Input exceeds conservative preflight ceiling",
+        "preflight_bytes": 5841,
+        "replay_diagnosis": "preflight-oversized",
+        "source": "32/1"
+      },
+      {
+        "case": "L08",
+        "original": "Input exceeds conservative preflight ceiling",
+        "preflight_bytes": 10112,
+        "replay_diagnosis": "preflight-oversized",
+        "source": "28/2"
+      },
+      {
+        "case": "L09",
+        "original": "Provider response did not match the task schema",
+        "preflight_bytes": 1087,
+        "replay_diagnosis": "valid-on-replay",
+        "source": "6/3"
+      }
+    ],
+    "protected_sha256": {
+      "blind-predictions.json": "5b5bc4916789a219463a5a28dcf8af6986e6d3015dcb02d20f8bf57e558203bf",
+      "extraction-report.json": "104cf9cae3b2dcf567baffd1ff9c2b6b050531b545f5db0670a9eb25fcd7e16a",
+      "human-review.json": "efc718057bd5a307112d893eadc64a3f1526aab3de5c2365ae6ab28e66e4fd97",
+      "safe-report.json": "1e05b634a63ef26e2b0fda0ae9348e21db72b45d9cb037c7f12e54b511f849d3"
+    },
+    "reader_audit": {
+      "BM25": {
+        "abstained|correct|other": 1,
+        "abstained|incorrect|all-tagged-turns": 2,
+        "abstained|incorrect|other": 3,
+        "answered|correct|all-tagged-turns": 1,
+        "answered|correct|other": 1,
+        "answered|incorrect|all-tagged-turns": 1,
+        "answered|incorrect|other": 1,
+        "invalid|invalid-reader|all-tagged-turns": 2,
+        "invalid|invalid-reader|other": 2
+      },
+      "MiniLM": {
+        "abstained|correct|other": 2,
+        "abstained|incorrect|all-tagged-turns": 2,
+        "abstained|incorrect|other": 4,
+        "answered|incorrect|all-tagged-turns": 1,
+        "answered|incorrect|other": 2,
+        "invalid|invalid-reader|all-tagged-turns": 2,
+        "invalid|invalid-reader|other": 1
+      },
+      "oracle": {
+        "abstained|correct|other": 2,
+        "abstained|incorrect|all-tagged-turns": 3,
+        "abstained|incorrect|other": 1,
+        "answered|correct|all-tagged-turns": 4,
+        "answered|incorrect|all-tagged-turns": 2,
+        "answered|incorrect|other": 1,
+        "answered|invalid-judge|all-tagged-turns": 1
+      }
+    },
+    "usage": {
+      "attempts": 9,
+      "cache_hits": 0,
+      "cost_usd": "0",
+      "input_tokens": 2264,
+      "latency_ms": 69525.45109990751,
+      "models": [
+        "qwen2.5:7b-instruct-q4_K_M"
+      ],
+      "output_tokens": 1097,
+      "statuses": {
+        "invalid": 5,
+        "ok": 4
+      }
+    }
+  },
+  "validation": {
+    "arms": {
+      "candidate": {
+        "extraction": {
+          "assistant_leaks": 0,
+          "correct": 50,
+          "deletion_exact": 10,
+          "distinct": 10,
+          "expected": 100,
+          "f1": 0.6666666666666666,
+          "failed": 0,
+          "precision": 1.0,
+          "predicted": 50,
+          "quarantined": 10,
+          "recall": 0.5,
+          "recovered": 0,
+          "supported": 50
+        },
+        "reader": {
+          "abstained-incorrect": 6,
+          "accuracy": 0.8,
+          "correct": 24,
+          "correct_abstentions": 12
+        }
+      },
+      "original": {
+        "extraction": {
+          "assistant_leaks": 0,
+          "correct": 22,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 100,
+          "f1": 0.36065573770491804,
+          "failed": 10,
+          "precision": 1.0,
+          "predicted": 22,
+          "quarantined": 0,
+          "recall": 0.22,
+          "recovered": 0,
+          "supported": 22
+        },
+        "reader": {
+          "abstained-incorrect": 3,
+          "accuracy": 0.9,
+          "correct": 27,
+          "correct_abstentions": 12
+        }
+      }
+    },
+    "external_permitted": false,
+    "extraction_gate": {
+      "assistant_trust": true,
+      "deletions": true,
+      "distinct_events": true,
+      "failures": true,
+      "precision": true,
+      "recall": false,
+      "recall_gain": true
+    },
+    "manifest": {
+      "extractor_v3.py": "aba4721fd2e0c601d0eebf8ad74330cb18ef64741bbc9235c948d7bf699bfe76",
+      "qwen": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+      "reader_v3.py": "18899bf44339a611ce2cc61d59692a210a44718fa1906645d59afc261432513a",
+      "run_step33.py": "c4bc0c75593855f8df1200b4479cb3eb8cc552ea40352af193b3d94a18d59284",
+      "settings": {
+        "context_tokens": 4096,
+        "max_input_tokens": 4096,
+        "max_output_tokens": 256,
+        "retries": 0,
+        "seed": 23,
+        "timeout": 120
+      },
+      "step33_fixtures.py": "ba44cf843deceb7a0ad1a69d9bfdc4078aa779549a48b53d59d61f882a8f5643",
+      "step33_freeze.json": "2f0c903f670f03ad3c84335fe1ae8e9a90124b4e9276a30eb8ca892d441973bf"
+    },
+    "reader_gate": {
+      "abstention": true,
+      "accuracy": false,
+      "gain": false,
+      "invalid": true
+    },
+    "rows": [
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "long-0",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 1,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "multiple-0",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "assistant-0",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "repeat-0",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "ambiguous-0",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 1,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": true,
+          "recovered": 0,
+          "supported": 1
+        },
+        "id": "delete-0",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "irrelevant-0",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "long-1",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 1,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "multiple-1",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "assistant-1",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "repeat-1",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "ambiguous-1",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 1,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": true,
+          "recovered": 0,
+          "supported": 1
+        },
+        "id": "delete-1",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "irrelevant-1",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "long-2",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 1,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "multiple-2",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "assistant-2",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "repeat-2",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "ambiguous-2",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 1,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": true,
+          "recovered": 0,
+          "supported": 1
+        },
+        "id": "delete-2",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "irrelevant-2",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "long-3",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 1,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "multiple-3",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "assistant-3",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "repeat-3",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "ambiguous-3",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 1,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": true,
+          "recovered": 0,
+          "supported": 1
+        },
+        "id": "delete-3",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "irrelevant-3",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "long-4",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 1,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "multiple-4",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "assistant-4",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "repeat-4",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "ambiguous-4",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 1,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": true,
+          "recovered": 0,
+          "supported": 1
+        },
+        "id": "delete-4",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "irrelevant-4",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "long-5",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 1,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "multiple-5",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "assistant-5",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "repeat-5",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "ambiguous-5",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 1,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": true,
+          "recovered": 0,
+          "supported": 1
+        },
+        "id": "delete-5",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "irrelevant-5",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "long-6",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 1,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "multiple-6",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "assistant-6",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "repeat-6",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "ambiguous-6",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 1,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": true,
+          "recovered": 0,
+          "supported": 1
+        },
+        "id": "delete-6",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "irrelevant-6",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "long-7",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 1,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "multiple-7",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "assistant-7",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "repeat-7",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "ambiguous-7",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 1,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": true,
+          "recovered": 0,
+          "supported": 1
+        },
+        "id": "delete-7",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "irrelevant-7",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "long-8",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 1,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "multiple-8",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "assistant-8",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "repeat-8",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "ambiguous-8",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 1,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": true,
+          "recovered": 0,
+          "supported": 1
+        },
+        "id": "delete-8",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "irrelevant-8",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "long-9",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 1,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "multiple-9",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "assistant-9",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 2,
+          "deletion_exact": 0,
+          "distinct": 1,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 2,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 2
+        },
+        "id": "repeat-9",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 2,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "ambiguous-9",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 1
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 1,
+          "deletion_exact": 1,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 1,
+          "quarantined": true,
+          "recovered": 0,
+          "supported": 1
+        },
+        "id": "delete-9",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 1,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "id": "irrelevant-9",
+        "original": {
+          "assistant_leaks": 0,
+          "correct": 0,
+          "deletion_exact": 0,
+          "distinct": 0,
+          "expected": 0,
+          "failed": 0,
+          "predicted": 0,
+          "quarantined": false,
+          "recovered": 0,
+          "supported": 0
+        },
+        "type": "extraction"
+      },
+      {
+        "candidate": "correct",
+        "id": "lookup-0",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "multi-0",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "abstained-incorrect",
+        "id": "negation-0",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "insufficient-0",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "conflict-0",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "lookup-1",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "multi-1",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "abstained-incorrect",
+        "id": "negation-1",
+        "original": "abstained-incorrect",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "insufficient-1",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "conflict-1",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "lookup-2",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "multi-2",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "abstained-incorrect",
+        "id": "negation-2",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "insufficient-2",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "conflict-2",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "lookup-3",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "multi-3",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "abstained-incorrect",
+        "id": "negation-3",
+        "original": "abstained-incorrect",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "insufficient-3",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "conflict-3",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "lookup-4",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "multi-4",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "abstained-incorrect",
+        "id": "negation-4",
+        "original": "abstained-incorrect",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "insufficient-4",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "conflict-4",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "lookup-5",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "multi-5",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "abstained-incorrect",
+        "id": "negation-5",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "insufficient-5",
+        "original": "correct",
+        "type": "reader"
+      },
+      {
+        "candidate": "correct",
+        "id": "conflict-5",
+        "original": "correct",
+        "type": "reader"
+      }
+    ],
+    "usage": {
+      "extraction-candidate": {
+        "attempts": 74,
+        "cache_hits": 36,
+        "cost_usd": "0",
+        "input_tokens": 18430,
+        "latency_ms": 173288.13020000234,
+        "models": [
+          "qwen2.5:7b-instruct-q4_K_M"
+        ],
+        "output_tokens": 2322,
+        "statuses": {
+          "ok": 74
+        }
+      },
+      "extraction-original": {
+        "attempts": 50,
+        "cache_hits": 0,
+        "cost_usd": "0",
+        "input_tokens": 9675,
+        "latency_ms": 68972.56539971568,
+        "models": [
+          "qwen2.5:7b-instruct-q4_K_M"
+        ],
+        "output_tokens": 499,
+        "statuses": {
+          "ok": 50
+        }
+      },
+      "reader-candidate": {
+        "attempts": 30,
+        "cache_hits": 0,
+        "cost_usd": "0",
+        "input_tokens": 3888,
+        "latency_ms": 24215.97749995999,
+        "models": [
+          "qwen2.5:7b-instruct-q4_K_M"
+        ],
+        "output_tokens": 408,
+        "statuses": {
+          "ok": 30
+        }
+      },
+      "reader-original": {
+        "attempts": 30,
+        "cache_hits": 0,
+        "cost_usd": "0",
+        "input_tokens": 7248,
+        "latency_ms": 35530.02169996034,
+        "models": [
+          "qwen2.5:7b-instruct-q4_K_M"
+        ],
+        "output_tokens": 606,
+        "statuses": {
+          "ok": 30
+        }
+      }
+    },
+    "wall_seconds": 304.75533250003355
+  }
+}

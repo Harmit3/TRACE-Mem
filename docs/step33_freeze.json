@@ -1,0 +1,11 @@
+﻿{
+  "model": "qwen2.5:7b-instruct-q4_K_M",
+  "seed": 23,
+  "max_fresh_requests": 4000,
+  "fixture_request_cap": 1000,
+  "extract_cases": 70,
+  "reader_cases": 30,
+  "extraction_gate": {"minimum_precision": 0.95, "minimum_recall": 0.8, "minimum_recall_gain": 0.1, "minimum_distinct_event_pairs": 10, "maximum_failed_cases": 0, "deletions_required": 10, "assistant_trust_violations": 0},
+  "reader_gate": {"minimum_accuracy": 0.85, "minimum_accuracy_gain": 0.1, "maximum_invalid": 0, "minimum_abstentions_correct": 12},
+  "scoring": "Exact bounded value occurrence and matching intent, one-to-one against authored facts. Citation sets exact, every case counted. Count original assistant skips as missing facts. Report output support separately from claim precision. Neither candidate may be promoted if its gate fails; no external replay unless both pass."
+}
