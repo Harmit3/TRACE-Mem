@@ -85,7 +85,7 @@ def _score(model, builder, item, target, entity, remaining):
 
 
 def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
-              seed, random_probability=0.25, adaptive=None, methods=None):
+              seed, random_probability=0.25, adaptive=None, methods=None, observer=None):
     """Replay all policies over one observation cutoff with identical prepared claims."""
     if (mode not in {"fixed", "closed-loop"} or type(cap) is not int or cap < 0
             or not 0 <= random_probability <= 1):
@@ -163,8 +163,11 @@ def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
                 session, turn = map(int, item.source.reference.split("/"))
                 # Prior user text is intentionally excluded to avoid resurfacing deleted evidence.
                 conversation = (evidence[session, turn],)
+                failures_before = budget.failures
                 verdict = budget.call(lambda claim, fact: tasks.verify(
                     claim, fact, conversation=conversation), item.claim, target)
+                if observer is not None:
+                    observer(method, item, target, verdict, live == target, budget.failures > failures_before)
                 if live is not None and live == target:
                     _apply_verdict(memory, entity, item, live, verdict)
                     continue

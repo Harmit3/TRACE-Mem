@@ -1,0 +1,91 @@
+{
+  "version": "trace-controller-independent-synthetic-v1",
+  "seed": 61843,
+  "histories_per_family": 10,
+  "families": [
+    [
+      "seed-library-accession",
+      "accession shelf",
+      "seed library archive"
+    ],
+    [
+      "community-kiln-firing",
+      "firing program",
+      "community kiln"
+    ],
+    [
+      "marionette-restoration",
+      "storage cradle",
+      "marionette restoration workshop"
+    ],
+    [
+      "tidal-clock-display",
+      "display setting",
+      "tidal clock exhibit"
+    ],
+    [
+      "municipal-mosaic-catalog",
+      "panel label",
+      "municipal mosaic catalog"
+    ],
+    [
+      "acoustic-map-correction",
+      "listening zone",
+      "acoustic map team"
+    ],
+    [
+      "canal-lock-exhibit",
+      "interpretation panel",
+      "canal lock exhibit"
+    ],
+    [
+      "textile-swatches-library",
+      "swatch display scheme",
+      "textile sample library"
+    ],
+    [
+      "lantern-parade-archives",
+      "archive collection label",
+      "lantern parade archive"
+    ],
+    [
+      "shadow-puppet-lighting",
+      "lighting cue",
+      "shadow puppet rehearsal"
+    ]
+  ],
+  "seeds": [
+    7,
+    23,
+    41,
+    61,
+    83
+  ],
+  "budget_percents": [
+    0,
+    10,
+    25,
+    50,
+    100
+  ],
+  "nominal_opportunities": 5,
+  "reader_subset": "First history of each family at 50% in both modes; one generative current question and one deterministic subtotal question per state.",
+  "primary": "Mean over histories of six exact slot checks (five retrospective as-of dates and the final current state); T2 minus H-paced at requested 50% separately in both modes.",
+  "secondary": "T1 minus T1-no-NLI, historical exact slot, deletion checks, harmful adoption, objectively helpful or harmful verifier effects, sample reader accuracy and actual calls.",
+  "bootstrap": {
+    "unit": "family",
+    "replicates": 2000,
+    "seed": 9001,
+    "interval": 0.95,
+    "method": "Percentile interval from paired family mean differences; B4 seeds are averaged within history first. Secondary intervals are exploratory and unadjusted."
+  },
+  "max_verifier_requests": 2200,
+  "max_reader_requests": 500,
+  "dataset_sha256": "78a08b1a863ed34e8b28df200543ea80687f4083ae16cdadcb1f9f55adb72ad0",
+  "hypothesis": "Positive T2 minus H-paced means learned pacing improves exact memory accuracy. Always report the direction and interval including unfavorable outcomes.",
+  "secondary_contrasts": [
+    "T1 minus T1-no-NLI",
+    "T2 minus B4",
+    "T1 minus B5"
+  ]
+}
