@@ -146,6 +146,8 @@ The [Step 26 reader and evidence-safety diagnostic](docs/memora_step26.md) compa
 
 The [Step 27 deletion-scope audit](docs/memora_step27.md) compares semantic and exact target proposals. It documents why real evidence remains quarantined pending human authorization.
 
+The [Step 29 authorized recovery study](docs/memora_step29.md) evaluates a human-assisted, field-level evidence allowlist after its safety gate. It reports local FAMA and the remaining coverage and reasoning limits.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.

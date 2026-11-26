@@ -101,6 +101,17 @@ def plots(summary, publish):
     fig.savefig(path, metadata={"Date": None})
     path.write_bytes(b"\n".join(line.rstrip() for line in path.read_bytes().splitlines()) + b"\n")
     plt.close(fig)
+    fig, axes = plt.subplots(1, 2, figsize=(11.2, 4.5))
+    for ax, key, title in zip(axes, ("memory_presence", "forgetting_absence"),
+                              ("Memory presence", "Forgetting absence")):
+        ax.bar(labels, [row[key]["correct"] / row[key]["total"] for row in r], color="#397781")
+        ax.set(title=title, ylabel="Fraction of scorable checks credited", ylim=(0, 1.05))
+        ax.tick_params(axis="x", labelrotation=25)
+    fig.tight_layout()
+    path = publish / "rubric-components.svg"
+    fig.savefig(path, metadata={"Date": None})
+    path.write_bytes(b"\n".join(line.rstrip() for line in path.read_bytes().splitlines()) + b"\n")
+    plt.close(fig)
 
 
 def publish(output, compared, folder):
