@@ -161,6 +161,8 @@ The [Step 34 evidence audit](docs/research_evidence_audit.md) reproduces the pri
 
 The [Step 35 public reproducibility release](reproducibility/README.md) verifies 230 condition summaries and 184 family-bootstrap intervals using sanitized outcome counts. It runs without the original workspace, benchmark data, or model inference. The [proposed independent validation protocol](research/independent_validation_protocol.md) remains pending review.
 
+The [Step 36 review package](research/validation_protocol_v2.md) specifies the prospective 90-family design, causal calendar estimator, failure-inclusive analysis, and approval-gated replay. Engineering fixtures exercise the implementation. Final cohort construction and scientific execution still require independent review and explicit approval.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.
