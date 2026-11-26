@@ -1,0 +1,40 @@
+artifact,verification
+docs/memora_step21_aggregate.json,identical JSON values
+docs/memora_step22_budget.svg,byte-identical
+docs/memora_step24_artifacts/aggregate.json,byte-identical
+docs/memora_step24_artifacts/budget.svg,byte-identical
+docs/memora_step24_artifacts/failure-analysis.svg,byte-identical
+docs/memora_step25_artifacts/aggregate.json,byte-identical
+docs/memora_step25_artifacts/comparison.svg,byte-identical
+docs/memora_step25_artifacts/failure-matrix.csv,byte-identical
+docs/memora_step25_artifacts/stage-isolation.svg,byte-identical
+docs/memora_step26_artifacts/aggregate.json,byte-identical
+docs/memora_step26_artifacts/comparison.svg,byte-identical
+docs/memora_step26_artifacts/question-failure-matrix.csv,byte-identical
+docs/memora_step26_artifacts/rubric-components.svg,byte-identical
+docs/memora_step27_aggregate.json,identical JSON values
+docs/memora_step29_artifacts/aggregate.json,byte-identical
+docs/memora_step29_artifacts/comparison.svg,byte-identical
+docs/memora_step29_artifacts/question-matrix.csv,byte-identical
+docs/memora_step29_artifacts/rubric-components.svg,byte-identical
+docs/step30_artifacts/aggregate.json,byte-identical
+docs/step30_artifacts/budget-and-cost.png,byte-identical
+docs/step30_artifacts/paired-intervals.png,byte-identical
+docs/step30_artifacts/run-manifest.json,identical JSON values
+docs/step31_artifacts/aggregate.json,byte-identical
+docs/step31_artifacts/budget.png,byte-identical
+docs/step31_artifacts/decision-traces.md,byte-identical
+docs/step31_artifacts/horizon.png,byte-identical
+docs/step31_artifacts/paired.png,byte-identical
+docs/step32_artifacts/aggregate.json,byte-identical
+docs/step32_artifacts/comparison.png,byte-identical
+docs/step32_artifacts/question-outcomes.png,byte-identical
+docs/step33_artifacts/metrics.json,byte-identical
+docs/step33_artifacts/validation.png,byte-identical
+docs/t1_v3_artifacts/budget-allocation.svg,byte-identical
+docs/t1_v3_artifacts/confusion.svg,byte-identical
+docs/t1_v3_artifacts/evaluation.json,byte-identical
+docs/t1_v3_artifacts/precision-recall.svg,byte-identical
+docs/t1_v3_artifacts/reliability.svg,byte-identical
+docs/t2_step23_aggregate.json,byte-identical
+docs/t2_step23_budget.svg,byte-identical
