@@ -1,4 +1,4 @@
-﻿"""Sequential, resumable original TRACE-Mem extraction for LongMemEval."""
+"""Sequential, resumable original TRACE-Mem extraction for LongMemEval."""
 
 from argparse import ArgumentParser
 from dataclasses import asdict
@@ -12,7 +12,7 @@ from scripts.run_memora import ROOT, sha, write
 from scripts.updateset_v2_pilot import QWEN_DIGEST
 from trace_mem.claims import EXTRACTION_PROMPT
 from trace_mem.llm_tasks import LLMTasks, RESPONSE_SCHEMAS
-from trace_mem.providers import ChatProvider, LimitExceeded, ProviderError
+from trace_mem.providers import ChatProvider, LimitExceeded, ProviderConfig, ProviderError
 
 
 def extract_all(root):
@@ -32,6 +32,7 @@ def extract_all(root):
     provider = ChatProvider(ProviderConfig("ollama", QWEN, design["extract_limit"], **SETTINGS),
                             root / "extract.sqlite")
     model = LLMTasks(provider)
+    (root / "extraction").mkdir(exist_ok=True)
     summaries = []
     for case in json.loads(inputs.read_bytes()):
         case_name = case["case"]
@@ -42,7 +43,8 @@ def extract_all(root):
         for event in user_turns[len(rows):]:
             try:
                 claims = model.extract(event)
-                row = {"claims": [asdict(c) for c in claims]}
+                row = {"claims": [asdict(c) | {"effective_on": c.effective_on.isoformat(),
+                    "expires_on": c.expires_on.isoformat() if c.expires_on else None} for c in claims]}
             except LimitExceeded as exc:
                 if str(exc) != "Input exceeds conservative preflight ceiling":
                     stopped = str(exc)
