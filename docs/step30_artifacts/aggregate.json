@@ -1,0 +1,4971 @@
+{
+  "histories": 100,
+  "dataset_sha256": "78a08b1a863ed34e8b28df200543ea80687f4083ae16cdadcb1f9f55adb72ad0",
+  "families": 10,
+  "rows": [
+    {
+      "current": 0.0,
+      "current_total": 600.0,
+      "historical": 0.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 0,
+      "method": "B0",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.0,
+      "historical_accuracy": 0.0,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 13.0,
+      "current_total": 600.0,
+      "historical": 113.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 200.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 0,
+      "method": "B1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.021666666666666667,
+      "historical_accuracy": 0.226,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 0,
+      "method": "B2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 0,
+      "method": "B3",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 0,
+      "method": "B4",
+      "histories": 100,
+      "seeds": 5,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 0,
+      "method": "B5",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 0,
+      "method": "H-paced",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 0,
+      "method": "T1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 0,
+      "method": "T1-no-NLI",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 0,
+      "method": "T2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 0.0,
+      "current_total": 600.0,
+      "historical": 0.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 10,
+      "method": "B0",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.0,
+      "historical_accuracy": 0.0,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 13.0,
+      "current_total": 600.0,
+      "historical": 113.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 200.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 10,
+      "method": "B1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.021666666666666667,
+      "historical_accuracy": 0.226,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 10,
+      "method": "B2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 261.0,
+      "current_total": 600.0,
+      "historical": 291.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 91.0,
+      "helpful_verifications": 22.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 10,
+      "method": "B3",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.435,
+      "historical_accuracy": 0.582,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 244.8,
+      "current_total": 600.0,
+      "historical": 270.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 92.4,
+      "helpful_verifications": 12.200000000000001,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 40.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 10,
+      "method": "B4",
+      "histories": 100,
+      "seeds": 5,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.40800000000000003,
+      "historical_accuracy": 0.54,
+      "achieved_reference_coverage": 0.08,
+      "budget_utilization": 0.8
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 10,
+      "method": "B5",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 250.0,
+      "current_total": 600.0,
+      "historical": 254.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 90.0,
+      "helpful_verifications": 15.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 10,
+      "method": "H-paced",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.4166666666666667,
+      "historical_accuracy": 0.508,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 244.0,
+      "current_total": 600.0,
+      "historical": 274.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 78.0,
+      "helpful_verifications": 14.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 10,
+      "method": "T1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.4066666666666667,
+      "historical_accuracy": 0.548,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 238.0,
+      "current_total": 600.0,
+      "historical": 268.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 85.0,
+      "helpful_verifications": 10.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 36.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 10,
+      "method": "T1-no-NLI",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.39666666666666667,
+      "historical_accuracy": 0.536,
+      "achieved_reference_coverage": 0.072,
+      "budget_utilization": 0.72
+    },
+    {
+      "current": 246.0,
+      "current_total": 600.0,
+      "historical": 276.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 78.0,
+      "helpful_verifications": 15.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 10,
+      "method": "T2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.41,
+      "historical_accuracy": 0.552,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 0.0,
+      "current_total": 600.0,
+      "historical": 0.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 25,
+      "method": "B0",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.0,
+      "historical_accuracy": 0.0,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 13.0,
+      "current_total": 600.0,
+      "historical": 113.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 200.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 25,
+      "method": "B1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.021666666666666667,
+      "historical_accuracy": 0.226,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 25,
+      "method": "B2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 304.0,
+      "current_total": 600.0,
+      "historical": 334.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 76.0,
+      "helpful_verifications": 50.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 25,
+      "method": "B3",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.5066666666666667,
+      "historical_accuracy": 0.668,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 280.6,
+      "current_total": 600.0,
+      "historical": 296.2,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 80.6,
+      "helpful_verifications": 30.8,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 95.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 25,
+      "method": "B4",
+      "histories": 100,
+      "seeds": 5,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.46766666666666673,
+      "historical_accuracy": 0.5923999999999999,
+      "achieved_reference_coverage": 0.19,
+      "budget_utilization": 0.76
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 100.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 25,
+      "method": "B5",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.2,
+      "budget_utilization": 0.8
+    },
+    {
+      "current": 295.0,
+      "current_total": 600.0,
+      "historical": 263.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 80.0,
+      "helpful_verifications": 36.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 25,
+      "method": "H-paced",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.49166666666666664,
+      "historical_accuracy": 0.526,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 297.0,
+      "current_total": 600.0,
+      "historical": 313.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 38.0,
+      "helpful_verifications": 45.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 25,
+      "method": "T1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.495,
+      "historical_accuracy": 0.626,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 268.0,
+      "current_total": 600.0,
+      "historical": 288.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 57.0,
+      "helpful_verifications": 28.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 99.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 25,
+      "method": "T1-no-NLI",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.44666666666666666,
+      "historical_accuracy": 0.576,
+      "achieved_reference_coverage": 0.198,
+      "budget_utilization": 0.792
+    },
+    {
+      "current": 301.0,
+      "current_total": 600.0,
+      "historical": 323.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 42.0,
+      "helpful_verifications": 50.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 25,
+      "method": "T2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.5016666666666667,
+      "historical_accuracy": 0.646,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 0.0,
+      "current_total": 600.0,
+      "historical": 0.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 50,
+      "method": "B0",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0.0,
+          "abstained": 10.0,
+          "error": 0.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 0.0,
+          "abstained": 10.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.0,
+      "historical_accuracy": 0.0,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 13.0,
+      "current_total": 600.0,
+      "historical": 113.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 200.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 50,
+      "method": "B1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 1.0,
+          "abstained": 4.0,
+          "error": 3.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.021666666666666667,
+      "historical_accuracy": 0.226,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 50,
+      "method": "B2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 4.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 412.0,
+      "current_total": 600.0,
+      "historical": 432.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 46.0,
+      "helpful_verifications": 107.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 250.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 50,
+      "method": "B3",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 4.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.6866666666666666,
+      "historical_accuracy": 0.864,
+      "achieved_reference_coverage": 0.5,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 309.0,
+      "current_total": 600.0,
+      "historical": 311.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 72.4,
+      "helpful_verifications": 45.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 140.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 50,
+      "method": "B4",
+      "histories": 100,
+      "seeds": 5,
+      "qa": {
+        "short": {
+          "correct": 2.4,
+          "abstained": 4.0,
+          "error": 2.2,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.515,
+      "historical_accuracy": 0.622,
+      "achieved_reference_coverage": 0.28,
+      "budget_utilization": 0.56
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 100.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 50,
+      "method": "B5",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 4.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.2,
+      "budget_utilization": 0.4
+    },
+    {
+      "current": 394.0,
+      "current_total": 600.0,
+      "historical": 328.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 60.0,
+      "helpful_verifications": 85.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 250.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 50,
+      "method": "H-paced",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 4.0,
+          "abstained": 5.0,
+          "error": 1.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.6566666666666666,
+      "historical_accuracy": 0.656,
+      "achieved_reference_coverage": 0.5,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 382.0,
+      "current_total": 600.0,
+      "historical": 366.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 7.0,
+      "helpful_verifications": 89.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 231.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 50,
+      "method": "T1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 4.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.6366666666666667,
+      "historical_accuracy": 0.732,
+      "achieved_reference_coverage": 0.462,
+      "budget_utilization": 0.924
+    },
+    {
+      "current": 335.0,
+      "current_total": 600.0,
+      "historical": 329.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 27.0,
+      "helpful_verifications": 60.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 171.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 50,
+      "method": "T1-no-NLI",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 4.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.5583333333333333,
+      "historical_accuracy": 0.658,
+      "achieved_reference_coverage": 0.342,
+      "budget_utilization": 0.684
+    },
+    {
+      "current": 434.0,
+      "current_total": 600.0,
+      "historical": 424.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 12.0,
+      "helpful_verifications": 122.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 250.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 50,
+      "method": "T2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 4.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.7233333333333334,
+      "historical_accuracy": 0.848,
+      "achieved_reference_coverage": 0.5,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 0.0,
+      "current_total": 600.0,
+      "historical": 0.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 100,
+      "method": "B0",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.0,
+      "historical_accuracy": 0.0,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 13.0,
+      "current_total": 600.0,
+      "historical": 113.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 200.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 100,
+      "method": "B1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.021666666666666667,
+      "historical_accuracy": 0.226,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 100,
+      "method": "B2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 598.0,
+      "current_total": 600.0,
+      "historical": 500.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 199.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 500.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 100,
+      "method": "B3",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.9966666666666667,
+      "historical_accuracy": 1.0,
+      "achieved_reference_coverage": 1.0,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 309.0,
+      "current_total": 600.0,
+      "historical": 311.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 72.4,
+      "helpful_verifications": 45.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 140.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 100,
+      "method": "B4",
+      "histories": 100,
+      "seeds": 5,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.515,
+      "historical_accuracy": 0.622,
+      "achieved_reference_coverage": 0.28,
+      "budget_utilization": 0.28
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 100.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 100,
+      "method": "B5",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.2,
+      "budget_utilization": 0.2
+    },
+    {
+      "current": 598.0,
+      "current_total": 600.0,
+      "historical": 500.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 199.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 500.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 100,
+      "method": "H-paced",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.9966666666666667,
+      "historical_accuracy": 1.0,
+      "achieved_reference_coverage": 1.0,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 383.0,
+      "current_total": 600.0,
+      "historical": 351.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 85.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 239.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 100,
+      "method": "T1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.6383333333333333,
+      "historical_accuracy": 0.702,
+      "achieved_reference_coverage": 0.478,
+      "budget_utilization": 0.478
+    },
+    {
+      "current": 306.0,
+      "current_total": 600.0,
+      "historical": 312.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 28.0,
+      "helpful_verifications": 47.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 163.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 100,
+      "method": "T1-no-NLI",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.51,
+      "historical_accuracy": 0.624,
+      "achieved_reference_coverage": 0.326,
+      "budget_utilization": 0.326
+    },
+    {
+      "current": 598.0,
+      "current_total": 600.0,
+      "historical": 500.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 199.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 500.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 0.0,
+      "mode": "closed-loop",
+      "budget": 100,
+      "method": "T2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.9966666666666667,
+      "historical_accuracy": 1.0,
+      "achieved_reference_coverage": 1.0,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 0.0,
+      "current_total": 600.0,
+      "historical": 0.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 0,
+      "method": "B0",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.0,
+      "historical_accuracy": 0.0,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 13.0,
+      "current_total": 600.0,
+      "historical": 113.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 200.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 0,
+      "method": "B1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.021666666666666667,
+      "historical_accuracy": 0.226,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 0,
+      "method": "B2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 0,
+      "method": "B3",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 0,
+      "method": "B4",
+      "histories": 100,
+      "seeds": 5,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 0,
+      "method": "B5",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 0,
+      "method": "H-paced",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 0,
+      "method": "T1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 0,
+      "method": "T1-no-NLI",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 0,
+      "method": "T2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 0.0,
+      "current_total": 600.0,
+      "historical": 0.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 10,
+      "method": "B0",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.0,
+      "historical_accuracy": 0.0,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 13.0,
+      "current_total": 600.0,
+      "historical": 113.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 200.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 10,
+      "method": "B1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.021666666666666667,
+      "historical_accuracy": 0.226,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 10,
+      "method": "B2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 261.0,
+      "current_total": 600.0,
+      "historical": 291.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 91.0,
+      "helpful_verifications": 22.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 10,
+      "method": "B3",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.435,
+      "historical_accuracy": 0.582,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 255.4,
+      "current_total": 600.0,
+      "historical": 273.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 90.4,
+      "helpful_verifications": 15.8,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 10,
+      "method": "B4",
+      "histories": 100,
+      "seeds": 5,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.4256666666666667,
+      "historical_accuracy": 0.546,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 10,
+      "method": "B5",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 269.0,
+      "current_total": 600.0,
+      "historical": 291.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 25.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 10,
+      "method": "H-paced",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.4483333333333333,
+      "historical_accuracy": 0.582,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 233.0,
+      "current_total": 600.0,
+      "historical": 263.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 80.0,
+      "helpful_verifications": 9.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 10,
+      "method": "T1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.3883333333333333,
+      "historical_accuracy": 0.526,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 230.0,
+      "current_total": 600.0,
+      "historical": 260.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 83.0,
+      "helpful_verifications": 7.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 10,
+      "method": "T1-no-NLI",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.38333333333333336,
+      "historical_accuracy": 0.52,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 233.0,
+      "current_total": 600.0,
+      "historical": 263.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 80.0,
+      "helpful_verifications": 9.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 50.0,
+      "verification_failures": 0.0,
+      "budget_cap": 50.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 10,
+      "method": "T2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.3883333333333333,
+      "historical_accuracy": 0.526,
+      "achieved_reference_coverage": 0.1,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 0.0,
+      "current_total": 600.0,
+      "historical": 0.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 25,
+      "method": "B0",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.0,
+      "historical_accuracy": 0.0,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 13.0,
+      "current_total": 600.0,
+      "historical": 113.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 200.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 25,
+      "method": "B1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.021666666666666667,
+      "historical_accuracy": 0.226,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 25,
+      "method": "B2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 302.0,
+      "current_total": 600.0,
+      "historical": 332.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 77.0,
+      "helpful_verifications": 49.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 13.0,
+      "mode": "fixed",
+      "budget": 25,
+      "method": "B3",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.5033333333333333,
+      "historical_accuracy": 0.664,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 293.2,
+      "current_total": 600.0,
+      "historical": 300.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 77.8,
+      "helpful_verifications": 36.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 9.0,
+      "mode": "fixed",
+      "budget": 25,
+      "method": "B4",
+      "histories": 100,
+      "seeds": 5,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.48866666666666664,
+      "historical_accuracy": 0.6,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 242.0,
+      "current_total": 600.0,
+      "historical": 272.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 11.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 5.0,
+      "mode": "fixed",
+      "budget": 25,
+      "method": "B5",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.4033333333333333,
+      "historical_accuracy": 0.544,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 346.0,
+      "current_total": 600.0,
+      "historical": 342.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 65.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 9.0,
+      "mode": "fixed",
+      "budget": 25,
+      "method": "H-paced",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.5766666666666667,
+      "historical_accuracy": 0.684,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 283.0,
+      "current_total": 600.0,
+      "historical": 299.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 41.0,
+      "helpful_verifications": 35.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 10.0,
+      "mode": "fixed",
+      "budget": 25,
+      "method": "T1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.4716666666666667,
+      "historical_accuracy": 0.598,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 280.0,
+      "current_total": 600.0,
+      "historical": 296.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 45.0,
+      "helpful_verifications": 33.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 10.0,
+      "mode": "fixed",
+      "budget": 25,
+      "method": "T1-no-NLI",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.4666666666666667,
+      "historical_accuracy": 0.592,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 283.0,
+      "current_total": 600.0,
+      "historical": 299.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 41.0,
+      "helpful_verifications": 35.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 125.0,
+      "verification_failures": 0.0,
+      "budget_cap": 125.0,
+      "stale_targets": 10.0,
+      "mode": "fixed",
+      "budget": 25,
+      "method": "T2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.4716666666666667,
+      "historical_accuracy": 0.598,
+      "achieved_reference_coverage": 0.25,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 0.0,
+      "current_total": 600.0,
+      "historical": 0.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 50,
+      "method": "B0",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0.0,
+          "abstained": 10.0,
+          "error": 0.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 0.0,
+          "abstained": 10.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.0,
+      "historical_accuracy": 0.0,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 13.0,
+      "current_total": 600.0,
+      "historical": 113.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 200.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 50,
+      "method": "B1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 1.0,
+          "abstained": 4.0,
+          "error": 3.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.021666666666666667,
+      "historical_accuracy": 0.226,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 50,
+      "method": "B2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 4.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 356.0,
+      "current_total": 600.0,
+      "historical": 386.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 58.0,
+      "helpful_verifications": 82.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 250.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 78.0,
+      "mode": "fixed",
+      "budget": 50,
+      "method": "B3",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 4.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.5933333333333334,
+      "historical_accuracy": 0.772,
+      "achieved_reference_coverage": 0.5,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 345.4,
+      "current_total": 600.0,
+      "historical": 352.2,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 62.8,
+      "helpful_verifications": 69.2,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 250.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 74.6,
+      "mode": "fixed",
+      "budget": 50,
+      "method": "B4",
+      "histories": 100,
+      "seeds": 5,
+      "qa": {
+        "short": {
+          "correct": 2.4,
+          "abstained": 4.2,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.5756666666666667,
+      "historical_accuracy": 0.7044,
+      "achieved_reference_coverage": 0.5,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 377.0,
+      "current_total": 600.0,
+      "historical": 367.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 79.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 250.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 62.0,
+      "mode": "fixed",
+      "budget": 50,
+      "method": "B5",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 3.0,
+          "abstained": 4.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.6283333333333333,
+      "historical_accuracy": 0.734,
+      "achieved_reference_coverage": 0.5,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 409.0,
+      "current_total": 600.0,
+      "historical": 381.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 99.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 250.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 70.0,
+      "mode": "fixed",
+      "budget": 50,
+      "method": "H-paced",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 3.0,
+          "abstained": 4.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.6816666666666666,
+      "historical_accuracy": 0.762,
+      "achieved_reference_coverage": 0.5,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 341.0,
+      "current_total": 600.0,
+      "historical": 355.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 19.0,
+      "helpful_verifications": 75.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 250.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 94.0,
+      "mode": "fixed",
+      "budget": 50,
+      "method": "T1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 5.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.5683333333333334,
+      "historical_accuracy": 0.71,
+      "achieved_reference_coverage": 0.5,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 341.0,
+      "current_total": 600.0,
+      "historical": 355.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 19.0,
+      "helpful_verifications": 75.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 250.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 94.0,
+      "mode": "fixed",
+      "budget": 50,
+      "method": "T1-no-NLI",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 5.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.5683333333333334,
+      "historical_accuracy": 0.71,
+      "achieved_reference_coverage": 0.5,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 341.0,
+      "current_total": 600.0,
+      "historical": 355.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 19.0,
+      "helpful_verifications": 75.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 250.0,
+      "verification_failures": 0.0,
+      "budget_cap": 250.0,
+      "stale_targets": 94.0,
+      "mode": "fixed",
+      "budget": 50,
+      "method": "T2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 2.0,
+          "abstained": 5.0,
+          "error": 2.0,
+          "total": 10
+        },
+        "reasoning": {
+          "correct": 10.0,
+          "abstained": 0.0,
+          "error": 0.0,
+          "total": 10
+        }
+      },
+      "current_accuracy": 0.5683333333333334,
+      "historical_accuracy": 0.71,
+      "achieved_reference_coverage": 0.5,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 0.0,
+      "current_total": 600.0,
+      "historical": 0.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 0.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 0.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 100,
+      "method": "B0",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.0,
+      "historical_accuracy": 0.0,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 13.0,
+      "current_total": 600.0,
+      "historical": 113.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 200.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 100,
+      "method": "B1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.021666666666666667,
+      "historical_accuracy": 0.226,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 222.0,
+      "current_total": 600.0,
+      "historical": 252.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 100.0,
+      "helpful_verifications": 0.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 0.0,
+      "verification_failures": 0.0,
+      "budget_cap": 0.0,
+      "stale_targets": 0.0,
+      "mode": "fixed",
+      "budget": 100,
+      "method": "B2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.37,
+      "historical_accuracy": 0.504,
+      "achieved_reference_coverage": 0.0,
+      "budget_utilization": null
+    },
+    {
+      "current": 378.0,
+      "current_total": 600.0,
+      "historical": 408.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 52.0,
+      "helpful_verifications": 100.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 500.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 291.0,
+      "mode": "fixed",
+      "budget": 100,
+      "method": "B3",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.63,
+      "historical_accuracy": 0.816,
+      "achieved_reference_coverage": 1.0,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 378.0,
+      "current_total": 600.0,
+      "historical": 408.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 52.0,
+      "helpful_verifications": 100.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 500.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 291.0,
+      "mode": "fixed",
+      "budget": 100,
+      "method": "B4",
+      "histories": 100,
+      "seeds": 5,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.63,
+      "historical_accuracy": 0.816,
+      "achieved_reference_coverage": 1.0,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 378.0,
+      "current_total": 600.0,
+      "historical": 408.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 52.0,
+      "helpful_verifications": 100.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 500.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 291.0,
+      "mode": "fixed",
+      "budget": 100,
+      "method": "B5",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.63,
+      "historical_accuracy": 0.816,
+      "achieved_reference_coverage": 1.0,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 378.0,
+      "current_total": 600.0,
+      "historical": 408.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 52.0,
+      "helpful_verifications": 100.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 500.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 291.0,
+      "mode": "fixed",
+      "budget": 100,
+      "method": "H-paced",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.63,
+      "historical_accuracy": 0.816,
+      "achieved_reference_coverage": 1.0,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 378.0,
+      "current_total": 600.0,
+      "historical": 408.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 52.0,
+      "helpful_verifications": 100.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 500.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 291.0,
+      "mode": "fixed",
+      "budget": 100,
+      "method": "T1",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.63,
+      "historical_accuracy": 0.816,
+      "achieved_reference_coverage": 1.0,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 378.0,
+      "current_total": 600.0,
+      "historical": 408.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 52.0,
+      "helpful_verifications": 100.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 500.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 291.0,
+      "mode": "fixed",
+      "budget": 100,
+      "method": "T1-no-NLI",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.63,
+      "historical_accuracy": 0.816,
+      "achieved_reference_coverage": 1.0,
+      "budget_utilization": 1.0
+    },
+    {
+      "current": 378.0,
+      "current_total": 600.0,
+      "historical": 408.0,
+      "historical_total": 500.0,
+      "deletion": 200.0,
+      "deletion_total": 200.0,
+      "authorized_deletion": 200.0,
+      "harmful_adoptions": 52.0,
+      "helpful_verifications": 100.0,
+      "harmful_verifications": 0.0,
+      "eligible_candidates": 500.0,
+      "reference_candidates": 500.0,
+      "verification_attempts": 500.0,
+      "verification_failures": 0.0,
+      "budget_cap": 500.0,
+      "stale_targets": 291.0,
+      "mode": "fixed",
+      "budget": 100,
+      "method": "T2",
+      "histories": 100,
+      "seeds": 1,
+      "qa": {
+        "short": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        },
+        "reasoning": {
+          "correct": 0,
+          "abstained": 0,
+          "error": 0,
+          "total": 0
+        }
+      },
+      "current_accuracy": 0.63,
+      "historical_accuracy": 0.816,
+      "achieved_reference_coverage": 1.0,
+      "budget_utilization": 1.0
+    }
+  ],
+  "oracle": {
+    "current": 600,
+    "current_total": 600,
+    "historical": 500,
+    "historical_total": 500,
+    "deletion": 200,
+    "deletion_total": 200,
+    "authorized_deletion": 200,
+    "harmful_adoptions": 0,
+    "helpful_verifications": 0,
+    "harmful_verifications": 0,
+    "qa": {
+      "short": {
+        "correct": 5.0,
+        "abstained": 4.0,
+        "error": 1.0,
+        "total": 10
+      },
+      "reasoning": {
+        "correct": 10.0,
+        "abstained": 0.0,
+        "error": 0.0,
+        "total": 10
+      }
+    }
+  },
+  "contrasts": [
+    {
+      "mode": "fixed",
+      "budget": 0,
+      "left": "T2",
+      "right": "H-paced",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 0,
+      "left": "T1",
+      "right": "T1-no-NLI",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 0,
+      "left": "T2",
+      "right": "B4",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 0,
+      "left": "T1",
+      "right": "B5",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 10,
+      "left": "T2",
+      "right": "H-paced",
+      "histories": 100,
+      "difference": -0.06,
+      "lower": -0.09,
+      "upper": -0.03333333333333333,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 10,
+      "left": "T1",
+      "right": "T1-no-NLI",
+      "histories": 100,
+      "difference": 0.005,
+      "lower": 0.0,
+      "upper": 0.011666666666666669,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 10,
+      "left": "T2",
+      "right": "B4",
+      "histories": 100,
+      "difference": -0.037333333333333336,
+      "lower": -0.06233333333333334,
+      "upper": -0.011666666666666664,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 10,
+      "left": "T1",
+      "right": "B5",
+      "histories": 100,
+      "difference": 0.018333333333333333,
+      "lower": 0.006666666666666666,
+      "upper": 0.03,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 25,
+      "left": "T2",
+      "right": "H-paced",
+      "histories": 100,
+      "difference": -0.10500000000000001,
+      "lower": -0.14333333333333334,
+      "upper": -0.06500000000000002,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 25,
+      "left": "T1",
+      "right": "T1-no-NLI",
+      "histories": 100,
+      "difference": 0.005,
+      "lower": 0.0,
+      "upper": 0.011666666666666669,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 25,
+      "left": "T2",
+      "right": "B4",
+      "histories": 100,
+      "difference": -0.016999999999999998,
+      "lower": -0.05700000000000001,
+      "upper": 0.022333333333333337,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 25,
+      "left": "T1",
+      "right": "B5",
+      "histories": 100,
+      "difference": 0.06833333333333333,
+      "lower": 0.03833333333333333,
+      "upper": 0.10166666666666668,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 50,
+      "left": "T2",
+      "right": "H-paced",
+      "histories": 100,
+      "difference": -0.11333333333333336,
+      "lower": -0.16337500000000005,
+      "upper": -0.06333333333333334,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 50,
+      "left": "T1",
+      "right": "T1-no-NLI",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 50,
+      "left": "T2",
+      "right": "B4",
+      "histories": 100,
+      "difference": -0.007333333333333329,
+      "lower": -0.03933333333333333,
+      "upper": 0.02767499999999996,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 50,
+      "left": "T1",
+      "right": "B5",
+      "histories": 100,
+      "difference": -0.06000000000000001,
+      "lower": -0.10500000000000001,
+      "upper": -0.015000000000000003,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 100,
+      "left": "T2",
+      "right": "H-paced",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 100,
+      "left": "T1",
+      "right": "T1-no-NLI",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 100,
+      "left": "T2",
+      "right": "B4",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "fixed",
+      "budget": 100,
+      "left": "T1",
+      "right": "B5",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 0,
+      "left": "T2",
+      "right": "H-paced",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 0,
+      "left": "T1",
+      "right": "T1-no-NLI",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 0,
+      "left": "T2",
+      "right": "B4",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 0,
+      "left": "T1",
+      "right": "B5",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 10,
+      "left": "T2",
+      "right": "H-paced",
+      "histories": 100,
+      "difference": -0.006666666666666668,
+      "lower": -0.03666666666666667,
+      "upper": 0.018333333333333333,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 10,
+      "left": "T1",
+      "right": "T1-no-NLI",
+      "histories": 100,
+      "difference": 0.01,
+      "lower": 0.0016666666666666663,
+      "upper": 0.018333333333333333,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 10,
+      "left": "T2",
+      "right": "B4",
+      "histories": 100,
+      "difference": 0.002000000000000001,
+      "lower": -0.019675,
+      "upper": 0.029674999999999962,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 10,
+      "left": "T1",
+      "right": "B5",
+      "histories": 100,
+      "difference": 0.03666666666666667,
+      "lower": 0.02,
+      "upper": 0.053374999999999784,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 25,
+      "left": "T2",
+      "right": "H-paced",
+      "histories": 100,
+      "difference": 0.01,
+      "lower": -0.026666666666666672,
+      "upper": 0.045,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 25,
+      "left": "T1",
+      "right": "T1-no-NLI",
+      "histories": 100,
+      "difference": 0.04833333333333334,
+      "lower": 0.02,
+      "upper": 0.08,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 25,
+      "left": "T2",
+      "right": "B4",
+      "histories": 100,
+      "difference": 0.033999999999999996,
+      "lower": -8.333333333339797e-06,
+      "upper": 0.07166666666666667,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 25,
+      "left": "T1",
+      "right": "B5",
+      "histories": 100,
+      "difference": 0.125,
+      "lower": 0.09333333333333334,
+      "upper": 0.15833333333333335,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 50,
+      "left": "T2",
+      "right": "H-paced",
+      "histories": 100,
+      "difference": 0.06666666666666668,
+      "lower": 0.006666666666666664,
+      "upper": 0.12333333333333334,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 50,
+      "left": "T1",
+      "right": "T1-no-NLI",
+      "histories": 100,
+      "difference": 0.07833333333333334,
+      "lower": 0.035,
+      "upper": 0.12333333333333334,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 50,
+      "left": "T2",
+      "right": "B4",
+      "histories": 100,
+      "difference": 0.20833333333333334,
+      "lower": 0.16633333333333333,
+      "upper": 0.251,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 50,
+      "left": "T1",
+      "right": "B5",
+      "histories": 100,
+      "difference": 0.26666666666666666,
+      "lower": 0.22666666666666666,
+      "upper": 0.30833333333333335,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 100,
+      "left": "T2",
+      "right": "H-paced",
+      "histories": 100,
+      "difference": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 100,
+      "left": "T1",
+      "right": "T1-no-NLI",
+      "histories": 100,
+      "difference": 0.12833333333333335,
+      "lower": 0.08833333333333335,
+      "upper": 0.16833333333333336,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 100,
+      "left": "T2",
+      "right": "B4",
+      "histories": 100,
+      "difference": 0.48166666666666663,
+      "lower": 0.45865833333333333,
+      "upper": 0.5093416666666667,
+      "families": 10
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 100,
+      "left": "T1",
+      "right": "B5",
+      "histories": 100,
+      "difference": 0.26833333333333337,
+      "lower": 0.22333333333333333,
+      "upper": 0.3050416666666665,
+      "families": 10
+    }
+  ],
+  "random_seeds": [
+    {
+      "mode": "closed-loop",
+      "budget": 0,
+      "seed": 7,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 0,
+      "seed": 23,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 0,
+      "seed": 41,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 0,
+      "seed": 61,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 0,
+      "seed": 83,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 10,
+      "seed": 7,
+      "verification_attempts": 50,
+      "current_accuracy": 0.4066666666666667
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 10,
+      "seed": 23,
+      "verification_attempts": 50,
+      "current_accuracy": 0.415
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 10,
+      "seed": 41,
+      "verification_attempts": 50,
+      "current_accuracy": 0.4066666666666667
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 10,
+      "seed": 61,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 10,
+      "seed": 83,
+      "verification_attempts": 50,
+      "current_accuracy": 0.44166666666666665
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 25,
+      "seed": 7,
+      "verification_attempts": 125,
+      "current_accuracy": 0.49833333333333335
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 25,
+      "seed": 23,
+      "verification_attempts": 100,
+      "current_accuracy": 0.44166666666666665
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 25,
+      "seed": 41,
+      "verification_attempts": 125,
+      "current_accuracy": 0.49333333333333335
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 25,
+      "seed": 61,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 25,
+      "seed": 83,
+      "verification_attempts": 125,
+      "current_accuracy": 0.535
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 50,
+      "seed": 7,
+      "verification_attempts": 200,
+      "current_accuracy": 0.545
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 50,
+      "seed": 23,
+      "verification_attempts": 100,
+      "current_accuracy": 0.44166666666666665
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 50,
+      "seed": 41,
+      "verification_attempts": 200,
+      "current_accuracy": 0.62
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 50,
+      "seed": 61,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 50,
+      "seed": 83,
+      "verification_attempts": 200,
+      "current_accuracy": 0.5983333333333334
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 100,
+      "seed": 7,
+      "verification_attempts": 200,
+      "current_accuracy": 0.545
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 100,
+      "seed": 23,
+      "verification_attempts": 100,
+      "current_accuracy": 0.44166666666666665
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 100,
+      "seed": 41,
+      "verification_attempts": 200,
+      "current_accuracy": 0.62
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 100,
+      "seed": 61,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "closed-loop",
+      "budget": 100,
+      "seed": 83,
+      "verification_attempts": 200,
+      "current_accuracy": 0.5983333333333334
+    },
+    {
+      "mode": "fixed",
+      "budget": 0,
+      "seed": 7,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "fixed",
+      "budget": 0,
+      "seed": 23,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "fixed",
+      "budget": 0,
+      "seed": 41,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "fixed",
+      "budget": 0,
+      "seed": 61,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "fixed",
+      "budget": 0,
+      "seed": 83,
+      "verification_attempts": 0,
+      "current_accuracy": 0.37
+    },
+    {
+      "mode": "fixed",
+      "budget": 10,
+      "seed": 7,
+      "verification_attempts": 50,
+      "current_accuracy": 0.44166666666666665
+    },
+    {
+      "mode": "fixed",
+      "budget": 10,
+      "seed": 23,
+      "verification_attempts": 50,
+      "current_accuracy": 0.44166666666666665
+    },
+    {
+      "mode": "fixed",
+      "budget": 10,
+      "seed": 41,
+      "verification_attempts": 50,
+      "current_accuracy": 0.415
+    },
+    {
+      "mode": "fixed",
+      "budget": 10,
+      "seed": 61,
+      "verification_attempts": 50,
+      "current_accuracy": 0.415
+    },
+    {
+      "mode": "fixed",
+      "budget": 10,
+      "seed": 83,
+      "verification_attempts": 50,
+      "current_accuracy": 0.415
+    },
+    {
+      "mode": "fixed",
+      "budget": 25,
+      "seed": 7,
+      "verification_attempts": 125,
+      "current_accuracy": 0.5216666666666666
+    },
+    {
+      "mode": "fixed",
+      "budget": 25,
+      "seed": 23,
+      "verification_attempts": 125,
+      "current_accuracy": 0.5383333333333333
+    },
+    {
+      "mode": "fixed",
+      "budget": 25,
+      "seed": 41,
+      "verification_attempts": 125,
+      "current_accuracy": 0.4583333333333333
+    },
+    {
+      "mode": "fixed",
+      "budget": 25,
+      "seed": 61,
+      "verification_attempts": 125,
+      "current_accuracy": 0.4533333333333333
+    },
+    {
+      "mode": "fixed",
+      "budget": 25,
+      "seed": 83,
+      "verification_attempts": 125,
+      "current_accuracy": 0.4716666666666667
+    },
+    {
+      "mode": "fixed",
+      "budget": 50,
+      "seed": 7,
+      "verification_attempts": 250,
+      "current_accuracy": 0.5966666666666667
+    },
+    {
+      "mode": "fixed",
+      "budget": 50,
+      "seed": 23,
+      "verification_attempts": 250,
+      "current_accuracy": 0.5883333333333334
+    },
+    {
+      "mode": "fixed",
+      "budget": 50,
+      "seed": 41,
+      "verification_attempts": 250,
+      "current_accuracy": 0.58
+    },
+    {
+      "mode": "fixed",
+      "budget": 50,
+      "seed": 61,
+      "verification_attempts": 250,
+      "current_accuracy": 0.5733333333333334
+    },
+    {
+      "mode": "fixed",
+      "budget": 50,
+      "seed": 83,
+      "verification_attempts": 250,
+      "current_accuracy": 0.54
+    },
+    {
+      "mode": "fixed",
+      "budget": 100,
+      "seed": 7,
+      "verification_attempts": 500,
+      "current_accuracy": 0.63
+    },
+    {
+      "mode": "fixed",
+      "budget": 100,
+      "seed": 23,
+      "verification_attempts": 500,
+      "current_accuracy": 0.63
+    },
+    {
+      "mode": "fixed",
+      "budget": 100,
+      "seed": 41,
+      "verification_attempts": 500,
+      "current_accuracy": 0.63
+    },
+    {
+      "mode": "fixed",
+      "budget": 100,
+      "seed": 61,
+      "verification_attempts": 500,
+      "current_accuracy": 0.63
+    },
+    {
+      "mode": "fixed",
+      "budget": 100,
+      "seed": 83,
+      "verification_attempts": 500,
+      "current_accuracy": 0.63
+    }
+  ],
+  "resources": {
+    "verifier": {
+      "attempts": 814,
+      "cache_hits": 15675,
+      "cost_usd": "0",
+      "input_tokens": 233459,
+      "latency_ms": 730399.1919005057,
+      "models": [
+        "qwen2.5:7b-instruct-q4_K_M"
+      ],
+      "output_tokens": 9537,
+      "statuses": {
+        "ok": 814
+      }
+    },
+    "reader": {
+      "reasoning": {
+        "attempts": 0,
+        "cache_hits": 0,
+        "cost_usd": "0",
+        "input_tokens": 0,
+        "latency_ms": 0,
+        "models": [],
+        "output_tokens": 0,
+        "statuses": {}
+      },
+      "short": {
+        "attempts": 29,
+        "cache_hits": 194,
+        "cost_usd": "0",
+        "input_tokens": 11308,
+        "latency_ms": 71324.54589992994,
+        "models": [
+          "qwen2.5:7b-instruct-q4_K_M"
+        ],
+        "output_tokens": 1025,
+        "statuses": {
+          "invalid": 8,
+          "ok": 21
+        }
+      }
+    },
+    "wall_seconds": 1020.8396009000135
+  }
+}

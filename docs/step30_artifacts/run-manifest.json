@@ -1,0 +1,21 @@
+{
+  "artifacts": {
+    "full.json": "8d4ea8e16f3662a1d47d046cd47101a39618aa83b2bb49a2719cc9150394c60e",
+    "no_nli.json": "ec04915d5872d12b4945f7f5fa42a60fcc7c1c852b1fb02f0a8d10314165b9cc"
+  },
+  "code": "b2672c022714637b3d51c07aad6a5d0ce51f847a5f79fbe421843e7cbde6e013",
+  "dataset": "78a08b1a863ed34e8b28df200543ea80687f4083ae16cdadcb1f9f55adb72ad0",
+  "minilm": "c9745ed1d9f207416be6d2e6f8de32d1f16199bf",
+  "nli": "a150876415327c80daeff35ca6f68f5ed8cf5c24",
+  "protocol": "8f9d96c0cd5ac5529af475a278232ee79c2718a031d4b3f1a30cc3f15ebaca77",
+  "qwen": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "settings": {
+    "context_tokens": 4096,
+    "max_input_tokens": 4096,
+    "max_output_tokens": 256,
+    "retries": 0,
+    "seed": 23,
+    "timeout": 120
+  },
+  "training_features": "837820ce735c3040d14ae1ace8cd24ef6ffc7c2986098e90ec95e0817fb81dc0"
+}
