@@ -74,7 +74,7 @@ async function stream(regenerate){
         if(!regenerate){message('You',question,'user');$('question').value='';}
         message('Assistant','Waiting for local model…');
         const el=$('messages').lastChild.lastChild;
-        const response=await fetch('/api/stream',{method:'POST',signal:controller.signal,headers:{'Content-Type':'application/json','X-Workspace-Token':session.token},body:JSON.stringify({chat,question,regenerate,verification:Number($('verification').value),model:$('models').value,temperature:Number($('temperature').value),output:Number($('output').value),budget:Number($('budget').value),date:$('asof').value})});
+        const response=await fetch('/api/stream',{method:'POST',signal:controller.signal,headers:{'Content-Type':'application/json','X-Workspace-Token':session.token},body:JSON.stringify({chat,question,regenerate,strategy:$('strategy').value,verification:Number($('verification').value),model:$('models').value,temperature:Number($('temperature').value),output:Number($('output').value),budget:Number($('budget').value),date:$('asof').value})});
         const reader=response.body.pipeThrough(new TextDecoderStream()).getReader();
         let buffer='',answer='',done=false;
         while(true){
@@ -87,7 +87,7 @@ async function stream(regenerate){
                 if(row.done){
                     done=true;formatted(el,answer);
                     $('usage').textContent=row.prompt+' input / '+row.output+' output tokens';
-                    $('retrieved').textContent=row.evidence.length+' memories · '+row.history+' earlier turns';
+                    $('retrieved').textContent=row.strategy+' · '+row.evidence.length+' memories · '+row.history+' earlier turns';
                     $('meter').max=4096;$('meter').value=row.prompt;
                     $('evidence').textContent=row.evidence.map(r=>r.label+' · '+r.value+' ('+r.reason+', '+JSON.stringify(r).length+' JSON characters)').join('\n')||'No matching evidence.';
                     if(row.proposal){const p=row.proposal;el.append(button('Review '+p.intent+' · '+p.key,guarded(async()=>{const value=prompt(p.review+' Confirm or edit this '+p.intent+' proposal.',p.value);if(value){await api('proposal',{...p,value,date:session.today});await refresh();notice('Memory confirmed.');}})));}

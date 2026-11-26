@@ -96,9 +96,9 @@ class Store:
             facts=self.engine().retrieve(ENTITY,None,as_of=as_of)
             by_id={r['id']:r for r in self.rows}
             return [dict(by_id[f.fact_id]) for f in facts]
-    def select(self,question,as_of,budget):
+    def select(self,question,as_of,budget,*,rows=None):
         if type(budget) is not int or not 256<=budget<=12000: raise ValueError('Memory budget must be 256-12,000 characters.')
-        q=words(question); rows=self.snapshot(as_of)
+        q=words(question); rows=self.snapshot(as_of) if rows is None else rows
         rank=lambda r: 4*len(q&words(r['key']))+len(q&words(r['value']))
         ranked=sorted(rows,key=lambda r:(rank(r),r['pin'],r['start'],r['id']),reverse=True)
         selected=[]; used=0

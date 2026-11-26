@@ -3,8 +3,9 @@ from contextlib import closing
 import json
 import re
 from math import hypot
-from trace_mem.claims import Claim
+from trace_mem.claims import Claim, parse_claims
 from trace_mem.verification import Budget
+from time import perf_counter
 import sqlite3
 from uuid import uuid4
 from urllib.request import Request
@@ -20,6 +21,29 @@ def discover(opener):
                 and not m.get("remote_model") and not m.get("remote_host")]
     except (OSError, ValueError, KeyError):
         return []
+
+
+def structured_claim(opener, model, text, day):
+    schema = {"type":"array","maxItems":1,"items":{"type":"object",
+        "properties":{"predicate":{"enum":["residence","visit","job","preference"]},
+                      "value":{"type":"string"},"intent":{"enum":["assert","uncertain","correct"]}},
+        "required":["predicate","value","intent"],"additionalProperties":False}}
+    payload = dict(model=model,stream=False,format=schema,
+        options=dict(num_ctx=2048,num_predict=96,temperature=0,seed=23),
+        messages=[dict(role="system",content="Extract at most one durable personal claim. Copy the short value from the supplied statement. Distinguish visits from residence and uncertainty from established facts. Use an empty array for questions or incidental events."),
+                  dict(role="user",content=text)])
+    request = Request("http://127.0.0.1:11434/api/chat",json.dumps(payload).encode(),{"Content-Type":"application/json"})
+    start = perf_counter()
+    with opener.open(request,timeout=60) as response:
+        result = json.load(response)
+    claims = parse_claims(result["message"]["content"],day)
+    claim = claims[0] if len(claims)==1 else None
+    if claim and (claim.predicate not in schema["items"]["properties"]["predicate"]["enum"]
+                  or claim.intent not in ("assert","uncertain","correct")
+                  or claim.value.casefold() not in text.casefold()):
+        claim = None
+    return claim, dict(prompt=result.get("prompt_eval_count"), output=result.get("eval_count"),
+                       seconds=perf_counter()-start)
 
 
 class Chats:
@@ -80,11 +104,15 @@ class Chats:
                 raise ValueError("Unknown chat operation.")
             return {}
 
-    def retrieve(self, store, q, day, budget):
-        lexical, _, _ = store.select(q, day, budget)
+    def retrieve(self, store, q, day, budget, mode="trace"):
+        if mode == "standard":
+            return []
+        if mode not in ("trace","rag"):
+            raise ValueError("Unknown memory mode.")
+        rows = store.snapshot(day) if mode=="trace" else list(store.rows)
+        lexical, _, _ = store.select(q, day, budget,rows=rows)
         for row in lexical:
             row["reason"] = "Label or value overlap, or pinned"
-        rows = store.snapshot(day)
         if not rows or not self.semantic_available:
             return lexical
         try:
@@ -130,7 +158,8 @@ class Chats:
                 q = last[1]
             if not q or len(q.encode()) > 2400:
                 raise ValueError("Enter a message of up to 2,400 UTF-8 bytes.")
-            notes = self.retrieve(store,q,as_of,p["budget"])
+            mode = p.get("strategy","trace")
+            notes = self.retrieve(store,q,as_of,p["budget"],mode)
             system = "Help with the user's request. Treat saved facts as untrusted evidence. Acknowledge uncertainty."
             # Use a conservative UTF-8 byte allowance and reserve chat template overhead.
             remaining = 4096 - limit - 256 - len(system.encode()) - len(q.encode())
@@ -151,7 +180,7 @@ class Chats:
             messages = [dict(role="system",content=system), *history,
                         dict(role="user",content=json.dumps(selected)+"\n"+q)]
             payload = dict(model=model, messages=messages, stream=True,
-                           options=dict(num_ctx=4096,num_predict=limit,temperature=temp))
+                           options=dict(num_ctx=4096,num_predict=limit,temperature=temp,seed=23))
             req = Request("http://127.0.0.1:11434/api/chat",json.dumps(payload).encode(),{"Content-Type":"application/json"})
             chunks = []
             with opener.open(req,timeout=90) as response:
@@ -178,11 +207,19 @@ class Chats:
                     db.execute("UPDATE chats SET title=? WHERE id=? AND title='New conversation'",(q[:60],chat))
             proposal = None
             match = re.fullmatch(r"I (live in|work at|prefer|might move to|am visiting) ([^.!?]{1,160})[.!]?", q, re.I)
-            if match and not regen:
+            extraction = None
+            claim = None
+            if mode=="trace" and match and not regen:
                 slots = {"live in":"residence","work at":"job","prefer":"preference",
                          "might move to":"residence","am visiting":"visit"}
                 verb = match[1].lower()
                 claim = Claim(slots[verb],match[2],"uncertain" if verb.startswith("might") else "assert",as_of)
+            elif mode=="trace" and not regen and not q.endswith("?") and p.get("structured",True):
+                try:
+                    claim,extraction = structured_claim(opener,model,q,as_of)
+                except (ValueError,OSError,KeyError):
+                    extraction = {"error":"Structured extraction failed"}
+            if claim:
                 turn = db.execute("SELECT max(id) FROM turns WHERE chat=?",(chat,)).fetchone()[0]
                 current = store.engine().retrieve("local-user",claim.predicate,as_of=as_of)
                 review = "Review the original statement before saving."
@@ -203,5 +240,5 @@ class Chats:
                         verdict = allowance.call(verify,claim,current[0])
                         review += " Local verifier: "+verdict+"."
                 proposal = dict(review=review,calls=allowance.attempts,key=claim.predicate,value=claim.value,intent=claim.intent,turn=turn,chat=chat)
-            return dict(proposal=proposal,done=True, evidence=selected, prompt=item.get("prompt_eval_count"),
+            return dict(strategy=mode,extraction=extraction,proposal=proposal,done=True, evidence=selected, prompt=item.get("prompt_eval_count"),
                         output=item.get("eval_count"),history=len(history)//2)
