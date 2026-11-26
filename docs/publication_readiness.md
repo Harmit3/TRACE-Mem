@@ -29,7 +29,7 @@ The defensible contribution is an empirical comparison that exposes rank reversa
 ## Priorities before submission
 
 1. Give the [sanitized Step 30/31 package](../reproducibility/README.md) to a researcher outside the implementation team for independent offline verification. Internal isolated reproduction is complete. No external reviewer has signed off.
-2. Review and approve the [Step 36 protocol and analysis plan](../research/validation_protocol_v2.md). The runner and causal estimator have engineering coverage. Independent researchers still need to verify disjoint mechanisms and gold, approve the two equal-ceiling chronological contrasts, and complete the model-adapter freeze before execution.
+2. Review and approve the [Step 36 protocol and analysis plan](../research/validation_protocol_v2.md) using the [Step 37 onboarding packet](../research/reviewer_onboarding.md). The executable bindings and causal estimator have engineering coverage. Independent researchers still need to verify disjoint mechanisms and gold. The actual cohort, model-adapter freeze and selected stage require approval before execution.
 3. Have independent reviewers adjudicate the existing six LongMemEval worksheet cases and an explicitly sampled set of deletion/resolution and helpfulness edge cases if making claims about those capabilities. Report disagreement and adjudication, and preserve original labels.
 4. If claiming external or end-to-end benefit, first establish ingestion and reader completion on a predeclared, answer-blind evaluation population. Then test publicly documented comparators under equal access and cost controls. Preserve failure-inclusive results and compare with the closest temporal lifecycle system. No such run was performed here.
 

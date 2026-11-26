@@ -62,6 +62,10 @@ class Gold:
     harmful: frozenset[str]
 
 
+class ExecutionPaused(RuntimeError):
+    """Stop without scoring an incomplete condition when a resource cap is reached."""
+
+
 def signature(value):
     return sha256(json.dumps(value, sort_keys=True, ensure_ascii=True, allow_nan=False,
                              default=lambda item: item.isoformat() if isinstance(item, date) else sorted(item)
@@ -120,38 +124,56 @@ def frozen_rules(full_path, reduced_path, digests, training_reference):
 class ExactLedger:
     """Persistent request accounting. Only exact successful responses are reusable."""
 
-    def __init__(self, database, provider_fingerprint):
+    def __init__(self, database, provider_fingerprint, max_requests=None):
         if not provider_fingerprint:
             raise ValueError("Pin the provider, prompt, schema and inference settings")
         self.database = database
         self.fingerprint = provider_fingerprint
+        self.max_requests = max_requests
         with closing(sqlite3.connect(database)) as db, db:
-            db.execute("CREATE TABLE IF NOT EXISTS outcomes (key TEXT PRIMARY KEY, verdict TEXT, input INT, output INT)")
-            db.execute("CREATE TABLE IF NOT EXISTS spend (id INTEGER PRIMARY KEY, key TEXT, seconds REAL, valid INT)")
+            db.execute("CREATE TABLE IF NOT EXISTS outcomes_v1 (key TEXT PRIMARY KEY, verdict TEXT, input INT, output INT, digest TEXT)")
+            db.execute("CREATE TABLE IF NOT EXISTS spend_v1 (id INTEGER PRIMARY KEY, key TEXT, seconds REAL, valid INT, input INT, output INT)")
+
+    def stats(self):
+        with closing(sqlite3.connect(self.database)) as db:
+            counts = db.execute("SELECT count(*), count(valid), sum(valid), count(input), sum(input), "
+                                "sum(output), sum(seconds) FROM spend_v1").fetchone()
+        total, completed, valid, metered, sent, received, seconds = counts
+        return dict(reservations=total, completed=completed, valid=valid or 0,
+                    interrupted_or_unknown=total-completed, metered=metered, input_tokens=sent or 0,
+                    output_tokens=received or 0, seconds=seconds or 0)
 
     def call(self, claim, target, evidence, provider):
         key = signature([VERSION, self.fingerprint, asdict(claim), asdict(target), evidence])
         with closing(sqlite3.connect(self.database)) as db, db:
-            previous = db.execute("SELECT verdict,input,output FROM outcomes WHERE key=?", (key,)).fetchone()
+            previous = db.execute("SELECT verdict,input,output,digest FROM outcomes_v1 WHERE key=?", (key,)).fetchone()
             if previous:
-                return *previous, False, 0.0
+                row, digest = previous[:3], previous[3]
+                if (row[0] not in VERDICTS or any(type(x) is not int or x < 0 for x in row[1:])
+                        or digest != signature([key, *row])):
+                    raise ExecutionPaused("Invalid exact-cache verdict or usage")
+                return *row, False, 0.0
+            if self.max_requests is not None and db.execute("SELECT count(*) FROM spend_v1").fetchone()[0] >= self.max_requests:
+                raise ExecutionPaused("Physical verifier limit reached")
             # Persist an attempted dispatch before provider invocation.
-            attempt = db.execute("INSERT INTO spend(key) VALUES (?)", (key,)).lastrowid
+            attempt = db.execute("INSERT INTO spend_v1(key) VALUES (?)", (key,)).lastrowid
             db.commit()
             start = perf_counter()
             try:
                 verdict, sent, received = provider(claim, target, evidence)
-                valid = verdict in VERDICTS and all(type(x) is int and x >= 0 for x in (sent, received))
-                if not valid:
-                    verdict = "invalid"
+                metered = all(type(x) is int and x >= 0 for x in (sent, received))
+                if not metered:
                     sent = received = None
+                if verdict not in VERDICTS or not metered:
+                    verdict = "invalid"
             except (ProviderError, TimeoutError, ValueError, TypeError):
                 verdict, sent, received = "invalid", None, None
             duration = perf_counter() - start
-            db.execute("UPDATE spend SET seconds=?,valid=? WHERE id=?",
-                       (duration, int(verdict != "invalid"), attempt))
+            db.execute("UPDATE spend_v1 SET seconds=?,valid=?,input=?,output=? WHERE id=?",
+                       (duration, int(verdict != "invalid"), sent, received, attempt))
             if verdict != "invalid":
-                db.execute("INSERT INTO outcomes VALUES (?,?,?,?)", (key, verdict, sent, received))
+                row = (key, verdict, sent, received)
+                db.execute("INSERT INTO outcomes_v1 VALUES (?,?,?,?,?)", (*row, signature(row)))
             return verdict, sent, received, True, duration
 
 
@@ -172,6 +194,9 @@ def replay(episode, method, cap, mode, rules, feature, provider, ledger, *, stre
         frozen = TemporalMemory()
         pool = []
         for item in episode.events:
+            if (item.claim.intent == "delete"
+                    and not frozen.matching_ids("subject", item.claim.predicate, item.claim.value)):
+                break
             target = _eligible_target(frozen, "subject", item.claim)
             if (target is not None and allowed(episode, target.fact_id, target.value)
                     and allowed(episode, item.fact_id, item.claim.value)):
@@ -210,9 +235,15 @@ def replay(episode, method, cap, mode, rules, feature, provider, ledger, *, stre
                         target = live
         verdict = None
         if target is not None and budget.remaining and not quarantined:
+            paused = None
             def invoke(proposed, old):
-                verdict, sent, received, fresh, latency = ledger.call(
-                    proposed, old, evidence.get(item.fact_id, ""), provider)
+                nonlocal paused
+                try:
+                    verdict, sent, received, fresh, latency = ledger.call(
+                        proposed, old, evidence.get(item.fact_id, ""), provider)
+                except ExecutionPaused as error:
+                    paused = error
+                    raise
                 metrics["fresh_requests"] += fresh
                 metrics["latency_seconds"] += latency
                 if sent is None:
@@ -227,6 +258,8 @@ def replay(episode, method, cap, mode, rules, feature, provider, ledger, *, stre
 
             failures = budget.failures
             verdict = budget.call(invoke, claim, target)
+            if paused is not None:
+                raise paused
             if target == live:
                 unverified = deepcopy(memory)
                 _advance(unverified, "subject", item)
@@ -363,11 +396,7 @@ def summarize_primary(records):
     return paired([[fmean(row[k] for row in values) for values in families.values()] for k in (0, 1)])
 
 
-def run_reviewed(cases, receipt, output, *, rules, feature, provider, reader):
-    """Resume at case-condition boundaries after a separately approved manifest."""
-    output = Path(output)
-    if Path("results").resolve() not in output.resolve().parents:
-        raise ValueError("Use a new ignored results directory")
+def check_reviewed(cases, receipt):
     cases = sorted(cases, key=lambda c: (c[0].family, c[0].identity))
     cohort = Counter(c[0].family for c in cases)
     if (len(cohort) != 90 or any(n != 4 for n in cohort.values())
@@ -392,28 +421,54 @@ def run_reviewed(cases, receipt, output, *, rules, feature, provider, reader):
                 or any(values[key] not in value or not allowed(episode, key, value)
                        for key, value in support.items())):
             raise ValueError("Approved source spans incomplete or not authorized")
+        if any(not allowed(episode, item.fact_id, item.claim.predicate)
+               for item in episode.events if item.fact_id in episode.permitted):
+            raise ValueError("Restricted predicate text in authorized claim")
+        for item in episode.events:
+            if item.fact_id in episode.permitted:
+                encoded_lengths = (len(json.dumps(item.claim.predicate)), len(json.dumps(item.claim.value)),
+                                   len(json.dumps(support[item.fact_id])))
+                if any(n > cap for n, cap in zip(encoded_lengths, (128, 256, 1024), strict=True)):
+                    raise ValueError("Approved claim exceeds bounded verifier input")
         if not question.strip() or any(v.casefold() in question.casefold() for v in episode.restricted_values):
             raise ValueError("Missing reader question or restricted query text")
+    return cases
+
+
+def run_reviewed(cases, receipt, output, *, rules, feature, provider, reader,
+                 stage="primary", verifier_limit=None):
+    """Resume at case-condition boundaries after a separately approved manifest."""
+    output = Path(output)
+    if Path("results").resolve() not in output.resolve().parents:
+        raise ValueError("Use a new ignored results directory")
+    grid = {"primary": (("closed-loop", (2,)),),
+            "secondary": (("closed-loop", (0, 5)),),
+            "fixed": (("fixed", CAPS),)}
+    if stage not in grid or receipt.get("stage", "primary") != stage:
+        raise ValueError("Run stage needs its own approval receipt")
+    cases = check_reviewed(cases, receipt)
     # A receipt records evidence supplied by people. This function cannot authenticate identities.
     output.mkdir(parents=True, exist_ok=True)
     with closing(sqlite3.connect(output / "conditions.sqlite")) as db, db:
         db.execute("CREATE TABLE IF NOT EXISTS freeze (fingerprint TEXT PRIMARY KEY)")
-        db.execute("CREATE TABLE IF NOT EXISTS results (key TEXT PRIMARY KEY, payload TEXT NOT NULL)")
-        lock = signature([VERSION, receipt])
+        db.execute("CREATE TABLE IF NOT EXISTS results_v1 (key TEXT PRIMARY KEY, payload TEXT NOT NULL, digest TEXT NOT NULL)")
+        lock = signature([VERSION, stage, verifier_limit, receipt])
         existing = db.execute("SELECT fingerprint FROM freeze").fetchone()
         if existing and existing[0] != lock:
             raise ValueError("Cannot resume with a different approval receipt")
         db.execute("INSERT OR IGNORE INTO freeze VALUES (?)", (lock,))
         db.commit()
-        ledger = ExactLedger(output / "verifier.sqlite", receipt["backend_fingerprint"])
+        ledger = ExactLedger(output / "verifier.sqlite", receipt["backend_fingerprint"], verifier_limit)
         rows = []
         for episode, gold, question in cases:
-            for mode in ("closed-loop", "fixed"):
-                for cap in CAPS:
+            for mode, caps in grid[stage]:
+                for cap in caps:
                     for policy in POLICIES:
                         key = signature([episode.identity, mode, cap, policy])
-                        cached = db.execute("SELECT payload FROM results WHERE key=?", (key,)).fetchone()
+                        cached = db.execute("SELECT payload,digest FROM results_v1 WHERE key=?", (key,)).fetchone()
                         if cached:
+                            if cached[1] != signature([key, cached[0]]):
+                                raise ExecutionPaused("Condition checkpoint digest differs")
                             row = json.loads(cached[0])
                         else:
                             try:
@@ -423,10 +478,12 @@ def run_reviewed(cases, receipt, output, *, rules, feature, provider, reader):
                                 row = failed_condition()
                             row.update(history=episode.identity, family=episode.family, mode=mode,
                                        cap=cap, policy=policy)
-                            db.execute("INSERT INTO results VALUES (?,?)", (key, json.dumps(row)))
+                            payload = json.dumps(row)
+                            db.execute("INSERT INTO results_v1 VALUES (?,?,?)",
+                                       (key, payload, signature([key, payload])))
                             db.commit()
                         rows.append(row)
-    return rows, summarize_primary(rows)
+    return rows, summarize_primary(rows) if stage == "primary" else None
 
 
 def code_fingerprint():

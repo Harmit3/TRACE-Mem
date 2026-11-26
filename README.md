@@ -163,6 +163,8 @@ The [Step 35 public reproducibility release](reproducibility/README.md) verifies
 
 The [Step 36 review package](research/validation_protocol_v2.md) specifies the prospective 90-family design, causal calendar estimator, failure-inclusive analysis, and approval-gated replay. Engineering fixtures exercise the implementation. Final cohort construction and scientific execution still require independent review and explicit approval.
 
+The [Step 37 handoff](research/final_execution_readiness.md) binds the pinned local adapters and adds a preflight gate, primary-only entry point, and reviewer onboarding materials. Mock integration is complete and the independent experiment remains pending.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.

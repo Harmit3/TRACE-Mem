@@ -350,3 +350,10 @@ Reran the release audit, fit both controller variants in a new ignored output di
 - Started at the Step 35 merge `dc8f0aa`. Audited co-primary estimands, family weighting, failure denominators and adjusted interval precision. At SD 0.20, 84 families meet the approximate five-point half-width target and 90 yield 4.81 points. At SD 0.25 the same 90 yield 6.01 points.
 - Added the Step 23-derived causal calendar wrapper, reviewed-cohort replay gate, keyed verifier ledger, checkpointing, family bootstrap, and deterministic independence checks. Existing controller logic and artifacts were left unchanged.
 - Prepared the reviewer packet, blank forms, fixture contract and cold-cache resource estimate. Tests ran only on engineering cases. No final cohort was generated, no model inference ran, and no independent approval was obtained. AI assistance covered the implementation, protocols and engineering tests. [Protocol v2](../research/validation_protocol_v2.md).
+
+## Step 37 · Execution readiness and independent review handoff
+
+- Fetched `origin/main` at `dc8f0aa`. Step 36 was still ahead of that main, so this milestone branches from `b3611ac` and includes it without rewriting prior work.
+- Verified 16 local file digests, installed Qwen and Ollama metadata, feature order, both controller hashes, and the pinned verifier and Reader V2 prompt contracts. No inference ran. Added explicit approval and stage preflight, separate physical caps, exact keyed verifier accounting and atomic condition checkpoints.
+- Engineering checks covered interruption, persistence, malformed or missing output, authorization before model-visible access, and same-effective-day conflict limits. All 149 tests and 36 subtests passed. The pending preflight refused execution without the reviewed cohort and receipt.
+- Prepared the one-page overview, onboarding guide, resource limits, blank-form references and unsent collaboration draft. No final fixtures, external outreach, external human participation or approvals. AI assistance covered code, protocol analysis and reviewer materials. [Final handoff](../research/final_execution_readiness.md).
