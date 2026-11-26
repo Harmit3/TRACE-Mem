@@ -85,7 +85,7 @@ def _score(model, builder, item, target, entity, remaining):
 
 
 def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
-              seed, random_probability=0.25, adaptive=None, methods=None, observer=None):
+              seed, random_probability=0.25, adaptive=None, methods=None, observer=None, decision_observer=None):
     """Replay all policies over one observation cutoff with identical prepared claims."""
     if (mode not in {"fixed", "closed-loop"} or type(cap) is not int or cap < 0
             or not 0 <= random_probability <= 1):
@@ -159,6 +159,9 @@ def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
                                 models[method], builders[method], item, live, entity,
                                 budget.remaining / budget.limit) >= models[method].threshold):
                         target = live
+            remaining = budget.remaining
+            verdict = None
+            applied = failed = False
             if target is not None and budget.remaining:
                 session, turn = map(int, item.source.reference.split("/"))
                 # Prior user text is intentionally excluded to avoid resurfacing deleted evidence.
@@ -166,13 +169,18 @@ def run_suite(events, prepared, tasks, *, entity, models, builders, mode, cap,
                 failures_before = budget.failures
                 verdict = budget.call(lambda claim, fact: tasks.verify(
                     claim, fact, conversation=conversation), item.claim, target)
+                applied = live is not None and live == target
+                failed = budget.failures > failures_before
                 if observer is not None:
-                    observer(method, item, target, verdict, live == target, budget.failures > failures_before)
-                if live is not None and live == target:
-                    _apply_verdict(memory, entity, item, live, verdict)
-                    continue
-                stale += 1
-            _advance(memory, entity, item, "B1" if method == "B1" else "B2")
+                    observer(method, item, target, verdict, applied, failed)
+                if not applied:
+                    stale += 1
+            if applied:
+                _apply_verdict(memory, entity, item, live, verdict)
+            else:
+                _advance(memory, entity, item, "B1" if method == "B1" else "B2")
+            if decision_observer is not None:
+                decision_observer(method, item, live, target, remaining, verdict, applied, failed, memory)
         output[method] = (memory, {"budget_cap": budget.limit, "verification_attempts": budget.attempts,
                                    "verification_failures": budget.failures, "stale_targets": stale,
                                    "eligible_candidates": eligible})

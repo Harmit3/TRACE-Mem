@@ -123,7 +123,8 @@ Primary objective for comparisons: minimize end-to-end error subject to maximum 
 | B4 | Random verify, exactly matched to TRACE call budget | Budget control |
 | B5 | Fixed heuristic/uncertainty threshold, budget-matched | Strong decision baseline |
 | T1 | TRACE-Mem logistic-regression controller | Main proposed method |
-| T2 | TRACE-Mem MLP controller | Optional extension |
+| T2 | Frozen learned verifier score with adaptive online budget pacing | Chronological learned allocation |
+| H-paced | Heuristic verifier score with the same adaptive pacing | Nonlearned pacing comparison |
 | EXT | MemFSM/A-Mem/Mem0 under compatible setting | Publication-strength external baselines |
 
 **Fairness:** identical ingestion texts, fact-extractor model, embedding model, retrieval size, reader/verifier models, prompts, decoding settings, chronological replay, seeds, caching policy, hard budgets, and evaluation program. Where baseline architectures make equality impossible, report and explain differences. Never compare official published scores as if experimentally controlled.
@@ -149,6 +150,8 @@ The [Step 27 deletion-scope audit](docs/memora_step27.md) compares semantic and 
 The [Step 29 authorized recovery study](docs/memora_step29.md) evaluates a human-assisted, field-level evidence allowlist after its safety gate. It reports local FAMA and the remaining coverage and reasoning limits.
 
 The [Step 30 controller reevaluation](docs/step30_controller_reevaluation.md) tests the verification hypothesis on 100 frozen synthetic histories with policy-constrained Evidence Index V2 retrieval. At a 50% verification budget, T2 led H-paced by 6.7 percentage points in chronological replay and trailed it by 11.3 points on the matched fixed stream. The Step 29 human-assisted Memora evaluation remains separate.
+
+The [Step 31 robustness study](docs/step31_verification_robustness.md) reproduces that reversal, compares T2 directly with B3, and measures sensitivity to five exogenous planning horizons. In the reused synthetic cohort, doubling the horizon made T2 underspend and lose to B3 at 50% and 100% allowances.
 
 ## 6. Metrics, experiments, and quality criteria
 

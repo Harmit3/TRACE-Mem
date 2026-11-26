@@ -1,0 +1,21 @@
+﻿{
+  "version": "step31-v1",
+  "step30_report_sha256": "194c0638a1de7d4b61180c971ff6a840ff9552518af9062bd95f09ae31154f7a",
+  "horizon_percent": [40, 60, 100, 140, 200],
+  "budgets": [0, 10, 25, 50, 100],
+  "baselines": ["B3", "B5", "T1", "T1-no-NLI"],
+  "adaptive": ["T2", "H-paced", "T2-no-NLI"],
+  "primary": "T2 minus B3 at every nonzero budget for each horizon in closed loop. Report T2 minus H-paced on the same grid and both contrasts on the fixed stream.",
+  "diagnostics": "Compare T2 and T1, T2 and T2-no-NLI, T1 and T1-no-NLI, and the score-by-pacing interaction (T2 minus T2-no-NLI) minus (T1 minus T1-no-NLI). These are policy contrasts, including spend differences.",
+  "endpoint": "Same six exact-slot accuracy checks as Step 30. Historical accuracy and live before/after target transitions are separate.",
+  "bootstrap": {"unit": "family", "replicates": 2000, "seed": 9001, "interval": 0.95, "type": "paired percentile, unadjusted"},
+  "trace_selection": "First frozen history in each of three strata for chronological T2 versus B3 at 50%, nominal horizon: T2 wins, loses or ties. Show same histories in both modes.",
+  "reader": {"members": [0, 3, 6], "budget": 50, "horizon": 100, "mode": "closed-loop", "questions": ["short", "reasoning"]},
+  "reader_scoring": "Count every attempted question. Incorrect, abstained, invalid and contradictory are mutually exclusive failures. A short answer citing multiple distinct slot values is contradictory; a correct short answer cites the expected slot value alone. Use the existing deterministic subtotal contract.",
+  "caps": "Use Step 30 rotating caps unchanged. Fixed stream is run once because horizon is not used. Nonadaptive closed-loop policies are run once and paired with every horizon.",
+  "causality": "Horizon values are exogenously supplied constants (2/3/5/7/10), not estimated from actual arrivals. No unknown-horizon arm.",
+  "seed": 7,
+  "max_new_verifier_requests": 1600,
+  "max_new_reader_requests": 600,
+  "interpretation": "Post-hoc robustness on the same 100 synthetic histories. Report all cells. Family intervals are descriptive and uncorrected for multiple testing."
+}
