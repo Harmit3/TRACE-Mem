@@ -46,3 +46,11 @@ The script packages one committed tree, refuses common private and binary asset 
 - [ ] Reviewer checks the proposed branch and merges it.
 - [ ] Maintainer confirms reuse terms and final individual citation metadata, then tags and distributes v1.0.
 - [ ] For an exploratory preprint, use the [publication checklist](../research/preprint_checklist.md). Independent replication remains open.
+
+## Release candidate verification
+
+- Source ZIP from commit `25af8698638649a806d83014efd9495811f015bd`. It contains 286 files, is 1,789,815 bytes, and has SHA-256 `c760e6eb5575c0fbe61d5d88996e28321aa6df720036232c02e991d3f07f4a8b`. ZIP CRC and the path checks passed. This verification record was added after packaging.
+- Fresh Windows 11 AMD64 virtual environment with CPython 3.14.0. The browser demo started using only the standard library, the replay endpoint returned the verified fictional office, and headless Edge 158.0.4370.33 hydrated both the replay and archived results. The browser check tested rendering and data loading. Full cross-browser and accessibility certification remain outside this check.
+- Offline reproduction verified 27,000 history rows, 2,300 family rows, 230 summaries and 184 paired intervals in 2.51 seconds. With the pinned plotting wheels installed from the local cache, the command took 5.89 seconds and generated four files across SVG and PDF. The isolated plotting environment passed `pip check`.
+- The development environment ran `python -m pytest -q` with 152 passed and 36 subtests passed in 21.88 seconds. Its existing AnyIO pytest plugin emitted one deprecation warning. `node --check trace_mem/demo_web/app.js` and the staged privacy guard passed.
+- Frozen controllers, experimental aggregates, approval-gate configuration and public reproduction inputs have no changes relative to the Step 37 merge.
