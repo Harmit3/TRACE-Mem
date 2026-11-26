@@ -36,3 +36,5 @@ The defensible contribution is an empirical comparison that exposes rank reversa
 ## Authorship, permission, and scope
 
 The outline and abstract are for independent research. The CS9548 authorization is student-confirmed verbal permission for coding and development. It does not authorize generation of assessed report prose or slides. Record AI assistance in implementation, authored fixtures, analysis, figure generation and drafting, and have the research authors verify every claim and reference before submitting. Step 29 decisions were explicitly human-approved with AI assistance. Neither proposed annotations nor the pending LongMemEval worksheet constitute independently authored human ground truth. [Authorization and contribution record](ethics_and_permissions.md)
+
+Step 38 packages the prototype for public technical release. Independent replication is pending and is a scientific limitation, while release and an exploratory preprint can proceed with accurately bounded claims. The [final claim index](../research/final_claim_index.md) and [preprint checklist](../research/preprint_checklist.md) state those bounds and an optional unexecuted internal study.

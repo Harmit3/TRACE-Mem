@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRACE-Mem Research Console</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<header><div class="wrap"><nav aria-label="Sections"><strong>TRACE-Mem</strong><a href="#replay">Replay lab</a><a href="#research">Archived results</a></nav>
+<h1>Memory that changes over time</h1><p>Explore how temporal memory handles corrections, uncertainty, and forgetting under a verification budget.</p></div></header>
+<main class="wrap">
+<section id="replay"><h2>Replay lab</h2><p>Fictional scenario and scripted verifier. The replay engine applies the actual policy and memory transitions.</p>
+<form id="replay-controls">
+<label>Policy<select id="policy"><option value="B2">B2 · Temporal rules</option><option value="B3" selected>B3 · Verify eligible conflicts</option><option value="B5">B5 · Heuristic threshold</option></select></label>
+<label>Verification cap<select id="cap"><option>0</option><option selected>1</option><option>2</option></select></label>
+<label>Replay through day<select id="step"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></label>
+<label>Query as of<select id="query"><option value="current">Current replay day</option></select></label>
+</form>
+<p id="usage" role="status"></p>
+<div class="grid"><article><h3>Visible memory</h3><ul id="facts"></ul></article><article><h3>Chronological events</h3><ol id="events"></ol></article></div>
+</section>
+<section id="research"><h2>Archived results</h2><p id="cohort"></p><p id="archive-error" role="status"></p>
+<form id="research-controls">
+<label>Replay mode<select id="mode"><option value="closed-loop">Chronological closed loop</option><option value="fixed">Matched fixed stream</option></select></label>
+<label>Nominal allowance<select id="budget"><option value="0">0%</option><option value="10">10%</option><option value="25">25%</option><option selected value="50">50%</option><option value="100">100%</option></select></label></form>
+<div class="frame"><table><caption>Step 30 results by policy</caption><thead><tr><th scope="col">Policy</th><th scope="col">Current</th><th scope="col">Historical</th><th scope="col">Harmful updates</th><th scope="col">Calls / cap</th></tr></thead><tbody id="performance"></tbody></table></div>
+<p id="contrast" role="status"></p>
+<div class="grid"><figure><a href="/horizon.png"><img src="/horizon.png" alt="Step 31 planning horizon sensitivity by verification budget"></a><figcaption>Step 31 planning-horizon sensitivity</figcaption></figure><figure><a href="/paired.png"><img src="/paired.png" alt="Step 30 paired accuracy differences and family bootstrap confidence intervals"></a><figcaption>Step 30 paired family-bootstrap intervals</figcaption></figure></div>
+<div class="grid"><article><h3>LongMemEval diagnostic</h3><ul id="external"></ul><p>Local scoring. One managed history completed. The completed subsets differ across arms.</p></article><article><h3>Extraction and reader gates</h3><ul id="validation"></ul><p>Both Step 33 candidates missed their frozen promotion gates.</p><h3>Step 30 compute</h3><p id="compute"></p></article></div>
+</section></main>
+<footer class="wrap">Offline technical demonstration · Archived research results remain exploratory</footer>
+</body></html>

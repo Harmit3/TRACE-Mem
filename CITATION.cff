@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "Please cite this software and the exact Git revision used."
+title: "TRACE-Mem"
+type: software
+version: "1.0.0-rc.1"
+authors:
+  - name: "TRACE-Mem project"
+repository-code: "https://github.com/Harmit3/TRACE-Mem"
