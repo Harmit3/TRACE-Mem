@@ -40,3 +40,36 @@ python -m pytest -q
 The measured run used Python 3.14.0, Ollama 0.40.13, CPU PyTorch 2.10.0, Transformers 5.22.2, Tokenizers 0.23.3, NumPy 2.4.2, scikit-learn 1.8.0, and Matplotlib 3.10.8. These are the observed local versions. The general installation files describe a separate pinned environment. Ollama reported a 4,096-token context and 18% CPU / 82% GPU placement on the RTX 2060. For a new run, record the actual local versions alongside the run manifest.
 
 Pacing differs in its score source as well as feature use. T2 uses the frozen learned score with a neutralized budget feature. H-paced uses its existing nonlearned score. They share the pacing mechanism, but the contrast does not isolate learning from NLI availability. The T1/no-NLI comparison addresses the effect of the frozen no-NLI artifact separately. B4 restarts each predefined seed per history. The paired analysis averages the five allocations before resampling families.
+
+## Results
+
+All 100 histories, ten scenario families, and 500 B2 reference conflicts completed. The table reports exact slot accuracy over 600 checks per condition. Call counts are logical verifier calls. B4 is averaged over five seeds.
+
+| Policy | Fixed at 50% | Fixed calls | Closed loop at 50% | Closed-loop calls | Closed-loop historical accuracy |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| B0 | 0.0% | 0 | 0.0% | 0 | 0.0% |
+| B1 | 2.2% | 0 | 2.2% | 0 | 22.6% |
+| B2 | 37.0% | 0 | 37.0% | 0 | 50.4% |
+| B3 | 59.3% | 250 | 68.7% | 250 | 86.4% |
+| B4 | 57.6% | 250 | 51.5% | 140 | 62.2% |
+| B5 | 62.8% | 250 | 37.0% | 100 | 50.4% |
+| T1 | 56.8% | 250 | 63.7% | 231 | 73.2% |
+| T1 without NLI | 56.8% | 250 | 55.8% | 171 | 65.8% |
+| T2 | 56.8% | 250 | 72.3% | 250 | 84.8% |
+| H-paced | 68.2% | 250 | 65.7% | 250 | 65.6% |
+
+- In closed loop at 50%, T2 beat H-paced by 6.7 percentage points (paired family bootstrap 95% interval +0.7 to +12.3). Both used 250/250 calls. T2 had 122 helpful applied verifications and 12 harmful updates adopted. H-paced had 85 helpful applied verifications and 60 harmful updates adopted. Neither had an applied verification that worsened the immediate decision relative to B2. Harmful updates can still arise from unverified fallbacks.
+- On the fixed stream at 50%, T2 trailed H-paced by 11.3 points (95% interval −16.3 to −6.3), at exactly 250 calls each. T2 had 94 stale targets and 75 helpful applied verifications, while H-paced had 70 stale targets and 99 helpful applied verifications. T1 also trailed B5 by 6.0 points (95% interval −10.5 to −1.5). Rank T2 against H-paced separately in each experiment.
+- At 50%, T1 and T1 without NLI tied on the fixed stream. In closed loop T1 led by 7.8 points (95% interval +3.5 to +12.3) while using 231 calls versus 171, so this contrast combines an accuracy difference and a spending difference.
+- Closed-loop T2 trailed the early-call B3 baseline at both 10% and 25% with equal spending. At 100% T2, H-paced and the always-verify B3 reference tied at 598/600 current-slot checks and 500/500 historical checks. All three used 500 calls. The independent oracle passed 600/600 current and 500/500 historical checks. Fixed-stream B3 passed only 378/600 at 100% because 291 of its frozen targets became stale.
+- All 28,000 policy-level current and historical privacy checks passed, both at the temporal-store read and at the managed evidence boundary. The figure counts checks repeated across conditions and seeds. It does not represent 28,000 independent deletion scenarios. There were no logical verifier call failures.
+- On the ten-history closed-loop QA subset, T2 short answers were correct 2/10 with four abstentions and two invalid outputs. H-paced was correct 4/10 with five abstentions and one invalid output. The oracle with the same reader reached 5/10 with four abstentions and one invalid output. Both policies and the oracle answered all ten deterministic subtotal questions correctly. The memory gain did not produce a measured short-answer gain for T2.
+
+The run took 1,021 seconds. The 16,489 logical verifier calls shared 814 fresh requests and 15,675 successful cache hits. Fresh verification used 233,459 input and 9,537 output tokens at 730.4 seconds of summed request latency. The short reader used 29 fresh requests, 11,308 input and 1,025 output tokens, and 71.3 seconds of summed latency. Eight distinct short-reader requests returned invalid outputs and 47 logical reads reused a known invalid outcome. Subtotal reasoning used deterministic arithmetic without a model request. Total local spend was USD 0. In 51 samples taken during the run, system GPU memory use was 4,129 MiB and the runner process working set peaked at about 997 MiB. The ledgers and checkpoint files used about 8 MiB. Cache sharing makes the logical call counts the per-condition cost comparison.
+
+All 119 tests and 36 subtests passed. All 100 checkpoints matched the full report, and regeneration produced byte-identical aggregates and plots. Shared patterns, source-authored claim candidates, ten independent domains, and the small reader sample limit generalization to real long-horizon logs. These findings support a conditional advantage for T2 in this closed-loop experiment and a disadvantage in the fixed-stream diagnostic. They do not establish better production or held-out Memora performance.
+
+- [Aggregate metrics across all budgets and B4 seeds](step30_artifacts/aggregate.json)
+- [Budget and verifier-call trade-offs](step30_artifacts/budget-and-cost.png)
+- [Paired family uncertainty intervals](step30_artifacts/paired-intervals.png)
+- [Run manifest](step30_artifacts/run-manifest.json)
