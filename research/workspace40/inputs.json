@@ -1,0 +1,6 @@
+{
+  "facts":[["residence","Plover Bay","2025-01-01"],["job","Ochre Press","2025-01-01"],["preference","mint","2025-01-01"],["residence","Finch Cove","2025-02-01"],["job","Opal Mill","2025-02-01"],["preference","ginger","2025-02-01"],["visit","Robin Pier","2025-02-03"],["badge","VELUM-431","2025-02-03"]],
+  "ambiguous":["residence","Robin Pier","2025-02-04"],
+  "queries":[["home","Where is my current residence?","2025-03-01"],["past","Where was my residence on January 15?","2025-01-15"],["work","What is my current job?","2025-03-01"],["taste","What is my latest flavor preference?","2025-03-01"],["erase","What is my forgotten badge code?","2025-03-01"]],
+  "extract":["These days my employer is Opal Mill.","Perhaps I will relocate to Robin Pier.","I enjoy sketching maps today."]
+}
