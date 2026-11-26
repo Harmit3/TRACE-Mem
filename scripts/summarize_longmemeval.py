@@ -34,6 +34,11 @@ def summarize(report, design):
                       "logical_input_tokens", "logical_output_tokens", "logical_unmetered_calls",
                       "authorization_rejections", "authorized_fields"):
             run[field] = sum(s.get(field, 0) for s in scores)
+        run["verification_utilization"] = (run["verification_attempts"] / run["budget_cap"]
+                                            if run["budget_cap"] else None)
+        if method.startswith(("T2-", "H-paced-")):
+            horizon = design["planning_horizon"]
+            run["eligible_minus_planned"] = [s["eligible_candidates"] - horizon for s in scores]
         types = defaultdict(Counter)
         for row in present:
             decision = row["methods"][method]["judge"]
@@ -53,7 +58,11 @@ def summarize(report, design):
                         "equal_nonzero_pairs": sum(a["verification_attempts"] > 0 for a, _ in paired),
                         "learned_correct": sum(a["judge"] == "correct" for a, _ in paired),
                         "baseline_correct": sum(b["judge"] == "correct" for _, b in paired)})
-    return report | {"methods": methods, "matched_spending": matched}
+    common = [r for r in rows if r["managed_status"] == "completed"]
+    on_common = {method: {"cases": len(common), "correct": sum(
+        row["methods"][method]["judge"] == "correct" for row in common)} for method in names}
+    return report | {"methods": methods, "matched_spending": matched,
+                     "common_with_managed": on_common}
 
 
 def draw(report, dest):
@@ -84,6 +93,31 @@ def draw(report, dest):
     plt.close(fig)
 
 
+def draw_matrix(report, dest):
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import ListedColormap
+    from matplotlib.patches import Patch
+
+    methods = list(report["methods"])
+    rows = report["rows"]
+    statuses = ("not run", "incorrect", "invalid-reader", "invalid-judge", "correct")
+    colors = ("#d9d9d9", "#af4c40", "#e5ae58", "#845998", "#467f73")
+    scores = [[statuses.index(row["methods"].get(method, {}).get("judge", "not run"))
+               for row in rows] for method in methods]
+    fig, axis = plt.subplots(figsize=(11, 7), constrained_layout=True)
+    axis.imshow(scores, cmap=ListedColormap(colors), vmin=-0.5, vmax=len(statuses)-0.5,
+                aspect="auto", interpolation="nearest")
+    axis.set(xticks=range(len(rows)), xticklabels=[r["case"] for r in rows],
+             yticks=range(len(methods)), yticklabels=methods,
+             xlabel="Frozen question order", title="Local question-level outcomes")
+    axis.legend(handles=[Patch(facecolor=color, label=label) for color, label in zip(colors, statuses)],
+                loc="lower center", bbox_to_anchor=(0.5, -0.19), ncols=len(statuses), frameon=False)
+    fig.savefig(dest, dpi=170)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     parser = ArgumentParser(description=__doc__)
     parser.add_argument("report", type=Path)
@@ -93,3 +127,4 @@ if __name__ == "__main__":
     args.destination.mkdir(parents=True, exist_ok=True)
     write(args.destination / "aggregate.json", data)
     draw(data, args.destination / "comparison.png")
+    draw_matrix(data, args.destination / "question-outcomes.png")

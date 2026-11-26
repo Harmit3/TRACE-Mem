@@ -1,0 +1,2509 @@
+{
+  "common_with_managed": {
+    "B1-2": {
+      "cases": 1,
+      "correct": 0
+    },
+    "B1-5": {
+      "cases": 1,
+      "correct": 0
+    },
+    "B2-2": {
+      "cases": 1,
+      "correct": 0
+    },
+    "B2-5": {
+      "cases": 1,
+      "correct": 0
+    },
+    "B3-2": {
+      "cases": 1,
+      "correct": 0
+    },
+    "B3-5": {
+      "cases": 1,
+      "correct": 0
+    },
+    "B5-2": {
+      "cases": 1,
+      "correct": 0
+    },
+    "B5-5": {
+      "cases": 1,
+      "correct": 0
+    },
+    "BM25": {
+      "cases": 1,
+      "correct": 0
+    },
+    "H-paced-2": {
+      "cases": 1,
+      "correct": 0
+    },
+    "H-paced-5": {
+      "cases": 1,
+      "correct": 0
+    },
+    "MiniLM": {
+      "cases": 1,
+      "correct": 0
+    },
+    "T1-2": {
+      "cases": 1,
+      "correct": 0
+    },
+    "T1-5": {
+      "cases": 1,
+      "correct": 0
+    },
+    "T2-2": {
+      "cases": 1,
+      "correct": 0
+    },
+    "T2-5": {
+      "cases": 1,
+      "correct": 0
+    },
+    "T2-no-NLI-2": {
+      "cases": 1,
+      "correct": 0
+    },
+    "T2-no-NLI-5": {
+      "cases": 1,
+      "correct": 0
+    },
+    "oracle": {
+      "cases": 1,
+      "correct": 0
+    }
+  },
+  "extraction": {
+    "cases": [
+      {
+        "case": "L01",
+        "claims": 30,
+        "complete": false,
+        "errors": 1,
+        "processed": 241,
+        "stopped": null,
+        "turns_with_claims": 18,
+        "user_turns": 241
+      },
+      {
+        "case": "L02",
+        "claims": 20,
+        "complete": true,
+        "errors": 0,
+        "processed": 293,
+        "stopped": null,
+        "turns_with_claims": 14,
+        "user_turns": 293
+      },
+      {
+        "case": "L03",
+        "claims": 20,
+        "complete": false,
+        "errors": 1,
+        "processed": 235,
+        "stopped": null,
+        "turns_with_claims": 13,
+        "user_turns": 235
+      },
+      {
+        "case": "L04",
+        "claims": 25,
+        "complete": false,
+        "errors": 4,
+        "processed": 239,
+        "stopped": null,
+        "turns_with_claims": 13,
+        "user_turns": 239
+      },
+      {
+        "case": "L05",
+        "claims": 10,
+        "complete": false,
+        "errors": 2,
+        "processed": 121,
+        "stopped": null,
+        "turns_with_claims": 7,
+        "user_turns": 121
+      },
+      {
+        "case": "L06",
+        "claims": 40,
+        "complete": false,
+        "errors": 4,
+        "processed": 273,
+        "stopped": null,
+        "turns_with_claims": 20,
+        "user_turns": 273
+      },
+      {
+        "case": "L07",
+        "claims": 38,
+        "complete": false,
+        "errors": 2,
+        "processed": 232,
+        "stopped": null,
+        "turns_with_claims": 18,
+        "user_turns": 232
+      },
+      {
+        "case": "L08",
+        "claims": 19,
+        "complete": false,
+        "errors": 1,
+        "processed": 236,
+        "stopped": null,
+        "turns_with_claims": 9,
+        "user_turns": 236
+      },
+      {
+        "case": "L09",
+        "claims": 26,
+        "complete": false,
+        "errors": 1,
+        "processed": 147,
+        "stopped": "Request limit reached",
+        "turns_with_claims": 12,
+        "user_turns": 267
+      },
+      {
+        "case": "L10",
+        "claims": 0,
+        "complete": false,
+        "errors": 0,
+        "processed": 0,
+        "stopped": "Request limit reached",
+        "turns_with_claims": 0,
+        "user_turns": 238
+      },
+      {
+        "case": "L11",
+        "claims": 0,
+        "complete": false,
+        "errors": 0,
+        "processed": 0,
+        "stopped": "Request limit reached",
+        "turns_with_claims": 0,
+        "user_turns": 24
+      },
+      {
+        "case": "L12",
+        "claims": 0,
+        "complete": false,
+        "errors": 0,
+        "processed": 0,
+        "stopped": "Request limit reached",
+        "turns_with_claims": 0,
+        "user_turns": 239
+      },
+      {
+        "case": "L13",
+        "claims": 0,
+        "complete": false,
+        "errors": 0,
+        "processed": 0,
+        "stopped": "Request limit reached",
+        "turns_with_claims": 0,
+        "user_turns": 245
+      },
+      {
+        "case": "L14",
+        "claims": 0,
+        "complete": false,
+        "errors": 0,
+        "processed": 0,
+        "stopped": "Request limit reached",
+        "turns_with_claims": 0,
+        "user_turns": 258
+      }
+    ],
+    "usage": {
+      "attempts": 2000,
+      "cache_hits": 11,
+      "cost_usd": "0",
+      "input_tokens": 443402,
+      "latency_ms": 997194.7130998014,
+      "models": [
+        "qwen2.5:7b-instruct-q4_K_M"
+      ],
+      "output_tokens": 10688,
+      "statuses": {
+        "invalid": 9,
+        "ok": 1991
+      }
+    },
+    "wall_seconds": 1022.3898709000205
+  },
+  "judge": {
+    "attempts": 12,
+    "cache_hits": 3,
+    "cost_usd": "0",
+    "input_tokens": 3669,
+    "latency_ms": 5037.624399992637,
+    "models": [
+      "qwen2.5:7b-instruct-q4_K_M"
+    ],
+    "output_tokens": 25,
+    "statuses": {
+      "invalid": 1,
+      "ok": 11
+    }
+  },
+  "manifest": {
+    "design": "2f8b2403b8724e81f795b74dbb56a1d29e4ba5f946d1e3c367b079d0d8d98370",
+    "inputs": "128fcfc797d52e44a5ee190b467c25f8c1a51749e4ab7943b050b5674fd3c5d2",
+    "outcomes": "837820ce735c3040d14ae1ace8cd24ef6ffc7c2986098e90ec95e0817fb81dc0",
+    "qwen": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "settings": {
+      "context_tokens": 4096,
+      "max_input_tokens": 4096,
+      "max_output_tokens": 256,
+      "retries": 0,
+      "seed": 23,
+      "timeout": 120
+    }
+  },
+  "matched_spending": [
+    {
+      "baseline": "B1",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T1",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B2",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T1",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B3",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T1",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B5",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T1",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "H-paced",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T1",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B1",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B2",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B3",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 1,
+      "learned": "T2",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B5",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "H-paced",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 1,
+      "learned": "T2",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B1",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2-no-NLI",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B2",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2-no-NLI",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B3",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 1,
+      "learned": "T2-no-NLI",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B5",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2-no-NLI",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "H-paced",
+      "baseline_correct": 0,
+      "cap": 2,
+      "equal_nonzero_pairs": 1,
+      "learned": "T2-no-NLI",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B1",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T1",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B2",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T1",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B3",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T1",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B5",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T1",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "H-paced",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T1",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B1",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B2",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B3",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 1,
+      "learned": "T2",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B5",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "H-paced",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 1,
+      "learned": "T2",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B1",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2-no-NLI",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B2",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2-no-NLI",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "B3",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 1,
+      "learned": "T2-no-NLI",
+      "learned_correct": 0,
+      "pairs": 1
+    },
+    {
+      "baseline": "B5",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 0,
+      "learned": "T2-no-NLI",
+      "learned_correct": 0,
+      "pairs": 0
+    },
+    {
+      "baseline": "H-paced",
+      "baseline_correct": 0,
+      "cap": 5,
+      "equal_nonzero_pairs": 1,
+      "learned": "T2-no-NLI",
+      "learned_correct": 0,
+      "pairs": 1
+    }
+  ],
+  "methods": {
+    "B1-2": {
+      "abstained": 1,
+      "authorization_rejections": 3,
+      "authorized_fields": 14,
+      "budget_cap": 0,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 0,
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 1.00930639996659,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": null
+    },
+    "B1-5": {
+      "abstained": 1,
+      "authorization_rejections": 3,
+      "authorized_fields": 14,
+      "budget_cap": 0,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 0,
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.007625599973835051,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": null
+    },
+    "B2-2": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 0,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 0,
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.7994067000108771,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": null
+    },
+    "B2-5": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 0,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 0,
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.007017900003120303,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": null
+    },
+    "B3-2": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 2,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 618,
+      "logical_output_tokens": 26,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.007723000016994774,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 2,
+      "verification_failures": 0,
+      "verification_utilization": 1.0
+    },
+    "B3-5": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 5,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 1477,
+      "logical_output_tokens": 66,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.0065454000141471624,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 5,
+      "verification_failures": 0,
+      "verification_utilization": 1.0
+    },
+    "B5-2": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 2,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.007752800011076033,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": 0.0
+    },
+    "B5-5": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 5,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.006509000028017908,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": 0.0
+    },
+    "BM25": {
+      "abstained": 6,
+      "authorization_rejections": 0,
+      "authorized_fields": 0,
+      "budget_cap": 0,
+      "completed": 14,
+      "correct": 3,
+      "eligible_candidates": 0,
+      "failure_inclusive_accuracy": 0.21428571428571427,
+      "invalid_judge": 0,
+      "invalid_reader": 4,
+      "judged": 10,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.3,
+      "seconds_in_reader": 28.423675300145987,
+      "selected": 14,
+      "session_recall": {
+        "hits": 14,
+        "questions": 12,
+        "targets": 18
+      },
+      "turn_recall": {
+        "hits": 11,
+        "questions": 12,
+        "targets": 19
+      },
+      "types": {
+        "abstention": {
+          "completed": 2,
+          "correct": 1,
+          "scored": 1
+        },
+        "knowledge-update": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 1
+        },
+        "multi-session": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 1
+        },
+        "single-session-assistant": {
+          "completed": 2,
+          "correct": 1,
+          "scored": 2
+        },
+        "single-session-preference": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 1
+        },
+        "single-session-user": {
+          "completed": 2,
+          "correct": 1,
+          "scored": 2
+        },
+        "temporal-reasoning": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 2
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": null
+    },
+    "H-paced-2": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 2,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "eligible_minus_planned": [
+        2
+      ],
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 649,
+      "logical_output_tokens": 28,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.006115199998021126,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 2,
+      "verification_failures": 0,
+      "verification_utilization": 1.0
+    },
+    "H-paced-5": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 5,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "eligible_minus_planned": [
+        2
+      ],
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 1477,
+      "logical_output_tokens": 66,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.007828600006178021,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 5,
+      "verification_failures": 0,
+      "verification_utilization": 1.0
+    },
+    "MiniLM": {
+      "abstained": 8,
+      "authorization_rejections": 0,
+      "authorized_fields": 0,
+      "budget_cap": 0,
+      "completed": 14,
+      "correct": 2,
+      "eligible_candidates": 0,
+      "failure_inclusive_accuracy": 0.14285714285714285,
+      "invalid_judge": 0,
+      "invalid_reader": 3,
+      "judged": 11,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.18181818181818182,
+      "seconds_in_reader": 29.818076799972914,
+      "selected": 14,
+      "session_recall": {
+        "hits": 13,
+        "questions": 12,
+        "targets": 18
+      },
+      "turn_recall": {
+        "hits": 10,
+        "questions": 12,
+        "targets": 19
+      },
+      "types": {
+        "abstention": {
+          "completed": 2,
+          "correct": 2,
+          "scored": 2
+        },
+        "knowledge-update": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 1
+        },
+        "multi-session": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 2
+        },
+        "single-session-assistant": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 1
+        },
+        "single-session-preference": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 2
+        },
+        "single-session-user": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 1
+        },
+        "temporal-reasoning": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 2
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": null
+    },
+    "T1-2": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 2,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.0071909999824129045,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": 0.0
+    },
+    "T1-5": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 5,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.006809099984820932,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": 0.0
+    },
+    "T2-2": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 2,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "eligible_minus_planned": [
+        2
+      ],
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 575,
+      "logical_output_tokens": 26,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.006372900039423257,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 2,
+      "verification_failures": 0,
+      "verification_utilization": 1.0
+    },
+    "T2-5": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 5,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "eligible_minus_planned": [
+        2
+      ],
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 1477,
+      "logical_output_tokens": 66,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.0068505999515764415,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 5,
+      "verification_failures": 0,
+      "verification_utilization": 1.0
+    },
+    "T2-no-NLI-2": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 2,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "eligible_minus_planned": [
+        2
+      ],
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 593,
+      "logical_output_tokens": 28,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.00775180000346154,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 2,
+      "verification_failures": 0,
+      "verification_utilization": 1.0
+    },
+    "T2-no-NLI-5": {
+      "abstained": 1,
+      "authorization_rejections": 2,
+      "authorized_fields": 7,
+      "budget_cap": 5,
+      "completed": 1,
+      "correct": 0,
+      "eligible_candidates": 7,
+      "eligible_minus_planned": [
+        2
+      ],
+      "failure_inclusive_accuracy": 0.0,
+      "invalid_judge": 0,
+      "invalid_reader": 0,
+      "judged": 1,
+      "logical_input_tokens": 1477,
+      "logical_output_tokens": 66,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.0,
+      "seconds_in_reader": 0.0068221999681554735,
+      "selected": 14,
+      "session_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "turn_recall": {
+        "hits": 0,
+        "questions": 1,
+        "targets": 1
+      },
+      "types": {
+        "single-session-assistant": {
+          "completed": 1,
+          "correct": 0,
+          "scored": 1
+        }
+      },
+      "verification_attempts": 5,
+      "verification_failures": 0,
+      "verification_utilization": 1.0
+    },
+    "oracle": {
+      "abstained": 6,
+      "authorization_rejections": 0,
+      "authorized_fields": 0,
+      "budget_cap": 0,
+      "completed": 14,
+      "correct": 6,
+      "eligible_candidates": 0,
+      "failure_inclusive_accuracy": 0.42857142857142855,
+      "invalid_judge": 1,
+      "invalid_reader": 0,
+      "judged": 13,
+      "logical_input_tokens": 0,
+      "logical_output_tokens": 0,
+      "logical_unmetered_calls": 0,
+      "scored_only_accuracy": 0.46153846153846156,
+      "seconds_in_reader": 25.65310449997196,
+      "selected": 14,
+      "session_recall": {
+        "hits": 15,
+        "questions": 12,
+        "targets": 18
+      },
+      "turn_recall": {
+        "hits": 16,
+        "questions": 12,
+        "targets": 19
+      },
+      "types": {
+        "abstention": {
+          "completed": 2,
+          "correct": 2,
+          "scored": 2
+        },
+        "knowledge-update": {
+          "completed": 2,
+          "correct": 2,
+          "scored": 2
+        },
+        "multi-session": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 2
+        },
+        "single-session-assistant": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 2
+        },
+        "single-session-preference": {
+          "completed": 2,
+          "correct": 1,
+          "scored": 1
+        },
+        "single-session-user": {
+          "completed": 2,
+          "correct": 1,
+          "scored": 2
+        },
+        "temporal-reasoning": {
+          "completed": 2,
+          "correct": 0,
+          "scored": 2
+        }
+      },
+      "verification_attempts": 0,
+      "verification_failures": 0,
+      "verification_utilization": null
+    }
+  },
+  "oracle": {
+    "attempts": 11,
+    "cache_hits": 0,
+    "cost_usd": "0",
+    "input_tokens": 3594,
+    "latency_ms": 25512.72579986835,
+    "models": [
+      "qwen2.5:7b-instruct-q4_K_M"
+    ],
+    "output_tokens": 565,
+    "statuses": {
+      "ok": 11
+    }
+  },
+  "prediction_sha256": "5b5bc4916789a219463a5a28dcf8af6986e6d3015dcb02d20f8bf57e558203bf",
+  "reader": {
+    "attempts": 24,
+    "cache_hits": 15,
+    "cost_usd": "0",
+    "input_tokens": 19300,
+    "latency_ms": 62566.80510001024,
+    "models": [
+      "qwen2.5:7b-instruct-q4_K_M"
+    ],
+    "output_tokens": 616,
+    "statuses": {
+      "invalid": 1,
+      "ok": 23
+    }
+  },
+  "review_cases": 6,
+  "rows": [
+    {
+      "audit": {
+        "deletion_claims": 2,
+        "eligible": 12,
+        "extraction_errors": {
+          "Input exceeds conservative preflight ceiling": 1
+        },
+        "source_restriction_signals": 0,
+        "unresolved_deletions": 2
+      },
+      "case": "L01",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "correct",
+          "latency_seconds": 0.014006900019012392,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "answered",
+          "turn_recall": [
+            1,
+            1
+          ]
+        },
+        "MiniLM": {
+          "judge": "invalid-reader",
+          "latency_seconds": 0.01180390000808984,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "invalid",
+          "turn_recall": [
+            1,
+            1
+          ]
+        },
+        "oracle": {
+          "judge": "correct",
+          "latency_seconds": 1.7900403000530787,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "answered",
+          "turn_recall": [
+            1,
+            1
+          ]
+        }
+      },
+      "type": "single-session-user"
+    },
+    {
+      "audit": {
+        "eligible": 7,
+        "extraction_errors": {},
+        "source_restriction_signals": 0
+      },
+      "case": "L02",
+      "managed_status": "completed",
+      "methods": {
+        "B1-2": {
+          "authorization_rejections": 3,
+          "authorized_fields": 14,
+          "budget_cap": 0,
+          "eligible_candidates": 0,
+          "judge": "incorrect",
+          "latency_seconds": 1.00930639996659,
+          "logical_input_tokens": 0,
+          "logical_output_tokens": 0,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        "B1-5": {
+          "authorization_rejections": 3,
+          "authorized_fields": 14,
+          "budget_cap": 0,
+          "eligible_candidates": 0,
+          "judge": "incorrect",
+          "latency_seconds": 0.007625599973835051,
+          "logical_input_tokens": 0,
+          "logical_output_tokens": 0,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        "B2-2": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 0,
+          "eligible_candidates": 0,
+          "judge": "incorrect",
+          "latency_seconds": 0.7994067000108771,
+          "logical_input_tokens": 0,
+          "logical_output_tokens": 0,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        "B2-5": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 0,
+          "eligible_candidates": 0,
+          "judge": "incorrect",
+          "latency_seconds": 0.007017900003120303,
+          "logical_input_tokens": 0,
+          "logical_output_tokens": 0,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        "B3-2": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 2,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.007723000016994774,
+          "logical_input_tokens": 618,
+          "logical_output_tokens": 26,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        "B3-5": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 5,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.0065454000141471624,
+          "logical_input_tokens": 1477,
+          "logical_output_tokens": 66,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 5,
+          "verification_failures": 0
+        },
+        "B5-2": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 2,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.007752800011076033,
+          "logical_input_tokens": 0,
+          "logical_output_tokens": 0,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        "B5-5": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 5,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.006509000028017908,
+          "logical_input_tokens": 0,
+          "logical_output_tokens": 0,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        "BM25": {
+          "judge": "incorrect",
+          "latency_seconds": 5.92753200000152,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            1,
+            1
+          ]
+        },
+        "H-paced-2": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 2,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.006115199998021126,
+          "logical_input_tokens": 649,
+          "logical_output_tokens": 28,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        "H-paced-5": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 5,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.007828600006178021,
+          "logical_input_tokens": 1477,
+          "logical_output_tokens": 66,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 5,
+          "verification_failures": 0
+        },
+        "MiniLM": {
+          "judge": "incorrect",
+          "latency_seconds": 1.3687524999841116,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            1,
+            1
+          ]
+        },
+        "T1-2": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 2,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.0071909999824129045,
+          "logical_input_tokens": 0,
+          "logical_output_tokens": 0,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        "T1-5": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 5,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.006809099984820932,
+          "logical_input_tokens": 0,
+          "logical_output_tokens": 0,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 0,
+          "verification_failures": 0
+        },
+        "T2-2": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 2,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.006372900039423257,
+          "logical_input_tokens": 575,
+          "logical_output_tokens": 26,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        "T2-5": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 5,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.0068505999515764415,
+          "logical_input_tokens": 1477,
+          "logical_output_tokens": 66,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 5,
+          "verification_failures": 0
+        },
+        "T2-no-NLI-2": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 2,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.00775180000346154,
+          "logical_input_tokens": 593,
+          "logical_output_tokens": 28,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 2,
+          "verification_failures": 0
+        },
+        "T2-no-NLI-5": {
+          "authorization_rejections": 2,
+          "authorized_fields": 7,
+          "budget_cap": 5,
+          "eligible_candidates": 7,
+          "judge": "incorrect",
+          "latency_seconds": 0.0068221999681554735,
+          "logical_input_tokens": 1477,
+          "logical_output_tokens": 66,
+          "logical_unmetered_calls": 0,
+          "session_recall": [
+            0,
+            1
+          ],
+          "stale_targets": 0,
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ],
+          "verification_attempts": 5,
+          "verification_failures": 0
+        },
+        "oracle": {
+          "judge": "incorrect",
+          "latency_seconds": 6.33285559999058,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "answered",
+          "turn_recall": [
+            1,
+            1
+          ]
+        }
+      },
+      "type": "single-session-assistant"
+    },
+    {
+      "audit": {
+        "deletion_claims": 4,
+        "eligible": 0,
+        "extraction_errors": {
+          "Provider response did not match the task schema": 1
+        },
+        "source_restriction_signals": 1,
+        "unresolved_deletions": 4
+      },
+      "case": "L03",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "incorrect",
+          "latency_seconds": 3.4347763000405394,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            2
+          ]
+        },
+        "MiniLM": {
+          "judge": "incorrect",
+          "latency_seconds": 1.351916799962055,
+          "session_recall": [
+            0,
+            1
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            2
+          ]
+        },
+        "oracle": {
+          "judge": "invalid-judge",
+          "latency_seconds": 2.1173924999893643,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "answered",
+          "turn_recall": [
+            2,
+            2
+          ]
+        }
+      },
+      "type": "single-session-preference"
+    },
+    {
+      "audit": {
+        "eligible": 6,
+        "extraction_errors": {
+          "Input exceeds conservative preflight ceiling": 1,
+          "Provider response did not match the task schema": 2,
+          "Provider response was incomplete or refused": 1
+        },
+        "source_restriction_signals": 0
+      },
+      "case": "L04",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "incorrect",
+          "latency_seconds": 2.702117000008002,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            1,
+            2
+          ]
+        },
+        "MiniLM": {
+          "judge": "incorrect",
+          "latency_seconds": 1.5009340000106022,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            1,
+            2
+          ]
+        },
+        "oracle": {
+          "judge": "incorrect",
+          "latency_seconds": 3.455220800009556,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "answered",
+          "turn_recall": [
+            2,
+            2
+          ]
+        }
+      },
+      "type": "multi-session"
+    },
+    {
+      "audit": {
+        "eligible": 0,
+        "extraction_errors": {
+          "Input exceeds conservative preflight ceiling": 2
+        },
+        "source_restriction_signals": 0
+      },
+      "case": "L05",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "incorrect",
+          "latency_seconds": 4.1569565999670886,
+          "session_recall": [
+            1,
+            2
+          ],
+          "status": "answered",
+          "turn_recall": [
+            1,
+            2
+          ]
+        },
+        "MiniLM": {
+          "judge": "incorrect",
+          "latency_seconds": 3.215973899990786,
+          "session_recall": [
+            1,
+            2
+          ],
+          "status": "answered",
+          "turn_recall": [
+            1,
+            2
+          ]
+        },
+        "oracle": {
+          "judge": "incorrect",
+          "latency_seconds": 2.0395795999793336,
+          "session_recall": [
+            1,
+            2
+          ],
+          "status": "answered",
+          "turn_recall": [
+            1,
+            2
+          ]
+        }
+      },
+      "type": "temporal-reasoning"
+    },
+    {
+      "audit": {
+        "deletion_claims": 2,
+        "eligible": 8,
+        "extraction_errors": {
+          "Input exceeds conservative preflight ceiling": 1,
+          "Provider response did not match the task schema": 2,
+          "Provider response was incomplete or refused": 1
+        },
+        "source_restriction_signals": 0,
+        "unresolved_deletions": 2
+      },
+      "case": "L06",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "invalid-reader",
+          "latency_seconds": 0.012451000045984983,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "invalid",
+          "turn_recall": [
+            2,
+            2
+          ]
+        },
+        "MiniLM": {
+          "judge": "invalid-reader",
+          "latency_seconds": 0.0095310999895446,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "invalid",
+          "turn_recall": [
+            2,
+            2
+          ]
+        },
+        "oracle": {
+          "judge": "correct",
+          "latency_seconds": 2.3466934000025503,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "answered",
+          "turn_recall": [
+            2,
+            2
+          ]
+        }
+      },
+      "type": "knowledge-update"
+    },
+    {
+      "audit": {
+        "deletion_claims": 1,
+        "eligible": 6,
+        "extraction_errors": {
+          "Input exceeds conservative preflight ceiling": 1,
+          "Provider response did not match the task schema": 1
+        },
+        "source_restriction_signals": 0,
+        "unresolved_deletions": 1
+      },
+      "case": "L07",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "incorrect",
+          "latency_seconds": 1.3927747000125237,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            1,
+            1
+          ]
+        },
+        "MiniLM": {
+          "judge": "incorrect",
+          "latency_seconds": 2.2561815000372007,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            1,
+            1
+          ]
+        },
+        "oracle": {
+          "judge": "incorrect",
+          "latency_seconds": 0.6018153000040911,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            1,
+            1
+          ]
+        }
+      },
+      "type": "single-session-user"
+    },
+    {
+      "audit": {
+        "eligible": 3,
+        "extraction_errors": {
+          "Input exceeds conservative preflight ceiling": 1
+        },
+        "source_restriction_signals": 0
+      },
+      "case": "L08",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "correct",
+          "latency_seconds": 2.958224900008645,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "answered",
+          "turn_recall": [
+            0,
+            1
+          ]
+        },
+        "MiniLM": {
+          "judge": "invalid-reader",
+          "latency_seconds": 5.199283399968408,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "invalid",
+          "turn_recall": [
+            0,
+            1
+          ]
+        },
+        "oracle": {
+          "judge": "incorrect",
+          "latency_seconds": 0.6392474999884143,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            1,
+            1
+          ]
+        }
+      },
+      "type": "single-session-assistant"
+    },
+    {
+      "audit": {
+        "eligible": 0,
+        "extraction_errors": {
+          "Provider response did not match the task schema": 1
+        },
+        "source_restriction_signals": 1
+      },
+      "case": "L09",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "invalid-reader",
+          "latency_seconds": 0.013392799999564886,
+          "session_recall": [
+            0,
+            1
+          ],
+          "status": "invalid",
+          "turn_recall": [
+            0,
+            1
+          ]
+        },
+        "MiniLM": {
+          "judge": "incorrect",
+          "latency_seconds": 1.4935312999878079,
+          "session_recall": [
+            0,
+            1
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            1
+          ]
+        },
+        "oracle": {
+          "judge": "correct",
+          "latency_seconds": 2.706743800023105,
+          "session_recall": [
+            1,
+            1
+          ],
+          "status": "answered",
+          "turn_recall": [
+            1,
+            1
+          ]
+        }
+      },
+      "type": "single-session-preference"
+    },
+    {
+      "audit": {
+        "extraction_errors": {},
+        "source_restriction_signals": 0
+      },
+      "case": "L10",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "invalid-reader",
+          "latency_seconds": 0.012020800029858947,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "invalid",
+          "turn_recall": [
+            2,
+            2
+          ]
+        },
+        "MiniLM": {
+          "judge": "incorrect",
+          "latency_seconds": 3.6832674000179395,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "answered",
+          "turn_recall": [
+            2,
+            2
+          ]
+        },
+        "oracle": {
+          "judge": "incorrect",
+          "latency_seconds": 0.6221489999443293,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            2,
+            2
+          ]
+        }
+      },
+      "type": "multi-session"
+    },
+    {
+      "audit": {
+        "extraction_errors": {},
+        "source_restriction_signals": 0
+      },
+      "case": "L11",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "incorrect",
+          "latency_seconds": 1.8000669000321068,
+          "session_recall": [
+            0,
+            2
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            2
+          ]
+        },
+        "MiniLM": {
+          "judge": "incorrect",
+          "latency_seconds": 1.5910319000249729,
+          "session_recall": [
+            0,
+            2
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            2
+          ]
+        },
+        "oracle": {
+          "judge": "incorrect",
+          "latency_seconds": 3.4400029107928276e-05,
+          "session_recall": [
+            0,
+            2
+          ],
+          "status": "abstained",
+          "turn_recall": [
+            0,
+            2
+          ]
+        }
+      },
+      "type": "temporal-reasoning"
+    },
+    {
+      "audit": {
+        "extraction_errors": {},
+        "source_restriction_signals": 1
+      },
+      "case": "L12",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "incorrect",
+          "latency_seconds": 4.492634999973234,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "answered",
+          "turn_recall": [
+            2,
+            2
+          ]
+        },
+        "MiniLM": {
+          "judge": "incorrect",
+          "latency_seconds": 5.020356599998195,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "answered",
+          "turn_recall": [
+            1,
+            2
+          ]
+        },
+        "oracle": {
+          "judge": "correct",
+          "latency_seconds": 3.0012699000071734,
+          "session_recall": [
+            2,
+            2
+          ],
+          "status": "answered",
+          "turn_recall": [
+            2,
+            2
+          ]
+        }
+      },
+      "type": "knowledge-update"
+    },
+    {
+      "audit": {
+        "extraction_errors": {},
+        "source_restriction_signals": 0
+      },
+      "case": "L13",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "invalid-reader",
+          "latency_seconds": 0.011678500042762607,
+          "session_recall": null,
+          "status": "invalid",
+          "turn_recall": null
+        },
+        "MiniLM": {
+          "judge": "correct",
+          "latency_seconds": 1.172260700026527,
+          "session_recall": null,
+          "status": "abstained",
+          "turn_recall": null
+        },
+        "oracle": {
+          "judge": "correct",
+          "latency_seconds": 3.9199949242174625e-05,
+          "session_recall": null,
+          "status": "abstained",
+          "turn_recall": null
+        }
+      },
+      "type": "abstention"
+    },
+    {
+      "audit": {
+        "extraction_errors": {},
+        "source_restriction_signals": 0
+      },
+      "case": "L14",
+      "managed_status": "incomplete",
+      "methods": {
+        "BM25": {
+          "judge": "correct",
+          "latency_seconds": 1.4950418999651447,
+          "session_recall": null,
+          "status": "abstained",
+          "turn_recall": null
+        },
+        "MiniLM": {
+          "judge": "correct",
+          "latency_seconds": 1.9432517999666743,
+          "session_recall": null,
+          "status": "abstained",
+          "turn_recall": null
+        },
+        "oracle": {
+          "judge": "correct",
+          "latency_seconds": 2.3200002033263445e-05,
+          "session_recall": null,
+          "status": "abstained",
+          "turn_recall": null
+        }
+      },
+      "type": "abstention"
+    }
+  ],
+  "verifier": {
+    "attempts": 5,
+    "cache_hits": 23,
+    "cost_usd": "0",
+    "input_tokens": 1477,
+    "latency_ms": 4237.5457000453025,
+    "models": [
+      "qwen2.5:7b-instruct-q4_K_M"
+    ],
+    "output_tokens": 66,
+    "statuses": {
+      "ok": 5
+    }
+  }
+}

@@ -3,6 +3,7 @@
 from argparse import ArgumentParser
 import ast
 from collections import Counter, defaultdict
+from hashlib import sha256
 import json
 from pathlib import Path
 import subprocess
@@ -19,8 +20,11 @@ def official_prompt(repo, config):
     if subprocess.check_output(["git", "-C", str(repo), "rev-parse", "HEAD"], text=True).strip() != config["official_revision"]:
         raise ValueError("Unexpected official repository revision")
     path = repo / "src/evaluation/evaluate_qa.py"
-    if (sha(path) != config["official_scoring_sha256"]
-            or sha(repo / "LICENSE") != config["official_license_sha256"]):
+    def checkout_digest(file):
+        return sha256(file.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")).hexdigest()
+
+    if (checkout_digest(path) != config["official_scoring_sha256"]
+            or checkout_digest(repo / "LICENSE") != config["official_license_sha256"]):
         raise ValueError("Unexpected official evaluation source or license")
     tree = ast.parse(path.read_bytes())
     method, = [n for n in tree.body if isinstance(n, ast.FunctionDef)
@@ -133,8 +137,11 @@ def score(root, dataset, repo):
         if len(review) < 6 and (len(outcomes) > 1 or any(v.startswith("invalid") for v in outcomes)):
             samples = sorted({p["text"] for p in predictions.values() if p["text"]})
             review.append({"case": case["case"], "question": case["question"],
-                           "reference": reference["answer"], "anonymous_answers": samples,
-                           "review": None})
+                           "reference": reference["answer"],
+                           "anonymous_answers": [
+                               {"answer": answer, "human_correct": None, "notes": ""}
+                               for answer in samples
+                           ], "review": None})
         rows.append(entry)
         print(row["case"], "scored", flush=True)
     write(root / "human-review.json", review)
