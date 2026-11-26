@@ -1,0 +1,44 @@
+{
+  "step30": {
+    "histories": 100,
+    "families": {
+      "seed-library-accession": 10,
+      "community-kiln-firing": 10,
+      "marionette-restoration": 10,
+      "tidal-clock-display": 10,
+      "municipal-mosaic-catalog": 10,
+      "acoustic-map-correction": 10,
+      "canal-lock-exhibit": 10,
+      "textile-swatches-library": 10,
+      "lantern-parade-archives": 10,
+      "shadow-puppet-lighting": 10
+    },
+    "conditions": 100,
+    "paired_intervals": 40,
+    "total_logical_calls": 16489,
+    "repeated_deletion_checks": 28000,
+    "fresh_verifier_calls": 814,
+    "report_sha256": "194c0638a1de7d4b61180c971ff6a840ff9552518af9062bd95f09ae31154f7a"
+  },
+  "step31": {
+    "histories": 100,
+    "families": {
+      "seed-library-accession": 10,
+      "community-kiln-firing": 10,
+      "marionette-restoration": 10,
+      "tidal-clock-display": 10,
+      "municipal-mosaic-catalog": 10,
+      "acoustic-map-correction": 10,
+      "canal-lock-exhibit": 10,
+      "textile-swatches-library": 10,
+      "lantern-parade-archives": 10,
+      "shadow-puppet-lighting": 10
+    },
+    "conditions": 130,
+    "paired_intervals": 144,
+    "total_logical_calls": 20450,
+    "repeated_deletion_checks": 26000,
+    "fresh_verifier_calls": 0,
+    "report_sha256": "fae2047d76cad3e5ad00f2d5e8f16968791ad48ab35619a6d29cc9d7dd1c710e"
+  }
+}

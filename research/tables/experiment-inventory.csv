@@ -1,0 +1,39 @@
+order,experiment,classification,evidence_or_outcome,source
+1,Memora replay adapter synthetic check,engineering,fixture adapter and chronology tests,docs/replay_acceptance.md
+2,Temporal memory synthetic check,engineering,temporal state and deletion unit tests,docs/replay_acceptance.md
+3,Claim extraction and baseline replay,engineering,mock extraction and baseline smoke,docs/evaluation_protocol.md
+4,Verification selection and accounting,engineering,exact selection and budget guards,docs/evaluation_protocol.md
+5,Logistic scoring,engineering,score formula and fixtures,docs/evaluation_protocol.md
+6,Verified transition integration and real-data ingest check,engineering,verified-transition and ingest smoke with no score,docs/evaluation_protocol.md
+7,B4 and B5 matched replay,engineering,B4/B5 accounting and matched replay,docs/evaluation_protocol.md
+8,T1 chronological replay,engineering,"T1 chronological plumbing, before fitting",docs/evaluation_protocol.md
+9,Semantic retrieval and NLI wiring,engineering,embedding and NLI wiring,docs/semantic_models.md
+10,TRACE-UpdateSet v1 generation,training data preparation,v1 synthetic generation and validation,docs/updateset.md
+11,T1 training infrastructure,engineering,trainer and calibration smoke on fixtures,docs/controller_training.md
+12,LLM providers and resumable outcome collection,engineering,resumable provider collection and accounting,docs/llm_providers.md
+13,Local Ollama readiness and live development smoke,development diagnostics,"8 validated smoke responses, no research labels",docs/ollama_local.md
+14,Frozen Ollama verifier validation,development diagnostics,"Llama 7/12 correct, 5 false updates",docs/ollama_label_collection.md
+15,Revised local verifier validation,development diagnostics,"40-case revised prompt study, false updates persisted",docs/ollama_verifier_v2.md
+16,Qwen2.5 local verifier comparison,development diagnostics,"Qwen 38/40, Llama 18/40",docs/qwen_verifier.md
+17,Actual Qwen paired decisions on TRACE-UpdateSet,training data preparation,78 pairs agreed; 52 labeled negative; 26 pending,docs/qwen_updateset_outcomes.md
+18,TRACE-UpdateSet v2 paired pilot,development diagnostics,"44-case v2 pilot, 8 helpful updates",docs/updateset_v2.md
+19,Full TRACE-UpdateSet v2 candidate release,training data preparation,"500 cases, 313 verified candidates",docs/updateset_v2_full.md
+20,Controller feature-quality audit,robustness analysis,"limited feature diversity, v2 development audit",docs/controller_feature_audit.md
+21,TRACE-UpdateSet v3 feasibility pilot,development diagnostics,24 v3 pilot cases; 14 eligible,docs/updateset_v3.md
+22,Step 16 local NLI validation and v3 reconstruction,development diagnostics,NLI 20/24; 4 neutral false contradictions,docs/updateset_v3_nli.md
+23,Final TRACE-UpdateSet v3 longitudinal release,training data preparation,"200 histories, 600 decisions, 232 paired vectors",docs/updateset_v3_final.md
+24,Step 18 · First fitted T1 on frozen longitudinal V3,training / calibration / synthetic evaluation,"112 train, 63 calibration, 37 labeled test candidates; AP .849/.877",docs/t1_v3_training.md
+25,Step 19 · Local Memora integration and prefix smoke,development diagnostics,55-turn prefix and fictional conflict smoke; no benchmark score,docs/memora_step19.md
+26,Step 20 · Development extraction audit and adapted local judge,development diagnostics,"18 extractor cases and 12 judge checks, gate failed",docs/memora_step20.md
+27,Step 21 · Evidence-grounded hybrid extraction,development diagnostics,hybrid extractor promotion gate failed,docs/memora_step21.md
+28,Step 22 · Bounded Memora and downstream verification,development diagnostics / synthetic evaluation,12-session prefix plus two fictional histories,docs/memora_step22.md
+29,Step 23 · Frozen T1 underspend and adaptive allocation,robustness analysis,T1 underspend; two new fictional histories for T2 pacing,docs/t2_step23.md
+30,Step 24 · Full weekly Memora development diagnostic,development diagnostics,"one Memora persona, 15 questions, all adapted FAMA zero",docs/memora_step24.md
+31,Step 25 · End-to-end failure isolation,development diagnostics,retrieval-stage isolation using same 15 development questions,docs/memora_step25.md
+32,Step 26 · Reader reliability and deletion-aware evidence index,development diagnostics,reader and deletion-index fixtures; live index quarantined,docs/memora_step26.md
+33,Step 27 · Deletion scope and authorized recovery boundary,development diagnostics,semantic resolution 6/7 on fictional targets; no real release proposed,docs/memora_step27.md
+34,Step 29 · Authorized field-level evidence recovery,human-assisted evaluation,"18 approved cases, 57 grants; 14/15 scored",docs/memora_step29.md
+35,Step 30 · End-to-end verification controller reevaluation,synthetic evaluation,100 histories in 10 clusters; replay-mode reversal,docs/step30_controller_reevaluation.md
+36,Step 31 · Verification robustness and budget sensitivity,robustness analysis,same 100 histories; sensitivity to horizon and B3 comparison,docs/step31_verification_robustness.md
+37,Step 32 · Independent LongMemEval diagnostic,independent external evaluation,14 LongMemEval questions; one managed-eligible history,docs/longmemeval_step32.md
+38,Step 33 · Extraction reliability and reader validation,development diagnostics,70 extraction and 30 reader fixtures; neither promotion gate passed,docs/step33_extraction_reader.md

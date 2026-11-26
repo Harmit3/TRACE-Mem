@@ -157,6 +157,8 @@ The [Step 32 LongMemEval diagnostic](docs/longmemeval_step32.md) uses a frozen 1
 
 The [Step 33 component validation](docs/step33_extraction_reader.md) audited the LongMemEval failures and evaluated separately versioned extractor and reader candidates on fictional fixtures. Extraction recall improved from 22% to 50%, below the frozen 80% gate. Reader V3 scored 24/30 versus Reader V2's 27/30. Both candidates remain experimental.
 
+The [Step 34 evidence audit](docs/research_evidence_audit.md) reproduces the principal matched-budget and horizon results offline. The evidence supports a conditional synthetic memory finding. End-to-end and external verification superiority remain unsupported. The [independent manuscript materials](research/manuscript_outline.md) include a provisional abstract, verified bibliography, figures and results tables.
+
 ## 6. Metrics, experiments, and quality criteria
 
 **Primary:** Memora official FAMA on relevant tasks, evaluated using official scripts and recorded settings; paired stale-fact error counts where supported.
