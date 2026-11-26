@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "source_commit": "43a80f9",
+  "analysis": {
+    "budgets": [
+      0,
+      10,
+      25,
+      50,
+      100
+    ],
+    "horizons": [
+      40,
+      60,
+      100,
+      140,
+      200
+    ],
+    "primary_seed": 7,
+    "b4_seeds": [
+      7,
+      23,
+      41,
+      61,
+      83
+    ],
+    "bootstrap_seed": 9001,
+    "bootstrap_draws": 2000,
+    "step30_methods": [
+      "B0",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "H-paced",
+      "T1",
+      "T1-no-NLI",
+      "T2"
+    ],
+    "step31_fixed": [
+      "B3",
+      "B5",
+      "T1",
+      "T1-no-NLI",
+      "T2",
+      "H-paced",
+      "T2-no-NLI"
+    ],
+    "step31_baselines": [
+      "B3",
+      "B5",
+      "T1",
+      "T1-no-NLI"
+    ],
+    "step31_paced": [
+      "T2",
+      "H-paced",
+      "T2-no-NLI"
+    ],
+    "contrasts30": {
+      "T2 minus H-paced": {
+        "T2": 1,
+        "H-paced": -1
+      },
+      "T1 minus T1-no-NLI": {
+        "T1": 1,
+        "T1-no-NLI": -1
+      },
+      "T2 minus B4": {
+        "T2": 1,
+        "B4": -1
+      },
+      "T1 minus B5": {
+        "T1": 1,
+        "B5": -1
+      }
+    },
+    "contrasts31": {
+      "T2 minus B3": {
+        "T2": 1,
+        "B3": -1
+      },
+      "T2 minus H-paced": {
+        "T2": 1,
+        "H-paced": -1
+      },
+      "T2 minus T1": {
+        "T2": 1,
+        "T1": -1
+      },
+      "T2 minus T2-no-NLI": {
+        "T2": 1,
+        "T2-no-NLI": -1
+      },
+      "T1 minus T1-no-NLI": {
+        "T1": 1,
+        "T1-no-NLI": -1
+      },
+      "Score by pacing interaction": {
+        "T2": 1,
+        "T2-no-NLI": -1,
+        "T1": -1,
+        "T1-no-NLI": 1
+      }
+    }
+  },
+  "provenance": {
+    "sources": {
+      "step30": {
+        "report_sha256": "194c0638a1de7d4b61180c971ff6a840ff9552518af9062bd95f09ae31154f7a",
+        "config_sha256": "8f9d96c0cd5ac5529af475a278232ee79c2718a031d4b3f1a30cc3f15ebaca77",
+        "published_aggregate_sha256": "e327452dc93bac24750d7b84121ce701c9e96765d50cb9afe8e149dd3cf29d7b"
+      },
+      "step31": {
+        "report_sha256": "fae2047d76cad3e5ad00f2d5e8f16968791ad48ab35619a6d29cc9d7dd1c710e",
+        "config_sha256": "19fdce50d9e7697f54cac361ce7fe2c6622472e3d69f6fdb5834588ef0635203",
+        "published_aggregate_sha256": "3d84a5042274c14b1814d4f94e8715589f308265e7f9a595e5199451eb494e95"
+      }
+    },
+    "spending": {
+      "30": {
+        "logical_calls": 16489,
+        "fresh_verifier_calls": 814,
+        "fresh_input_tokens": 233459,
+        "fresh_output_tokens": 9537,
+        "logical_input_tokens": null,
+        "logical_output_tokens": null,
+        "exact_cached_verdict_uses": 15675
+      },
+      "31": {
+        "logical_calls": 20450,
+        "fresh_verifier_calls": 0,
+        "fresh_input_tokens": 0,
+        "fresh_output_tokens": 0,
+        "logical_input_tokens": 5877405,
+        "logical_output_tokens": 234847,
+        "exact_cached_verdict_uses": 20450
+      }
+    },
+    "cohort_sha256": "78a08b1a863ed34e8b28df200543ea80687f4083ae16cdadcb1f9f55adb72ad0",
+    "generator_seed": 61843,
+    "controller_sha256": {
+      "full.json": "8d4ea8e16f3662a1d47d046cd47101a39618aa83b2bb49a2719cc9150394c60e",
+      "no_nli.json": "ec04915d5872d12b4945f7f5fa42a60fcc7c1c852b1fb02f0a8d10314165b9cc"
+    },
+    "inference_model_ids": {
+      "qwen": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+      "minilm": "c9745ed1d9f207416be6d2e6f8de32d1f16199bf",
+      "nli": "a150876415327c80daeff35ca6f68f5ed8cf5c24"
+    },
+    "settings": {
+      "context_tokens": 4096,
+      "max_input_tokens": 4096,
+      "max_output_tokens": 256,
+      "retries": 0,
+      "seed": 23,
+      "timeout": 120
+    },
+    "controller_fit_manifest_sha256": "f34e474b883fef6e2d5dd84ebbf729d91e9c3edd9d4dffca5f8abf046ac4f737",
+    "step34_figure_sha256": {
+      "budget-reversal.pdf": "f3941fb3e40d56e16c40de37b1dde04b71b7c137644808e2dc5a2422dbb9140a",
+      "budget-reversal.svg": "7ec6db056e6321e2dadd455958e3791e5fa8e5d5afb718aad79070a546286cc0",
+      "horizon-sensitivity.pdf": "650117abdc2838842dd276936adacc2c1aa53c2ccc39e03fb0d28f4f3f7b8aea",
+      "horizon-sensitivity.svg": "c41a6c9683ec26ccd91368eb41837dcbb61fa585dc25729d184df089d9c9ab89"
+    }
+  }
+}

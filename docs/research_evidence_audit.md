@@ -4,6 +4,8 @@ This consolidation covers the tracked repository through Step 33, the experiment
 
 [Chronological inventory](../research/tables/experiment-inventory.csv) · [Claim-to-evidence matrix](research_claim_matrix.csv) · [Reproducibility checklist](reproducibility_checklist.md)
 
+The [Step 35 public release](../reproducibility/README.md) reproduces these calculations from numeric observations with anonymous history and family IDs. It does not expand the evidence base or independently validate the underlying model responses.
+
 ## Evidence hierarchy
 
 - **Software verification.** Replay ordering, schema validation, budget ceilings, leakage guards, deletion projection and cache invalidation tests support specified implementation invariants. They provide neither effect estimates nor external performance evidence. Earlier smoke and provider checks are explicitly classified in the inventory.
