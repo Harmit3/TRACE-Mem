@@ -76,6 +76,25 @@ class HTTPTests(unittest.TestCase):
     def test_local_ai_disabled(self):
         q={'question':'hello','date':date.today().isoformat(),'budget':4000,'mode':'ollama'}
         self.assertEqual(self.req('POST','/api/ask',q)[0],400)
+    def test_forget_revokes_old_proposal_and_regeneration_source(self):
+        from contextlib import closing
+
+        status, body = self.req("POST", "/api/chats/new", {})
+        self.assertEqual(status, 200)
+        chat = json.loads(body)["chat"]
+        with closing(self.srv.chats.connect()) as db, db:
+            turn = db.execute(
+                "INSERT INTO turns(chat,question,answer) VALUES(?,?,?)",
+                (chat, "I live in fictional Oak Bay.", "Understood."),
+            ).lastrowid
+        proposal = dict(chat=chat, turn=turn, key="residence", value="Oak Bay", date="2025-01-01")
+        self.assertEqual(self.req("POST", "/api/proposal", proposal)[0], 200)
+        self.assertEqual(self.req("POST", "/api/forget", {"key":"residence"})[0], 200)
+        self.assertEqual(self.req("POST", "/api/proposal", proposal)[0], 400)
+        with closing(self.srv.chats.connect()) as db:
+            self.assertEqual(db.execute("SELECT count(*) FROM turns WHERE permitted").fetchone(), (0,))
+        self.assertEqual(self.srv.store.snapshot(date.today()), [])
+
     def test_reject_invalid_body(self):
         self.assertEqual(self.req('POST','/api/save',{'key':'x','value':'y','date':'not-a-date'})[0],400)
     def test_local_ai_mock(self):

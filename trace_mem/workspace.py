@@ -12,6 +12,7 @@ import webbrowser
 from urllib.request import Request, build_opener, ProxyHandler, HTTPRedirectHandler
 from urllib.error import URLError
 from uuid import uuid4
+from trace_mem.workspace_chat import Chats, discover
 from trace_mem.memory import TemporalMemory, Fact, Source
 
 ROOT = Path(__file__).resolve().parent
@@ -58,7 +59,7 @@ class Store:
         finally:
             if tmp.exists(): tmp.unlink()
         self.rows=rows
-    def save(self,key,value,start,pin=False,*,replaces=None):
+    def save(self,key,value,start,pin=False,*,replaces=None,origin=None):
         key=normalize(key); start=day(start).isoformat()
         if not isinstance(value,str) or not value.strip() or len(value)>2000: raise ValueError('Memory must be 1-2,000 characters.')
         if type(pin) is not bool: raise ValueError('Pin must be boolean.')
@@ -81,7 +82,7 @@ class Store:
             elif replaces is not None:
                 raise ValueError('This memory was removed. Refresh before editing.')
             if len(rows)>=MAX_ROWS: raise ValueError('Workspace is full; forget a label before adding more.')
-            rows.append(dict(id=uuid4().hex,key=key,value=value.strip(),start=start,end=None,observed=date.today().isoformat(),pin=pin))
+            rows.append(dict(id=uuid4().hex,key=key,value=value.strip(),start=start,end=None,observed=date.today().isoformat(),pin=pin,origin=origin))
             self.persist(rows)
     def forget(self,key):
         key=normalize(key)
@@ -142,6 +143,7 @@ class Handler(BaseHTTPRequestHandler):
         static={'/':('index.html','text/html'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
         if self.path in static:
             name,kind=static[self.path]; return self.respond(200,(ROOT/'workspace_web'/name).read_bytes(),kind)
+        if self.path=='/api/models': return self.respond(200,{'models':discover(self.server.opener)})
         if self.path=='/api/session': return self.respond(200,{'token':self.server.token,'today':date.today().isoformat(),'model':self.server.model})
         return self.respond(404,{'error':'Not found.'})
     def do_POST(self):
@@ -151,9 +153,42 @@ class Handler(BaseHTTPRequestHandler):
             if not 0<n<=MAX_BODY or self.headers.get('Content-Type')!='application/json': raise ValueError('Invalid request body.')
             p=json.loads(self.rfile.read(n)); s=self.server.store
             if not isinstance(p,dict): raise ValueError('Expected an object.')
+            if self.path.startswith('/api/chats/'):
+                with s.lock:
+                    return self.respond(200,self.server.chats.action(self.path.split('/')[-1],p))
+            if self.path=='/api/stream':
+                self.send_response(200)
+                self.send_header('Content-Type','application/x-ndjson')
+                self.send_header('Cache-Control','no-store')
+                self.end_headers()
+                def emit(row):
+                    self.wfile.write(json.dumps(row).encode()+b'\n')
+                    self.wfile.flush()
+                try:
+                    with s.lock:
+                        summary=self.server.chats.generate(p,s,self.server.opener,emit,day(p['date']))
+                        emit(summary)
+                except (BrokenPipeError, ConnectionResetError):
+                    pass
+                except (OSError,ValueError,KeyError,TypeError) as error:
+                    emit({'error': str(error)})
+                return
+            if self.path=='/api/proposal':
+                from contextlib import closing
+                with s.lock, closing(self.server.chats.connect()) as db:
+                    source=db.execute('SELECT 1 FROM turns WHERE chat=? AND id=? AND permitted',(p['chat'],p['turn'])).fetchone()
+                    if not source: raise ValueError('This source is no longer available for memory.')
+                    s.save(p['key'],p['value'],p['date'],origin=f"{p['chat']}/{p['turn']}")
+                return self.respond(200,{'ok':True})
             if self.path=='/api/save': s.save(p['key'],p['value'],p['date'],p.get('pin',False),replaces=p.get('replaces')); result={'ok':True}
-            elif self.path=='/api/forget': result={'removed':s.forget(p['key'])}
-            elif self.path=='/api/clear': s.clear(); result={'ok':True}
+            elif self.path=='/api/forget':
+                with s.lock:
+                    self.server.chats.invalidate()
+                    result={'removed':s.forget(p['key'])}
+            elif self.path=='/api/clear':
+                with s.lock:
+                    self.server.chats.invalidate()
+                    s.clear(); result={'ok':True}
             elif self.path=='/api/list': result={'facts':s.snapshot(day(p['date']))}
             elif self.path=='/api/ask':
                 q=p['question']; mode=p.get('mode','memory'); d=day(p['date'])
@@ -172,7 +207,10 @@ class Handler(BaseHTTPRequestHandler):
         except OSError: return self.respond(500,{'error':'Could not read or write local memory.'})
 
 def server(path,port=8770,model=''):
-    srv=ThreadingHTTPServer(('127.0.0.1',port),Handler); srv.store=Store(path); srv.token=secrets.token_urlsafe(32); srv.model=model; return srv
+    srv=ThreadingHTTPServer(('127.0.0.1',port),Handler); srv.store=Store(path); srv.token=secrets.token_urlsafe(32); srv.model=model
+    srv.opener=build_opener(ProxyHandler({}),NoRedirect())
+    srv.chats=Chats(Path(path).with_suffix('.chats.sqlite3'))
+    return srv
 
 def main():
     p=argparse.ArgumentParser(description=__doc__); p.add_argument('--port',type=int,default=8770); p.add_argument('--model',default='',help='Explicitly enable an installed local Ollama model'); p.add_argument('--data',type=Path,default=Path.home()/'.trace-mem-workspace'/'memory.json'); p.add_argument('--open-browser', action='store_true'); a=p.parse_args()

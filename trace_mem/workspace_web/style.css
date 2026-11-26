@@ -14,3 +14,4 @@
 }
 [data-theme="light"] :is(label, .memory p, .warning, .danger, .msg.error) { color: #394b64; }
 [data-theme="light"] .msg.user, [data-theme="light"] .primary { background: #d7f3e9; }
+details{margin:16px 0}summary{cursor:pointer}details label{margin-top:10px}#chats{width:100%;margin:8px 0}pre{overflow:auto;padding:12px;background:var(--panel);border-radius:8px}#evidence{white-space:pre-line}

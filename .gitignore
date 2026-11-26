@@ -15,3 +15,5 @@ __pycache__/
 *.db-*
 *.pem
 *.key
+/memory.json
+/memory.json.tmp

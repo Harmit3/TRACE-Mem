@@ -13,7 +13,7 @@ $('seed').onclick=async()=>{try{const current=await api('list',{date:session.tod
 $('new').onclick=reset;$('asof').onchange=()=>{reset();refresh().catch(e=>notice(e.message));};$('budget').oninput=()=>{$('budgetval').textContent=Number($('budget').value).toLocaleString()+' chars';};
 document.querySelectorAll('[data-prompt]').forEach(b=>b.onclick=()=>{$('question').value=b.dataset.prompt;$('question').focus();});
 $('ask').onsubmit=async e=>{e.preventDefault();if(busy||!session)return;const q=$('question').value.trim();if(!q)return;const g=generation;busy=true;$('send').disabled=true;const welcome=$('messages').querySelector('.welcome');if(welcome)welcome.remove();message('You',q,'user');$('question').value='';try{const budget=Number($('budget').value);const r=await api('ask',{question:q,date:$('asof').value,budget,mode:$('mode').value});if(g!==generation)return;message(r.mode==='ollama'?'Local AI · unverified':'Memory lookup',r.answer);$('usage').textContent=r.used.toLocaleString()+' / '+budget.toLocaleString();$('meter').max=budget;$('meter').value=r.used;$('retrieved').textContent=r.evidence.length+' / '+r.available;$('evidence').replaceChildren();for(const f of r.evidence){const c=node('div','','memory');c.append(node('b',f.label),node('p',f.value),node('small','Effective '+f.valid_from));$('evidence').append(c);}if(!r.evidence.length)$('evidence').textContent='No matching evidence.';}catch(e){if(g===generation)message('Workspace',e.message,'error');}finally{busy=false;$('send').disabled=false;}};
-(async()=>{try{const r=await fetch('/api/session');if(!r.ok)throw Error('Connection failed');session=await r.json();for(const id of ['effective','asof']){$(id).value=session.today;$(id).max=session.today;}if(session.model){$('mode').options[1].disabled=false;$('mode').options[1].textContent='Local AI · '+session.model;}$('status').textContent='● Local workspace';await refresh();}catch(e){$('status').textContent='Disconnected';notice(e.message);}})();
+(async()=>{try{const r=await fetch('/api/session');if(!r.ok)throw Error('Connection failed');session=await r.json();for(const id of ['effective','asof']){$(id).value=session.today;$(id).max=session.today;}if(session.model){$('mode').options[1].disabled=false;$('mode').options[1].textContent='Local AI · '+session.model;}$('status').textContent='● Local workspace';await refresh();await initAssistant();}catch(e){$('status').textContent='Disconnected';notice(e.message);}})();
 
 $('key').addEventListener('input', () => { replaces = null; });
 const theme = $('theme');
@@ -24,3 +24,87 @@ theme.addEventListener('change', () => {
     applyTheme();
 });
 applyTheme();
+let chat = null, controller = null;
+async function listChats() {
+    const {chats} = await api('chats/search', {query: $('search').value});
+    $('chats').replaceChildren(...chats.map(([id,title]) => new Option(title,id)));
+    $('chats').value = chat || '';
+}
+function formatted(el, text) {
+    el.replaceChildren();
+    for (const [i,part] of text.split('```').entries()) {
+        if (i % 2) {
+            const code = part.replace(/^[\w+#.-]*\n/, '');
+            el.append(node('pre',code),button('Copy code',()=>navigator.clipboard.writeText(code)));
+        } else {
+            for (const line of part.split('\n')) {
+                const block = node(/^#{1,6} /.test(line)?'strong':'div','');
+                for (const [j,span] of line.replace(/^#{1,6} /,'').split(/(\*\*.*?\*\*|`[^`]*`)/).entries()) {
+                    block.append(j%2 ? node(span.startsWith('`')?'code':'strong',span.startsWith('`')?span.slice(1,-1):span.slice(2,-2)) : document.createTextNode(span));
+                }
+                el.append(block);
+            }
+        }
+    }
+    el.append(button('Copy answer',()=>navigator.clipboard.writeText(text)));
+}
+async function openChat(id) {
+    controller?.abort();
+    chat=id; reset(); $('messages').replaceChildren();
+    const {turns}=await api('chats/history',{chat:id});
+    if(chat!==id)return;
+    for(const [q,a] of turns){message('You',q,'user');message('Assistant','');formatted($('messages').lastChild.lastChild,a);}
+}
+function guarded(fn){return async()=>{try{await fn();}catch(e){notice(e.message);}};}
+$('new').onclick=guarded(async()=>{chat=(await api('chats/new',{})).chat;await openChat(chat);await listChats();});
+$('chats').onchange=guarded(()=>openChat($('chats').value));
+$('search').oninput=guarded(listChats);
+$('rename').onclick=guarded(async()=>{const title=prompt('Conversation title');if(title&&chat){await api('chats/rename',{chat,title});await listChats();}});
+$('remove').onclick=guarded(async()=>{if(chat&&confirm('Delete this transcript? Confirmed memories are managed separately.')){controller?.abort();await api('chats/remove',{chat});chat=null;reset();await listChats();}});
+$('stop').onclick=()=>controller?.abort();
+const offlineAsk=$('ask').onsubmit;
+async function stream(regenerate){
+    if(controller)return;
+    const question=$('question').value.trim();
+    if(!regenerate&&!question)return;
+    controller=new AbortController();$('stop').disabled=false;$('send').disabled=true;
+    try{
+        if(!chat){chat=(await api('chats/new',{})).chat;$('messages').replaceChildren();await listChats();}
+        if(regenerate){const previous=$('messages').lastChild;if(previous?.classList.contains('msg'))previous.remove();}
+        if(!regenerate){message('You',question,'user');$('question').value='';}
+        message('Assistant','Waiting for local model…');
+        const el=$('messages').lastChild.lastChild;
+        const response=await fetch('/api/stream',{method:'POST',signal:controller.signal,headers:{'Content-Type':'application/json','X-Workspace-Token':session.token},body:JSON.stringify({chat,question,regenerate,verification:Number($('verification').value),model:$('models').value,temperature:Number($('temperature').value),output:Number($('output').value),budget:Number($('budget').value),date:$('asof').value})});
+        const reader=response.body.pipeThrough(new TextDecoderStream()).getReader();
+        let buffer='',answer='',done=false;
+        while(true){
+            const part=await reader.read();if(part.done)break;
+            buffer+=part.value;let end;
+            while((end=buffer.indexOf('\n'))>=0){
+                const row=JSON.parse(buffer.slice(0,end));buffer=buffer.slice(end+1);
+                if(row.error)throw Error(row.error);
+                if(row.text){answer+=row.text;el.textContent=answer;}
+                if(row.done){
+                    done=true;formatted(el,answer);
+                    $('usage').textContent=row.prompt+' input / '+row.output+' output tokens';
+                    $('retrieved').textContent=row.evidence.length+' memories · '+row.history+' earlier turns';
+                    $('meter').max=4096;$('meter').value=row.prompt;
+                    $('evidence').textContent=row.evidence.map(r=>r.label+' · '+r.value+' ('+r.reason+', '+JSON.stringify(r).length+' JSON characters)').join('\n')||'No matching evidence.';
+                    if(row.proposal){const p=row.proposal;el.append(button('Review '+p.intent+' · '+p.key,guarded(async()=>{const value=prompt(p.review+' Confirm or edit this '+p.intent+' proposal.',p.value);if(value){await api('proposal',{...p,value,date:session.today});await refresh();notice('Memory confirmed.');}})));}
+                }
+            }
+        }
+        if(!done)throw Error('Incomplete response. Check Ollama and retry.');
+        await listChats();
+    }catch(e){const last=$('messages').lastChild; if(last?.querySelector('small')?.textContent==='Assistant') last.append(node('small',e.name==='AbortError'?'Stopped':'Response incomplete'));notice(e.name==='AbortError'?'Generation stopped.':e.message);}
+    finally{controller=null;$('stop').disabled=true;$('send').disabled=false;}
+}
+$('ask').onsubmit=e=>{if($('mode').value==='memory')return offlineAsk(e);e.preventDefault();stream(false);};
+$('retry').onclick=()=>stream(true);
+async function initAssistant(){
+    const models=(await (await fetch('/api/models')).json()).models;
+    $('models').replaceChildren(...models.map(m=>new Option(m,m)));
+    if(models.length){$('models').value=models.find(m=>m.startsWith('qwen2.5:7b'))||models[0];$('mode').options[1].disabled=false;$('mode').value='ollama';}
+    else notice('Offline lookup ready. Start Ollama with a local model and reload for chat.');
+    await listChats();if($('chats').options.length)await openChat($('chats').options[0].value);
+}
