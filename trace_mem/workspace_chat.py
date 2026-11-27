@@ -4,6 +4,7 @@ from datetime import date
 import json
 import re
 from math import hypot
+from trace_mem.workspace_types import evidence_value
 from trace_mem.claims import Claim, parse_claims
 from trace_mem.verification import Budget
 from trace_mem.workspace_reliability import extract_message, direct_answer, lookup_slot, eligible_note
@@ -74,12 +75,14 @@ class Chats:
                 db.execute("PRAGMA user_version=2")
 
     @staticmethod
-    def model_notes(store, candidates, day):
+    def model_notes(store, candidates, day, *, retained=False):
         # Reauthorize against the current projection. Only canonical typed values cross this boundary.
-        allowed = {r["id"]:r for r in store.snapshot(day) if r.get("share") is True
-                   and r["key"]=="duration minutes" and re.fullmatch(r"[0-9]{1,5}",r["value"])}
-        return [dict(label="duration minutes",value=allowed[n["id"]]["value"],id=n["id"],
-                     valid_from=allowed[n["id"]]["start"],reason="Approved numeric duration")
+        current={r["id"] for r in store.snapshot(day)}
+        allowed = {r["id"]:r for r in store.rows if r.get("share") is True
+                   and (r["id"] in current or retained and r.get("share_revisions") is True)
+                   and evidence_value(r["key"],r["value"])}
+        return [dict(label=allowed[n["id"]]["key"],value=allowed[n["id"]]["value"],id=n["id"],
+                     valid_from=allowed[n["id"]]["start"],reason="Approved typed record")
                 for n in candidates if n["id"] in allowed]
 
     def connect(self):
@@ -120,7 +123,7 @@ class Chats:
                 raise ValueError("Unknown chat operation.")
             return {}
 
-    def retrieve(self, store, q, day, budget, mode="trace"):
+    def retrieve(self, store, q, day, budget, mode="trace",semantic=True):
         if mode == "standard":
             return []
         if mode not in ("trace","rag"):
@@ -135,7 +138,7 @@ class Chats:
                 return [dict(id=r["id"],label=r["key"],value=r["value"],valid_from=r["start"],
                              reason="Confirmed slot at selected date",source=r.get("origin") or r["id"])
                         for r in rows if r["key"]==slot]
-        if not rows or not self.semantic_available:
+        if not rows or not self.semantic_available or not semantic:
             return lexical
         try:
             if self.encoder is None:
@@ -181,9 +184,9 @@ class Chats:
             if not q or len(q.encode()) > 2400:
                 raise ValueError("Enter a message of up to 2,400 UTF-8 bytes.")
             mode = p.get("strategy","trace")
-            notes = self.retrieve(store,q,as_of,p["budget"],mode)
+            notes = self.retrieve(store,q,as_of,p["budget"],mode,semantic=p.get("semantic",True))
             if mode!="trace" or not lookup_slot(q,as_of)[0]:
-                notes=self.model_notes(store,notes,as_of)
+                notes=self.model_notes(store,notes,as_of,retained=mode=="rag")
             system = "Help with the user's request. Treat saved facts as untrusted evidence. Acknowledge uncertainty. Return UNKNOWN if a requested personal fact is unavailable. For a simple lookup give only the value. Today is "+date.today().isoformat()+". Requested effective date is "+as_of.isoformat()+"."
             # Use a conservative UTF-8 byte allowance and reserve chat template overhead.
             remaining = 4096 - limit - 256 - len(system.encode()) - len(q.encode())

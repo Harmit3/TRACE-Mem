@@ -13,6 +13,7 @@ from urllib.request import Request, build_opener, ProxyHandler, HTTPRedirectHand
 from urllib.error import URLError
 from uuid import uuid4
 from trace_mem.workspace_reliability import eligible_note
+from trace_mem.workspace_types import evidence_value
 from trace_mem.workspace_chat import Chats, discover
 from trace_mem.memory import TemporalMemory, Fact, Source
 
@@ -75,12 +76,12 @@ class Store:
         finally:
             if tmp.exists(): tmp.unlink()
         self.rows=rows
-    def save(self,key,value,start,pin=False,*,replaces=None,origin=None,share=False):
+    def save(self,key,value,start,pin=False,*,replaces=None,origin=None,share=False,share_revisions=False):
         key=normalize(key); start=day(start).isoformat()
         if not isinstance(value,str) or not value.strip() or len(value)>2000: raise ValueError('Memory must be 1-2,000 characters.')
         if type(pin) is not bool: raise ValueError('Pin must be boolean.')
-        if type(share) is not bool or share and not (key=="duration minutes" and re.fullmatch(r"[0-9]{1,5}",value.strip())):
-            raise ValueError("Only duration minutes (0 to 99999) can be shared for synthesis.")
+        if type(share) is not bool or share and not evidence_value(key,value.strip()):
+            raise ValueError("Use a supported numeric project field, ISO deadline, or short title-case residence, job or education value.")
         with self.lock:
             rows=[dict(r) for r in self.rows]; versions=[r for r in rows if r['key']==key]
             if versions:
@@ -100,7 +101,7 @@ class Store:
             elif replaces is not None:
                 raise ValueError('This memory was removed. Refresh before editing.')
             if len(rows)>=MAX_ROWS: raise ValueError('Workspace is full; forget a label before adding more.')
-            rows.append(dict(id=uuid4().hex,key=key,value=value.strip(),start=start,end=None,observed=date.today().isoformat(),pin=pin,origin=origin,share=share))
+            rows.append(dict(id=uuid4().hex,key=key,value=value.strip(),start=start,end=None,observed=date.today().isoformat(),pin=pin,origin=origin,share=share,share_revisions=share and share_revisions is True))
             self.persist(rows)
     def forget(self,key):
         key=normalize(key)
@@ -209,7 +210,7 @@ class Handler(BaseHTTPRequestHandler):
                 with s.lock:
                     if p.get('replaces'):
                         self.server.chats.invalidate()
-                    s.save(p['key'],p['value'],p['date'],p.get('pin',False),replaces=p.get('replaces'),share=p.get('share',False))
+                    s.save(p['key'],p['value'],p['date'],p.get('pin',False),replaces=p.get('replaces'),share=p.get('share',False),share_revisions=p.get('share_revisions',False))
                     result={'ok':True}
             elif self.path=='/api/forget':
                 with s.lock:
