@@ -24,3 +24,7 @@ The Edge smoke passed with Qwen selected. The first request used 40 input and 48
 ## Comparing memory modes
 
 Select **AI memory** with local generation enabled. Standard uses recent history. Conventional RAG searches surviving saved versions across effective dates. TRACE-Mem applies effective-time eligibility and can offer reviewed structured proposals. Forgetting a label covers every retrieval mode. Open **Comparative evaluation** below the workspace for recorded live outcomes and the deterministic conflict check. [Step 40 report](../research/workspace40/report.md)
+
+## Reviewed acquisition and grounded answers
+
+Workspace can propose several facts from one statement. Review each value, source turn, effective date and intent. Explicit correction requires a separate confirmation. Forgetting and corrections make earlier transcript turns ineligible for future context. A correction keeps earlier permitted fact versions for historical lookup. For a simple historical question, select the matching effective date. The inspector identifies the source used for a direct answer. More complex requests use local model generation. Open the Step 40B dashboard below the original comparison for the new measurements. [Step 40B report and beta limitations](../research/workspace40b/report.md)

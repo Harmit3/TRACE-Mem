@@ -57,10 +57,10 @@ def extract_message(text, observed, opener, model):
                 claims.append(Claim(slot,match[1],intent,when))
                 break
         else:
-            unresolved.append(part)
+            unresolved.append((part,when,intent))
     if not unresolved:
         return claims,usage
-    source = ". ".join(unresolved)
+    source = ". ".join(part for part,_,_ in unresolved)
     schema = {"type":"object","required":["claims"],"properties":{"claims":{"type":"array",
         "maxItems":4,"items":{"type":"object","required":["predicate","value","intent"],
         "properties":{"predicate":{"enum":list(PATTERNS)},"value":{"type":"string"},
@@ -80,11 +80,24 @@ def extract_message(text, observed, opener, model):
             raise ValueError("Invalid claim structure")
         for c in parse_claims(json.dumps(rows),observed):
             if c.predicate in PATTERNS and c.intent in {"assert","uncertain","correct"} and c.value.casefold() in source.casefold():
-                claims.append(c)
+                matches=[(when,status) for part,when,status in unresolved if c.value.casefold() in part.casefold()]
+                if len(matches)==1:
+                    when,status=matches[0]
+                    claims.append(Claim(c.predicate,c.value,"correct" if status=="correct" and c.intent=="assert" else c.intent,when))
     except (ValueError,TypeError,KeyError,OSError) as exc:
         usage["error"]=type(exc).__name__
     usage["seconds"]=perf_counter()-start
     return claims,usage
+
+
+# Reviewed notes can still contain instructions directed at a model.
+# This narrow projection guard complements user review; it is not a semantic classifier.
+DIRECTIVE = re.compile(r"\b(?:ignore|disregard|override)\b.{0,64}\b(?:instruction|prompt|rule)s?\b|"
+                       r"\b(?:system prompt|developer message|reply with|output exactly)\b",re.I|re.S)
+
+
+def eligible_note(note):
+    return not any(DIRECTIVE.search(str(note.get(key,""))) for key in ("label","value"))
 
 
 def lookup_slot(question, as_of):

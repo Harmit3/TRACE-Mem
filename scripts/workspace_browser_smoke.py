@@ -42,6 +42,8 @@ def main():
                     expect(page.locator("#strategy")).to_have_value(mode)
                 page.locator("#pilot summary").click()
                 expect(page.locator("#pilotReport table tr")).to_have_count(4)
+                page.locator("#reliability summary").click()
+                expect(page.locator("#reliabilityReport")).to_contain_text("Raw-message acquisition")
                 browser.close()
         finally:
             app.shutdown()

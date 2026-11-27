@@ -6,7 +6,7 @@ import re
 from math import hypot
 from trace_mem.claims import Claim, parse_claims
 from trace_mem.verification import Budget
-from trace_mem.workspace_reliability import extract_message, direct_answer, lookup_slot
+from trace_mem.workspace_reliability import extract_message, direct_answer, lookup_slot, eligible_note
 from time import perf_counter
 import sqlite3
 from uuid import uuid4
@@ -173,6 +173,8 @@ class Chats:
             remaining = 4096 - limit - 256 - len(system.encode()) - len(q.encode())
             selected = []
             for note in notes:
+                if not eligible_note(note):
+                    continue
                 cost = len(json.dumps(note).encode()) + 4
                 if cost <= remaining and len(json.dumps(selected+[note])) <= p["budget"]:
                     selected.append(note)
@@ -244,6 +246,6 @@ class Chats:
                                 return json.loads(json.load(reply)["message"]["content"])["verdict"]
                         verdict = allowance.call(verify,claim,current[0])
                         review += " Local verifier: "+verdict+"."
-                proposals.append(dict(date=claim.effective_on.isoformat(),review=review,calls=allowance.attempts,key=claim.predicate,value=claim.value,intent=claim.intent,turn=turn,chat=chat))
+                proposals.append(dict(target=current[0].fact_id if current and claim.intent=="correct" else None,date=claim.effective_on.isoformat(),review=review,calls=allowance.attempts,key=claim.predicate,value=claim.value,intent=claim.intent,turn=turn,chat=chat))
             return dict(strategy=mode,extraction=extraction,proposal=next(iter(proposals),None),proposals=proposals,reader_reason=reason,done=True, evidence=selected, prompt=item.get("prompt_eval_count"),
                         output=item.get("eval_count"),history=len(history)//2)

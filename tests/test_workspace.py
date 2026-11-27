@@ -95,6 +95,24 @@ class HTTPTests(unittest.TestCase):
             self.assertEqual(db.execute("SELECT count(*) FROM turns WHERE permitted").fetchone(), (0,))
         self.assertEqual(self.srv.store.snapshot(date.today()), [])
 
+    def test_correction_invalidates_prior_turns_after_restart(self):
+        from contextlib import closing
+        from trace_mem.workspace_chat import Chats
+
+        chat = json.loads(self.req("POST","/api/chats/new",{})[1])["chat"]
+        with closing(self.srv.chats.connect()) as db, db:
+            turn=db.execute("INSERT INTO turns(chat,question,answer) VALUES(?,?,?)",
+                            (chat,"My office is Alder","Saved")).lastrowid
+        proposal=dict(chat=chat,turn=turn,key="office",value="Alder",date="2025-01-01")
+        self.assertEqual(self.req("POST","/api/proposal",proposal)[0],200)
+        revision=dict(key="office",value="Juniper",date="2025-01-02",replaces=self.srv.store.rows[0]["id"])
+        self.assertEqual(self.req("POST","/api/save",revision)[0],200)
+        self.assertEqual(self.req("POST","/api/proposal",proposal)[0],400)
+        with closing(Chats(self.srv.chats.path).connect()) as db:
+            self.assertEqual(db.execute("SELECT count(*) FROM turns WHERE permitted").fetchone()[0],0)
+        self.assertEqual(self.srv.store.snapshot(date(2025,1,1))[0]["value"],"Alder")
+        self.assertEqual(self.srv.store.snapshot(date.today())[0]["value"],"Juniper")
+
     def test_reject_invalid_body(self):
         self.assertEqual(self.req('POST','/api/save',{'key':'x','value':'y','date':'not-a-date'})[0],400)
     def test_local_ai_mock(self):

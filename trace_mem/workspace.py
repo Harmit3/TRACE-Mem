@@ -12,6 +12,7 @@ import webbrowser
 from urllib.request import Request, build_opener, ProxyHandler, HTTPRedirectHandler
 from urllib.error import URLError
 from uuid import uuid4
+from trace_mem.workspace_reliability import eligible_note
 from trace_mem.workspace_chat import Chats, discover
 from trace_mem.memory import TemporalMemory, Fact, Source
 
@@ -141,8 +142,9 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if not self.host_ok(): return self.respond(403,{'error':'Invalid host.'})
         static={'/':('index.html','text/html'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
-        if self.path=='/api/pilot':
-            report=ROOT.parent/'research/workspace40/results.json'
+        if self.path in ('/api/pilot','/api/reliability-pilot'):
+            study='workspace40b' if self.path=='/api/reliability-pilot' else 'workspace40'
+            report=ROOT.parent/'research'/study/'results.json'
             if not report.is_file(): return self.respond(404,{'error':'Pilot results unavailable.'})
             return self.respond(200,json.loads(report.read_text(encoding='utf-8')))
         if self.path in static:
@@ -182,7 +184,9 @@ class Handler(BaseHTTPRequestHandler):
                 with s.lock, closing(self.server.chats.connect()) as db:
                     source=db.execute('SELECT 1 FROM turns WHERE chat=? AND id=? AND permitted',(p['chat'],p['turn'])).fetchone()
                     if not source: raise ValueError('This source is no longer available for memory.')
-                    s.save(p['key'],p['value'],p['date'],origin=f"{p['chat']}/{p['turn']}")
+                    if p.get('replaces'):
+                        self.server.chats.invalidate()
+                    s.save(p['key'],p['value'],p['date'],replaces=p.get('replaces'),origin=f"{p['chat']}/{p['turn']}")
                 return self.respond(200,{'ok':True})
             if self.path=='/api/save':
                 with s.lock:
@@ -207,6 +211,7 @@ class Handler(BaseHTTPRequestHandler):
                     evidence,used,count=s.select(q,d,p['budget'])
                     if mode=='ollama':
                         if not self.server.model: raise ValueError('Start the server with --model to enable local AI.')
+                        evidence=[note for note in evidence if eligible_note(note)]
                         answer=generate(self.server.model,q,evidence,d)
                     else: answer='Relevant saved notes:\n'+'\n'.join(x['label']+': '+x['value'] for x in evidence) if evidence else 'No matching saved memory. Try another label or save a note first.'
                 result={'answer':answer,'evidence':evidence,'used':used,'available':count,'mode':mode}

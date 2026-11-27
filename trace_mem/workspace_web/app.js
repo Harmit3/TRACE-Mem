@@ -91,8 +91,8 @@ async function stream(regenerate){
                     $('usage').textContent=row.prompt+' input / '+row.output+' output tokens';
                     $('retrieved').textContent=row.strategy+' · '+row.evidence.length+' memories · '+row.history+' earlier turns';
                     $('meter').max=4096;$('meter').value=row.prompt;
-                    $('evidence').textContent=row.evidence.map(r=>r.label+' · '+r.value+' ('+r.reason+', '+JSON.stringify(r).length+' JSON characters)').join('\n')||'No matching evidence.';
-                    if(row.reader_reason)el.append(node('small',row.reader_reason));for(const p of row.proposals||[]){el.append(node('small','From turn '+p.turn+' · effective '+p.date+' · '+p.intent));el.append(button('Review '+p.intent+' · '+p.key,guarded(async()=>{const value=prompt(p.review+' Confirm or edit this '+p.intent+' proposal.',p.value);if(value){await api('proposal',{...p,value,date:p.date});await refresh();notice('Memory confirmed.');}})));}
+                    $('evidence').textContent=row.evidence.map(r=>r.label+' · '+r.value+' ('+r.reason+' · '+r.valid_from+' · source '+(r.source||r.id)+', '+JSON.stringify(r).length+' JSON characters)').join('\n')||'No matching evidence.';
+                    if(row.reader_reason)el.append(node('small',row.reader_reason));for(const p of row.proposals||[]){el.append(node('small','From turn '+p.turn+' · effective '+p.date+' · '+p.intent));el.append(button('Review '+p.intent+' · '+p.key,guarded(async()=>{const value=prompt(p.review+' Confirm or edit this '+p.intent+' proposal.',p.value);if(value){if(p.target&&!confirm('Replace the confirmed '+p.key+' with this correction?'))return;await api('proposal',{...p,value,date:p.date,replaces:p.target});await refresh();notice('Memory confirmed.');}})));}
                 }
             }
         }
@@ -135,4 +135,26 @@ $('pilot').addEventListener('toggle', async () => {
         for(const r of data.rows.filter(r=>!r.correct))panel.append(node('p',r.mode+' · '+r.query+' — '+(r.answer||r.error)));
         panel.append(node('h3','Deterministic storage check'),node('p','Incorrect overwrites on one unconfirmed conflict: '+data.engineering.incorrect_overwrites));
     } catch(error) { panel.textContent=error.message; }
+});
+$('reliability').addEventListener('toggle', async () => {
+    const panel = $('reliabilityReport');
+    if (!$('reliability').open || panel.childElementCount) return;
+    try {
+        const response = await fetch('/api/reliability-pilot');
+        if (!response.ok) throw Error('Reliability results unavailable.');
+        const data = await response.json();
+        const total = (rows,key) => rows.reduce((n,r)=>n+Number(r[key]||0),0);
+        panel.append(node('h2','Raw-message acquisition and answering'));
+        panel.append(node('p','Internally authored messages with scripted review. '+
+            total(data.extracts,'tp')+' correct proposals, '+total(data.extracts,'fp')+
+            ' extra and '+total(data.extracts,'fn')+' missed.'));
+        for (const mode of ['standard','rag','trace']) {
+            const rows=data.answers.filter(r=>r.mode===mode);
+            const supported=rows.filter(r=>r.supported);
+            panel.append(node('h3',mode),node('p',total(rows,'correct')+'/'+rows.length+
+                ' exact answers · '+total(supported,'correct')+'/'+supported.length+
+                ' with target evidence · '+total(rows,'prompt')+' input and '+
+                total(rows,'output')+' generated tokens.'));
+        }
+    } catch(error) {panel.textContent=error.message;}
 });
