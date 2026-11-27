@@ -1,0 +1,602 @@
+{
+  "extracts": [
+    {
+      "claims": [
+        [
+          "residence",
+          "Sable Vale",
+          "assert"
+        ],
+        [
+          "job",
+          "Tern Forge",
+          "assert"
+        ]
+      ],
+      "saved": [
+        [
+          "residence",
+          "Sable Vale",
+          "assert"
+        ],
+        [
+          "job",
+          "Tern Forge",
+          "assert"
+        ]
+      ],
+      "usage": {
+        "calls": 0,
+        "prompt": 0,
+        "output": 0
+      },
+      "seconds": 0.0051602000603452325,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    },
+    {
+      "claims": [
+        [
+          "education",
+          "Larch Academy",
+          "assert"
+        ]
+      ],
+      "saved": [
+        [
+          "education",
+          "Larch Academy",
+          "assert"
+        ]
+      ],
+      "usage": {
+        "calls": 0,
+        "prompt": 0,
+        "output": 0
+      },
+      "seconds": 0.0020240999292582273,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    },
+    {
+      "claims": [
+        [
+          "goal",
+          "finish Atlas Notes",
+          "assert"
+        ]
+      ],
+      "saved": [
+        [
+          "goal",
+          "finish Atlas Notes",
+          "assert"
+        ]
+      ],
+      "usage": {
+        "calls": 0,
+        "prompt": 0,
+        "output": 0
+      },
+      "seconds": 0.0017884999979287386,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    },
+    {
+      "claims": [
+        [
+          "project",
+          "Copper Loom",
+          "assert"
+        ]
+      ],
+      "saved": [
+        [
+          "project",
+          "Copper Loom",
+          "assert"
+        ]
+      ],
+      "usage": {
+        "calls": 0,
+        "prompt": 0,
+        "output": 0
+      },
+      "seconds": 0.0018890999490395188,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    },
+    {
+      "claims": [
+        [
+          "preference",
+          "jasmine tea",
+          "assert"
+        ]
+      ],
+      "saved": [
+        [
+          "preference",
+          "jasmine tea",
+          "assert"
+        ]
+      ],
+      "usage": {
+        "calls": 0,
+        "prompt": 0,
+        "output": 0
+      },
+      "seconds": 0.001751400064677,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    },
+    {
+      "claims": [
+        [
+          "residence",
+          "Heron Gate",
+          "correct"
+        ]
+      ],
+      "saved": [
+        [
+          "residence",
+          "Heron Gate",
+          "correct"
+        ]
+      ],
+      "usage": {
+        "calls": 0,
+        "prompt": 0,
+        "output": 0
+      },
+      "seconds": 0.00187109992839396,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    },
+    {
+      "claims": [
+        [
+          "residence",
+          "Willow Bend",
+          "uncertain"
+        ]
+      ],
+      "saved": [],
+      "usage": {
+        "calls": 0,
+        "prompt": 0,
+        "output": 0
+      },
+      "seconds": 0.0002535000676289201,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    },
+    {
+      "claims": [
+        [
+          "visit",
+          "Kestrel Port",
+          "assert"
+        ]
+      ],
+      "saved": [
+        [
+          "visit",
+          "Kestrel Port",
+          "assert"
+        ]
+      ],
+      "usage": {
+        "calls": 0,
+        "prompt": 0,
+        "output": 0
+      },
+      "seconds": 0.0019883998902514577,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    },
+    {
+      "claims": [],
+      "saved": [],
+      "usage": {
+        "calls": 0,
+        "prompt": 0,
+        "output": 0
+      },
+      "seconds": 1.5400000847876072e-05,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    },
+    {
+      "claims": [],
+      "saved": [],
+      "usage": {
+        "calls": 1,
+        "prompt": 62,
+        "output": 5,
+        "seconds": 5.973827100009657
+      },
+      "seconds": 5.97387600003276,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    },
+    {
+      "claims": [
+        [
+          "job",
+          "Tern Forge",
+          "assert"
+        ]
+      ],
+      "saved": [],
+      "usage": {
+        "calls": 1,
+        "prompt": 65,
+        "output": 21,
+        "seconds": 1.0349245000397786
+      },
+      "seconds": 1.0349837000248954,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "false_saves": 0
+    }
+  ],
+  "answers": [
+    {
+      "index": 0,
+      "mode": "standard",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 94,
+      "output": 2,
+      "reason": null,
+      "seconds": 5.6704939000774175,
+      "correct": false,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 0,
+      "mode": "rag",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 94,
+      "output": 2,
+      "reason": null,
+      "seconds": 9.128942299983464,
+      "correct": false,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 0,
+      "mode": "trace",
+      "answer": "Heron Gate",
+      "evidence": [
+        "Heron Gate"
+      ],
+      "prompt": 0,
+      "output": 0,
+      "reason": "Confirmed memory effective 2025-04-01",
+      "seconds": 0.031939600012265146,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 1,
+      "mode": "rag",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 106,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.3214894999982789,
+      "correct": false,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 1,
+      "mode": "trace",
+      "answer": "Sable Vale",
+      "evidence": [
+        "Sable Vale"
+      ],
+      "prompt": 0,
+      "output": 0,
+      "reason": "Confirmed memory effective 2025-03-01",
+      "seconds": 0.041670599952340126,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 1,
+      "mode": "standard",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 106,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.16191370005253702,
+      "correct": false,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 2,
+      "mode": "trace",
+      "answer": "Tern Forge",
+      "evidence": [
+        "Tern Forge"
+      ],
+      "prompt": 0,
+      "output": 0,
+      "reason": "Confirmed memory effective 2025-03-01",
+      "seconds": 0.04915079998318106,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 2,
+      "mode": "standard",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 94,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.39629589999094605,
+      "correct": false,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 2,
+      "mode": "rag",
+      "answer": "Tern Forge",
+      "evidence": [
+        "Tern Forge"
+      ],
+      "prompt": 171,
+      "output": 4,
+      "reason": null,
+      "seconds": 0.4306418999331072,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 3,
+      "mode": "standard",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 94,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.25953820010181516,
+      "correct": false,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 3,
+      "mode": "rag",
+      "answer": "Larch Academy",
+      "evidence": [
+        "Larch Academy"
+      ],
+      "prompt": 171,
+      "output": 4,
+      "reason": null,
+      "seconds": 0.3989375999663025,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 3,
+      "mode": "trace",
+      "answer": "Larch Academy",
+      "evidence": [
+        "Larch Academy"
+      ],
+      "prompt": 0,
+      "output": 0,
+      "reason": "Confirmed memory effective 2025-03-02",
+      "seconds": 0.039946199976839125,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 4,
+      "mode": "rag",
+      "answer": "Copper Loom",
+      "evidence": [
+        "Copper Loom"
+      ],
+      "prompt": 171,
+      "output": 5,
+      "reason": null,
+      "seconds": 0.3940643999958411,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 4,
+      "mode": "trace",
+      "answer": "Copper Loom",
+      "evidence": [
+        "Copper Loom"
+      ],
+      "prompt": 0,
+      "output": 0,
+      "reason": "Confirmed memory effective 2025-03-04",
+      "seconds": 0.04136919998563826,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 4,
+      "mode": "standard",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 94,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.30023919988889247,
+      "correct": false,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 5,
+      "mode": "trace",
+      "answer": "finish Atlas Notes",
+      "evidence": [
+        "finish Atlas Notes"
+      ],
+      "prompt": 0,
+      "output": 0,
+      "reason": "Confirmed memory effective 2025-03-03",
+      "seconds": 0.04602300003170967,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 5,
+      "mode": "standard",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 94,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.27520120004191995,
+      "correct": false,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 5,
+      "mode": "rag",
+      "answer": "finish Atlas Notes",
+      "evidence": [
+        "finish Atlas Notes"
+      ],
+      "prompt": 170,
+      "output": 4,
+      "reason": null,
+      "seconds": 0.5000907999929041,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 6,
+      "mode": "standard",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 94,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.2719533999916166,
+      "correct": false,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 6,
+      "mode": "rag",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 94,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.16120560001581907,
+      "correct": false,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 6,
+      "mode": "trace",
+      "answer": "jasmine tea",
+      "evidence": [
+        "jasmine tea"
+      ],
+      "prompt": 0,
+      "output": 0,
+      "reason": "Confirmed memory effective 2025-03-05",
+      "seconds": 0.04271319997496903,
+      "correct": true,
+      "supported": true,
+      "abstained": false
+    },
+    {
+      "index": 7,
+      "mode": "rag",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 95,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.3957594999810681,
+      "correct": true,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 7,
+      "mode": "trace",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 95,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.2453347999835387,
+      "correct": true,
+      "supported": false,
+      "abstained": true
+    },
+    {
+      "index": 7,
+      "mode": "standard",
+      "answer": "UNKNOWN",
+      "evidence": [],
+      "prompt": 95,
+      "output": 2,
+      "reason": null,
+      "seconds": 0.21457579999696463,
+      "correct": true,
+      "supported": false,
+      "abstained": true
+    }
+  ]
+}
