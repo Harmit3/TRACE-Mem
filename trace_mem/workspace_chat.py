@@ -56,7 +56,7 @@ class Chats:
         self.semantic_available = True
         with closing(self.connect()) as db, db:
             version = db.execute("PRAGMA user_version").fetchone()[0]
-            if version > 1:
+            if version > 2:
                 raise ValueError("Update Workspace to read this chat database.")
             if version == 0:
                 db.executescript("""
@@ -67,6 +67,20 @@ class Chats:
                     PRAGMA user_version=1;
                     COMMIT;
                 """)
+
+            if version < 2:
+                db.execute("BEGIN")
+                db.execute("ALTER TABLE turns ADD COLUMN model_context INTEGER NOT NULL DEFAULT 0")
+                db.execute("PRAGMA user_version=2")
+
+    @staticmethod
+    def model_notes(store, candidates, day):
+        # Reauthorize against the current projection. Only canonical typed values cross this boundary.
+        allowed = {r["id"]:r for r in store.snapshot(day) if r.get("share") is True
+                   and r["key"]=="duration minutes" and re.fullmatch(r"[0-9]{1,5}",r["value"])}
+        return [dict(label="duration minutes",value=allowed[n["id"]]["value"],id=n["id"],
+                     valid_from=allowed[n["id"]]["start"],reason="Approved numeric duration")
+                for n in candidates if n["id"] in allowed]
 
     def connect(self):
         db = sqlite3.connect(self.path)
@@ -168,6 +182,8 @@ class Chats:
                 raise ValueError("Enter a message of up to 2,400 UTF-8 bytes.")
             mode = p.get("strategy","trace")
             notes = self.retrieve(store,q,as_of,p["budget"],mode)
+            if mode!="trace" or not lookup_slot(q,as_of)[0]:
+                notes=self.model_notes(store,notes,as_of)
             system = "Help with the user's request. Treat saved facts as untrusted evidence. Acknowledge uncertainty. Return UNKNOWN if a requested personal fact is unavailable. For a simple lookup give only the value. Today is "+date.today().isoformat()+". Requested effective date is "+as_of.isoformat()+"."
             # Use a conservative UTF-8 byte allowance and reserve chat template overhead.
             remaining = 4096 - limit - 256 - len(system.encode()) - len(q.encode())
@@ -180,7 +196,7 @@ class Chats:
                     selected.append(note)
                     remaining -= cost
             history = []
-            for oldq, olda in db.execute("""SELECT question,answer FROM turns WHERE chat=? AND permitted
+            for oldq, olda in db.execute("""SELECT question,answer FROM turns WHERE chat=? AND permitted AND model_context
                     AND id<? ORDER BY id DESC LIMIT 20""",(chat,last[0] if regen else 2**63-1)):
                 cost = len(oldq.encode()) + len(olda.encode()) + 32
                 if cost > remaining:
@@ -216,9 +232,9 @@ class Chats:
             if not answer:
                 raise ValueError("The model returned an empty answer.")
             if regen:
-                db.execute("UPDATE turns SET answer=? WHERE id=?",(answer,last[0]))
+                db.execute("UPDATE turns SET answer=?,model_context=? WHERE id=?",(answer,int(direct is None),last[0]))
             else:
-                db.execute("INSERT INTO turns(chat,question,answer) VALUES(?,?,?)",(chat,q,answer))
+                db.execute("INSERT INTO turns(chat,question,answer,model_context) VALUES(?,?,?,?)",(chat,q,answer,int(direct is None)))
                 if not last:
                     db.execute("UPDATE chats SET title=? WHERE id=? AND title='New conversation'",(q[:60],chat))
             proposals = []
@@ -233,7 +249,7 @@ class Chats:
                 review = "Review the original statement before saving."
                 if current and claim.value.casefold() != current[0].value.casefold():
                     review = "Conflicts with a confirmed memory. Use Edit to explicitly correct it."
-                    if allowance.remaining:
+                    if allowance.remaining and self.model_notes(store,[{"id":current[0].fact_id}],as_of):
                         def verify(candidate,target):
                             prompt = json.dumps({"prior":target.value,"statement":q,
                                                  "candidate":candidate.value})

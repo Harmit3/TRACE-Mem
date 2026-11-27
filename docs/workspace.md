@@ -28,3 +28,5 @@ Select **AI memory** with local generation enabled. Standard uses recent history
 ## Reviewed acquisition and grounded answers
 
 Workspace can propose several facts from one statement. Review each value, source turn, effective date and intent. Explicit correction requires a separate confirmation. Forgetting and corrections make earlier transcript turns ineligible for future context. A correction keeps earlier permitted fact versions for historical lookup. For a simple historical question, select the matching effective date. The inspector identifies the source used for a direct answer. More complex requests use local model generation. Open the Step 40B dashboard below the original comparison for the new measurements. [Step 40B report and beta limitations](../research/workspace40b/report.md)
+
+For the supervised Windows desktop build, see the [portable beta guide](windows_beta.md). It includes changes to sharing, storage, launch and shutdown, model choice and the scope of the engineering checks.

@@ -38,11 +38,20 @@ def day(s):
     return d
 
 class Store:
-    def __init__(self, path):
+    def __init__(self, path, *, protect=False):
         self.path = Path(path)
         self.lock = threading.RLock()
-        self.rows = json.loads(self.path.read_text(encoding='utf-8')) if self.path.exists() else []
-        self.engine(self.rows)  # fail closed on corrupt snapshots
+        self.protect = protect
+        raw = self.path.read_bytes() if self.path.exists() else b"[]"
+        encrypted = raw.startswith(b"TMDP1")
+        if encrypted:
+            from trace_mem.workspace_dpapi import transform
+            raw = transform(raw[5:],decrypt=True)
+            self.protect = True
+        self.rows = json.loads(raw)
+        self.engine(self.rows)
+        if protect and self.path.exists() and not encrypted:
+            self.persist(self.rows)
     def engine(self, rows=None):
         mem = TemporalMemory()
         for r in sorted(self.rows if rows is None else rows, key=lambda x:(x['observed'],x['id'])):
@@ -54,16 +63,24 @@ class Store:
         tmp = self.path.with_name(self.path.name+'.tmp')
         try:
             fd = os.open(tmp,os.O_WRONLY|os.O_CREAT|os.O_TRUNC,0o600)
-            with os.fdopen(fd,'w',encoding='utf-8') as f:
-                json.dump(rows,f,ensure_ascii=False,indent=2); f.flush(); os.fsync(f.fileno())
+            with os.fdopen(fd,'wb') as f:
+                raw=json.dumps(rows,ensure_ascii=False,indent=2).encode()
+                if self.protect:
+                    from trace_mem.workspace_dpapi import transform
+                    raw=b"TMDP1"+transform(raw)
+                f.write(raw)
+                f.flush()
+                os.fsync(f.fileno())
             os.replace(tmp,self.path)
         finally:
             if tmp.exists(): tmp.unlink()
         self.rows=rows
-    def save(self,key,value,start,pin=False,*,replaces=None,origin=None):
+    def save(self,key,value,start,pin=False,*,replaces=None,origin=None,share=False):
         key=normalize(key); start=day(start).isoformat()
         if not isinstance(value,str) or not value.strip() or len(value)>2000: raise ValueError('Memory must be 1-2,000 characters.')
         if type(pin) is not bool: raise ValueError('Pin must be boolean.')
+        if type(share) is not bool or share and not (key=="duration minutes" and re.fullmatch(r"[0-9]{1,5}",value.strip())):
+            raise ValueError("Only duration minutes (0 to 99999) can be shared for synthesis.")
         with self.lock:
             rows=[dict(r) for r in self.rows]; versions=[r for r in rows if r['key']==key]
             if versions:
@@ -83,7 +100,7 @@ class Store:
             elif replaces is not None:
                 raise ValueError('This memory was removed. Refresh before editing.')
             if len(rows)>=MAX_ROWS: raise ValueError('Workspace is full; forget a label before adding more.')
-            rows.append(dict(id=uuid4().hex,key=key,value=value.strip(),start=start,end=None,observed=date.today().isoformat(),pin=pin,origin=origin))
+            rows.append(dict(id=uuid4().hex,key=key,value=value.strip(),start=start,end=None,observed=date.today().isoformat(),pin=pin,origin=origin,share=share))
             self.persist(rows)
     def forget(self,key):
         key=normalize(key)
@@ -192,7 +209,7 @@ class Handler(BaseHTTPRequestHandler):
                 with s.lock:
                     if p.get('replaces'):
                         self.server.chats.invalidate()
-                    s.save(p['key'],p['value'],p['date'],p.get('pin',False),replaces=p.get('replaces'))
+                    s.save(p['key'],p['value'],p['date'],p.get('pin',False),replaces=p.get('replaces'),share=p.get('share',False))
                     result={'ok':True}
             elif self.path=='/api/forget':
                 with s.lock:
@@ -211,7 +228,7 @@ class Handler(BaseHTTPRequestHandler):
                     evidence,used,count=s.select(q,d,p['budget'])
                     if mode=='ollama':
                         if not self.server.model: raise ValueError('Start the server with --model to enable local AI.')
-                        evidence=[note for note in evidence if eligible_note(note)]
+                        evidence=self.server.chats.model_notes(s,evidence,d)
                         answer=generate(self.server.model,q,evidence,d)
                     else: answer='Relevant saved notes:\n'+'\n'.join(x['label']+': '+x['value'] for x in evidence) if evidence else 'No matching saved memory. Try another label or save a note first.'
                 result={'answer':answer,'evidence':evidence,'used':used,'available':count,'mode':mode}
@@ -220,8 +237,8 @@ class Handler(BaseHTTPRequestHandler):
         except (ValueError,TypeError,KeyError) as e: return self.respond(400,{'error':str(e)})
         except OSError: return self.respond(500,{'error':'Could not read or write local memory.'})
 
-def server(path,port=8770,model=''):
-    srv=ThreadingHTTPServer(('127.0.0.1',port),Handler); srv.store=Store(path); srv.token=secrets.token_urlsafe(32); srv.model=model
+def server(path,port=8770,model='',*,protect=False):
+    srv=ThreadingHTTPServer(('127.0.0.1',port),Handler); srv.store=Store(path,protect=protect); srv.token=secrets.token_urlsafe(32); srv.model=model
     srv.opener=build_opener(ProxyHandler({}),NoRedirect())
     srv.chats=Chats(Path(path).with_suffix('.chats.sqlite3'))
     return srv
