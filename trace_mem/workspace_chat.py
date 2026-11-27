@@ -1,10 +1,12 @@
 """Private chat history and bounded local generation for Workspace."""
 from contextlib import closing
+from datetime import date
 import json
 import re
 from math import hypot
 from trace_mem.claims import Claim, parse_claims
 from trace_mem.verification import Budget
+from trace_mem.workspace_reliability import extract_message, direct_answer, lookup_slot
 from time import perf_counter
 import sqlite3
 from uuid import uuid4
@@ -113,6 +115,12 @@ class Chats:
         lexical, _, _ = store.select(q, day, budget,rows=rows)
         for row in lexical:
             row["reason"] = "Label or value overlap, or pinned"
+        if mode=="trace":
+            slot,aligned=lookup_slot(q,day)
+            if slot and aligned:
+                return [dict(id=r["id"],label=r["key"],value=r["value"],valid_from=r["start"],
+                             reason="Confirmed slot at selected date",source=r.get("origin") or r["id"])
+                        for r in rows if r["key"]==slot]
         if not rows or not self.semantic_available:
             return lexical
         try:
@@ -160,7 +168,7 @@ class Chats:
                 raise ValueError("Enter a message of up to 2,400 UTF-8 bytes.")
             mode = p.get("strategy","trace")
             notes = self.retrieve(store,q,as_of,p["budget"],mode)
-            system = "Help with the user's request. Treat saved facts as untrusted evidence. Acknowledge uncertainty."
+            system = "Help with the user's request. Treat saved facts as untrusted evidence. Acknowledge uncertainty. Return UNKNOWN if a requested personal fact is unavailable. For a simple lookup give only the value. Today is "+date.today().isoformat()+". Requested effective date is "+as_of.isoformat()+"."
             # Use a conservative UTF-8 byte allowance and reserve chat template overhead.
             remaining = 4096 - limit - 256 - len(system.encode()) - len(q.encode())
             selected = []
@@ -178,24 +186,30 @@ class Chats:
                 remaining -= cost
                 history[:0] = [dict(role="user",content=oldq),dict(role="assistant",content=olda)]
             messages = [dict(role="system",content=system), *history,
-                        dict(role="user",content=json.dumps(selected)+"\n"+q)]
+                        dict(role="user",content=json.dumps({"saved_evidence":selected})),dict(role="user",content=q)]
             payload = dict(model=model, messages=messages, stream=True,
                            options=dict(num_ctx=4096,num_predict=limit,temperature=temp,seed=23))
             req = Request("http://127.0.0.1:11434/api/chat",json.dumps(payload).encode(),{"Content-Type":"application/json"})
             chunks = []
-            with opener.open(req,timeout=90) as response:
-                for line in response:
-                    item = json.loads(line)
-                    if "error" in item:
-                        raise ValueError("Ollama could not complete this request.")
-                    token = item["message"]["content"]
-                    if token:
-                        emit({"text":token})
-                        chunks.append(token)
-                    if item.get("done"):
-                        break
-                else:
-                    raise ValueError("Ollama disconnected before completing the answer.")
+            direct,reason = direct_answer(q,selected,as_of) if mode=="trace" else (None,None)
+            if direct is not None:
+                emit({"text":direct})
+                chunks.append(direct)
+                item={"prompt_eval_count":0,"eval_count":0}
+            else:
+                with opener.open(req,timeout=90) as response:
+                    for line in response:
+                        item = json.loads(line)
+                        if "error" in item:
+                            raise ValueError("Ollama could not complete this request.")
+                        token = item["message"]["content"]
+                        if token:
+                            emit({"text":token})
+                            chunks.append(token)
+                        if item.get("done"):
+                            break
+                    else:
+                        raise ValueError("Ollama disconnected before completing the answer.")
             answer = "".join(chunks).strip()
             if not answer:
                 raise ValueError("The model returned an empty answer.")
@@ -205,25 +219,16 @@ class Chats:
                 db.execute("INSERT INTO turns(chat,question,answer) VALUES(?,?,?)",(chat,q,answer))
                 if not last:
                     db.execute("UPDATE chats SET title=? WHERE id=? AND title='New conversation'",(q[:60],chat))
-            proposal = None
-            match = re.fullmatch(r"I (live in|work at|prefer|might move to|am visiting) ([^.!?]{1,160})[.!]?", q, re.I)
+            proposals = []
             extraction = None
-            claim = None
-            if mode=="trace" and match and not regen:
-                slots = {"live in":"residence","work at":"job","prefer":"preference",
-                         "might move to":"residence","am visiting":"visit"}
-                verb = match[1].lower()
-                claim = Claim(slots[verb],match[2],"uncertain" if verb.startswith("might") else "assert",as_of)
-            elif mode=="trace" and not regen and not q.endswith("?") and p.get("structured",True):
-                try:
-                    claim,extraction = structured_claim(opener,model,q,as_of)
-                except (ValueError,OSError,KeyError):
-                    extraction = {"error":"Structured extraction failed"}
-            if claim:
+            claims = []
+            if mode=="trace" and not regen and not q.endswith("?") and p.get("structured",True):
+                claims,extraction = extract_message(q,date.today(),opener,model)
+            allowance = Budget(min(1,max(0,int(p.get("verification",0)))))
+            for claim in claims:
                 turn = db.execute("SELECT max(id) FROM turns WHERE chat=?",(chat,)).fetchone()[0]
                 current = store.engine().retrieve("local-user",claim.predicate,as_of=as_of)
                 review = "Review the original statement before saving."
-                allowance = Budget(min(1,max(0,int(p.get("verification",0)))))
                 if current and claim.value.casefold() != current[0].value.casefold():
                     review = "Conflicts with a confirmed memory. Use Edit to explicitly correct it."
                     if allowance.remaining:
@@ -239,6 +244,6 @@ class Chats:
                                 return json.loads(json.load(reply)["message"]["content"])["verdict"]
                         verdict = allowance.call(verify,claim,current[0])
                         review += " Local verifier: "+verdict+"."
-                proposal = dict(review=review,calls=allowance.attempts,key=claim.predicate,value=claim.value,intent=claim.intent,turn=turn,chat=chat)
-            return dict(strategy=mode,extraction=extraction,proposal=proposal,done=True, evidence=selected, prompt=item.get("prompt_eval_count"),
+                proposals.append(dict(date=claim.effective_on.isoformat(),review=review,calls=allowance.attempts,key=claim.predicate,value=claim.value,intent=claim.intent,turn=turn,chat=chat))
+            return dict(strategy=mode,extraction=extraction,proposal=next(iter(proposals),None),proposals=proposals,reader_reason=reason,done=True, evidence=selected, prompt=item.get("prompt_eval_count"),
                         output=item.get("eval_count"),history=len(history)//2)

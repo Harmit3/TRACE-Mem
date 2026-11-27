@@ -184,7 +184,12 @@ class Handler(BaseHTTPRequestHandler):
                     if not source: raise ValueError('This source is no longer available for memory.')
                     s.save(p['key'],p['value'],p['date'],origin=f"{p['chat']}/{p['turn']}")
                 return self.respond(200,{'ok':True})
-            if self.path=='/api/save': s.save(p['key'],p['value'],p['date'],p.get('pin',False),replaces=p.get('replaces')); result={'ok':True}
+            if self.path=='/api/save':
+                with s.lock:
+                    if p.get('replaces'):
+                        self.server.chats.invalidate()
+                    s.save(p['key'],p['value'],p['date'],p.get('pin',False),replaces=p.get('replaces'))
+                    result={'ok':True}
             elif self.path=='/api/forget':
                 with s.lock:
                     self.server.chats.invalidate()

@@ -92,7 +92,7 @@ async function stream(regenerate){
                     $('retrieved').textContent=row.strategy+' · '+row.evidence.length+' memories · '+row.history+' earlier turns';
                     $('meter').max=4096;$('meter').value=row.prompt;
                     $('evidence').textContent=row.evidence.map(r=>r.label+' · '+r.value+' ('+r.reason+', '+JSON.stringify(r).length+' JSON characters)').join('\n')||'No matching evidence.';
-                    if(row.proposal){const p=row.proposal;el.append(button('Review '+p.intent+' · '+p.key,guarded(async()=>{const value=prompt(p.review+' Confirm or edit this '+p.intent+' proposal.',p.value);if(value){await api('proposal',{...p,value,date:session.today});await refresh();notice('Memory confirmed.');}})));}
+                    if(row.reader_reason)el.append(node('small',row.reader_reason));for(const p of row.proposals||[]){el.append(node('small','From turn '+p.turn+' · effective '+p.date+' · '+p.intent));el.append(button('Review '+p.intent+' · '+p.key,guarded(async()=>{const value=prompt(p.review+' Confirm or edit this '+p.intent+' proposal.',p.value);if(value){await api('proposal',{...p,value,date:p.date});await refresh();notice('Memory confirmed.');}})));}
                 }
             }
         }
