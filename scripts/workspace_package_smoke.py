@@ -36,7 +36,7 @@ def api(url,name,data):
         return json.load(response)
 
 
-def smoke(package):
+def smoke(package, semantic=False):
     with TemporaryDirectory() as tmp, sync_playwright() as pw:
         root=Path(tmp)
         profile=root/"profile"
@@ -44,6 +44,8 @@ def smoke(package):
         (profile/"memory.json").write_text("[]")
         with closing(sqlite3.connect(profile/"memory.chats.sqlite3")) as db, db:
             db.executescript("CREATE TABLE chats(id TEXT PRIMARY KEY,title TEXT NOT NULL); CREATE TABLE turns(id INTEGER PRIMARY KEY,chat TEXT REFERENCES chats(id) ON DELETE CASCADE,question TEXT,answer TEXT,permitted INTEGER DEFAULT 1); PRAGMA user_version=1;")
+            db.execute("INSERT INTO chats VALUES('old','Prior title')")
+            db.execute("INSERT INTO turns(chat,question,answer) VALUES('old','Sensitive migration fixture','Fictional reply')")
         browser=pw.chromium.launch(channel="msedge")
         page=browser.new_page()
         for part in ("initial","upgrade"):
@@ -55,6 +57,7 @@ def smoke(package):
                 if part=="initial":
                     page.goto(url)
                     expect(page.locator("#mode")).to_have_value("ollama")
+                    page.locator("#new").click()
                     page.locator("#question").fill("I live in fictional Fawn Bay.")
                     page.locator("#send").click()
                     review=page.get_by_role("button",name="Review assert")
@@ -65,16 +68,29 @@ def smoke(package):
                     api(url,"save",dict(key="office",value="Owl Hall",date="2025-01-01"))
                     fact=next(x for x in api(url,"list",dict(date="2025-01-01"))["facts"] if x["key"]=="office")
                     api(url,"save",dict(key="office",value="Pine Hall",date="2025-02-01",replaces=fact["id"]))
+                    if semantic:
+                        page.locator("details").filter(has=page.locator("#semantic")).first.locator("summary").first.click()
+                        page.locator("#semantic").check()
+                        page.locator("#question").fill("Which geographic area is associated with these notes?")
+                        page.locator("#send").click()
+                        expect(page.locator("#retrieved")).to_contain_text("local encoder ready",timeout=120000)
                     old_port=int(url.rsplit(":",1)[1])
                 else:
                     assert int(url.rsplit(":",1)[1])!=old_port
                     page.goto(url)
-                    expect(page.locator("#chats option")).to_have_count(1)
+                    expect(page.locator("#chats option")).to_have_count(2)
                     q=dict(question="office",mode="memory",date="2025-01-15",budget=512)
                     assert "Owl Hall" in api(url,"ask",q)["answer"]
                     api(url,"forget",dict(key="office"))
                     assert not api(url,"ask",q)["evidence"]
                     assert "Pine Hall".encode() not in (profile/"memory.json").read_bytes()
+                    assert api(url,"chats/history",dict(chat="old"))["turns"]==[["Sensitive migration fixture","Fictional reply"]]
+                    assert b"Sensitive migration fixture" not in (profile/"memory.chats.sqlite3").read_bytes()
+                    page.locator("#longHistory summary").click()
+                    expect(page.locator("#historyResults tr")).to_have_count(7)
+                    page.locator("#practice summary").click()
+                    page.locator("#persona").select_option(index=1)
+                    expect(page.locator("#story")).to_contain_text("Copper Hill")
                     page.locator("#pilot summary").click()
                     expect(page.locator("#pilotReport table tr")).to_have_count(4)
             if part=="initial":
@@ -86,9 +102,9 @@ def smoke(package):
         assert (profile/"memory.json").read_bytes().startswith(b"TMDP1")
         with closing(sqlite3.connect(profile/"memory.chats.sqlite3")) as db, db:
             assert db.execute("PRAGMA integrity_check").fetchone()==("ok",)
-            assert db.execute("PRAGMA user_version").fetchone()==(2,)
+            assert db.execute("PRAGMA user_version").fetchone()==(3,)
         print("Package CRC, clean extraction, migration, live browser confirmation, persistence, upgrade, port contention, offline historical lookup, deletion, DPAPI, dashboard and orderly shutdown passed.")
 
 
 if __name__=="__main__":
-    smoke(Path(sys.argv[1]).resolve())
+    smoke(Path(sys.argv[1]).resolve(), "--semantic" in sys.argv[2:])

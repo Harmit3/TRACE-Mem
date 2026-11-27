@@ -50,14 +50,15 @@ def structured_claim(opener, model, text, day):
 
 
 class Chats:
-    def __init__(self, path):
+    def __init__(self, path, *, protect=False):
+        self.protect=protect
         path.parent.mkdir(parents=True, exist_ok=True)
         self.path = path
         self.encoder = None
         self.semantic_available = True
         with closing(self.connect()) as db, db:
             version = db.execute("PRAGMA user_version").fetchone()[0]
-            if version > 2:
+            if version > 3 or version==3 and not protect:
                 raise ValueError("Update Workspace to read this chat database.")
             if version == 0:
                 db.executescript("""
@@ -73,6 +74,13 @@ class Chats:
                 db.execute("BEGIN")
                 db.execute("ALTER TABLE turns ADD COLUMN model_context INTEGER NOT NULL DEFAULT 0")
                 db.execute("PRAGMA user_version=2")
+            if protect and version<3:
+                if not db.in_transaction:
+                    db.execute("BEGIN IMMEDIATE")
+                db.execute("UPDATE chats SET title=seal(title)")
+                db.execute("UPDATE turns SET question=seal(question), answer=seal(answer)")
+                db.execute("PRAGMA user_version=3")
+
 
     @staticmethod
     def model_notes(store, candidates, day, *, retained=False):
@@ -89,6 +97,13 @@ class Chats:
         db = sqlite3.connect(self.path)
         db.execute("PRAGMA foreign_keys=ON")
         db.execute("PRAGMA secure_delete=ON")
+        if self.protect:
+            from trace_mem.workspace_dpapi import transform
+            db.create_function("seal",1,lambda text:transform(text.encode()) if text is not None else None)
+            db.create_function("unseal",1,lambda blob:transform(blob,decrypt=True).decode() if blob is not None else None)
+        else:
+            db.create_function("seal",1,lambda value:value)
+            db.create_function("unseal",1,lambda value:value)
         return db
 
     def invalidate(self):
@@ -100,23 +115,23 @@ class Chats:
         with closing(self.connect()) as db, db:
             if op == "new":
                 chat = uuid4().hex
-                db.execute("INSERT INTO chats VALUES(?,?)", (chat, "New conversation"))
+                db.execute("INSERT INTO chats VALUES(?,seal(?))", (chat, "New conversation"))
                 return {"chat": chat}
             if op == "search":
                 q = str(p.get("query", ""))[:200]
-                rows = db.execute("""SELECT id,title FROM chats WHERE instr(lower(title),lower(?))
+                rows = db.execute("""SELECT id,unseal(title) FROM chats WHERE instr(lower(unseal(title)),lower(?))
                     OR EXISTS(SELECT 1 FROM turns WHERE chat=chats.id AND
-                    instr(lower(question || ' ' || answer),lower(?))) ORDER BY rowid DESC""", (q,q))
+                    instr(lower(unseal(question) || ' ' || unseal(answer)),lower(?))) ORDER BY rowid DESC""", (q,q))
                 return {"chats": list(rows)}
             if not db.execute("SELECT 1 FROM chats WHERE id=?", (chat,)).fetchone():
                 raise ValueError("Conversation no longer exists.")
             if op == "history":
-                return {"turns": list(db.execute("SELECT question,answer FROM turns WHERE chat=? ORDER BY id",(chat,)))}
+                return {"turns": list(db.execute("SELECT unseal(question),unseal(answer) FROM turns WHERE chat=? ORDER BY id",(chat,)))}
             if op == "rename":
                 title = str(p["title"]).strip()
                 if not 0 < len(title) <= 100:
                     raise ValueError("Enter a title of up to 100 characters.")
-                db.execute("UPDATE chats SET title=? WHERE id=?", (title, chat))
+                db.execute("UPDATE chats SET title=seal(?) WHERE id=?", (title, chat))
             elif op == "remove":
                 db.execute("DELETE FROM chats WHERE id=?", (chat,))
             else:
@@ -175,7 +190,7 @@ class Chats:
         with closing(self.connect()) as db, db:
             if not db.execute("SELECT 1 FROM chats WHERE id=?", (chat,)).fetchone():
                 raise ValueError("Conversation no longer exists.")
-            last = db.execute("SELECT id,question,permitted FROM turns WHERE chat=? ORDER BY id DESC LIMIT 1",(chat,)).fetchone()
+            last = db.execute("SELECT id,unseal(question),permitted FROM turns WHERE chat=? ORDER BY id DESC LIMIT 1",(chat,)).fetchone()
             regen = p.get("regenerate") is True
             if regen:
                 if not last or not last[2]:
@@ -199,15 +214,27 @@ class Chats:
                     selected.append(note)
                     remaining -= cost
             history = []
-            for oldq, olda in db.execute("""SELECT question,answer FROM turns WHERE chat=? AND permitted AND model_context
+            for oldq, olda in db.execute("""SELECT unseal(question),unseal(answer) FROM turns WHERE chat=? AND permitted AND model_context
                     AND id<? ORDER BY id DESC LIMIT 20""",(chat,last[0] if regen else 2**63-1)):
                 cost = len(oldq.encode()) + len(olda.encode()) + 32
                 if cost > remaining:
                     break
                 remaining -= cost
                 history[:0] = [dict(role="user",content=oldq),dict(role="assistant",content=olda)]
+            # Opaque references keep even syntactically valid imperative names out of generated prompts.
+            aliases = {}
+            model_records = []
+            for note in selected:
+                value=note["value"]
+                if note["label"] in {"job","education","residence"}:
+                    alias=f"[[record-{len(aliases)+1}]]"
+                    aliases[alias]=value
+                    value=alias
+                model_records.append(dict(note,value=value))
+            if aliases:
+                system+=" Cite bracketed record references exactly when referring to a named fact."
             messages = [dict(role="system",content=system), *history,
-                        dict(role="user",content=json.dumps({"saved_evidence":selected})),dict(role="user",content=q)]
+                        dict(role="user",content=json.dumps({"saved_evidence":model_records})),dict(role="user",content=q)]
             payload = dict(model=model, messages=messages, stream=True,
                            options=dict(num_ctx=4096,num_predict=limit,temperature=temp,seed=23))
             req = Request("http://127.0.0.1:11434/api/chat",json.dumps(payload).encode(),{"Content-Type":"application/json"})
@@ -225,21 +252,25 @@ class Chats:
                             raise ValueError("Ollama could not complete this request.")
                         token = item["message"]["content"]
                         if token:
-                            emit({"text":token})
+                            if not aliases:
+                                emit({"text":token})
                             chunks.append(token)
                         if item.get("done"):
                             break
                     else:
                         raise ValueError("Ollama disconnected before completing the answer.")
             answer = "".join(chunks).strip()
+            if aliases and direct is None and answer:
+                answer=re.sub(r"\[\[record-\d+\]\]",lambda m:aliases.get(m[0],"[unverified reference]"),answer)
+                emit({"text":answer})
             if not answer:
                 raise ValueError("The model returned an empty answer.")
             if regen:
-                db.execute("UPDATE turns SET answer=?,model_context=? WHERE id=?",(answer,int(direct is None),last[0]))
+                db.execute("UPDATE turns SET answer=seal(?),model_context=? WHERE id=?",(answer,int(direct is None and not aliases),last[0]))
             else:
-                db.execute("INSERT INTO turns(chat,question,answer,model_context) VALUES(?,?,?,?)",(chat,q,answer,int(direct is None)))
+                db.execute("INSERT INTO turns(chat,question,answer,model_context) VALUES(?,seal(?),seal(?),?)",(chat,q,answer,int(direct is None and not aliases)))
                 if not last:
-                    db.execute("UPDATE chats SET title=? WHERE id=? AND title='New conversation'",(q[:60],chat))
+                    db.execute("UPDATE chats SET title=seal(?) WHERE id=? AND unseal(title)='New conversation'",(q[:60],chat))
             proposals = []
             extraction = None
             claims = []
@@ -252,7 +283,7 @@ class Chats:
                 review = "Review the original statement before saving."
                 if current and claim.value.casefold() != current[0].value.casefold():
                     review = "Conflicts with a confirmed memory. Use Edit to explicitly correct it."
-                    if allowance.remaining and self.model_notes(store,[{"id":current[0].fact_id}],as_of):
+                    if allowance.remaining and claim.predicate not in {"residence","job","education"} and self.model_notes(store,[{"id":current[0].fact_id}],as_of):
                         def verify(candidate,target):
                             prompt = json.dumps({"prior":target.value,"statement":q,
                                                  "candidate":candidate.value})
@@ -266,5 +297,5 @@ class Chats:
                         verdict = allowance.call(verify,claim,current[0])
                         review += " Local verifier: "+verdict+"."
                 proposals.append(dict(target=current[0].fact_id if current and claim.intent=="correct" else None,date=claim.effective_on.isoformat(),review=review,calls=allowance.attempts,key=claim.predicate,value=claim.value,intent=claim.intent,turn=turn,chat=chat))
-            return dict(strategy=mode,extraction=extraction,proposal=next(iter(proposals),None),proposals=proposals,reader_reason=reason,done=True, evidence=selected, prompt=item.get("prompt_eval_count"),
+            return dict(semantic_status=("local encoder ready" if self.semantic_available else "encoder unavailable; lexical fallback") if p.get("semantic",True) else "lexical / exact",strategy=mode,extraction=extraction,proposal=next(iter(proposals),None),proposals=proposals,reader_reason=reason,done=True, evidence=selected, prompt=item.get("prompt_eval_count"),
                         output=item.get("eval_count"),history=len(history)//2)

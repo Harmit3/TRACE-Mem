@@ -11,7 +11,7 @@ import zipfile
 ROOT=Path(__file__).resolve().parents[1]
 RUNTIME_HASH="8d4d3590c10449d78aa4375f534e6d5f3027d67fdc362dd1a882279db6f90fdf"
 MODULES=("workspace","workspace_reliability","workspace_chat","workspace_desktop","workspace_dpapi",
-         "memory","reader_v2","claims","verification","llm_tasks","hybrid_extraction","baselines",
+         "workspace_encoder","workspace_types","memory","reader_v2","claims","verification","llm_tasks","hybrid_extraction","baselines",
          "semantic","controller","data/memora")
 
 
@@ -33,7 +33,7 @@ def build(runtime,destination):
             rel=Path("trace_mem/workspace_web")/name
             (stage/rel).parent.mkdir(exist_ok=True)
             shutil.copyfile(ROOT/rel,stage/rel)
-        for study in ("workspace40","workspace40b"):
+        for study in ("workspace40","workspace40b","workspace41","workspace42"):
             rel=Path("research")/study/"results.json"
             (stage/rel).parent.mkdir(parents=True)
             shutil.copyfile(ROOT/rel,stage/rel)

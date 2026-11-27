@@ -8,11 +8,12 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
-[assembly: AssemblyVersion("0.41.0.0")]
+[assembly: AssemblyVersion("0.42.0.0")]
 [assembly: AssemblyProduct("TRACE-Mem Workspace")]
 class Workspace : Form {
     Process host;
     string url;
+    static bool practice;
     string root = AppDomain.CurrentDomain.BaseDirectory;
     string profile;
     Label status = new Label();
@@ -28,7 +29,7 @@ class Workspace : Form {
         return Environment.ProcessorCount+" logical CPUs";
     }
     public Workspace() {
-        Text="TRACE-Mem Workspace · Beta 0.41.0";
+        Text="TRACE-Mem Workspace · Beta 0.42.0";
         Font=new Font("Segoe UI",10); ClientSize=new Size(560,230);
         FormBorderStyle=FormBorderStyle.FixedDialog; MaximizeBox=false;
         StartPosition=FormStartPosition.CenterScreen;
@@ -54,6 +55,9 @@ class Workspace : Form {
             File.WriteAllText(Path.Combine(BaseProfile(),"active.txt"),child);
             StartBackend(Path.Combine(BaseProfile(),child));
         }; Controls.Add(recovery);
+        var guide=new Button(); guide.Text="Open practice profile"; guide.SetBounds(345,157,190,42);
+        guide.Visible=!practice; Controls.Add(guide);
+        guide.Click+=(s,e)=>Process.Start(Application.ExecutablePath,"--practice");
         Shown+=(s,e)=> {
             try {
                 string folder=BaseProfile(); Secure(folder);
@@ -61,7 +65,7 @@ class Workspace : Form {
                 string child=File.Exists(marker)?File.ReadAllText(marker):"Workspace";
                 if(!System.Text.RegularExpressions.Regex.IsMatch(child,@"^(Workspace|Recovery-[a-f0-9]{32})$"))
                     throw new IOException("Invalid profile selection.");
-                StartBackend(Path.Combine(folder,child));
+                StartBackend(Path.Combine(folder,practice?"Practice":child));
             } catch(Exception err){status.Text=err.Message;}
         };
         FormClosing+=(s,e)=>{if(host!=null && !host.HasExited){host.StandardInput.Close();}};
@@ -84,18 +88,20 @@ class Workspace : Form {
             host.BeginErrorReadLine();
             var line=host.StandardOutput.ReadLineAsync();
             int port;
-            if(!line.Wait(12000) || !Int32.TryParse(line.Result,out port) || port<1 || port>65535){
+            if(!line.Wait(90000) || !Int32.TryParse(line.Result,out port) || port<1 || port>65535){
                 host.StandardInput.Close();
                 throw new IOException("Could not open this profile. Close other copies. If the files are damaged, choose a recovery profile.");
             }
             url="http://127.0.0.1:"+port+"/"; open.Enabled=true; recovery.Visible=false;
             status.Text="Workspace is running on this computer. Close this window to stop it.\n\n"+Hardware()+"\n\n"+url;
-            Process.Start(url);
-        } catch(Exception err){status.Text=err.Message+"\n\nKeep the runtime folder beside the executable. See START HERE.txt.";recovery.Visible=true;}
+            Process.Start(url+(practice?"#practice":""));
+        } catch(Exception err){status.Text=err.Message+"\n\nKeep the runtime folder beside the executable. See START HERE.txt.";guideRecovery();}
     }
-    [STAThread] static void Main(){
+    void guideRecovery(){recovery.BringToFront();recovery.Visible=!practice;}
+    [STAThread] static void Main(string[] args){
+        practice=Array.IndexOf(args,"--practice")>=0;
         bool first;
-        using(var mutex=new Mutex(true,@"Local\TraceMemBeta-"+WindowsIdentity.GetCurrent().User.Value,out first)){
+        using(var mutex=new Mutex(true,@"Local\TraceMemBeta-"+WindowsIdentity.GetCurrent().User.Value+(practice?"-practice":""),out first)){
             if(!first){MessageBox.Show("Workspace is already running. Select its launcher on the taskbar.");return;}
             Application.EnableVisualStyles();Application.Run(new Workspace());
         }

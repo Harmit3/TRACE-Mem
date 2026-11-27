@@ -160,8 +160,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if not self.host_ok(): return self.respond(403,{'error':'Invalid host.'})
         static={'/':('index.html','text/html'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
-        if self.path in ('/api/pilot','/api/reliability-pilot'):
-            study='workspace40b' if self.path=='/api/reliability-pilot' else 'workspace40'
+        if self.path in ('/api/pilot','/api/reliability-pilot','/api/long-history','/api/model-pilot'):
+            study={'/api/pilot':'workspace40','/api/reliability-pilot':'workspace40b','/api/long-history':'workspace42','/api/model-pilot':'workspace41'}[self.path]
             report=ROOT.parent/'research'/study/'results.json'
             if not report.is_file(): return self.respond(404,{'error':'Pilot results unavailable.'})
             return self.respond(200,json.loads(report.read_text(encoding='utf-8')))
@@ -229,7 +229,8 @@ class Handler(BaseHTTPRequestHandler):
                     evidence,used,count=s.select(q,d,p['budget'])
                     if mode=='ollama':
                         if not self.server.model: raise ValueError('Start the server with --model to enable local AI.')
-                        evidence=self.server.chats.model_notes(s,evidence,d)
+                        evidence=[note for note in self.server.chats.model_notes(s,evidence,d)
+                                  if note["label"] not in {"residence","job","education"}]
                         answer=generate(self.server.model,q,evidence,d)
                     else: answer='Relevant saved notes:\n'+'\n'.join(x['label']+': '+x['value'] for x in evidence) if evidence else 'No matching saved memory. Try another label or save a note first.'
                 result={'answer':answer,'evidence':evidence,'used':used,'available':count,'mode':mode}
@@ -241,7 +242,7 @@ class Handler(BaseHTTPRequestHandler):
 def server(path,port=8770,model='',*,protect=False):
     srv=ThreadingHTTPServer(('127.0.0.1',port),Handler); srv.store=Store(path,protect=protect); srv.token=secrets.token_urlsafe(32); srv.model=model
     srv.opener=build_opener(ProxyHandler({}),NoRedirect())
-    srv.chats=Chats(Path(path).with_suffix('.chats.sqlite3'))
+    srv.chats=Chats(Path(path).with_suffix('.chats.sqlite3'),protect=protect)
     return srv
 
 def main():

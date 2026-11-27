@@ -38,7 +38,10 @@ class LocalEncoder:
 
     def close(self):
         if self.proc:
-            self.proc.stdin.close()
+            try:
+                self.proc.stdin.close()
+            except OSError:
+                pass
             try:
                 self.proc.wait(timeout=3)
             except subprocess.TimeoutExpired:

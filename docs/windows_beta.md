@@ -28,3 +28,5 @@ The frozen injection cases are inert fictional requested outputs. All three pinn
 ## Beta decision
 
 Ready for supervised local testing on this Windows machine with reviewed, low-sensitivity inputs. General distribution still requires rights and attribution review, signed builds, clean-system testing, accessibility review, broader evidence on extraction and synthesis, and independent security review. No public release or model downloads were performed. [Matched model pilot](../research/workspace41/report.md)
+
+For the subsequent private 0.42.0 build, profile migration, typed synthesis and optional local encoder, see the [Step 42 handoff](windows_beta_042.md).
