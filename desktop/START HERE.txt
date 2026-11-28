@@ -1,4 +1,4 @@
-TRACE-Mem Workspace • Supervised Windows beta 0.42.1
+TRACE-Mem Workspace • Supervised Windows beta 0.42.2
 
 1. Right-click the ZIP and choose Extract All. Choose a folder in your Windows profile.
 2. Open TRACE-Mem Workspace.exe. Keep its small launcher window open while using the browser. The browser opens a private loopback address on an available port.
