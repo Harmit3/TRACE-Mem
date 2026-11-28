@@ -8,7 +8,7 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
-[assembly: AssemblyVersion("0.42.0.0")]
+[assembly: AssemblyVersion("0.42.1.0")]
 [assembly: AssemblyProduct("TRACE-Mem Workspace")]
 class Workspace : Form {
     Process host;
@@ -29,7 +29,7 @@ class Workspace : Form {
         return Environment.ProcessorCount+" logical CPUs";
     }
     public Workspace() {
-        Text="TRACE-Mem Workspace · Beta 0.42.0";
+        Text="TRACE-Mem Workspace · Beta 0.42.1";
         Font=new Font("Segoe UI",10); ClientSize=new Size(560,230);
         FormBorderStyle=FormBorderStyle.FixedDialog; MaximizeBox=false;
         StartPosition=FormStartPosition.CenterScreen;
@@ -62,11 +62,12 @@ class Workspace : Form {
             try {
                 string folder=BaseProfile(); Secure(folder);
                 string marker=Path.Combine(folder,"active.txt");
+                if(practice){StartBackend(Path.Combine(folder,"Practice"));return;}
                 string child=File.Exists(marker)?File.ReadAllText(marker):"Workspace";
                 if(!System.Text.RegularExpressions.Regex.IsMatch(child,@"^(Workspace|Recovery-[a-f0-9]{32})$"))
                     throw new IOException("Invalid profile selection.");
-                StartBackend(Path.Combine(folder,practice?"Practice":child));
-            } catch(Exception err){status.Text=err.Message;}
+                StartBackend(Path.Combine(folder,child));
+            } catch(Exception err){status.Text=err.Message;guideRecovery();}
         };
         FormClosing+=(s,e)=>{if(host!=null && !host.HasExited){host.StandardInput.Close();}};
     }

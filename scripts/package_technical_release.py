@@ -24,7 +24,7 @@ def main():
     parser = ArgumentParser(description=__doc__)
     parser.add_argument("revision", help="Committed Git revision to package")
     parser.add_argument("output", type=Path, help="New ZIP file")
-    parser.add_argument("--version", choices=(VERSION, "1.0.0"), default=VERSION,
+    parser.add_argument("--version", choices=(VERSION, "1.0.0", "1.1.0"), default=VERSION,
                         help="Archive directory version (does not create a release or tag)")
     args = parser.parse_args()
     if args.output.exists() or args.output.suffix.lower() != ".zip":
