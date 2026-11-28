@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "trace-practice": {
+      "command": "C:/Example/TRACE-Mem/results/step45/venv/Scripts/python.exe",
+      "args": [
+        "-I",
+        "C:/Example/TRACE-Mem/scripts/serve_mcp.py",
+        "--binding",
+        "C:/Example/Practice/bindings/agent-a.json"
+      ]
+    }
+  }
+}
