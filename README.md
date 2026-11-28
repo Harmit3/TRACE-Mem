@@ -49,3 +49,7 @@ python -m scripts.verify_manuscript
 The numeric release reproduces 230 condition summaries and 184 intervals from 27,000 saved history rows. Independent scientific replication remains future work. For tests, dependencies, figure generation and the local inference prerequisites, see [development instructions](CONTRIBUTING.md) and the [reviewer guide](reproducibility/reviewer-guide.md).
 
 Cite **TRACE-Mem project**, the software version and exact release commit using [CITATION.cff](CITATION.cff). Individual authorship and reuse terms await maintainer confirmation. [Release history](CHANGELOG.md) · [Security and privacy](SECURITY.md) · [Research permissions](docs/ethics_and_permissions.md)
+
+## Optional local MCP integration
+
+Compatible agents can share a dedicated fictional practice profile through a local stdio service. Each client receives explicit label grants, and a trusted administrator reviews proposals, corrections and forgetting. See the [installation, client configurations and two-agent rehearsal](docs/mcp/README.md).
