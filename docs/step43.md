@@ -2,6 +2,10 @@
 
 ## Release decision
 
+The [SHA-256 manifest](step43-checksums.sha256) identifies the two locally prepared ZIPs and the five manuscript files. Source archive `results/step43/TRACE-Mem-1.1.0-source.zip` was built from `d683ef2a8a6bd9fbfce4c6170f2eeffdd88b6739` and contains 346 files (2,006,974 bytes). The private Windows archive `results/step43/TRACE-Mem-Workspace-0.42.1-win-x64.zip` contains 61 files (11,971,033 bytes). This checksum record follows the packaged commit so the source archive can be authenticated without a circular hash.
+
+Both archive CRC checks passed. The extracted source passed the manuscript check, full arithmetic reproduction, and all three offline demo tests. Its tracked paths and bytes were checked with the privacy scanner, including decompressed numeric evidence and the Word container. The private beta contains the runtime license and third-party notices. A separately corrupted protected snapshot failed closed, retained its original bytes, and the packaged backend opened and closed a fresh recovery profile. The final suite completed in 17.63 seconds.
+
 | Area | Disposition | Evidence and remaining limits |
 | --- | --- | --- |
 | Engineering | Research source 1.1.0 and private Windows x64 beta 0.42.1 prepared | Packaged browser workflow passed on the development machine with disposable profiles. Native launcher opened an isolated practice backend and closed normally. Clean Windows installation remains unverified. |
