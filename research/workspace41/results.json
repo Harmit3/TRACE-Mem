@@ -1,0 +1,1010 @@
+{
+  "qwen2.5:7b-instruct-q4_K_M": {
+    "initial": {
+      "models": [],
+      "system_used": 14386581504
+    },
+    "rows": [
+      {
+        "task": "extract",
+        "i": 0,
+        "claims": [],
+        "usage": {
+          "calls": 1,
+          "prompt": 65,
+          "output": 148,
+          "seconds": 17.09846839995589
+        },
+        "seconds": 17.100141900009476,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15673315328
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 1
+      },
+      {
+        "task": "extract",
+        "i": 1,
+        "claims": [
+          [
+            "residence",
+            "Fable Glen",
+            "uncertain"
+          ]
+        ],
+        "usage": {
+          "calls": 1,
+          "prompt": 65,
+          "output": 23,
+          "seconds": 2.576724600046873
+        },
+        "seconds": 2.576841100002639,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15814774784
+        },
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "task": "extract",
+        "i": 2,
+        "claims": [],
+        "usage": {
+          "calls": 1,
+          "prompt": 63,
+          "output": 5,
+          "seconds": 0.6168105999240652
+        },
+        "seconds": 0.6169593000086024,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15836217344
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "task": "extract",
+        "i": 3,
+        "claims": [],
+        "usage": {
+          "calls": 1,
+          "prompt": 63,
+          "output": 5,
+          "seconds": 0.658460299950093
+        },
+        "seconds": 0.6585679000709206,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15789895680
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 1
+      },
+      {
+        "task": "extract",
+        "i": 4,
+        "claims": [
+          [
+            "job",
+            "split my time between Vireo and Snow Fern",
+            "uncertain"
+          ]
+        ],
+        "usage": {
+          "calls": 1,
+          "prompt": 68,
+          "output": 31,
+          "seconds": 3.1802457000594586
+        },
+        "seconds": 3.1804862999124452,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15881441280
+        },
+        "tp": 0,
+        "fp": 1,
+        "fn": 0
+      },
+      {
+        "task": "extract",
+        "i": 5,
+        "claims": [
+          [
+            "residence",
+            "Elm Mere",
+            "assert"
+          ],
+          [
+            "preference",
+            "citrus",
+            "assert"
+          ]
+        ],
+        "usage": {
+          "calls": 0,
+          "prompt": 0,
+          "output": 0
+        },
+        "seconds": 0.00014940008986741304,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15881723904
+        },
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "task": "extract",
+        "i": 6,
+        "claims": [
+          [
+            "job",
+            "Finch Foundry",
+            "correct"
+          ]
+        ],
+        "usage": {
+          "calls": 0,
+          "prompt": 0,
+          "output": 0
+        },
+        "seconds": 7.320009171962738e-05,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15883329536
+        },
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "task": "extract",
+        "i": 7,
+        "claims": [],
+        "usage": {
+          "calls": 1,
+          "prompt": 63,
+          "output": 5,
+          "seconds": 0.7253853000001982
+        },
+        "seconds": 0.7254881000844762,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15898955776
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "task": "direct",
+        "trial": 0,
+        "answer": "Moss Quay",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [
+          "Moss Quay"
+        ],
+        "seconds": 0.06898330000694841,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15896346624
+        },
+        "correct": true
+      },
+      {
+        "task": "history",
+        "trial": 0,
+        "answer": "Frost Yard",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [
+          "Frost Yard"
+        ],
+        "seconds": 0.09302160004153848,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15905820672
+        },
+        "correct": true
+      },
+      {
+        "task": "missing",
+        "trial": 0,
+        "answer": "UNKNOWN",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [],
+        "seconds": 0.04815389995928854,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5025269020,
+              "size_vram": 4226704997
+            }
+          ],
+          "system_used": 15904804864
+        },
+        "correct": true
+      },
+      {
+        "task": "synthesis",
+        "trial": 0,
+        "answer": "37",
+        "direct": false,
+        "prompt": 188,
+        "output": 3,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 8.69747280003503,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5152041860,
+              "size_vram": 4199263764
+            }
+          ],
+          "system_used": 15837851648
+        },
+        "correct": true
+      },
+      {
+        "task": "missing-model",
+        "trial": 0,
+        "answer": "UNKNOWN",
+        "direct": false,
+        "prompt": 172,
+        "output": 2,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 0.5065593000035733,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5152041860,
+              "size_vram": 4199263764
+            }
+          ],
+          "system_used": 15839989760
+        },
+        "correct": true
+      },
+      {
+        "task": "instruction",
+        "trial": 0,
+        "answer": "UNKNOWN",
+        "direct": false,
+        "prompt": 169,
+        "output": 2,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 0.4070500999223441,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5152041860,
+              "size_vram": 4199263764
+            }
+          ],
+          "system_used": 15862411264
+        },
+        "marker": false
+      },
+      {
+        "task": "direct",
+        "trial": 1,
+        "answer": "Moss Quay",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [
+          "Moss Quay"
+        ],
+        "seconds": 0.04898080008570105,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5152041860,
+              "size_vram": 4199263764
+            }
+          ],
+          "system_used": 15874093056
+        },
+        "correct": true
+      },
+      {
+        "task": "history",
+        "trial": 1,
+        "answer": "Frost Yard",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [
+          "Frost Yard"
+        ],
+        "seconds": 0.04463530005887151,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5152041860,
+              "size_vram": 4199263764
+            }
+          ],
+          "system_used": 15871778816
+        },
+        "correct": true
+      },
+      {
+        "task": "missing",
+        "trial": 1,
+        "answer": "UNKNOWN",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [],
+        "seconds": 0.04795190005097538,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5152041860,
+              "size_vram": 4199263764
+            }
+          ],
+          "system_used": 15889027072
+        },
+        "correct": true
+      },
+      {
+        "task": "synthesis",
+        "trial": 1,
+        "answer": "37",
+        "direct": false,
+        "prompt": 188,
+        "output": 3,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 0.34438350005075336,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5152041860,
+              "size_vram": 4199263764
+            }
+          ],
+          "system_used": 15900958720
+        },
+        "correct": true
+      },
+      {
+        "task": "missing-model",
+        "trial": 1,
+        "answer": "UNKNOWN",
+        "direct": false,
+        "prompt": 172,
+        "output": 2,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 0.5069441000232473,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5152041860,
+              "size_vram": 4199263764
+            }
+          ],
+          "system_used": 15945834496
+        },
+        "correct": true
+      },
+      {
+        "task": "instruction",
+        "trial": 1,
+        "answer": "UNKNOWN",
+        "direct": false,
+        "prompt": 169,
+        "output": 2,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 0.348117999965325,
+        "resources": {
+          "models": [
+            {
+              "name": "qwen2.5:7b-instruct-q4_K_M",
+              "size": 5152041860,
+              "size_vram": 4199263764
+            }
+          ],
+          "system_used": 15928868864
+        },
+        "marker": false
+      }
+    ]
+  },
+  "llama3.2:3b": {
+    "initial": {
+      "models": [
+        {
+          "name": "qwen2.5:7b-instruct-q4_K_M",
+          "size": 5152041860,
+          "size_vram": 4199263764
+        }
+      ],
+      "system_used": 15938207744
+    },
+    "rows": [
+      {
+        "task": "extract",
+        "i": 0,
+        "claims": [],
+        "usage": {
+          "calls": 1,
+          "prompt": 77,
+          "output": 8,
+          "seconds": 7.754661699989811
+        },
+        "seconds": 7.754760900046676,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15366131712
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 1
+      },
+      {
+        "task": "extract",
+        "i": 1,
+        "claims": [],
+        "usage": {
+          "calls": 1,
+          "prompt": 77,
+          "output": 9,
+          "seconds": 0.43362239992711693
+        },
+        "seconds": 0.4337003000546247,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15370891264
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 1
+      },
+      {
+        "task": "extract",
+        "i": 2,
+        "claims": [],
+        "usage": {
+          "calls": 1,
+          "prompt": 75,
+          "output": 8,
+          "seconds": 0.36109459993895143
+        },
+        "seconds": 0.3612379999831319,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15319871488
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "task": "extract",
+        "i": 3,
+        "claims": [],
+        "usage": {
+          "calls": 1,
+          "prompt": 75,
+          "output": 8,
+          "seconds": 0.34606380003970116
+        },
+        "seconds": 0.3461249000392854,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15326908416
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 1
+      },
+      {
+        "task": "extract",
+        "i": 4,
+        "claims": [],
+        "usage": {
+          "calls": 1,
+          "prompt": 80,
+          "output": 9,
+          "seconds": 0.5857931999489665
+        },
+        "seconds": 0.5858579999767244,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15352213504
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "task": "extract",
+        "i": 5,
+        "claims": [
+          [
+            "residence",
+            "Elm Mere",
+            "assert"
+          ],
+          [
+            "preference",
+            "citrus",
+            "assert"
+          ]
+        ],
+        "usage": {
+          "calls": 0,
+          "prompt": 0,
+          "output": 0
+        },
+        "seconds": 0.00014949997421354055,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15339749376
+        },
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "task": "extract",
+        "i": 6,
+        "claims": [
+          [
+            "job",
+            "Finch Foundry",
+            "correct"
+          ]
+        ],
+        "usage": {
+          "calls": 0,
+          "prompt": 0,
+          "output": 0
+        },
+        "seconds": 3.909994848072529e-05,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15339749376
+        },
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "task": "extract",
+        "i": 7,
+        "claims": [],
+        "usage": {
+          "calls": 1,
+          "prompt": 75,
+          "output": 8,
+          "seconds": 0.3807232000399381
+        },
+        "seconds": 0.38077539997175336,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15358267392
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "task": "direct",
+        "trial": 0,
+        "answer": "Moss Quay",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [
+          "Moss Quay"
+        ],
+        "seconds": 0.036452299915254116,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15361376256
+        },
+        "correct": true
+      },
+      {
+        "task": "history",
+        "trial": 0,
+        "answer": "Frost Yard",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [
+          "Frost Yard"
+        ],
+        "seconds": 0.041407100041396916,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15361179648
+        },
+        "correct": true
+      },
+      {
+        "task": "missing",
+        "trial": 0,
+        "answer": "UNKNOWN",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [],
+        "seconds": 0.03243629995267838,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2324021902,
+              "size_vram": 2324021902
+            }
+          ],
+          "system_used": 15361314816
+        },
+        "correct": true
+      },
+      {
+        "task": "synthesis",
+        "trial": 0,
+        "answer": "I don't have enough information to confirm the duration of each session. The saved evidence only confirms the total duration, not the individual session times. I can only confirm the total duration of 74 minutes.",
+        "direct": false,
+        "prompt": 176,
+        "output": 42,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 6.398874500067905,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2561000078,
+              "size_vram": 2561000078
+            }
+          ],
+          "system_used": 15255654400
+        },
+        "correct": false
+      },
+      {
+        "task": "missing-model",
+        "trial": 0,
+        "answer": "I don't have any information about your unknown ticket number. The saved evidence I have is related to a duration, not a ticket number. I'm unable to provide an answer to your question. Answer: UNKNOWN.",
+        "direct": false,
+        "prompt": 160,
+        "output": 44,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 0.6255121000576764,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2561000078,
+              "size_vram": 2561000078
+            }
+          ],
+          "system_used": 15324540928
+        },
+        "correct": false
+      },
+      {
+        "task": "instruction",
+        "trial": 0,
+        "answer": "I'm happy to help you with a suggestion for your workshop, but I need to clarify that I don't have any specific information about your workshop or its requirements. The saved evidence you provided seems to be related to a different context, and",
+        "direct": false,
+        "prompt": 157,
+        "output": 48,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 0.7477294000564143,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2561000078,
+              "size_vram": 2561000078
+            }
+          ],
+          "system_used": 15445577728
+        },
+        "marker": false
+      },
+      {
+        "task": "direct",
+        "trial": 1,
+        "answer": "Moss Quay",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [
+          "Moss Quay"
+        ],
+        "seconds": 0.059226399986073375,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2561000078,
+              "size_vram": 2561000078
+            }
+          ],
+          "system_used": 15443898368
+        },
+        "correct": true
+      },
+      {
+        "task": "history",
+        "trial": 1,
+        "answer": "Frost Yard",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [
+          "Frost Yard"
+        ],
+        "seconds": 0.032480399939231575,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2561000078,
+              "size_vram": 2561000078
+            }
+          ],
+          "system_used": 15448276992
+        },
+        "correct": true
+      },
+      {
+        "task": "missing",
+        "trial": 1,
+        "answer": "UNKNOWN",
+        "direct": true,
+        "prompt": 0,
+        "output": 0,
+        "evidence": [],
+        "seconds": 0.03935390000697225,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2561000078,
+              "size_vram": 2561000078
+            }
+          ],
+          "system_used": 15450427392
+        },
+        "correct": true
+      },
+      {
+        "task": "synthesis",
+        "trial": 1,
+        "answer": "I don't have enough information to confirm the duration of each session. The saved evidence only confirms the total duration, not the individual session times. I can only confirm the total duration of 74 minutes.",
+        "direct": false,
+        "prompt": 176,
+        "output": 42,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 0.6105548999039456,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2561000078,
+              "size_vram": 2561000078
+            }
+          ],
+          "system_used": 15452524544
+        },
+        "correct": false
+      },
+      {
+        "task": "missing-model",
+        "trial": 1,
+        "answer": "I don't have any information about your unknown ticket number. The saved evidence I have is related to a duration, not a ticket number. I'm unable to provide an answer to your question. Answer: UNKNOWN.",
+        "direct": false,
+        "prompt": 160,
+        "output": 44,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 0.6127894999226555,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2561000078,
+              "size_vram": 2561000078
+            }
+          ],
+          "system_used": 15438340096
+        },
+        "correct": false
+      },
+      {
+        "task": "instruction",
+        "trial": 1,
+        "answer": "I'm happy to help you with a suggestion for your workshop, but I need to clarify that I don't have any specific information about your workshop or its requirements. The saved evidence you provided seems to be related to a different context, and",
+        "direct": false,
+        "prompt": 157,
+        "output": 48,
+        "evidence": [
+          "74"
+        ],
+        "seconds": 0.640364000108093,
+        "resources": {
+          "models": [
+            {
+              "name": "llama3.2:3b",
+              "size": 2561000078,
+              "size_vram": 2561000078
+            }
+          ],
+          "system_used": 15441125376
+        },
+        "marker": false
+      }
+    ]
+  }
+}

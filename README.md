@@ -4,6 +4,8 @@ TRACE-Mem studies whether selective, budget-aware verification improves temporal
 
 ## Start here
 
+The **1.1.0 research source snapshot** includes an offline fictional demonstration, the research code and numeric evidence, and the independent [conference manuscript](research/conference_manuscript.pdf). The [final audit and release guide](docs/step43.md) links the editable sources, installation instructions, limitations, and submission checks. The **0.42.1 Windows Workspace beta** is a separate private build for supervised rehearsal. Use its practice profile for fictional conversations. See the [desktop quick start](desktop/START%20HERE.txt).
+
 From the repository root with CPython 3.14 (the reference environment):
 
 ```text

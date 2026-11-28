@@ -7,9 +7,9 @@ async function api(path,payload){const r=await fetch('/api/'+path,{method:'POST'
 function notice(s){$('notice').textContent=s;}
 function button(label,handler,cls){const b=node('button',label,cls);b.type='button';b.onclick=handler;return b;}
 function reset(){generation++;$('messages').replaceChildren(node('div','New conversation. Your saved memories are still available.','msg'));$('evidence').textContent='No evidence selected.';$('usage').textContent='0 / '+Number($('budget').value).toLocaleString();$('meter').value=0;$('retrieved').textContent='0 / 0';}
-async function refresh(){const r=await api('list',{date:$('asof').value});$('count').textContent=r.facts.length;const box=$('library');box.replaceChildren();for(const f of r.facts){const c=node('div','','memory');c.append(node('b',f.key+(f.pin?' · pinned':'')),node('p',f.value),node('small','From '+f.start+(f.end?' until '+f.end:'')));c.append(button('Edit',()=>{replaces=f.id;$('key').value=f.key;$('value').value=f.value;$('pin').checked=f.pin;$('effective').value=session.today;$('key').focus();}),button('Forget',async()=>{if(!confirm('Forget every saved version of this label?'))return;try{await api('forget',{key:f.key});privacyUpdates.postMessage('changed');reset();await refresh();notice('Forgot all versions of '+f.key+'.');}catch(e){notice(e.message);}},'danger'));box.append(c);}if(!r.facts.length)box.append(node('p','No memories for this date.','muted'));}
+async function refresh(){const r=await api('list',{date:$('asof').value});$('count').textContent=r.facts.length;const box=$('library');box.replaceChildren();for(const f of r.facts){const c=node('div','','memory');c.append(node('b',f.key+(f.pin?' · pinned':'')),node('p',f.value),node('small','From '+f.start+(f.end?' until '+f.end:'')));c.append(button('Edit',()=>{replaces=f.id;$('key').value=f.key;$('value').value=f.value;$('pin').checked=f.pin;$('share').checked=!!f.share;$('effective').value=session.today;$('key').focus();}),button('Forget',async()=>{if(!confirm('Forget every saved version of this label?'))return;try{await api('forget',{key:f.key});privacyUpdates.postMessage('changed');reset();await refresh();notice('Forgot all versions of '+f.key+'.');}catch(e){notice(e.message);}},'danger'));box.append(c);}if(!r.facts.length)box.append(node('p','No memories for this date.','muted'));}
 function message(role,text,cls=''){const el=node('div','','msg '+cls);el.append(node('small',role),node('div',text));$('messages').append(el);$('messages').scrollTop=$('messages').scrollHeight;}
-$('save').onsubmit=async e=>{e.preventDefault();try{await api('save',{key:$('key').value,value:$('value').value,date:$('effective').value,pin:$('pin').checked,replaces});reset();await refresh();notice('Memory saved. Same-day updates replace the previous value.');$('value').value='';replaces=null;}catch(e){notice(e.message);}};
+$('save').onsubmit=async e=>{e.preventDefault();try{await api('save',{key:$('key').value,value:$('value').value,date:$('effective').value,pin:$('pin').checked,share:$('share').checked,share_revisions:$('share').checked,replaces});reset();await refresh();notice('Memory saved. Same-day updates replace the previous value.');$('value').value='';replaces=null;}catch(e){notice(e.message);}};
 $('clear').onclick=async()=>{if(!confirm('Remove all saved memories and clear the visible chat?'))return;try{await api('clear',{});privacyUpdates.postMessage('changed');reset();await refresh();notice('All saved memories removed.');}catch(e){notice(e.message);}};
 $('seed').onclick=async()=>{try{const current=await api('list',{date:session.today});const keys=new Set(current.facts.map(x=>x.key));for(const [key,value] of [['project deadline','The fictional Atlas research draft is due December 10.'],['programming language','I prefer Python for the fictional Atlas project.'],['research project','Atlas is a fictional study of long-term AI memory.']])if(!keys.has(key))await api('save',{key,value,date:session.today,pin:false});$('asof').value=session.today;reset();await refresh();notice('Fictional sample notes ready. Existing labels were not overwritten.');}catch(e){notice(e.message);}};
 $('new').onclick=reset;$('asof').onchange=()=>{reset();refresh().catch(e=>notice(e.message));};$('budget').oninput=()=>{$('budgetval').textContent=Number($('budget').value).toLocaleString()+' chars';};
@@ -69,14 +69,15 @@ async function stream(regenerate){
     if(controller)return;
     const question=$('question').value.trim();
     if(!regenerate&&!question)return;
+    const requestGeneration=generation;
     controller=new AbortController();$('stop').disabled=false;$('send').disabled=true;
     try{
         if(!chat){chat=(await api('chats/new',{})).chat;$('messages').replaceChildren();await listChats();}
         if(regenerate){const previous=$('messages').lastChild;if(previous?.classList.contains('msg'))previous.remove();}
         if(!regenerate){message('You',question,'user');$('question').value='';}
-        message('Assistant','Waiting for local model…');
+        message('Assistant','Preparing response…');
         const el=$('messages').lastChild.lastChild;
-        const response=await fetch('/api/stream',{method:'POST',signal:controller.signal,headers:{'Content-Type':'application/json','X-Workspace-Token':session.token},body:JSON.stringify({chat,question,regenerate,strategy:$('strategy').value,verification:Number($('verification').value),model:$('models').value,temperature:Number($('temperature').value),output:Number($('output').value),budget:Number($('budget').value),date:$('asof').value})});
+        const response=await fetch('/api/stream',{method:'POST',signal:controller.signal,headers:{'Content-Type':'application/json','X-Workspace-Token':session.token},body:JSON.stringify({chat,question,regenerate,semantic:$('semantic').checked,strategy:$('strategy').value,verification:Number($('verification').value),model:$('models').value,temperature:Number($('temperature').value),output:Number($('output').value),budget:Number($('budget').value),date:$('asof').value})});
         const reader=response.body.pipeThrough(new TextDecoderStream()).getReader();
         let buffer='',answer='',done=false;
         while(true){
@@ -87,9 +88,9 @@ async function stream(regenerate){
                 if(row.error)throw Error(row.error);
                 if(row.text){answer+=row.text;el.textContent=answer;}
                 if(row.done){
-                    done=true;formatted(el,answer);
+                    done=true;el.parentElement.firstChild.textContent=row.reader_reason?"Direct memory lookup":"Local AI · generated";formatted(el,answer);
                     $('usage').textContent=row.prompt+' input / '+row.output+' output tokens';
-                    $('retrieved').textContent=row.strategy+' · '+row.evidence.length+' memories · '+row.history+' earlier turns';
+                    $('retrieved').textContent=row.strategy+' · '+row.semantic_status+' · '+row.evidence.length+' memories · '+row.history+' earlier turns';
                     $('meter').max=4096;$('meter').value=row.prompt;
                     $('evidence').textContent=row.evidence.map(r=>r.label+' · '+r.value+' ('+r.reason+' · '+r.valid_from+' · source '+(r.source||r.id)+', '+JSON.stringify(r).length+' JSON characters)').join('\n')||'No matching evidence.';
                     if(row.reader_reason)el.append(node('small',row.reader_reason));for(const p of row.proposals||[]){el.append(node('small','From turn '+p.turn+' · effective '+p.date+' · '+p.intent));el.append(button('Review '+p.intent+' · '+p.key,guarded(async()=>{const value=prompt(p.review+' Confirm or edit this '+p.intent+' proposal.',p.value);if(value){if(p.target&&!confirm('Replace the confirmed '+p.key+' with this correction?'))return;await api('proposal',{...p,value,date:p.date,replaces:p.target});await refresh();notice('Memory confirmed.');}})));}
@@ -98,7 +99,7 @@ async function stream(regenerate){
         }
         if(!done)throw Error('Incomplete response. Check Ollama and retry.');
         await listChats();
-    }catch(e){const last=$('messages').lastChild; if(last?.querySelector('small')?.textContent==='Assistant') last.append(node('small',e.name==='AbortError'?'Stopped':'Response incomplete'));notice(e.name==='AbortError'?'Generation stopped.':e.message);}
+    }catch(e){if(!regenerate&&e.name!=='AbortError'&&generation===requestGeneration&&!$('question').value)$('question').value=question;const last=$('messages').lastChild; if(last?.querySelector('small')?.textContent==='Assistant') last.append(node('small',e.name==='AbortError'?'Stopped':'Response incomplete'));notice(e.name==='AbortError'?'Generation stopped.':e.message);}
     finally{controller=null;$('stop').disabled=true;$('send').disabled=false;}
 }
 $('ask').onsubmit=e=>{if($('mode').value==='memory')return offlineAsk(e);e.preventDefault();stream(false);};
@@ -157,4 +158,42 @@ $('reliability').addEventListener('toggle', async () => {
                 total(rows,'output')+' generated tokens.'));
         }
     } catch(error) {panel.textContent=error.message;}
+});
+const updateStory = () => {
+    $('story').textContent = $('persona').selectedIndex===0
+        ? 'You plan workshops. Start with “I live in Laurel Port.” Your later move is to Fawn Crossing.'
+        : 'You study river habitats. Start with “I live in Copper Hill.” Your later move is to Maple Inlet.';
+};
+$('persona').onchange=updateStory;
+updateStory();
+if(location.hash==='#practice') $('practice').open=true;
+$('longHistory').addEventListener('toggle',async()=>{
+    const panel=$('historyResults');
+    if(!$('longHistory').open||panel.childElementCount)return;
+    try {
+        const data=await (await fetch('/api/long-history')).json();
+        panel.append(node('p','Exact answers out of three per length. TRACE-Mem used two direct lookups and one generated answer per length.'));
+        const table=document.createElement('table');
+        const header=table.insertRow();
+        for(const h of ['Estimated tokens','Standard','RAG','TRACE-Mem'])header.append(node('th',h));
+        for(const size of [...new Set(data.rows.map(r=>r.length))]){
+            const tr=table.insertRow();tr.insertCell().textContent=size.toLocaleString();
+            for(const mode of ['standard','rag','trace']){
+                const rows=data.rows.filter(r=>r.length===size&&r.mode===mode);
+                tr.insertCell().textContent=rows.filter(r=>r.correct).length+' / '+rows.length;
+            }
+        }
+        panel.append(table);
+    } catch(e){panel.textContent='Long-history data unavailable.';}
+});
+$('modelPilot').addEventListener('toggle',async()=>{
+    const panel=$('modelResults');
+    if(!$('modelPilot').open||panel.childElementCount)return;
+    try{
+        const report=await (await fetch('/api/model-pilot')).json();
+        for(const [model,data] of Object.entries(report)){
+            const rows=data.rows.filter(r=>r.direct===false&&'correct' in r);
+            panel.append(node('p',model+' · '+rows.filter(r=>r.correct).length+'/'+rows.length+' exact generated arithmetic and abstention answers across two repetitions.'));
+        }
+    }catch(e){panel.textContent='Model comparison unavailable.';}
 });
