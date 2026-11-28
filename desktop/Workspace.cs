@@ -8,7 +8,7 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
-[assembly: AssemblyVersion("0.42.1.0")]
+[assembly: AssemblyVersion("0.42.2.0")]
 [assembly: AssemblyProduct("TRACE-Mem Workspace")]
 class Workspace : Form {
     Process host;
@@ -29,7 +29,7 @@ class Workspace : Form {
         return Environment.ProcessorCount+" logical CPUs";
     }
     public Workspace() {
-        Text="TRACE-Mem Workspace · Beta 0.42.1";
+        Text="TRACE-Mem Workspace · Beta 0.42.2";
         Font=new Font("Segoe UI",10); ClientSize=new Size(560,230);
         FormBorderStyle=FormBorderStyle.FixedDialog; MaximizeBox=false;
         StartPosition=FormStartPosition.CenterScreen;

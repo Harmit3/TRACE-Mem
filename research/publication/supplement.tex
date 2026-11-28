@@ -1,0 +1,272 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  11pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={TRACE-Mem experimental supplement},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{TRACE-Mem experimental supplement}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Frozen configurations, outcome definitions and
+reproducibility}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Which populations support which
+claim?}\label{which-populations-support-which-claim}
+
+The training release contains 200 synthetic histories in 40 families.
+The split placed 20 families in training, ten in calibration and ten in
+evaluation. Labeled candidate counts were 112, 63 and 37 respectively.
+These are decisions conditional on an eligible conflict. Unlabeled or
+pending outcomes cannot supply negative labels. The evaluation set for
+fitting the scorer is separate from the primary replay cohort.
+
+The primary replay cohort was generated with seed 61843 and contains ten
+histories in each of ten additional authored families. Each history
+supplies two true replacements, a misleading correction, uncertainty, an
+archive mention, a deletion and distractors. Candidate preparation
+deliberately introduces imperfect intent. The five B2 opportunities per
+history determine the nominal budget scale. Study 31 perturbs the
+planning horizon on the same histories. Family-disjoint evaluation
+cannot remove dependence from shared authorship or repeated update
+archetypes.
+
+\section{Model and controller
+configuration}\label{model-and-controller-configuration}
+
+The verifier is local Qwen2.5 7B Instruct Q4\_K\_M, with a 4,096-token
+configuration, output cap 256 and seed 23 in the Step 30 manifest.
+MiniLM-L6-v2 provides cosine similarity of pooled, normalized
+embeddings. The pinned DeBERTa-v3-xsmall NLI model compares old and
+proposed assertions at the same effective date. The complete model
+digests, controller fingerprints and runner configuration are recorded
+in the \href{../../docs/step30_artifacts/run-manifest.json}{run
+manifest}.
+
+The feature order is semantic similarity, contradiction, exact entity
+match, explicit overlapping temporal conflict, elapsed observation days,
+direct-source fraction, intent uncertainty and remaining-call fraction.
+An exact entity guard makes entity match constant in training. Each
+training fold fits its own standardizer. Five family-group folds compare
+balanced logistic fits over inverse regularization strengths 0.01, 0.1,
+1, 10 and 100. Pooled average precision selects 0.01 for both the full
+and no-NLI artifacts. The final fit uses the entire training partition.
+Calibration fits a scalar logistic model with inverse regularization 1
+on held-out logits. Calibration can change probability scale while
+preserving ranking. The no-NLI artifact is separately fitted with the
+absent column padded to zero weight.
+
+T1 applies its frozen decision threshold to the scored live pair and
+stops at the cap. T2 neutralizes the budget feature and compares the
+score to a training-reference quantile determined by remaining calls and
+the exogenous horizon. H-paced uses the same pacing function with a
+heuristic score. B3 checks eligible writes in arrival order. B4 provides
+a seeded random comparator, and B5 uses a fixed heuristic. All methods
+record actual expenditure. A ceiling can leave calls unspent. See the
+equations and pseudocode in the \href{master.pdf}{master manuscript}.
+
+\section{Complete results and
+ablations}\label{complete-results-and-ablations}
+
+The \href{../tables/verification-grid.csv}{complete machine-readable
+grid} gives each policy, replay design, nominal budget, horizon, exact
+numerator, denominator, historical count, cap, actual calls and
+staleness. The
+\href{../../reproducibility/data/frozen-reference.json}{frozen numerical
+reference} includes the 230 summaries and 184 paired intervals,
+including contrasts outside the main text. The
+\href{../final_claim_index.md}{claim-to-evidence matrix} distinguishes
+the primary contrast, post-hoc perturbation, external diagnostic and
+engineering pilot.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Comparison
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Observation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Interpretation
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+T2 vs H-paced, nominal 50\% & Fixed 341 vs 409; chronological 434 vs
+394, each out of 600 with 250 calls & Target availability and allocation
+jointly change between designs \\
+T1 vs separate no-NLI fit & Both 56.8\% fixed. Chronological 63.7\% with
+231 calls vs 55.8\% with 171 & Different spending prevents a pure NLI
+effect estimate \\
+Doubled planning horizon & T2 59.0\% with 211 calls, B3 68.7\% with 250
+& Anticipated future opportunities never arrived \\
+Reader, nominal chronological cohort & T2 7/30, B3 6/30, H-paced 12/30 &
+Correct retained state alone is insufficient for question answering \\
+External ingestion & Only one managed LongMemEval case completed and
+every compared arm missed it & No paired external superiority
+estimate \\
+\end{longtable}
+}
+
+The primary endpoint compares entire predicted value sets with the
+authored gold sets over six date-specific checks per history. Secondary
+historical checks use a separate denominator. Two thousand paired
+resamples draw ten family means with replacement using seed 9001. The
+95\% percentile intervals describe this authored cohort. Multiple
+secondary intervals are unadjusted. The oracle's five correct generated
+short answers out of ten, despite its correct state, locate a downstream
+bottleneck. Earlier Memora and subsequent extraction and reader gates
+retained their negative results.
+
+\section{Cost and failure accounting}\label{cost-and-failure-accounting}
+
+Step 30 took 1,021 seconds. The verifier recorded 16,489 logical calls,
+of which 814 were fresh and 15,675 reused cached outcomes. The fresh
+requests consumed 233,459 input and 9,537 output tokens and 730.4
+seconds of summed latency. Costs are for the grid with shared caches. A
+production latency forecast would require a separate workload. The local
+workstation used an RTX 2060. Reader usage is itemized separately in the
+original aggregate.
+
+The Step 42 packaged-application pilot used a reviewed store and one
+nested trajectory. Six prefix lengths and three probes in each of three
+modes yielded 54 dependent paths. Direct date lookup accounted for
+twelve answers. Verification cost was zero. Both retrieval modes
+generated six correct calculations. The optional encoder recovered one
+of four paraphrases. This pilot answers a question about authorized
+accessibility after truncation; it cannot validate acquisition from
+arbitrary conversations or the learned allocator.
+
+\section{Reproduce and interpret}\label{reproduce-and-interpret}
+
+From the source root run the following commands with CPython 3.14. The
+first regenerates counts using only the standard library. The second
+checks paper claims against the saved aggregates. To regenerate vector
+figures install the pinned plotting requirements from the
+reproducibility directory and add the figures option to the first
+command.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{python reproducibility/reproduce.py {-}{-}output results/reproduced}
+\NormalTok{python {-}m scripts.verify\_manuscript}
+\NormalTok{python reproducibility/reproduce.py {-}{-}figures {-}{-}output results/reproduced{-}figures}
+\end{Highlighting}
+\end{Shaded}
+
+The sanitized 27,000 history-level rows and 2,300 family rows retain
+pairing without releasing benchmark dialogues or model weights. The
+independent aggregation code verifies numerical reproducibility from
+observations. A new implementation of the intervention on new histories
+is a different scientific test. The
+\href{../validation_protocol_v2.md}{future validation protocol} retains
+its own review gates. Its completion is unnecessary for distributing
+this bounded exploratory report.
+
+\end{document}
